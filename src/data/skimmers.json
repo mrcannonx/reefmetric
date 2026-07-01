@@ -1,0 +1,699 @@
+{
+  "generated": "2026-07-01",
+  "skimmers": [
+    {
+      "brand": "Innovative Marine",
+      "model": "Ghost Skimmer DESKtop (SkimMate, #7203)",
+      "type": "nano-AIO",
+      "ratedGallons": 20,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": null,
+      "footprintIn": "3.58 x 2.28",
+      "minSumpDepthIn": null,
+      "pumpWatts": 6.5,
+      "priceUSD": 149.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/auqa-gadget-skimmate-desktop-ghost-skimmer-open-box-innovative-marine.html"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "NS80 Nano Skimmer",
+      "type": "in-sump",
+      "ratedGallons": 25,
+      "ratingLight": 25,
+      "ratingMedium": 15,
+      "ratingHeavy": 10,
+      "bodyDiameterIn": 2,
+      "footprintIn": "4 x 2.4",
+      "minSumpDepthIn": null,
+      "pumpWatts": null,
+      "priceUSD": 103.94,
+      "retailers": [
+        "CoralVue",
+        "Premium Aquatics",
+        "Aquarium Specialty"
+      ],
+      "source": "https://www.coralvue.com/ns80-nano-skimmer"
+    },
+    {
+      "brand": "IceCap",
+      "model": "K1 Nano Protein Skimmer",
+      "type": "in-sump",
+      "ratedGallons": 30,
+      "ratingLight": 30,
+      "ratingMedium": 20,
+      "ratingHeavy": 10,
+      "bodyDiameterIn": 2,
+      "footprintIn": "2.75 x 3.2",
+      "minSumpDepthIn": 6,
+      "pumpWatts": 5,
+      "priceUSD": 98.16,
+      "retailers": [
+        "CoralVue",
+        "Bulk Reef Supply",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.coralvue.com/icecap-k1-nano-protein-skimmer"
+    },
+    {
+      "brand": "Tunze",
+      "model": "Comline DOC Skimmer 9001",
+      "type": "in-sump",
+      "ratedGallons": 37,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": 2.5,
+      "footprintIn": "4.3 x 2.5",
+      "minSumpDepthIn": 6.1,
+      "pumpWatts": 2.5,
+      "priceUSD": 149.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon"
+      ],
+      "source": "https://www.bulkreefsupply.com/tunze-comline-doc-skimmer-9001.html"
+    },
+    {
+      "brand": "Innovative Marine",
+      "model": "Ghost Skimmer MidSize (SkimMate)",
+      "type": "nano-AIO",
+      "ratedGallons": 40,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": null,
+      "footprintIn": "3.62 x 3.07",
+      "minSumpDepthIn": null,
+      "pumpWatts": 6.5,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/auqa-gadget-skimmate-midsize-ghost-skimmer.html"
+    },
+    {
+      "brand": "Tunze",
+      "model": "Comline DOC Skimmer 9004",
+      "type": "in-sump",
+      "ratedGallons": 65,
+      "ratingLight": 60,
+      "ratingMedium": 40,
+      "ratingHeavy": 20,
+      "bodyDiameterIn": 3.5,
+      "footprintIn": "4.3 x 3.5",
+      "minSumpDepthIn": 8.9,
+      "pumpWatts": 4,
+      "priceUSD": 169.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/tunze-comline-doc-skimmer-9004.html"
+    },
+    {
+      "brand": "AquaMaxx",
+      "model": "HOB-1.5",
+      "type": "HOB",
+      "ratedGallons": 75,
+      "ratingLight": 75,
+      "ratingMedium": 58,
+      "ratingHeavy": 40,
+      "bodyDiameterIn": null,
+      "footprintIn": "7.5 x 3.5",
+      "minSumpDepthIn": 10.875,
+      "pumpWatts": 11,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave"
+      ],
+      "source": "https://www.bulkreefsupply.com/aquamaxx-hob-1-5-hang-on-back-protein-skimmer.html"
+    },
+    {
+      "brand": "Nyos",
+      "model": "Quantum 120",
+      "type": "in-sump",
+      "ratedGallons": 125,
+      "ratingLight": 125,
+      "ratingMedium": 75,
+      "ratingHeavy": 50,
+      "bodyDiameterIn": null,
+      "footprintIn": "5.9 x 8.3",
+      "minSumpDepthIn": 8.5,
+      "pumpWatts": 8,
+      "priceUSD": 339.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "SaltwaterAquarium.com",
+        "Top Shelf Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/quantum-120-protein-skimmer-nyos.html"
+    },
+    {
+      "brand": "Royal Exclusiv",
+      "model": "Bubble King Double Cone 180 + RDX DC 24V",
+      "type": "in-sump",
+      "ratedGallons": 132,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": 8.7,
+      "footprintIn": "11 x 15",
+      "minSumpDepthIn": null,
+      "pumpWatts": 50,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "ReefBum",
+        "Aquarium Specialty"
+      ],
+      "source": "https://www.royalexclusiv.com/Skimmer/Skimmer/Bubble-King-R-Double-Cone-130-300/Bubble-King-R-Double-Cone-180-RDX-DC-24V::412.html"
+    },
+    {
+      "brand": "Deltec",
+      "model": "600i",
+      "type": "in-sump",
+      "ratedGallons": 155,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": null,
+      "footprintIn": null,
+      "minSumpDepthIn": null,
+      "pumpWatts": 11,
+      "priceUSD": null,
+      "retailers": [
+        "Deltec USA",
+        "Top Shelf Aquatics"
+      ],
+      "source": "https://deltecdirectusa.com/products/deltec-600i-in-sump-protein-skimmers"
+    },
+    {
+      "brand": "Bubble Magus",
+      "model": "Curve 7",
+      "type": "in-sump",
+      "ratedGallons": 180,
+      "ratingLight": 180,
+      "ratingMedium": 125,
+      "ratingHeavy": 90,
+      "bodyDiameterIn": null,
+      "footprintIn": "9.25 x 7.87",
+      "minSumpDepthIn": 9.5,
+      "pumpWatts": 16,
+      "priceUSD": 207.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/curve-7-protein-skimmer-bubble-magus.html"
+    },
+    {
+      "brand": "IceCap",
+      "model": "K1-160",
+      "type": "in-sump",
+      "ratedGallons": 200,
+      "ratingLight": 200,
+      "ratingMedium": 160,
+      "ratingHeavy": 120,
+      "bodyDiameterIn": 6,
+      "footprintIn": "6.7 x 8.5",
+      "minSumpDepthIn": 7,
+      "pumpWatts": 16,
+      "priceUSD": 219.99,
+      "retailers": [
+        "Premium Aquatics",
+        "CoralVue",
+        "AquaCave",
+        "Amazon"
+      ],
+      "source": "https://premiumaquatics.com/products/icecap-k1-160-skimmer"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Classic 150-SSS",
+      "type": "in-sump",
+      "ratedGallons": 210,
+      "ratingLight": 210,
+      "ratingMedium": 180,
+      "ratingHeavy": 120,
+      "bodyDiameterIn": 6,
+      "footprintIn": "7.3 x 9.5",
+      "minSumpDepthIn": 7.5,
+      "pumpWatts": 18,
+      "priceUSD": 404.24,
+      "retailers": [
+        "SaltwaterAquarium.com",
+        "AquaCave",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.saltwateraquarium.com/classic-150-sss-protein-skimmer-reef-octopus/"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 150-SSS (VarioS)",
+      "type": "in-sump",
+      "ratedGallons": 210,
+      "ratingLight": 210,
+      "ratingMedium": 160,
+      "ratingHeavy": 100,
+      "bodyDiameterIn": 6,
+      "footprintIn": "9 x 7.5",
+      "minSumpDepthIn": 7,
+      "pumpWatts": null,
+      "priceUSD": 716.09,
+      "retailers": [
+        "CoralVue",
+        "Marine Depot",
+        "Champion Lighting"
+      ],
+      "source": "https://www.coralvue.com/regal-150sss-protein-skimmer"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 150SSS (VarioS-4S)",
+      "type": "in-sump",
+      "ratedGallons": 210,
+      "ratingLight": 210,
+      "ratingMedium": 160,
+      "ratingHeavy": 100,
+      "bodyDiameterIn": 6,
+      "footprintIn": "9.0 x 7.5",
+      "minSumpDepthIn": null,
+      "pumpWatts": 40,
+      "priceUSD": 716.09,
+      "retailers": [
+        "Bulk Reef Supply",
+        "CoralVue"
+      ],
+      "source": "https://www.bulkreefsupply.com/regal-150sss-6-space-saving-protein-skimmer-varios-reef-octopus.html"
+    },
+    {
+      "brand": "Vertex",
+      "model": "Alpha 170",
+      "type": "in-sump",
+      "ratedGallons": 220,
+      "ratingLight": 220,
+      "ratingMedium": null,
+      "ratingHeavy": 140,
+      "bodyDiameterIn": null,
+      "footprintIn": "9.5 x 15",
+      "minSumpDepthIn": 9,
+      "pumpWatts": 26,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/vertex-alpha-170-protein-skimmer.html"
+    },
+    {
+      "brand": "Vertex",
+      "model": "Omega 200i",
+      "type": "in-sump",
+      "ratedGallons": 225,
+      "ratingLight": 225,
+      "ratingMedium": 185,
+      "ratingHeavy": 155,
+      "bodyDiameterIn": 10.75,
+      "footprintIn": "11.5 x 11.5",
+      "minSumpDepthIn": 7.08,
+      "pumpWatts": 38,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave"
+      ],
+      "source": "https://www.bulkreefsupply.com/vertex-omega-200i-protein-skimmer.html"
+    },
+    {
+      "brand": "Simplicity",
+      "model": "240DC",
+      "type": "in-sump",
+      "ratedGallons": 240,
+      "ratingLight": 240,
+      "ratingMedium": 180,
+      "ratingHeavy": 120,
+      "bodyDiameterIn": 5.5,
+      "footprintIn": "8.3 x 7.9",
+      "minSumpDepthIn": 7,
+      "pumpWatts": 18,
+      "priceUSD": 319.95,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Champion Lighting",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/240dc-in-sump-protein-skimmer-simplicity.html"
+    },
+    {
+      "brand": "AquaMaxx",
+      "model": "ConeS Q-2",
+      "type": "in-sump",
+      "ratedGallons": 250,
+      "ratingLight": 250,
+      "ratingMedium": 200,
+      "ratingHeavy": 130,
+      "bodyDiameterIn": 6,
+      "footprintIn": "6.7 x 9.5",
+      "minSumpDepthIn": 8,
+      "pumpWatts": 22,
+      "priceUSD": 269.95,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Reef Supply",
+        "Aquarium Specialty"
+      ],
+      "source": "https://www.bulkreefsupply.com/aquamaxx-cones-q-2-in-sump-protein-skimmer.html"
+    },
+    {
+      "brand": "Bubble Magus",
+      "model": "Curve 9 Elite",
+      "type": "in-sump",
+      "ratedGallons": 250,
+      "ratingLight": 250,
+      "ratingMedium": 200,
+      "ratingHeavy": 150,
+      "bodyDiameterIn": null,
+      "footprintIn": "9.25 x 11.60",
+      "minSumpDepthIn": 9.5,
+      "pumpWatts": 60,
+      "priceUSD": 359.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/curve-9-elite-protein-skimmer-bubble-magus.html"
+    },
+    {
+      "brand": "Nyos",
+      "model": "Quantum 160",
+      "type": "in-sump",
+      "ratedGallons": 250,
+      "ratingLight": 250,
+      "ratingMedium": 150,
+      "ratingHeavy": 75,
+      "bodyDiameterIn": null,
+      "footprintIn": "7.1 x 9.8",
+      "minSumpDepthIn": 8.6,
+      "pumpWatts": 18,
+      "priceUSD": 449.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "CoralVue"
+      ],
+      "source": "https://www.bulkreefsupply.com/quantum-160-protein-skimmer-nyos.html"
+    },
+    {
+      "brand": "Deltec",
+      "model": "1000i",
+      "type": "in-sump",
+      "ratedGallons": 255,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": null,
+      "footprintIn": "9 x 5.5",
+      "minSumpDepthIn": 6,
+      "pumpWatts": 13,
+      "priceUSD": 687.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Deltec USA"
+      ],
+      "source": "https://www.bulkreefsupply.com/deltec-1000i-protein-skimmer-deltec.html"
+    },
+    {
+      "brand": "AquaMaxx",
+      "model": "ConeS DCQ-2",
+      "type": "in-sump",
+      "ratedGallons": 300,
+      "ratingLight": 300,
+      "ratingMedium": 260,
+      "ratingHeavy": 190,
+      "bodyDiameterIn": 6,
+      "footprintIn": "6.7 x 9.5",
+      "minSumpDepthIn": 9,
+      "pumpWatts": 25,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave"
+      ],
+      "source": "https://www.bulkreefsupply.com/aquamaxx-cones-dcq-2-controllable-in-sump-protein-skimmer.html"
+    },
+    {
+      "brand": "Royal Exclusiv",
+      "model": "Bubble King DeLuxe 200 Internal (BK DC 24V)",
+      "type": "in-sump",
+      "ratedGallons": 396,
+      "ratingLight": 396,
+      "ratingMedium": 316,
+      "ratingHeavy": 184,
+      "bodyDiameterIn": 9.06,
+      "footprintIn": "10.04 x 15.35",
+      "minSumpDepthIn": 7,
+      "pumpWatts": 50,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Aquarium Specialty"
+      ],
+      "source": "https://www.bulkreefsupply.com/bubble-king-deluxe-200-protein-skimmer-royal-exclusiv-usa-llc.html"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 200INT / 200SSS (VarioS)",
+      "type": "in-sump",
+      "ratedGallons": 400,
+      "ratingLight": 400,
+      "ratingMedium": 300,
+      "ratingHeavy": 200,
+      "bodyDiameterIn": 8,
+      "footprintIn": null,
+      "minSumpDepthIn": null,
+      "pumpWatts": null,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Top Shelf Aquatics",
+        "Barrier Reef Aquariums",
+        "Salty Critter"
+      ],
+      "source": "https://saltycritter.com/product/reef-octopus-regal-200int-internal-dc-protein-skimmer/"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 200SSS (VarioS-4S)",
+      "type": "in-sump",
+      "ratedGallons": 400,
+      "ratingLight": 400,
+      "ratingMedium": 300,
+      "ratingHeavy": 200,
+      "bodyDiameterIn": 8,
+      "footprintIn": "11.6 x 9.7",
+      "minSumpDepthIn": 6,
+      "pumpWatts": 40,
+      "priceUSD": 947.09,
+      "retailers": [
+        "Bulk Reef Supply",
+        "CoralVue"
+      ],
+      "source": "https://www.coralvue.com/regal-200sss-protein-skimmer"
+    },
+    {
+      "brand": "Vertex",
+      "model": "Alpha 250",
+      "type": "in-sump",
+      "ratedGallons": 450,
+      "ratingLight": 450,
+      "ratingMedium": null,
+      "ratingHeavy": 200,
+      "bodyDiameterIn": 10,
+      "footprintIn": "13 x 18.5",
+      "minSumpDepthIn": null,
+      "pumpWatts": 38,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Aquatics EU"
+      ],
+      "source": "https://www.bulkreefsupply.com/vertex-alpha-250-protein-skimmer.html"
+    },
+    {
+      "brand": "Royal Exclusiv",
+      "model": "Bubble King DeLuxe 250 External",
+      "type": "in-sump",
+      "ratedGallons": 525,
+      "ratingLight": 525,
+      "ratingMedium": null,
+      "ratingHeavy": 200,
+      "bodyDiameterIn": null,
+      "footprintIn": null,
+      "minSumpDepthIn": null,
+      "pumpWatts": 48,
+      "priceUSD": null,
+      "retailers": [
+        "Aquarium Specialty",
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.aquariumspecialty.com/royal-exclusiv-bubble-king-deluxe-250-external-protein-skimmer.html"
+    },
+    {
+      "brand": "Skimz",
+      "model": "Monzter SM203 DC",
+      "type": "in-sump",
+      "ratedGallons": 528,
+      "ratingLight": 320,
+      "ratingMedium": 240,
+      "ratingHeavy": 190,
+      "bodyDiameterIn": 7.87,
+      "footprintIn": "9.21 x 9.21",
+      "minSumpDepthIn": 7,
+      "pumpWatts": 35,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/skimz-monzter-sm203-dc-internal-protein-skimmer.html"
+    },
+    {
+      "brand": "Skimz",
+      "model": "Monzter SM201",
+      "type": "in-sump",
+      "ratedGallons": 528,
+      "ratingLight": 320,
+      "ratingMedium": 240,
+      "ratingHeavy": 190,
+      "bodyDiameterIn": null,
+      "footprintIn": null,
+      "minSumpDepthIn": null,
+      "pumpWatts": null,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/skimz-monzter-sm201-internal-protein-skimmer.html"
+    },
+    {
+      "brand": "Nyos",
+      "model": "Quantum 220",
+      "type": "in-sump",
+      "ratedGallons": 530,
+      "ratingLight": 500,
+      "ratingMedium": 250,
+      "ratingHeavy": 125,
+      "bodyDiameterIn": null,
+      "footprintIn": "9.3 x 12.2",
+      "minSumpDepthIn": 8,
+      "pumpWatts": 22,
+      "priceUSD": 639.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave",
+        "Amazon",
+        "Premium Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/quantum-220-protein-skimmer-nyos.html"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 250INT (VarioS)",
+      "type": "in-sump",
+      "ratedGallons": 600,
+      "ratingLight": 635,
+      "ratingMedium": 500,
+      "ratingHeavy": 300,
+      "bodyDiameterIn": 10,
+      "footprintIn": "16.5 x 11",
+      "minSumpDepthIn": 7.9,
+      "pumpWatts": 70,
+      "priceUSD": 993.29,
+      "retailers": [
+        "CoralVue",
+        "Bulk Reef Supply",
+        "LiveAquaria",
+        "Marine Depot"
+      ],
+      "source": "https://www.coralvue.com/regal-250int-protein-skimmer"
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "Regal 250SSS (VarioS-6S)",
+      "type": "in-sump",
+      "ratedGallons": 600,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": 10,
+      "footprintIn": "13.8 x 11.6",
+      "minSumpDepthIn": null,
+      "pumpWatts": 70,
+      "priceUSD": 1097.24,
+      "retailers": [
+        "Bulk Reef Supply",
+        "CoralVue"
+      ],
+      "source": "https://www.coralvue.com/regal-250sss-protein-skimmer"
+    },
+    {
+      "brand": "Royal Exclusiv",
+      "model": "Bubble King DeLuxe 300 Internal (BK DC 24V)",
+      "type": "in-sump",
+      "ratedGallons": 793,
+      "ratingLight": 793,
+      "ratingMedium": null,
+      "ratingHeavy": 317,
+      "bodyDiameterIn": null,
+      "footprintIn": null,
+      "minSumpDepthIn": null,
+      "pumpWatts": null,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/bubble-king-deluxe-300-internal-bk-dc-24v-protein-skimmer-royal-exclusiv.html"
+    },
+    {
+      "brand": "Nyos",
+      "model": "Quantum 300",
+      "type": "in-sump",
+      "ratedGallons": 1000,
+      "ratingLight": 1000,
+      "ratingMedium": 600,
+      "ratingHeavy": 250,
+      "bodyDiameterIn": null,
+      "footprintIn": "13.4 x 16.4",
+      "minSumpDepthIn": null,
+      "pumpWatts": 44,
+      "priceUSD": null,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Champion Lighting",
+        "Top Shelf Aquatics"
+      ],
+      "source": "https://www.bulkreefsupply.com/quantum-300-protein-skimmer-nyos.html"
+    },
+    {
+      "brand": "Bubble Magus",
+      "model": "Curve B12",
+      "type": "in-sump",
+      "ratedGallons": 1056,
+      "ratingLight": null,
+      "ratingMedium": null,
+      "ratingHeavy": null,
+      "bodyDiameterIn": null,
+      "footprintIn": "13.8 x 15.7",
+      "minSumpDepthIn": null,
+      "pumpWatts": 70,
+      "priceUSD": null,
+      "retailers": [
+        "Bubble-Magus.net"
+      ],
+      "source": "https://bubble-magus.net/products/bubble-magus-protein-skimmer-curve-b12"
+    }
+  ]
+}

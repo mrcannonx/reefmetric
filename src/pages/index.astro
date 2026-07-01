@@ -4,9 +4,9 @@ import EmailCapture from '../components/EmailCapture.astro';
 import { url } from '../utils/url';
 
 const tools = [
-  { name: 'Skimmer Finder', desc: 'Filter every protein skimmer by your exact tank size and bioload.', tag: 'Database' },
-  { name: 'Return Pump Calculator', desc: 'Dial in flow + head loss for your display and sump.', tag: 'Calculator' },
-  { name: 'Reef Build Cost Estimator', desc: 'Price a full build — tank, gear, and running cost — before you buy.', tag: 'Calculator' },
+  { name: 'Return Pump Calculator', desc: 'The real flow each pump delivers at your actual head — not the box GPH. 41 pumps, ranked.', tag: 'Calculator · Live', href: '/tools/return-pump-calculator' },
+  { name: 'Protein Skimmer Sizer', desc: 'Which skimmers actually fit your tank once we derate the optimistic ratings for your bioload.', tag: 'Calculator · Live', href: '/tools/protein-skimmer-calculator' },
+  { name: 'Reef Build Cost Estimator', desc: 'Price a full build — tank, gear, and running cost — before you buy.', tag: 'Coming next' },
 ];
 const clusters = [
   { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.' },
@@ -32,7 +32,13 @@ const clusters = [
     <p class="eyebrow" style="color:var(--brand-2)">The tools</p>
     <h2>Answers you can’t get from a listicle.</h2>
     <div class="grid cols-3" style="margin-top:26px;">
-      {tools.map((t) => (
+      {tools.map((t) => (t as any).href ? (
+        <a class="card cardlink" href={url((t as any).href)}>
+          <span class="pill">{t.tag}</span>
+          <h3>{t.name}</h3>
+          <p style="color:var(--muted)">{t.desc}</p>
+        </a>
+      ) : (
         <div class="card">
           <span class="pill">{t.tag}</span>
           <h3>{t.name}</h3>

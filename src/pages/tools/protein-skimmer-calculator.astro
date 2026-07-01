@@ -1,0 +1,131 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { BIOLOAD_OPTIONS } from '../../utils/skimmer-calc';
+import skimmerData from '../../data/skimmers.json';
+
+const isSample = (skimmerData as any).sample === true;
+---
+<Base
+  title="Protein Skimmer Size Calculator (what size do I need?)"
+  description="Free protein skimmer size calculator. Enter your tank volume and bioload — we derate the optimistic manufacturer ratings and show which skimmers actually fit your reef, ranked, with footprint and price."
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Protein Skimmer Size Calculator</h1>
+    <p class="lede-dark">Skimmer "rated up to X gallons" numbers are marketing — measured at <em>light</em> bioload. Tell us your tank and how heavily it's stocked and we'll <strong>derate honestly</strong> and show what actually fits.</p>
+
+    {isSample && (
+      <p class="sample-note">⚙️ Preview build — running on sample skimmer specs while the full, source-verified database is finalized. Numbers here are illustrative.</p>
+    )}
+
+    <div class="calc card">
+      <form id="sk-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="sDisplayGallons" type="number" min="1" step="1" value="75" />
+        </label>
+        <label>Bioload
+          <select id="sBioload">
+            {BIOLOAD_OPTIONS.map((b) => <option value={b.value} selected={b.value === 'medium'}>{b.label}</option>)}
+          </select>
+        </label>
+        <label>Skimmer type
+          <select id="sType">
+            <option value="any" selected>Any type</option>
+            <option value="in-sump">In-sump</option>
+            <option value="HOB">Hang-on-back</option>
+            <option value="nano-AIO">Nano / AIO</option>
+          </select>
+        </label>
+        <label>Max budget (optional, $)
+          <input id="sMaxPrice" type="number" min="0" step="10" placeholder="no limit" />
+        </label>
+      </form>
+      <div id="sk-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="sk-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>Why skimmer ratings are optimistic</h2>
+    <p>Manufacturers rate a skimmer at its <em>best case</em> — a lightly-stocked, lightly-fed tank. Load the same tank with a full fish list and heavy feeding and that skimmer is suddenly undersized. That's why the reef rule of thumb is "buy a skimmer rated for roughly <strong>double your display volume</strong>." We do that math for you: we take the manufacturer's number and <strong>derate it by your bioload</strong> (heavy ≈ 50% of the rated number, medium ≈ 70%, light = as-rated), or use the manufacturer's own light/medium/heavy breakdown when they publish one.</p>
+
+    <h2>Bigger isn't always better</h2>
+    <p>An oversized skimmer on a lightly-fed tank can skim <em>too</em> aggressively and go unstable (constant overflowing or nothing at all). Aim for a skimmer whose derated rating comfortably covers your tank — not one rated for triple. The smallest model that clears your number is usually the right buy.</p>
+
+    <h2>Check the footprint and water depth</h2>
+    <p>The best-rated skimmer is useless if it won't fit your sump. Two specs decide that: the skimmer's <strong>footprint</strong> (it needs to sit in your skimmer chamber) and its <strong>recommended water depth</strong> — run it too deep or too shallow and it won't skim right. Every skimmer below lists both.</p>
+
+    <h2>In-sump vs. hang-on-back vs. nano</h2>
+    <p>In-sump skimmers are the standard for any tank with a sump — best performance and quiet. Hang-on-back (HOB) skimmers are for tanks without a sump. Nano/AIO skimmers are purpose-built for all-in-one tanks under ~40 gallons. Filter by type above to see only what fits your setup.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { recommendSkimmers } from '../../utils/skimmer-calc';
+  import data from '../../data/skimmers.json';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+
+  function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
+
+  function buyUrl(s: { brand: string; model: string; retailers?: string[] }) {
+    const q = encodeURIComponent(`${s.brand} ${s.model} protein skimmer`);
+    if (s.retailers && s.retailers.includes('Bulk Reef Supply')) return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
+    return `https://www.amazon.com/s?k=${q}`;
+  }
+
+  function render() {
+    const gallons = Number(val('sDisplayGallons')) || 0;
+    const bioload = (val('sBioload') || 'medium') as 'light' | 'medium' | 'heavy';
+    const type = val('sType') || 'any';
+    const maxPrice = Number(val('sMaxPrice')) || 0;
+
+    const summary = document.getElementById('sk-summary');
+    const results = document.getElementById('sk-results');
+    if (!summary || !results) return;
+
+    const bl = bioload.charAt(0).toUpperCase() + bioload.slice(1);
+    summary.innerHTML = `Sizing for a <b>${gallons.toLocaleString()} gallon</b> tank at <b>${bl.toLowerCase()}</b> bioload. We show each skimmer's honest capacity at that load.`;
+
+    if (gallons <= 0) { results.innerHTML = ''; return; }
+
+    const all = recommendSkimmers(gallons, bioload, (data as any).skimmers, { type, maxPrice });
+    const shown = all.slice(0, 8);
+    const cards = shown.map((r: any, idx: number) => {
+      const s = r.skimmer;
+      const badge = `<span class="rbadge">${s.type}</span>`;
+      const pill = r.fits ? `<span class="pill-win">✓ Fits your tank</span>` : `<span class="pill-no">Undersized here</span>`;
+      const foot = s.footprintIn ? ` · ${s.footprintIn}" footprint` : '';
+      const depth = s.minSumpDepthIn ? ` · needs ${s.minSumpDepthIn}" depth` : '';
+      const watts = s.pumpWatts ? ` · ${s.pumpWatts}W` : '';
+      const price = s.priceUSD ? ` · ~$${s.priceUSD}` : '';
+      const basis = r.usesPublishedRating ? '' : ' <span title="Derated from the single manufacturer rating (no published bioload breakdown)">*</span>';
+      return `
+        <div class="rcard ${r.fits ? 'win' : ''}">
+          <div class="rrank">${idx + 1}</div>
+          <div class="rmain">
+            <div class="rname">${esc(s.brand)} ${esc(s.model)}${badge}</div>
+            <div class="rmeta">${pill}${foot}${depth}${watts}${price}${basis}</div>
+          </div>
+          <div class="rflow"><span class="n">${r.effectiveGallons.toLocaleString()}</span><br><span class="u">gal @ ${bioload}</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+        </div>`;
+    }).join('');
+    results.innerHTML = cards +
+      `<p class="rnote">Showing the ${shown.length} best matches of ${(data as any).skimmers.length} skimmers. Capacity is the manufacturer's own light/medium/heavy rating where published, otherwise their headline number derated for your bioload (a “*” marks a derated estimate). Always confirm the footprint fits your sump.</p>`;
+  }
+
+  ['sDisplayGallons', 'sBioload', 'sType', 'sMaxPrice'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>

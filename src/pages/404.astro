@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+---
+<Base title="Page not found">
+  <section class="container" style="max-width:640px; text-align:center; padding:72px 20px;">
+    <p class="eyebrow" style="color:var(--brand-2)">404</p>
+    <h1>That page drifted off.</h1>
+    <p style="color:var(--muted)">The page you're after isn't here. Try the tools, or head back to the reef.</p>
+    <p style="margin-top:24px;">
+      <a href={url('/tools')} class="btn">Explore the tools</a>
+      <a href={url('/')} class="btn btn-ghost">Home</a>
+    </p>
+  </section>
+</Base>

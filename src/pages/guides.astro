@@ -1,10 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+const guides = [
+  { name: '40 Gallon Breeder Reef Tank: Setup, Gear List & Cost', desc: 'The best beginner reef, fully specced — why the 40B wins, the complete gear list, a realistic cost breakdown, and the calculators to size your pump and skimmer.', href: '/guides/40-gallon-breeder-reef-tank-setup', status: 'New' },
+];
 ---
 <Base title="Reef Guides" description="Setup guides and buying decisions for saltwater aquariums, organized by tank size and build stage.">
-  <section class="container" style="max-width:760px;">
+  <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Guides</p>
     <h1>Guides, by tank size and build stage.</h1>
-    <p style="color:var(--muted)">Equipment lists and decisions organized around your actual setup — nano vs. AIO vs. sump, first reef build, cost breakdowns. The long-tail forums own, done properly.</p>
+    <p style="color:var(--muted);max-width:60ch;">Equipment lists and decisions organized around your actual setup — the long-tail forums own, done properly and linked to the tools that size each piece.</p>
+    <div class="grid cols-2" style="margin-top:26px;">
+      {guides.map((g) => (
+        <a class="card cardlink" href={url(g.href)}>
+          <span class="pill">{g.status}</span>
+          <h3>{g.name}</h3>
+          <p style="color:var(--muted)">{g.desc}</p>
+        </a>
+      ))}
+    </div>
   </section>
 </Base>
