@@ -11,5 +11,6 @@ export default defineConfig({
   site: process.env.DEPLOY_SITE || 'https://reefmetric.com',
   base: process.env.DEPLOY_BASE || '/',
   trailingSlash: 'never',
+  build: { format: 'file' }, // flat /about.html → clean URLs, no 301 on static hosts
   integrations: [sitemap()],
 });
