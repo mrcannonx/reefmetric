@@ -1,0 +1,25 @@
+# ReefMetric — allow all search engines
+User-agent: *
+Allow: /
+
+# AI answer engines — explicitly allowlisted so we can be cited in AI answers.
+# (llms.txt is a dud; robots.txt allowlisting + a Bing sitemap is the real lever.)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://reefmetric.com/sitemap-index.xml

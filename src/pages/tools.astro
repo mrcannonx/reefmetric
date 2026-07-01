@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+const tools = [
+  { name: 'Skimmer Finder', desc: 'A filterable database of every protein skimmer by tank-size rating, bioload, footprint, and price. The answer to “best skimmer for a 40-gallon tank” that forums give badly.', status: 'Building first' },
+  { name: 'Return Pump Calculator', desc: 'Enter display + sump + head height → get target turnover, required flow (GPH), and matching pump picks.', status: 'Building first' },
+  { name: 'Reef Build Cost Estimator', desc: 'Itemize a full build — tank, skimmer, pump, light, rock, salt — with up-front and monthly running cost.', status: 'Building first' },
+  { name: 'Salt Cost-per-Gallon Calculator', desc: 'Compare salt mixes by real cost per mixed gallon, not per box.', status: 'Planned' },
+  { name: 'Controller Comparison', desc: 'Apex vs GHL vs Hydros vs budget — feature-by-feature, filterable.', status: 'Planned' },
+];
+---
+<Base title="Reef Tools & Calculators" description="Free calculators and comparison databases for saltwater aquarium gear — skimmers, pumps, lighting, and full reef builds.">
+  <section class="container">
+    <p class="eyebrow" style="color:var(--brand-2)">Tools</p>
+    <h1>Reef tools &amp; calculators.</h1>
+    <p style="color:var(--muted);max-width:60ch;">The interactive data other reef sites don’t have. Built to answer the size- and setup-specific questions forums answer badly — and Google can’t summarize away.</p>
+    <div class="grid cols-2" style="margin-top:26px;">
+      {tools.map((t) => (
+        <div class="card">
+          <span class="pill">{t.status}</span>
+          <h3>{t.name}</h3>
+          <p style="color:var(--muted)">{t.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

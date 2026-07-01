@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import EmailCapture from '../components/EmailCapture.astro';
+import { url } from '../utils/url';
+
+const tools = [
+  { name: 'Skimmer Finder', desc: 'Filter every protein skimmer by your exact tank size and bioload.', tag: 'Database' },
+  { name: 'Return Pump Calculator', desc: 'Dial in flow + head loss for your display and sump.', tag: 'Calculator' },
+  { name: 'Reef Build Cost Estimator', desc: 'Price a full build — tank, gear, and running cost — before you buy.', tag: 'Calculator' },
+];
+const clusters = [
+  { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.' },
+  { name: 'Return Pumps & Flow', desc: 'DC vs AC, turnover math, and the genuinely quiet ones.' },
+  { name: 'Reef Lighting', desc: 'PAR by depth, coral type, and tank footprint.' },
+  { name: 'Controllers', desc: 'Apex vs GHL vs Hydros — what actually matters for your build.' },
+];
+---
+<Base>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Measured, not guessed</p>
+      <h1>The reef gear authority that shows its math.</h1>
+      <p class="lede">Data-driven reviews, side-by-side comparison databases, and calculators for saltwater aquarium gear — so you buy the right skimmer, pump, or light the first time.</p>
+      <p style="margin-top:26px;">
+        <a href={url('/tools')} class="btn">Explore the tools</a>
+        <a href={url('/reviews')} class="btn btn-ghost">Browse reviews</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <p class="eyebrow" style="color:var(--brand-2)">The tools</p>
+    <h2>Answers you can’t get from a listicle.</h2>
+    <div class="grid cols-3" style="margin-top:26px;">
+      {tools.map((t) => (
+        <div class="card">
+          <span class="pill">{t.tag}</span>
+          <h3>{t.name}</h3>
+          <p style="color:var(--muted)">{t.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container">
+    <p class="eyebrow" style="color:var(--brand-2)">Gear, organized by your tank</p>
+    <h2>Start with your setup.</h2>
+    <div class="grid cols-2" style="margin-top:26px;">
+      {clusters.map((c) => (
+        <div class="card">
+          <h3>{c.name}</h3>
+          <p style="color:var(--muted)">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>

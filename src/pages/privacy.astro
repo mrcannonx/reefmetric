@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+---
+<Base title="Privacy Policy" description="ReefMetric privacy policy.">
+  <section class="container" style="max-width:760px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p><em>Last updated: July 2026.</em></p>
+    <p>ReefMetric respects your privacy. This page explains what we collect and why.</p>
+    <h2>What we collect</h2>
+    <p>Privacy-respecting analytics to understand traffic, and — if you subscribe — the email address you provide. We never sell your data.</p>
+    <h2>Cookies &amp; consent</h2>
+    <p>We use cookies for analytics and affiliate tracking. EU/UK visitors are shown a consent banner and can decline non-essential cookies. US visitors can opt out via Global Privacy Control (GPC).</p>
+    <h2>Affiliate links</h2>
+    <p>Some links are affiliate links — see our <a href={url('/disclosure')}>Affiliate Disclosure</a>.</p>
+    <h2>Contact</h2>
+    <p>Reach us via the details on our <a href={url('/about')}>About</a> page.</p>
+  </section>
+</Base>

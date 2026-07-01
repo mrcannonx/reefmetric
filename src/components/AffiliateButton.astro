@@ -1,0 +1,25 @@
+---
+// Cloaked affiliate CTA. Prefer a /go/<slug> internal redirect (set up on go-live)
+// so links are managed + trackable. Always rel="sponsored nofollow".
+interface Props {
+  href: string;
+  label?: string;
+  merchant?: string;
+}
+const { href, label = 'Check price', merchant } = Astro.props;
+---
+<a class="aff-btn" href={href} target="_blank" rel="sponsored nofollow noopener">
+  {label}{merchant ? ` at ${merchant}` : ''} <span aria-hidden="true">↗</span>
+</a>
+<style>
+  .aff-btn {
+    display: inline-block;
+    background: var(--coral);
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-display);
+    padding: 11px 18px;
+    border-radius: 999px;
+  }
+  .aff-btn:hover { background: var(--coral-dark); text-decoration: none; }
+</style>

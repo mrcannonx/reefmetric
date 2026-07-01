@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+---
+<Base title="About" description="Who runs ReefMetric and how we test, measure, and rate saltwater aquarium gear.">
+  <section class="container" style="max-width:760px;">
+    <p class="eyebrow" style="color:var(--brand-2)">About</p>
+    <h1>We measure reef gear so you don’t have to guess.</h1>
+    <p style="font-size:1.1rem;color:var(--muted)">ReefMetric is an independent, reader-supported resource for saltwater aquarium keepers. We pair hands-on reefing experience with structured data — spec databases, flow and cost calculators, and side-by-side comparisons — so you buy the right equipment the first time.</p>
+    <h2>How we rate</h2>
+    <p>Every recommendation starts with the numbers that actually matter for your tank: skimmer rating vs. real bioload, pump flow vs. head loss, PAR vs. depth. Where we can measure or test, we do. Where we rely on manufacturer specs or owner-reported data, we say so. We update rankings as gear and prices change.</p>
+    <h2>How we stay independent</h2>
+    <p>We earn affiliate commissions when you buy through our links, at no extra cost to you. That never changes what we recommend — our rankings are driven by the data, not the payout. <a href={url('/disclosure')}>Read our full disclosure</a>.</p>
+    <p><em>Author bios and credentials are added as we publish — every review is bylined by a named reefer.</em></p>
+  </section>
+</Base>
