@@ -1,0 +1,185 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { PIPE_IDS, TURNOVER_GUIDE } from '../../utils/pump-calc';
+import pumpData from '../../data/pumps.json';
+
+const isSample = (pumpData as any).sample === true;
+const pumpCount = (pumpData as any).pumps.length;
+---
+<Base
+  title="Reef Return Pump Calculator (real flow after head loss)"
+  description="Free reef return pump calculator. Enter your tank size, head height, and plumbing — get the real flow each pump delivers at your total dynamic head, not the misleading box-rated GPH."
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Return Pump Calculator</h1>
+    <p class="lede-dark">The GPH on the box is measured at <em>zero head</em> — a number your tank never sees. Enter your setup and we'll show the <strong>real flow each pump delivers</strong> at your actual head, with the math.</p>
+
+    {isSample && (
+      <p class="sample-note">⚙️ Preview build — running on sample pump specs while the full, source-verified database is finalized. Numbers here are illustrative.</p>
+    )}
+
+    <div class="calc card">
+      <form id="calc-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="displayGallons" type="number" min="1" step="1" value="50" />
+        </label>
+        <label>Turnover goal
+          <select id="turnover">
+            {TURNOVER_GUIDE.map((t) => <option value={t.x} selected={t.x === 7}>{t.label}</option>)}
+          </select>
+        </label>
+        <label>Head height — vertical rise (ft)
+          <input id="staticHeadFt" type="number" min="0" step="0.5" value="4" />
+        </label>
+        <label>Return pipe size
+          <select id="pipeId">
+            {PIPE_IDS.map((p) => <option value={p.id} selected={p.label === '1"'}>{p.label}</option>)}
+          </select>
+        </label>
+        <label>Pipe run length (ft)
+          <input id="pipeLengthFt" type="number" min="0" step="1" value="6" />
+        </label>
+        <label>Number of 90° elbows
+          <input id="elbows" type="number" min="0" step="1" value="4" />
+        </label>
+      </form>
+
+      <div id="summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>Why the box GPH is a lie</h2>
+    <p>Every return pump is rated at its <strong>maximum flow with zero head</strong> — pump sitting next to a bucket, no plumbing. The moment you lift water up to your display and push it through pipe, elbows, and a return nozzle, flow drops fast. A pump rated "1000 GPH" can easily deliver 500–600 at a typical 4-foot rise. Sizing off the box number is the single most common return-pump mistake.</p>
+
+    <h2>The three numbers that actually size a pump</h2>
+    <p><strong>1. Target flow (turnover).</strong> Most reef tanks run their return at <strong>5–10× the display volume per hour</strong>. Mixed reefs are happy around 7×; SPS-heavy tanks push higher; fish-only can go lower. This is flow <em>at the tank</em>, after losses.</p>
+    <p><strong>2. Static head.</strong> The vertical distance from your sump's water surface up to the return outlet. Every foot of rise costs flow.</p>
+    <p><strong>3. Friction (dynamic) head.</strong> Losses from pushing water through pipe and fittings. Narrower pipe and more elbows = dramatically more loss. We compute this with the Hazen-Williams equation (C=150 for PVC) plus an equivalent-length allowance for each 90° elbow.</p>
+
+    <h2>Total dynamic head, explained</h2>
+    <p>Add static head + friction head and you get <strong>total dynamic head (TDH)</strong> — the real resistance your pump fights. We find each pump's <em>operating point</em> (where its flow-vs-head curve crosses your system's curve) and report the flow it truly delivers there. A pump "makes your target" only if that delivered flow meets your turnover goal.</p>
+
+    <h2>Should you oversize?</h2>
+    <p>A little, yes — pick the smallest pump that clears your target, then confirm it has a bit of headroom (and a gate valve to dial it back). Massively oversizing wastes energy, adds heat and noise, and often gets throttled down anyway. DC pumps make this easy: they're adjustable and quieter, usually worth the premium over AC for a return.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .tool-wrap { padding-top: 40px; }
+  .lede-dark { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+  .sample-note { background:#fff6ed; border:1px solid #ffd9b8; color:#8a4b1e; font-size:.85rem; padding:10px 14px; border-radius:10px; margin: 14px 0 0; }
+  .calc { margin: 20px 0 24px; }
+  .calc-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px 20px; }
+  .calc-grid label { display:flex; flex-direction:column; gap:6px; font-size:.85rem; font-weight:600; color:var(--ink); }
+  .calc-grid input, .calc-grid select { padding:11px 12px; border:1px solid var(--line); border-radius:10px; font-size:1rem; font-family:var(--font-body); background:#fff; }
+  @media (max-width:720px){ .calc-grid { grid-template-columns: 1fr 1fr; } }
+  .summary { margin-top:20px; padding-top:18px; border-top:1px solid var(--line); font-size:1.05rem; }
+  .summary b { font-family:var(--font-display); }
+  .prose { max-width:760px; }
+  .prose h2 { margin-top:8px; }
+</style>
+
+<!-- Result cards are injected by JS at runtime, so their styles must be global (scoped styles only match server-rendered elements). -->
+<style is:global>
+  .results { display:flex; flex-direction:column; gap:12px; margin-bottom:8px; }
+  .rcard { display:flex; align-items:center; gap:16px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow); }
+  .rcard.win { border-color:#bfe4e2; }
+  .rrank { font-family:var(--font-display); font-weight:700; color:var(--muted); width:26px; text-align:center; flex:none; }
+  .rmain { flex:1; min-width:0; }
+  .rname { font-family:var(--font-display); font-weight:700; color:var(--ink); }
+  .rbadge { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:2px 7px; border-radius:999px; margin-left:8px; background:#eef3f4; color:var(--muted); }
+  .rmeta { font-size:.85rem; color:var(--muted); margin-top:3px; }
+  .rflow { text-align:right; flex:none; }
+  .rflow .n { font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--ink); }
+  .rflow .u { font-size:.72rem; color:var(--muted); }
+  .pill-win { display:inline-block; font-size:.7rem; font-weight:700; color:#0c7d7b; background:#e2f4f2; padding:3px 9px; border-radius:999px; }
+  .pill-no { display:inline-block; font-size:.7rem; font-weight:700; color:#9a5a3a; background:#fbeadd; padding:3px 9px; border-radius:999px; }
+  .rbuy { margin-left:12px; flex:none; }
+  .aff { display:inline-block; background:var(--coral); color:#fff; font-weight:700; font-family:var(--font-display); font-size:.85rem; padding:9px 14px; border-radius:999px; white-space:nowrap; }
+  .aff:hover { background:var(--coral-dark); text-decoration:none; }
+  .rnote { font-size:.8rem; color:var(--muted); margin-top:14px; max-width:72ch; line-height:1.5; }
+  @media (max-width:640px){ .rcard{flex-wrap:wrap} .rbuy{margin-left:0;width:100%} .aff{display:block;text-align:center} }
+</style>
+
+<script>
+  import { recommend } from '../../utils/pump-calc';
+  import data from '../../data/pumps.json';
+
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+
+  function readInputs() {
+    return {
+      displayGallons: Number(($('displayGallons') as HTMLInputElement)?.value) || 0,
+      turnover: Number(($('turnover') as HTMLSelectElement)?.value) || 7,
+      staticHeadFt: Number(($('staticHeadFt') as HTMLInputElement)?.value) || 0,
+      pipeIdInches: Number(($('pipeId') as HTMLSelectElement)?.value) || 1.029,
+      pipeLengthFt: Number(($('pipeLengthFt') as HTMLInputElement)?.value) || 0,
+      elbows: Number(($('elbows') as HTMLInputElement)?.value) || 0,
+    };
+  }
+
+  function buyUrl(p: { brand: string; model: string; retailers?: string[] }) {
+    const q = encodeURIComponent(`${p.brand} ${p.model} return pump`);
+    if (p.retailers && p.retailers.includes('Bulk Reef Supply')) {
+      return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
+    }
+    return `https://www.amazon.com/s?k=${q}`;
+  }
+
+  function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
+
+  function render() {
+    const i = readInputs();
+    const out = recommend(i, (data as any).pumps);
+    const summary = document.getElementById('summary');
+    const results = document.getElementById('results');
+    if (!summary || !results) return;
+
+    summary.innerHTML =
+      `Your target: <b>${out.targetGPH.toLocaleString()} GPH</b> at the display ` +
+      `(${i.turnover}× turnover) &nbsp;·&nbsp; estimated total head at target: <b>${out.totalHeadAtTarget} ft</b>`;
+
+    if (i.displayGallons <= 0) { results.innerHTML = ''; return; }
+
+    const shown = out.results.slice(0, 8);
+    const cards = shown.map((r: any, idx: number) => {
+      const p = r.pump;
+      const badge = `<span class="rbadge">${p.type}</span>`;
+      const pill = r.meetsTarget
+        ? `<span class="pill-win">✓ Hits your target</span>`
+        : `<span class="pill-no">Undersized here</span>`;
+      const price = p.approxPriceUSD ? ` · ~$${p.approxPriceUSD}` : '';
+      const watts = p.watts ? ` · ${p.watts}W` : '';
+      const modeled = p.modeled ? ' <span title="Curve modeled from max flow + max head (no published mid-points)">*</span>' : '';
+      return `
+        <div class="rcard ${r.meetsTarget ? 'win' : ''}">
+          <div class="rrank">${idx + 1}</div>
+          <div class="rmain">
+            <div class="rname">${esc(p.brand)} ${esc(p.model)}${badge}</div>
+            <div class="rmeta">${pill} &nbsp; ${r.turnoverAtDisplay}× on your display${watts}${price}${modeled}</div>
+          </div>
+          <div class="rflow"><span class="n">${r.deliveredGPH.toLocaleString()}</span><br><span class="u">GPH @ ${r.operatingHeadFt} ft</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(p)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+        </div>`;
+    }).join('');
+    results.innerHTML = cards +
+      `<p class="rnote">Showing the ${shown.length} best matches of ${(data as any).pumps.length} pumps in our database. A “*” means the curve is estimated from the pump's max flow and max head — the manufacturer doesn't publish a full curve, so treat those figures as a close approximation.</p>`;
+  }
+
+  ['displayGallons', 'turnover', 'staticHeadFt', 'pipeId', 'pipeLengthFt', 'elbows'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>

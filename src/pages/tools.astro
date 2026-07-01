@@ -1,20 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
 const tools = [
-  { name: 'Skimmer Finder', desc: 'A filterable database of every protein skimmer by tank-size rating, bioload, footprint, and price. The answer to “best skimmer for a 40-gallon tank” that forums give badly.', status: 'Building first' },
-  { name: 'Return Pump Calculator', desc: 'Enter display + sump + head height → get target turnover, required flow (GPH), and matching pump picks.', status: 'Building first' },
-  { name: 'Reef Build Cost Estimator', desc: 'Itemize a full build — tank, skimmer, pump, light, rock, salt — with up-front and monthly running cost.', status: 'Building first' },
+  { name: 'Return Pump Calculator', desc: 'Enter your tank size, head height, and plumbing → the real flow each of 41 pumps delivers at your total dynamic head, ranked, with the math shown.', status: 'Live · Free', href: '/tools/return-pump-calculator' },
+  { name: 'Skimmer Finder', desc: 'A filterable database of every protein skimmer by tank-size rating, bioload, footprint, and price. The answer to “best skimmer for a 40-gallon tank” that forums give badly.', status: 'Building next' },
+  { name: 'Reef Build Cost Estimator', desc: 'Itemize a full build — tank, skimmer, pump, light, rock, salt — with up-front and monthly running cost.', status: 'Building next' },
   { name: 'Salt Cost-per-Gallon Calculator', desc: 'Compare salt mixes by real cost per mixed gallon, not per box.', status: 'Planned' },
   { name: 'Controller Comparison', desc: 'Apex vs GHL vs Hydros vs budget — feature-by-feature, filterable.', status: 'Planned' },
 ];
 ---
-<Base title="Reef Tools & Calculators" description="Free calculators and comparison databases for saltwater aquarium gear — skimmers, pumps, lighting, and full reef builds.">
+<Base title="Reef Tools & Calculators" description="Free calculators and comparison databases for saltwater aquarium gear — return pumps, skimmers, lighting, and full reef builds.">
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Tools</p>
     <h1>Reef tools &amp; calculators.</h1>
     <p style="color:var(--muted);max-width:60ch;">The interactive data other reef sites don’t have. Built to answer the size- and setup-specific questions forums answer badly — and Google can’t summarize away.</p>
     <div class="grid cols-2" style="margin-top:26px;">
-      {tools.map((t) => (
+      {tools.map((t) => (t as any).href ? (
+        <a class="card cardlink" href={url((t as any).href)}>
+          <span class="pill">{t.status}</span>
+          <h3>{t.name}</h3>
+          <p style="color:var(--muted)">{t.desc}</p>
+        </a>
+      ) : (
         <div class="card">
           <span class="pill">{t.status}</span>
           <h3>{t.name}</h3>
@@ -24,3 +31,8 @@ const tools = [
     </div>
   </section>
 </Base>
+
+<style>
+  .cardlink { display:block; color:inherit; text-decoration:none; transition: transform .15s ease, box-shadow .15s ease; }
+  .cardlink:hover { text-decoration:none; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(13,27,38,.10); }
+</style>

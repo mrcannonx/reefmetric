@@ -1,0 +1,1041 @@
+{
+  "generated": "2026-07-01",
+  "pumps": [
+    {
+      "brand": "Sicce",
+      "model": "Syncra Nano",
+      "type": "AC",
+      "maxFlowGPH": 110,
+      "maxHeadFt": 2.25,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 110
+        },
+        {
+          "headFt": 2.25,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 2.6,
+      "approxPriceUSD": 34.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/syncra-nano-pump-110-gph-sicce.html"
+    },
+    {
+      "brand": "Tunze",
+      "model": "1073.008 Silence Recirculation Pump",
+      "type": "AC",
+      "maxFlowGPH": 211.3,
+      "maxHeadFt": 4.1,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 211.3
+        },
+        {
+          "headFt": 4.1,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 8,
+      "approxPriceUSD": 54.99,
+      "retailers": [
+        "Marine Depot",
+        "Amazon"
+      ],
+      "source": "https://www.tunze.com/en/details/1073.008-recirculation-pump-silence.html"
+    },
+    {
+      "brand": "Eheim",
+      "model": "compactON 1000",
+      "type": "AC",
+      "maxFlowGPH": 264,
+      "maxHeadFt": 4.6,
+      "watts": null,
+      "approxPriceUSD": null,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 264
+        },
+        {
+          "headFt": 4.6,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/compacton-1000-264-gph-eheim-ob.html"
+    },
+    {
+      "brand": "Innovative Marine",
+      "model": "MightyJet Desktop AIO DC Return Pump (326 GPH)",
+      "type": "DC",
+      "maxFlowGPH": 326,
+      "maxHeadFt": 1.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 326
+        },
+        {
+          "headFt": 1.5,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 15,
+      "approxPriceUSD": 146,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/mighty-jet-desktop-aio-dc-return-pump-326-gph-innovative-marine.html"
+    },
+    {
+      "brand": "Innovative Marine",
+      "model": "MightyJet Midsize AIO DC Return Pump (538 GPH)",
+      "type": "DC",
+      "maxFlowGPH": 538,
+      "maxHeadFt": 2,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 538
+        },
+        {
+          "headFt": 2,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 22,
+      "approxPriceUSD": 159,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/mightyjet-midsize-aio-dc-return-pump-538-gph-innovative-marine.html"
+    },
+    {
+      "brand": "Sicce",
+      "model": "Syncra Silent 2.0",
+      "type": "AC",
+      "maxFlowGPH": 568,
+      "maxHeadFt": 6.5,
+      "watts": 35,
+      "approxPriceUSD": 119.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 568
+        },
+        {
+          "headFt": 6.5,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/sicce-syncra-silent-2-0-pump-568-gph.html"
+    },
+    {
+      "brand": "Danner (Supreme)",
+      "model": "Mag-Drive 5",
+      "type": "AC",
+      "maxFlowGPH": 570,
+      "maxHeadFt": 10.5,
+      "watts": 49,
+      "approxPriceUSD": 127.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 570
+        },
+        {
+          "headFt": 1,
+          "flowGPH": 480
+        },
+        {
+          "headFt": 3,
+          "flowGPH": 425
+        },
+        {
+          "headFt": 5,
+          "flowGPH": 325
+        },
+        {
+          "headFt": 7,
+          "flowGPH": 205
+        },
+        {
+          "headFt": 10.5,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": false,
+      "retailers": [
+        "Marine Depot",
+        "Amazon"
+      ],
+      "source": "https://www.saltwateraquarium.com/mag-drive-5-500-gph-water-pump-supreme-danner/"
+    },
+    {
+      "brand": "Tunze",
+      "model": "1073.020 Silence Recirculation Pump",
+      "type": "AC",
+      "maxFlowGPH": 630,
+      "maxHeadFt": 6.56,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 630
+        },
+        {
+          "headFt": 6.56,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 34,
+      "approxPriceUSD": 101.99,
+      "retailers": [
+        "Amazon"
+      ],
+      "source": "https://aquacave.com/tunze-silence-1073-020-water-pump-50-630-gph.html"
+    },
+    {
+      "brand": "Jebao",
+      "model": "DCP-2500",
+      "type": "DC",
+      "maxFlowGPH": 660.4,
+      "maxHeadFt": 8.2,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 660.4
+        },
+        {
+          "headFt": 8.2,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "watts": 23,
+      "approxPriceUSD": 55,
+      "retailers": [
+        "Amazon"
+      ],
+      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf"
+    },
+    {
+      "brand": "Sicce",
+      "model": "Syncra Silent 3.0",
+      "type": "AC",
+      "maxFlowGPH": 714,
+      "maxHeadFt": 9.9,
+      "watts": 48,
+      "approxPriceUSD": 149.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 714
+        },
+        {
+          "headFt": 9.9,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/sicce-syncra-silent-3-0-pump-714-gph.html"
+    },
+    {
+      "brand": "Blueline",
+      "model": "40HD",
+      "type": "AC",
+      "maxFlowGPH": 790,
+      "maxHeadFt": 21,
+      "watts": 120,
+      "approxPriceUSD": 273.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 790
+        },
+        {
+          "headFt": 21,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Marine Depot",
+        "Bulk Reef Supply"
+      ],
+      "source": "https://aquacave.com/blueline-40-hd-water-pump-790-gph.html"
+    },
+    {
+      "brand": "Pan World",
+      "model": "100PX",
+      "type": "AC",
+      "maxFlowGPH": 790,
+      "maxHeadFt": 21,
+      "watts": 120,
+      "approxPriceUSD": 219.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 790
+        },
+        {
+          "headFt": 21,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.saltwateraquarium.com/100px-790-gph-21-max-head-3-4-mpt-inlet-x-3-4-outlet-pan-world/"
+    },
+    {
+      "brand": "Eheim",
+      "model": "compactON 3000",
+      "type": "AC",
+      "maxFlowGPH": 792,
+      "maxHeadFt": 8.8,
+      "watts": 55,
+      "approxPriceUSD": 154.95,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 792
+        },
+        {
+          "headFt": 8.8,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": true,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon"
+      ],
+      "source": "https://www.bulkreefsupply.com/compacton-3000-792-gph-eheim.html"
+    },
+    {
+      "brand": "Jebao/Jecod",
+      "model": "DCP-3000",
+      "type": "DC",
+      "maxFlowGPH": 792.5,
+      "maxHeadFt": 9.84,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 792.5
+        },
+        {
+          "headFt": 9.84,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 25,
+      "approxPriceUSD": 60,
+      "retailers": [
+        "Amazon",
+        "Walmart"
+      ],
+      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf (official Jebao DCP owner's manual performance parameters table: 3000 L/H, 3.0M head, 25W)",
+      "modeled": true
+    },
+    {
+      "brand": "Danner (Supreme)",
+      "model": "Mag-Drive 9.5",
+      "type": "AC",
+      "maxFlowGPH": 975,
+      "maxHeadFt": 12.85,
+      "watts": 93,
+      "approxPriceUSD": 165.99,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 975
+        },
+        {
+          "headFt": 1,
+          "flowGPH": 780
+        },
+        {
+          "headFt": 3,
+          "flowGPH": 740
+        },
+        {
+          "headFt": 5,
+          "flowGPH": 685
+        },
+        {
+          "headFt": 7,
+          "flowGPH": 610
+        },
+        {
+          "headFt": 10,
+          "flowGPH": 450
+        },
+        {
+          "headFt": 12.85,
+          "flowGPH": 0
+        }
+      ],
+      "modeled": false,
+      "retailers": [
+        "Marine Depot",
+        "Amazon"
+      ],
+      "source": "https://www.saltwateraquarium.com/mag-drive-9-5-950-gph-water-pump-supreme-danner/"
+    },
+    {
+      "brand": "Current USA",
+      "model": "eFlux 6009 (1050 GPH)",
+      "type": "DC",
+      "maxFlowGPH": 1050,
+      "maxHeadFt": 10.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1050
+        },
+        {
+          "headFt": 10.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 30,
+      "approxPriceUSD": 161.46,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://www.bulkreefsupply.com/current-usa-eflux-dc-flow-pump.html (manufacturer spec via retailer: 210-1050 GPH range, 10.5ft/3.2m max head, 6-30W, $161.46)",
+      "modeled": true
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "VarioS-4",
+      "type": "DC",
+      "maxFlowGPH": 1056,
+      "maxHeadFt": 14.7,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1056
+        },
+        {
+          "headFt": 14.7,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 40,
+      "approxPriceUSD": 219.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://reefoctopus.com/product/rodc-pumps-varios/",
+      "modeled": true
+    },
+    {
+      "brand": "Jebao/Jecod",
+      "model": "DCT-4000",
+      "type": "DC",
+      "maxFlowGPH": 1056,
+      "maxHeadFt": 9.8,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1056
+        },
+        {
+          "headFt": 9.8,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 30,
+      "approxPriceUSD": 70,
+      "retailers": [
+        "Amazon",
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.amazon.com/Jebao-Marine-Controllable-DCT-4000-1056GPH/dp/B0CLB7LLZ2 (retailer-listed spec: 1056 GPH, 9.8ft max head, 30W)",
+      "modeled": true
+    },
+    {
+      "brand": "Red Sea",
+      "model": "ReefRun G2 4000",
+      "type": "DC",
+      "maxFlowGPH": 1060,
+      "maxHeadFt": 11.2,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1060
+        },
+        {
+          "headFt": 11.2,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 38,
+      "approxPriceUSD": 219.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://redseafish.com/smart-hardware/reefrun-dc-pump-techs-specs/",
+      "modeled": true
+    },
+    {
+      "brand": "EcoTech Marine",
+      "model": "Vectra S2",
+      "type": "DC",
+      "maxFlowGPH": 1400,
+      "maxHeadFt": 11.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1400
+        },
+        {
+          "headFt": 11.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 72,
+      "approxPriceUSD": 379.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://ecotechmarine.com/vectra",
+      "modeled": true
+    },
+    {
+      "brand": "Red Sea",
+      "model": "ReefRun G2 6000",
+      "type": "DC",
+      "maxFlowGPH": 1700,
+      "maxHeadFt": 14.4,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1700
+        },
+        {
+          "headFt": 14.4,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 56,
+      "approxPriceUSD": 279.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://redseafish.com/smart-hardware/reefrun-dc-pump-techs-specs/",
+      "modeled": true
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "VarioS-6",
+      "type": "DC",
+      "maxFlowGPH": 1720,
+      "maxHeadFt": 16,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1720
+        },
+        {
+          "headFt": 16,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 70,
+      "approxPriceUSD": 279.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://reefoctopus.com/product/rodc-pumps-varios/",
+      "modeled": true
+    },
+    {
+      "brand": "Abyzz",
+      "model": "A100",
+      "type": "DC",
+      "maxFlowGPH": 1880,
+      "maxHeadFt": 19.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1880
+        },
+        {
+          "headFt": 19.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 100,
+      "approxPriceUSD": 1699.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.coralvue.com/abyzz-a100-1-880gph-controllable-dc-pump",
+      "modeled": true
+    },
+    {
+      "brand": "Sicce",
+      "model": "Syncra ADV 7.0",
+      "type": "AC",
+      "maxFlowGPH": 1900,
+      "maxHeadFt": 11.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1900
+        },
+        {
+          "headFt": 11.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 55,
+      "approxPriceUSD": 259.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/syncra-avd-7-0-water-pump-1900-gph-sicce.html",
+      "modeled": true
+    },
+    {
+      "brand": "Sicce",
+      "model": "Syncra SDC 7.0",
+      "type": "DC",
+      "maxFlowGPH": 1900,
+      "maxHeadFt": 16.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 1900
+        },
+        {
+          "headFt": 16.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 65,
+      "approxPriceUSD": 289.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/syncra-sdc-7-0-controllable-pump-800-1900-gph-sicce.html",
+      "modeled": true
+    },
+    {
+      "brand": "EcoTech Marine",
+      "model": "Vectra M2",
+      "type": "DC",
+      "maxFlowGPH": 2000,
+      "maxHeadFt": 21.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2000
+        },
+        {
+          "headFt": 21.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 96,
+      "approxPriceUSD": 499.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://ecotechmarine.com/vectra",
+      "modeled": true
+    },
+    {
+      "brand": "Jebao/Jecod",
+      "model": "DCT-8000",
+      "type": "DC",
+      "maxFlowGPH": 2113,
+      "maxHeadFt": 14.8,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2113
+        },
+        {
+          "headFt": 14.8,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 68,
+      "approxPriceUSD": 120,
+      "retailers": [
+        "Amazon",
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.amazon.com/Jebao-Jecod-Marine-Controllable-Water/dp/B00SQX5CCO (retailer-listed spec: 2113 GPH, 14.8ft max head, 68W)",
+      "modeled": true
+    },
+    {
+      "brand": "Jebao/Jecod",
+      "model": "DCP-8000",
+      "type": "DC",
+      "maxFlowGPH": 2113.4,
+      "maxHeadFt": 17.06,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2113.4
+        },
+        {
+          "headFt": 17.06,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 65,
+      "approxPriceUSD": 130,
+      "retailers": [
+        "Amazon",
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf (official Jebao DCP owner's manual performance parameters table: 8000 L/H, 5.2M head, 65W)",
+      "modeled": true
+    },
+    {
+      "brand": "Red Sea",
+      "model": "ReefRun G2 8000",
+      "type": "DC",
+      "maxFlowGPH": 2200,
+      "maxHeadFt": 17.4,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2200
+        },
+        {
+          "headFt": 17.4,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 73,
+      "approxPriceUSD": 349.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://redseafish.com/smart-hardware/reefrun-dc-pump-techs-specs/",
+      "modeled": true
+    },
+    {
+      "brand": "Jebao/Jecod",
+      "model": "DCS-9000",
+      "type": "DC",
+      "maxFlowGPH": 2377.5,
+      "maxHeadFt": 17.06,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2377.5
+        },
+        {
+          "headFt": 17.06,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 65,
+      "approxPriceUSD": 140,
+      "retailers": [
+        "Amazon"
+      ],
+      "source": "https://aquaterradigital.com/product/jebao-dcs-12000-silent-pump-2375-to-3170-gph/ and owlpump.com DCS series listing (9000 L/H, 5.2M head, 65W, DC24V)",
+      "modeled": true
+    },
+    {
+      "brand": "Coral Box",
+      "model": "DCA9000",
+      "type": "DC",
+      "maxFlowGPH": 2430.4,
+      "maxHeadFt": 17.06,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2430.4
+        },
+        {
+          "headFt": 17.06,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 65,
+      "approxPriceUSD": 150,
+      "retailers": [
+        "Amazon"
+      ],
+      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf (official Coral Box DCA owner's manual performance parameters table: DCA9000, 9200 L/H, 5.2M head, 65W, DC24V)",
+      "modeled": true
+    },
+    {
+      "brand": "Maxspect",
+      "model": "Turbine Duo 9K (Single IN/OUT)",
+      "type": "DC",
+      "maxFlowGPH": 2500,
+      "maxHeadFt": 9,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2500
+        },
+        {
+          "headFt": 9,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 42,
+      "approxPriceUSD": 419.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://www.coralvue.com/maxspect-turbine-duo-9k",
+      "modeled": true
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "VarioS-8",
+      "type": "DC",
+      "maxFlowGPH": 2646,
+      "maxHeadFt": 18.7,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2646
+        },
+        {
+          "headFt": 18.7,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 98,
+      "approxPriceUSD": 349.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://reefoctopus.com/product/rodc-pumps-varios/",
+      "modeled": true
+    },
+    {
+      "brand": "Sicce",
+      "model": "Syncra ADV 10.0",
+      "type": "AC",
+      "maxFlowGPH": 2700,
+      "maxHeadFt": 23,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 2700
+        },
+        {
+          "headFt": 23,
+          "flowGPH": 0
+        }
+      ],
+      "watts": null,
+      "approxPriceUSD": 329.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.bulkreefsupply.com/syncra-adv-10-0-water-pump-2700-gph-sicce.html",
+      "modeled": true
+    },
+    {
+      "brand": "Maxspect",
+      "model": "Turbine Duo 12K (Double IN/OUT)",
+      "type": "DC",
+      "maxFlowGPH": 3011,
+      "maxHeadFt": 11,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3011
+        },
+        {
+          "headFt": 11,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 115,
+      "approxPriceUSD": 519.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://www.coralvue.com/maxspect-turbine-duo-12k",
+      "modeled": true
+    },
+    {
+      "brand": "EcoTech Marine",
+      "model": "Vectra L2",
+      "type": "DC",
+      "maxFlowGPH": 3100,
+      "maxHeadFt": 21.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3100
+        },
+        {
+          "headFt": 21.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 150,
+      "approxPriceUSD": 599.99,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://ecotechmarine.com/vectra",
+      "modeled": true
+    },
+    {
+      "brand": "Current USA",
+      "model": "eFlux 6011 (3170 GPH)",
+      "type": "DC",
+      "maxFlowGPH": 3170,
+      "maxHeadFt": 20,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3170
+        },
+        {
+          "headFt": 20,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 80,
+      "approxPriceUSD": 254.46,
+      "retailers": [
+        "Bulk Reef Supply",
+        "Marine Depot"
+      ],
+      "source": "https://www.bulkreefsupply.com/current-usa-eflux-6011-dc-flow-pump-3170gph.html (manufacturer spec via retailer: 635-3170 GPH range, 20ft/6m max head, 16-80W, $254.46)",
+      "modeled": true
+    },
+    {
+      "brand": "Red Sea",
+      "model": "ReefRun G2 12000",
+      "type": "DC",
+      "maxFlowGPH": 3200,
+      "maxHeadFt": 19,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3200
+        },
+        {
+          "headFt": 19,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 105,
+      "approxPriceUSD": 449.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://redseafish.com/smart-hardware/reefrun-dc-pump-techs-specs/",
+      "modeled": true
+    },
+    {
+      "brand": "Coral Box",
+      "model": "DCA12000",
+      "type": "DC",
+      "maxFlowGPH": 3222.9,
+      "maxHeadFt": 19.69,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3222.9
+        },
+        {
+          "headFt": 19.69,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 80,
+      "approxPriceUSD": 170,
+      "retailers": [
+        "Amazon"
+      ],
+      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf (official Coral Box DCA owner's manual performance parameters table: DCA12000, 12200 L/H, 6.0M head, 80W, DC24V)",
+      "modeled": true
+    },
+    {
+      "brand": "Abyzz",
+      "model": "A200",
+      "type": "DC",
+      "maxFlowGPH": 3750,
+      "maxHeadFt": 31,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 3750
+        },
+        {
+          "headFt": 31,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 200,
+      "approxPriceUSD": 2299.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.coralvue.com/abyzz-a200-3-750gph-controllable-dc-pump",
+      "modeled": true
+    },
+    {
+      "brand": "Reef Octopus",
+      "model": "VarioS-10",
+      "type": "DC",
+      "maxFlowGPH": 4220,
+      "maxHeadFt": 29.5,
+      "curve": [
+        {
+          "headFt": 0,
+          "flowGPH": 4220
+        },
+        {
+          "headFt": 29.5,
+          "flowGPH": 0
+        }
+      ],
+      "watts": 200,
+      "approxPriceUSD": 599.99,
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
+      "source": "https://www.coralvue.com/varios-10-controllable-circulation-pump",
+      "modeled": true
+    }
+  ]
+}
