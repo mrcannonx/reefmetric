@@ -1,10 +1,44 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+const comparisons = [
+  {
+    name: 'Apex vs HYDROS vs GHL ProfiLux',
+    desc: 'The full reef controller comparison — kits and street prices, probes included vs extra, cloud fees, programming models, dosing and automated-testing ecosystems, and which controller fits which builder.',
+    href: '/compare/apex-vs-hydros-vs-ghl',
+    status: 'New',
+  },
+  {
+    name: 'DC vs AC Return Pumps',
+    desc: 'Controllability, noise, efficiency, price, and the failure mode most people miss — the buying decision behind every pump pick.',
+    href: '/guides/dc-vs-ac-return-pumps',
+    status: 'Guide',
+  },
+  {
+    name: 'Reef Salt Mixes, Cost per Gallon',
+    desc: 'Every major salt compared on what a mixed gallon really costs — plus growth vs natural-parameter chemistry, side by side.',
+    href: '/reviews/best-reef-salt-mix',
+    status: 'Data',
+  },
+];
 ---
-<Base title="Compare Reef Gear" description="Side-by-side comparison databases for reef controllers, skimmers, pumps, and lights." noindex>
-  <section class="container" style="max-width:760px;">
+<Base
+  title="Compare Reef Gear — Head-to-Head"
+  description="Side-by-side reef equipment comparisons: Apex vs HYDROS vs GHL controllers, DC vs AC return pumps, and salt mixes by true cost per gallon."
+>
+  <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Compare</p>
     <h1>Head-to-head, spec by spec.</h1>
-    <p style="color:var(--muted)">Filterable comparison databases for the decisions reefers actually agonize over — Apex vs GHL vs Hydros, DC vs AC return pumps, and skimmer ratings across brands. Live soon.</p>
+    <p style="color:var(--muted);max-width:62ch;">The decisions reefers actually agonize over, settled with specs and prices in one table — sourced, dated, and independent of who pays commission. <a href={url('/how-we-rate')}>How we rate →</a></p>
+    <div class="grid cols-2" style="margin-top:26px;">
+      {comparisons.map((c) => (
+        <a class="card cardlink" href={url(c.href)}>
+          <span class="pill">{c.status}</span>
+          <h3>{c.name}</h3>
+          <p style="color:var(--muted)">{c.desc}</p>
+        </a>
+      ))}
+    </div>
+    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Coming next: skimmer brand face-offs and reef LED comparisons with PAR-at-depth data.</p>
   </section>
 </Base>

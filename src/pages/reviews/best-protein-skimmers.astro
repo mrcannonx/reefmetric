@@ -1,0 +1,183 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import { recommendSkimmers, effectiveCapacity, type Skimmer } from '../../utils/skimmer-calc';
+import skimmerData from '../../data/skimmers.json';
+
+// Rankings computed AT BUILD TIME with the calculator's honest-capacity math:
+// published light/medium/heavy ratings where the manufacturer gives them,
+// a conservative derate where they only publish one optimistic number.
+const skimmers = (skimmerData as any).skimmers as Skimmer[];
+const dataDate = (skimmerData as any).generated as string;
+
+interface TankClass { key: string; label: string; gallons: number; blurb: string; }
+const CLASSES: TankClass[] = [
+  { key: 'nano', label: 'Nano / AIO (15–30 gal)', gallons: 25, blurb: 'Small in-sump or AIO-chamber skimmers for nano mixed reefs.' },
+  { key: '40b', label: '40 Breeder (40 gal)', gallons: 40, blurb: 'The classic first "real" reef — a sump skimmer with honest 40-gallon capacity at medium load.' },
+  { key: '75', label: '75 Gallon', gallons: 75, blurb: 'Mixed-reef mainstay. This is where oversold "rated 150 gallons" nano bodies get exposed.' },
+  { key: '120', label: '120 Gallon+', gallons: 120, blurb: 'Heavier fish load territory — honest medium-bioload capacity of 120+ gallons.' },
+];
+
+interface Pick {
+  badge: string;
+  why: string;
+  s: Skimmer;
+  effective: number;
+  published: boolean;
+}
+
+const sections = CLASSES.map((c) => {
+  const results = recommendSkimmers(c.gallons, 'medium', skimmers);
+  const fits = results.filter((r) => r.fits);
+  const picks: Pick[] = [];
+  const used = new Set<string>();
+  const id = (s: Skimmer) => `${s.brand} ${s.model}`;
+
+  if (fits[0]) {
+    picks.push({
+      badge: 'Right-size pick',
+      why: `Smallest skimmer whose honest medium-bioload capacity still covers ${c.gallons} gallons — right-sized skimmers pull drier, more stable skimmate than oversized ones run wet.`,
+      s: fits[0].skimmer,
+      effective: fits[0].effectiveGallons,
+      published: fits[0].usesPublishedRating,
+    });
+    used.add(id(fits[0].skimmer));
+  }
+  const value = [...fits]
+    .filter((r) => r.skimmer.priceUSD != null && !used.has(id(r.skimmer)))
+    .sort((a, b) => a.skimmer.priceUSD! - b.skimmer.priceUSD!)[0];
+  if (value) {
+    picks.push({
+      badge: 'Value pick',
+      why: `Cheapest qualifying skimmer in the dataset — $${value.skimmer.priceUSD} for an honest ${value.effectiveGallons}-gallon medium-load capacity.`,
+      s: value.skimmer,
+      effective: value.effectiveGallons,
+      published: value.usesPublishedRating,
+    });
+    used.add(id(value.skimmer));
+  }
+  // Headroom pick: covers the tank even at HEAVY bioload (SPS + big fish load).
+  const heavy = recommendSkimmers(c.gallons, 'heavy', skimmers).filter(
+    (r) => r.fits && !used.has(id(r.skimmer))
+  )[0];
+  if (heavy) {
+    picks.push({
+      badge: 'Heavy-bioload pick',
+      why: `Smallest skimmer that still covers ${c.gallons} gallons at a HEAVY bioload — the pick if you feed hard or stock a big fish load.`,
+      s: heavy.skimmer,
+      effective: heavy.effectiveGallons,
+      published: heavy.usesPublishedRating,
+    });
+  }
+  return { cls: c, picks };
+});
+
+// Full table at medium bioload, biggest honest capacity first.
+const table = skimmers
+  .map((s) => ({
+    s,
+    eff: effectiveCapacity(s, 'medium'),
+    published: s.ratingMedium != null && s.ratingMedium > 0,
+  }))
+  .sort((a, b) => b.eff - a.eff);
+
+const buy = (s: Skimmer) => goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`);
+const allPicks = sections.flatMap((x) => x.picks);
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Protein Skimmers for Reef Tanks',
+  numberOfItems: allPicks.length,
+  itemListElement: allPicks.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${p.s.brand} ${p.s.model}`,
+  })),
+};
+---
+<Base
+  title="Best Protein Skimmers by Tank Size (2026) — Honest Capacity Ratings"
+  description="The best protein skimmers for nano, 40 breeder, 75 and 120+ gallon reef tanks — ranked by honest bioload-adjusted capacity, not the box's optimistic 'rated up to' number."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Protein Skimmers</p>
+    <h1>Best protein skimmers, sized by honest capacity</h1>
+    <p class="lede-dark">A skimmer "rated up to 150 gallons" usually means 150 lightly-stocked gallons — on a normal mixed reef it's a 100-gallon skimmer, on a heavy fish load it's a 75. We rank by <strong>bioload-adjusted capacity</strong>: the manufacturer's own light/medium/heavy ratings where published, a conservative derate where they only give one optimistic number. Same math as our <a href={url('/tools/protein-skimmer-calculator')}>skimmer calculator</a>.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">How these picks work: computed from manufacturer ratings (dataset updated {dataDate}) at a medium mixed-reef bioload — nobody pays for placement, and nothing here is described as hand-tested when it wasn't. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  {sections.map((x) => (
+    <section class="container" style="padding-top:16px;padding-bottom:20px;">
+      <h2>{x.cls.label}</h2>
+      <p style="color:var(--muted);max-width:64ch;">{x.cls.blurb}</p>
+      <div class="results">
+        {x.picks.map((p, idx) => (
+          <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+            <div class="rmain">
+              <div class="rname">{p.s.brand} {p.s.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+              <div class="rmeta">{p.why}</div>
+              <div class="rmeta">
+                {p.s.type} · rated {p.s.ratedGallons} gal{p.published ? '' : ' (single headline rating, derated*)'}
+                {p.s.footprintIn ? ` · ${p.s.footprintIn}" footprint` : ''}
+                {p.s.pumpWatts ? ` · ${p.s.pumpWatts}W` : ''}
+                {p.s.priceUSD ? ` · ~$${p.s.priceUSD}` : ''}
+              </div>
+            </div>
+            <div class="rflow"><span class="n">{p.effective}</span><br /><span class="u">honest gal</span></div>
+            <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Every skimmer in the database</h2>
+    <p style="color:var(--muted);max-width:64ch;">Honest capacity at a medium mixed-reef bioload. For your exact tank and stocking, use the <a href={url('/tools/protein-skimmer-calculator')}>calculator</a>.</p>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead>
+          <tr><th>Skimmer</th><th>Type</th><th>Rated gal</th><th>Honest gal (medium)</th><th>Watts</th><th>~Price</th></tr>
+        </thead>
+        <tbody>
+          {table.map((r) => (
+            <tr>
+              <td><strong>{r.s.brand}</strong> {r.s.model}{r.published ? '' : '*'}</td>
+              <td>{r.s.type}</td>
+              <td>{r.s.ratedGallons}</td>
+              <td>{r.eff}</td>
+              <td>{r.s.pumpWatts ?? '—'}</td>
+              <td>{r.s.priceUSD ? `$${r.s.priceUSD}` : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">* Manufacturer publishes a single "rated up to" number with no bioload breakdown, so we apply a conservative 0.7× derate for medium bioload — honest approximation, flagged as such. Prices are street prices at the dataset date.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>Why right-sizing beats oversizing</h2>
+    <p>The old "buy a skimmer rated 2× your tank" advice exists because headline ratings are optimistic — our medium/heavy math bakes that correction in. Going far beyond it backfires: a big skimmer on a light-bioload tank sits in the water column too clean to foam properly, skims wet, and needs constant tuning. Match the honest capacity to your tank and load, and the skimmer runs stable.</p>
+    <h2>Check the sump before you buy</h2>
+    <p>The spec that kills more skimmer purchases than any other: <strong>footprint and water depth</strong>. Most in-sump skimmers want 7–9 inches of water; the table above lists footprints where published. Measure your skimmer chamber first.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 640px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.specs tr:last-child td { border-bottom: none; }
+</style>

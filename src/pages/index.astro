@@ -9,10 +9,10 @@ const tools = [
   { name: 'Reef Build Cost Estimator', desc: 'Itemized up-front + monthly running cost for any tank size and tier.', tag: 'Calculator · Live', href: '/tools/reef-build-cost-calculator' },
 ];
 const clusters = [
-  { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.' },
-  { name: 'Return Pumps & Flow', desc: 'DC vs AC, turnover math, and the genuinely quiet ones.' },
-  { name: 'Reef Lighting', desc: 'PAR by depth, coral type, and tank footprint.' },
-  { name: 'Controllers', desc: 'Apex vs GHL vs Hydros — what actually matters for your build.' },
+  { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.', href: '/reviews/best-protein-skimmers' },
+  { name: 'Return Pumps & Flow', desc: 'DC vs AC, turnover math, and real delivered flow at your head.', href: '/reviews/best-return-pumps' },
+  { name: 'Salt & Consumables', desc: 'Every major salt mix ranked by true cost per mixed gallon.', href: '/reviews/best-reef-salt-mix' },
+  { name: 'Controllers', desc: 'Apex vs GHL vs Hydros — what actually matters for your build.', href: '/compare/apex-vs-hydros-vs-ghl' },
 ];
 ---
 <Base>
@@ -53,10 +53,10 @@ const clusters = [
     <h2>Start with your setup.</h2>
     <div class="grid cols-2" style="margin-top:26px;">
       {clusters.map((c) => (
-        <div class="card">
+        <a class="card cardlink" href={url(c.href)}>
           <h3>{c.name}</h3>
           <p style="color:var(--muted)">{c.desc}</p>
-        </div>
+        </a>
       ))}
     </div>
   </section>

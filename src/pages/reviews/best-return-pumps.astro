@@ -1,0 +1,207 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import { recommend, type Pump, type SizingInputs } from '../../utils/pump-calc';
+import pumpData from '../../data/pumps.json';
+
+// Rankings are computed AT BUILD TIME from the same physics as the calculator —
+// delivered flow at each class's realistic plumbing, not the box's zero-head number.
+const pumps = (pumpData as any).pumps as Pump[];
+const dataDate = (pumpData as any).generated as string;
+
+interface TankClass {
+  key: string;
+  label: string;
+  blurb: string;
+  inputs: SizingInputs;
+}
+// Reference plumbing per tank class — typical static rise + pipe run for that build.
+const CLASSES: TankClass[] = [
+  {
+    key: 'nano',
+    label: 'Nano / AIO (20–30 gal)',
+    blurb: 'Short 2.5 ft rise through 3/4" line — the AIO back-chamber scenario.',
+    inputs: { displayGallons: 25, turnover: 7, staticHeadFt: 2.5, pipeIdInches: 0.804, pipeLengthFt: 4, elbows: 2 },
+  },
+  {
+    key: '40b',
+    label: '40 Breeder (40 gal)',
+    blurb: 'Sump under the stand: 4 ft rise, 8 ft of 1" pipe, 4 elbows.',
+    inputs: { displayGallons: 40, turnover: 7, staticHeadFt: 4, pipeIdInches: 1.029, pipeLengthFt: 8, elbows: 4 },
+  },
+  {
+    key: '75',
+    label: '75 Gallon',
+    blurb: 'Taller stand: 4.5 ft rise, 10 ft of 1" pipe, 4 elbows.',
+    inputs: { displayGallons: 75, turnover: 7, staticHeadFt: 4.5, pipeIdInches: 1.029, pipeLengthFt: 10, elbows: 4 },
+  },
+  {
+    key: '120',
+    label: '120 Gallon+',
+    blurb: 'Big system: 5 ft rise, 12 ft of 1-1/4" pipe, 4 elbows.',
+    inputs: { displayGallons: 120, turnover: 7, staticHeadFt: 5, pipeIdInches: 1.36, pipeLengthFt: 12, elbows: 4 },
+  },
+];
+
+interface Pick {
+  badge: string;
+  why: string;
+  pump: Pump;
+  deliveredGPH: number;
+  turnover: number;
+}
+
+const sections = CLASSES.map((c) => {
+  const { targetGPH, results } = recommend(c.inputs, pumps);
+  const fits = results.filter((r) => r.meetsTarget);
+  const picks: Pick[] = [];
+  const used = new Set<string>();
+  const id = (p: Pump) => `${p.brand} ${p.model}`;
+
+  // Right-size pick: smallest pump that still hits 7× turnover (no wasted watts/$).
+  if (fits[0]) {
+    picks.push({
+      badge: 'Right-size pick',
+      why: `Smallest pump that still delivers the ${targetGPH} GPH target through this plumbing — no paying for flow you'll valve back down.`,
+      pump: fits[0].pump,
+      deliveredGPH: fits[0].deliveredGPH,
+      turnover: fits[0].turnoverAtDisplay,
+    });
+    used.add(id(fits[0].pump));
+  }
+  // Value pick: cheapest pump that meets target.
+  const value = [...fits]
+    .filter((r) => r.pump.approxPriceUSD != null && !used.has(id(r.pump)))
+    .sort((a, b) => (a.pump.approxPriceUSD! - b.pump.approxPriceUSD!))[0];
+  if (value) {
+    picks.push({
+      badge: 'Value pick',
+      why: `Cheapest pump in the dataset that still meets the target — $${value.pump.approxPriceUSD} for ${value.deliveredGPH} GPH delivered.`,
+      pump: value.pump,
+      deliveredGPH: value.deliveredGPH,
+      turnover: value.turnoverAtDisplay,
+    });
+    used.add(id(value.pump));
+  }
+  // Efficiency pick: most delivered GPH per watt among pumps that meet target.
+  const eff = [...fits]
+    .filter((r) => r.pump.watts && !used.has(id(r.pump)))
+    .sort((a, b) => b.deliveredGPH / b.pump.watts! - a.deliveredGPH / a.pump.watts!)[0];
+  if (eff) {
+    picks.push({
+      badge: 'Efficiency pick',
+      why: `Best delivered-flow-per-watt of the pumps that qualify — ${Math.round(eff.deliveredGPH / eff.pump.watts!)} GPH per watt. Cheapest to run 24/7.`,
+      pump: eff.pump,
+      deliveredGPH: eff.deliveredGPH,
+      turnover: eff.turnoverAtDisplay,
+    });
+  }
+  return { cls: c, targetGPH, picks };
+});
+
+// Full reference table: every pump's delivered flow at the 75-gallon scenario.
+const refClass = CLASSES[2];
+const table = recommend(refClass.inputs, pumps).results
+  .slice()
+  .sort((a, b) => b.deliveredGPH - a.deliveredGPH);
+
+const buy = (p: Pump) => goHref(p.retailers || [], `${p.brand} ${p.model} return pump`);
+const allPicks = sections.flatMap((s) => s.picks);
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Return Pumps for Reef Tanks',
+  numberOfItems: allPicks.length,
+  itemListElement: allPicks.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${p.pump.brand} ${p.pump.model}`,
+  })),
+};
+---
+<Base
+  title="Best Return Pumps for Reef Tanks (2026) — Ranked by Delivered Flow"
+  description="The best reef return pumps by tank size, ranked by real delivered flow at realistic head — computed from manufacturer curves with Hazen-Williams friction math, not zero-head box numbers."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Return Pumps</p>
+    <h1>Best return pumps, ranked by the flow you actually get</h1>
+    <p class="lede-dark">Every "best return pump" list ranks by the box's max GPH — a number measured at <em>zero</em> head that no sump setup ever sees. We rank by <strong>delivered flow through realistic plumbing</strong> for each tank size, computed from each pump's published curve. Same math as our <a href={url('/tools/return-pump-calculator')}>return pump calculator</a>.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">How these picks work: rankings are computed from manufacturer flow curves (dataset updated {dataDate}) at each class's reference plumbing below — nobody pays for placement, and a pump we haven't bench-tested is never described as tested. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  {sections.map((s) => (
+    <section class="container" style="padding-top:16px;padding-bottom:20px;">
+      <h2>{s.cls.label}</h2>
+      <p style="color:var(--muted);max-width:64ch;">{s.cls.blurb} Target: <strong>{s.targetGPH} GPH</strong> delivered (7× turnover).</p>
+      <div class="results">
+        {s.picks.map((p, idx) => (
+          <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+            <div class="rmain">
+              <div class="rname">{p.pump.brand} {p.pump.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+              <div class="rmeta">{p.why}</div>
+              <div class="rmeta">
+                {p.pump.type} · {p.deliveredGPH} GPH delivered ({p.turnover}× turnover)
+                {p.pump.watts ? ` · ${p.pump.watts}W` : ''}
+                {p.pump.approxPriceUSD ? ` · ~$${p.pump.approxPriceUSD}` : ''}
+                {p.pump.modeled ? ' · curve modeled*' : ''}
+              </div>
+            </div>
+            <div class="rflow"><span class="n">{p.deliveredGPH}</span><br /><span class="u">GPH delivered</span></div>
+            <div class="rbuy"><a class="aff" href={buy(p.pump)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Every pump in the database</h2>
+    <p style="color:var(--muted);max-width:64ch;">Delivered flow computed at the 75-gallon reference plumbing ({refClass.blurb.toLowerCase()}) so the numbers are comparable. For <em>your</em> plumbing, use the <a href={url('/tools/return-pump-calculator')}>calculator</a>.</p>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead>
+          <tr><th>Pump</th><th>Type</th><th>Max GPH</th><th>Delivered GPH†</th><th>Watts</th><th>~Price</th></tr>
+        </thead>
+        <tbody>
+          {table.map((r) => (
+            <tr>
+              <td><strong>{r.pump.brand}</strong> {r.pump.model}{r.pump.modeled ? '*' : ''}</td>
+              <td>{r.pump.type}</td>
+              <td>{r.pump.maxFlowGPH}</td>
+              <td>{r.deliveredGPH > 0 ? r.deliveredGPH : '—'}</td>
+              <td>{r.pump.watts ?? '—'}</td>
+              <td>{r.pump.approxPriceUSD ? `$${r.pump.approxPriceUSD}` : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">† At the 75-gal reference plumbing above; "—" means the pump can't overcome that head (fine for nano/AIO use). * Manufacturer publishes only max flow + max head, so the curve between is modeled linearly — treat as a close approximation. Prices are street prices at the dataset date and drift with sales.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>DC or AC?</h2>
+    <p>Most of the picks above are DC — controllable, quieter, and efficient at partial speed. The case for AC is simplicity and lifespan at a lower price. We wrote the full decision up in <a href={url('/guides/dc-vs-ac-return-pumps')}>DC vs AC return pumps</a>.</p>
+    <h2>Why "smallest sufficient" wins</h2>
+    <p>An oversized pump costs more up front, burns more watts forever, and ends up throttled back anyway. Our right-size pick is the smallest pump that hits 7× display turnover through the class's plumbing — if your plumbing differs, a taller rise or narrower pipe can change the winner, which is exactly what the <a href={url('/tools/return-pump-calculator')}>calculator</a> is for.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 640px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.specs tr:last-child td { border-bottom: none; }
+</style>

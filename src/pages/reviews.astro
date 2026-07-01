@@ -1,10 +1,44 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+const reviews = [
+  {
+    name: 'Best Protein Skimmers by Tank Size',
+    desc: 'Nano to 120+ gallons, ranked by honest bioload-adjusted capacity — not the box\'s optimistic "rated up to" number. Right-size, value, and heavy-bioload picks per class.',
+    href: '/reviews/best-protein-skimmers',
+    status: 'New',
+  },
+  {
+    name: 'Best Return Pumps for Reef Tanks',
+    desc: 'Ranked by delivered flow through realistic plumbing — computed from manufacturer curves with the same Hazen-Williams math as our calculator. Picks for AIO through 120+.',
+    href: '/reviews/best-return-pumps',
+    status: 'New',
+  },
+  {
+    name: 'Best Reef Salt Mix by Cost per Gallon',
+    desc: 'Every major salt ranked by what a mixed gallon really costs, split into growth formulas vs natural-parameter baselines — and which family fits how you run your tank.',
+    href: '/reviews/best-reef-salt-mix',
+    status: 'New',
+  },
+];
 ---
-<Base title="Reef Gear Reviews" description="Data-driven reviews of protein skimmers, return pumps, reef lights, and controllers." noindex>
-  <section class="container" style="max-width:760px;">
+<Base
+  title="Reef Gear Reviews — Ranked by Data"
+  description="Data-driven reef equipment roundups: protein skimmers ranked by honest capacity, return pumps by real delivered flow, salt mixes by true cost per gallon."
+>
+  <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews</p>
     <h1>Reviews, backed by numbers.</h1>
-    <p style="color:var(--muted)">Every review leads with the spec that decides the buy — skimmer rating vs. real bioload, pump flow vs. head loss, PAR vs. depth — and a dated, quantified verdict. First reviews publishing soon.</p>
+    <p style="color:var(--muted);max-width:62ch;">Every roundup here is computed from spec data — pump curves, bioload ratings, mix yields — with the methodology shown and the estimates flagged. No pay-to-play, no "we tested it" theater. <a href={url('/how-we-rate')}>How we rate →</a></p>
+    <div class="grid cols-2" style="margin-top:26px;">
+      {reviews.map((r) => (
+        <a class="card cardlink" href={url(r.href)}>
+          <span class="pill">{r.status}</span>
+          <h3>{r.name}</h3>
+          <p style="color:var(--muted)">{r.desc}</p>
+        </a>
+      ))}
+    </div>
+    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Coming next: best reef LED lights (with PAR-at-depth data) and best reef controllers — see the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a> while we finish it.</p>
   </section>
 </Base>

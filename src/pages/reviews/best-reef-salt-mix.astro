@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import saltData from '../../data/salts.json';
+
+interface Salt {
+  brand: string;
+  product: string;
+  gallonsPerBox: number;
+  priceUSD: number;
+  params: string;
+  retailers?: string[];
+}
+const salts = (saltData as any).salts as Salt[];
+const dataDate = (saltData as any).generated as string;
+
+// The only fair comparison: price ÷ gallons the box mixes at reef salinity.
+const withCost = salts
+  .map((s) => ({ ...s, costPerGal: s.priceUSD / s.gallonsPerBox }))
+  .sort((a, b) => a.costPerGal - b.costPerGal);
+
+// Two honest families, from each salt's stated parameter profile:
+// elevated/enriched alk-ca-mg (growth formulas) vs near-natural-seawater baselines.
+const isElevated = (s: Salt) => /elevated|enriched/i.test(s.params);
+const elevated = withCost.filter(isElevated);
+const natural = withCost.filter((s) => !isElevated(s));
+
+const money = (n: number) => `$${n.toFixed(2)}`;
+const monthly75 = (costPerGal: number) => money(costPerGal * 32.5); // 75 gal, 10% weekly ≈ 32.5 gal/mo
+
+interface Pick { badge: string; why: string; s: (typeof withCost)[number]; win?: boolean; }
+const picks: Pick[] = [];
+const used = new Set<string>();
+const id = (s: Salt) => `${s.brand} ${s.product}`;
+
+picks.push({
+  badge: 'Best value overall',
+  why: `Cheapest cost per mixed gallon in the dataset (${money(withCost[0].costPerGal)}/gal). The classic fish-only and dose-it-yourself reef choice.`,
+  s: withCost[0],
+  win: true,
+});
+used.add(id(withCost[0]));
+
+const bestElevated = elevated.find((s) => !used.has(id(s)));
+if (bestElevated) {
+  picks.push({
+    badge: 'Best value growth formula',
+    why: `Cheapest of the elevated alk/ca/mg formulas (${money(bestElevated.costPerGal)}/gal) — coral-growth chemistry without the premium-brand price.`,
+    s: bestElevated,
+  });
+  used.add(id(bestElevated));
+}
+const bestNatural = natural.find((s) => !used.has(id(s)));
+if (bestNatural) {
+  picks.push({
+    badge: 'Best value natural-parameter',
+    why: `Cheapest near-natural-seawater formula after the baseline (${money(bestNatural.costPerGal)}/gal) — for tanks that dose to their own targets and want the salt to stay out of the way.`,
+    s: bestNatural,
+  });
+}
+
+const buy = (s: Salt) => goHref(s.retailers || [], `${s.brand} ${s.product} reef salt`);
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Reef Salt Mix by Cost per Gallon',
+  numberOfItems: withCost.length,
+  itemListElement: withCost.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${s.brand} ${s.product}`,
+  })),
+};
+---
+<Base
+  title="Best Reef Salt Mix (2026) — Ranked by Real Cost per Gallon"
+  description="Every major reef salt ranked by true cost per mixed gallon — Instant Ocean, Red Sea, Tropic Marin, Fritz, Aquaforest and more — with growth vs natural-parameter formulas explained."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Salt Mix</p>
+    <h1>Best reef salt, ranked by what a gallon actually costs</h1>
+    <p class="lede-dark">Salt is the quiet recurring cost of reefing — and boxes lie by omission. A $75 box that mixes 200 gallons is cheaper salt than a $75 box that mixes 160. We rank every major mix by <strong>cost per mixed gallon</strong>, then split them into the two families that actually matter: elevated growth formulas vs near-natural-seawater baselines.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">How this ranking works: computed from box price ÷ manufacturer mix yield at reef salinity (~1.025), dataset updated {dataDate}. Parameter families come from each maker's published water chemistry. Nobody pays for placement. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:20px;">
+    <h2>The picks</h2>
+    <div class="results">
+      {picks.map((p) => (
+        <div class={`rcard ${p.win ? 'win' : ''}`}>
+          <div class="rmain">
+            <div class="rname">{p.s.brand} {p.s.product} <span class={p.win ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+            <div class="rmeta">{p.why}</div>
+            <div class="rmeta">{p.s.params} · ~${p.s.priceUSD} box mixes {p.s.gallonsPerBox} gal · ≈{monthly75(p.s.costPerGal)}/mo on a 75-gal tank at 10% weekly changes</div>
+          </div>
+          <div class="rflow"><span class="n">{money(p.s.costPerGal)}</span><br /><span class="u">per gallon</span></div>
+          <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+        </div>
+      ))}
+    </div>
+    <p class="rnote">Want the ranking for <em>your</em> tank size and water-change schedule? The <a href={url('/tools/salt-cost-calculator')}>salt cost calculator</a> computes your actual monthly spend for every salt here.</p>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>All {withCost.length} salts, cheapest per gallon first</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead>
+          <tr><th>Salt</th><th>Family</th><th>Box</th><th>Mixes</th><th>Cost / gal</th></tr>
+        </thead>
+        <tbody>
+          {withCost.map((s) => (
+            <tr>
+              <td><strong>{s.brand}</strong> {s.product}</td>
+              <td>{isElevated(s) ? 'Growth (elevated)' : 'Natural / NSW'}</td>
+              <td>${s.priceUSD}</td>
+              <td>{s.gallonsPerBox} gal</td>
+              <td><strong>{money(s.costPerGal)}</strong></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">Prices are street prices at the dataset date and move with sales — the per-gallon <em>ordering</em> is much more stable than the absolute numbers.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>Growth formula or natural parameters?</h2>
+    <p><strong>Elevated formulas</strong> (Reef Crystals, Coral Pro, RPM, Aquaforest Reef Salt…) mix high on alkalinity, calcium and magnesium so water changes themselves replenish what corals consume — a real convenience on stony-coral tanks that don't dose. The catch: on a tank that <em>does</em> dose, or does small changes, elevated alk swings parameters on every change.</p>
+    <p><strong>Natural-parameter salts</strong> (Blue Bucket, Tropic Marin Classic, NeoMarine…) mix near natural seawater. They're the stable choice for tanks that dose to their own targets, and for sensitive SPS systems where a 3-dKH jump on water-change day is exactly what you're trying to avoid.</p>
+    <p>Neither family is "better" — the mistake is paying the elevated premium and then dosing anyway, or running a no-dose stony tank on a baseline salt and wondering where the alkalinity went. Pair the salt with how you actually run the tank; our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> covers the other half of that equation.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 560px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.specs tr:last-child td { border-bottom: none; }
+</style>

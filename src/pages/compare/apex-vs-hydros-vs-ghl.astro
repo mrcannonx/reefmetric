@@ -1,0 +1,181 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import controllerData from '../../data/controllers.json';
+
+const data = controllerData as any;
+const dataDate = data.generated as string;
+const [apex, hydros, ghl] = data.ecosystems;
+const ecosystems = data.ecosystems as any[];
+
+const buy = (kit: any, brand: string) => goHref(kit.retailers || [], `${brand} ${kit.model}`);
+const price = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'See retailer');
+const probes = (p: string[] | null) => (p == null ? 'Not itemized' : p.length === 0 ? 'None' : p.join(', '));
+
+// Cheapest kit with real outlet control per ecosystem, for the head-to-head row.
+const entryKit = (e: any) => e.kits[e.kits.length - 1];
+const flagship = (e: any) => e.kits[0];
+
+const faqs = [
+  {
+    q: 'Does Apex Fusion, myGHL, or the HYDROS app charge a monthly fee?',
+    a: `No — as of ${dataDate}, all three clouds are free. Apex Fusion, myGHL/GHL Connect, and the HYDROS app have no subscription tier. The recurring costs that ARE real: Trident reagents (~$45 every 2 months) if you add automated testing to an Apex.`,
+  },
+  {
+    q: 'Which reef controller is easiest to program?',
+    a: 'HYDROS. Its Collectives system is a GUI automation builder closer to a smart-home app than a programming language. Apex sits in the middle with an if-this-then-that rule language, and GHL\'s logic-gate programming is the most powerful but the steepest — owners switching from Apex consistently describe a hard adjustment.',
+  },
+  {
+    q: 'Which controller has automated water testing?',
+    a: 'Neptune (Trident, $779.99, reagent-based Alk/Ca/Mg) and GHL (ION Director, reagent-free Ca/Mg/K/Na/NO3, ~$1,034 bundled with a doser). HYDROS has no automated tester — if hands-off water testing matters to you, that rules HYDROS out today.',
+  },
+  {
+    q: 'Is a DIY Reef-Pi controller worth it?',
+    a: `Only if you're technical and enjoy the project. Reef-Pi is actively maintained open source and runs ~$${data.reefPi.roughCostUSD} in parts for ATO, temp, lighting and dosing control — but there's no warranty, no support, and the build is the hobby.`,
+  },
+];
+
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Apex vs HYDROS vs GHL ProfiLux reef controller comparison',
+    numberOfItems: 3,
+    itemListElement: ecosystems.map((e: any, i: number) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${e.brand} ${e.ecosystem}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base
+  title="Apex vs HYDROS vs GHL ProfiLux (2026) — Full Reef Controller Comparison"
+  description="Neptune Apex vs CoralVue HYDROS vs GHL ProfiLux, compared spec by spec: kit prices, included probes, cloud fees (all free), programming difficulty, dosing and automated testing ecosystems, and honest owner-reported weaknesses."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Compare · Controllers</p>
+    <h1>Apex vs HYDROS vs GHL: the full controller comparison</h1>
+    <p class="lede-dark">A reef controller is a $200–$1,200 decision you'll live with for a decade, and most comparisons out there cover two products in 400 words. Here's the whole picture: every current kit and street price, what's actually in each box, the free-vs-paid cloud truth, and the weaknesses owners actually report — sourced and dated, not vibes.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). No brand paid for placement and we don't hide the weak spots. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The 30-second verdict</h2>
+    <div class="grid cols-3" style="margin-top:18px;">
+      <div class="card">
+        <span class="pill">Ecosystem king</span>
+        <h3>Neptune Apex</h3>
+        <p style="color:var(--muted)">Biggest community, most third-party integration, and the most mature automated tester (Trident). Pay for it in price — and hardwire the Ethernet, because Apex WiFi is the #1 owner complaint.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Best value + easiest</span>
+        <h3>CoralVue HYDROS</h3>
+        <p style="color:var(--muted)">Cheapest real entry ($198.65 brain, $346.49 starter), simplest programming, and a mesh design with no single point of failure. Newest ecosystem though — and no automated water tester at all.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Power-user pick</span>
+        <h3>GHL ProfiLux</h3>
+        <p style="color:var(--muted)">The most complete kit in the box (4 lab-grade probes + calibration fluids) and the most powerful programming — behind the steepest learning curve and the worst US price transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Head to head</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead>
+          <tr><th>&nbsp;</th><th>Apex (A3)</th><th>HYDROS</th><th>ProfiLux 4</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Entry price</strong></td><td>{price(entryKit(apex).priceUSD)} (Jr, monitor-only)</td><td>{price(entryKit(hydros).priceUSD)} (X2, bare brain)</td><td>{price(entryKit(ghl).priceUSD)} (Mega-Set only)</td></tr>
+          <tr><td><strong>Flagship kit</strong></td><td>{flagship(apex).model} — {price(flagship(apex).priceUSD)}</td><td>{flagship(hydros).model} — {price(flagship(hydros).priceUSD)}</td><td>{flagship(ghl).model} — {price(flagship(ghl).priceUSD)}</td></tr>
+          <tr><td><strong>Probes in flagship box</strong></td><td>{probes(flagship(apex).includedProbes)}</td><td>{probes(flagship(hydros).includedProbes)}</td><td>{probes(flagship(ghl).includedProbes)}</td></tr>
+          <tr><td><strong>Controllable outlets</strong></td><td>8 (EB832)</td><td>8 (XP8, per-outlet monitoring)</td><td>6 (Powerbar 6E)</td></tr>
+          <tr><td><strong>Cloud fee</strong></td><td>Free (Apex Fusion)</td><td>Free (HYDROS app)</td><td>Free (myGHL / GHL Connect)</td></tr>
+          <tr><td><strong>Connectivity</strong></td><td>WiFi + Ethernet (Jr: WiFi only)</td><td>WiFi + Command Bus mesh</td><td>WiFi + Ethernet</td></tr>
+          <tr><td><strong>Programming</strong></td><td>Rule language — moderate</td><td>Collectives GUI — easiest</td><td>Logic gates — steepest</td></tr>
+          <tr><td><strong>Automated testing</strong></td><td>Trident Alk/Ca/Mg — $779.99 + reagents</td><td>None available</td><td>ION Director, reagent-free — ~$1,034 bundled</td></tr>
+          <tr><td><strong>Dosing</strong></td><td>DOS dual-head — $374.99</td><td>$72.75 per modular pump</td><td>Doser 3, sold in ~$1,020+ bundles</td></tr>
+          <tr><td><strong>Known weak spot</strong></td><td>Controller WiFi drop-offs (hardwire it)</td><td>WiFi power strip flakiness; young ecosystem</td><td>Learning curve; crash-prone desktop software</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">App ratings exist (Fusion 3.4★/128, HYDROS 3.9★/18, GHL Connect 4.0★/4) but the samples are too small to decide anything — we don't rank on them.</p>
+  </section>
+
+  {ecosystems.map((e: any) => (
+    <section class="container" style="padding-top:24px;padding-bottom:8px;">
+      <h2>{e.brand} {e.ecosystem}</h2>
+      <div class="grid cols-2" style="margin-top:14px;">
+        <div class="card">
+          <h3 style="font-size:1.05rem;">Where it wins</h3>
+          <ul class="pmlist">{e.strengths.map((s: string) => <li>{s}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem;">Where it hurts</h3>
+          <ul class="pmlist">{e.weaknesses.map((w: string) => <li>{w}</li>)}</ul>
+        </div>
+      </div>
+      <div class="results" style="margin-top:16px;">
+        {e.kits.map((k: any, idx: number) => (
+          <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+            <div class="rmain">
+              <div class="rname">{k.model}{idx === 0 ? <span class="pill-win" style="margin-left:8px;">Flagship</span> : null}</div>
+              <div class="rmeta">Probes: {probes(k.includedProbes)} · {k.outletsNotes}</div>
+              <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
+            </div>
+            <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
+            <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>Which one fits your build?</h2>
+    <p><strong>First controller on a 40–90 gallon mixed reef, and you want it to just work:</strong> HYDROS. The X4/XP8 Pro Pack at {price(flagship(hydros).priceUSD)} undercuts the equivalent Apex by ~$350, Collectives won't fight you, and the mesh design means an outlet-bar failure doesn't kill the brain. Accept the younger ecosystem and skip it only if automated testing is on your roadmap.</p>
+    <p><strong>SPS-focused tank where automated Alk testing is the point:</strong> Apex. Trident is the reason — it's the most proven auto-tester, and the Apex ecosystem (DOS, third-party gear, a decade of Reef2Reef threads for every problem) is unmatched. Buy the full A3, not the Jr, and run Ethernet to it on day one.</p>
+    <p><strong>You calibrate probes for fun and want the most capable machine:</strong> GHL. Nothing else ships four lab-grade probes with calibration fluids in the box, ION Director tests five parameters with zero recurring reagent cost, and logic gates will do things the other two can't. Budget real learning time, and price the Mega-Set in your BRS cart since GHL's US pricing hides until checkout.</p>
+    <p><strong>You're an engineer with more time than money:</strong> {data.reefPi.summary} <a href={data.reefPi.source} target="_blank" rel="nofollow noopener">Reef-Pi on GitHub ↗</a></p>
+
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  {ld.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 720px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .pmlist { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
+  .pmlist li { margin-bottom: 6px; font-size: .92rem; }
+</style>
