@@ -21,10 +21,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "22"
       - name: Install
         run: npm ci
-      - name: Build (preview: /reefmetric base, noindexed)
+      - name: Build preview (reefmetric base, noindexed)
         run: npm run build
         env:
           DEPLOY_BASE: /reefmetric
