@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+---
+<Base
+  title="DC vs AC Return Pumps: Which Should You Buy?"
+  description="DC vs AC reef return pumps compared — controllability, noise, efficiency, price, and reliability. When a controllable DC pump is worth it, and when a simple AC pump is the smarter buy."
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Decision guide</p>
+    <h1>DC vs AC Return Pumps: Which Should You Buy?</h1>
+    <p class="lede-dark">Both move water. The difference is control, noise, and how they fail. Here's the honest breakdown so you don't overpay for features you won't use — or underbuy and regret it.</p>
+
+    <Disclosure />
+
+    <h2>The one-line answer</h2>
+    <p>Buy a <strong>DC pump</strong> if you want to dial in your flow, care about noise, or run a display where the return is visible/audible from the couch. Buy an <strong>AC pump</strong> if you want dead-simple reliability, a lower price, or a bulletproof backup that runs no matter what. Most modern reefers pick DC for the main return; plenty keep an AC pump on the shelf as an emergency spare.</p>
+
+    <h2>Controllability</h2>
+    <p>This is the real reason DC exists. A DC pump has a controller — you can tune the exact flow rate, ramp it, run feed mode, and often sync it to an aquarium controller. An AC pump runs at one fixed speed; to slow it you throttle the output with a gate valve (which wastes energy and can stress the pump). If you like to <em>tune</em> your system, DC wins outright.</p>
+
+    <h2>Noise</h2>
+    <p>DC pumps are usually noticeably quieter, especially at the reduced speeds most people actually run. AC pumps hum at full tilt all the time. In a bedroom or living-room tank, that difference matters a lot more than the spec sheet suggests.</p>
+
+    <h2>Efficiency</h2>
+    <p>DC motors are more energy-efficient and — because you can run them slower — you often pull real wattage savings over a year. On a big system that runs 24/7, the electricity difference is not nothing. On a nano, it's negligible.</p>
+
+    <h2>Price and reliability</h2>
+    <p>AC pumps are cheaper up front and mechanically dead-simple: fewer electronics to fail, and if the power blips they just start back up. DC pumps cost more and add a controller — one more part that can fail, and some cheaper DC controllers are the weak link. The counterpoint: quality DC pumps have gotten very reliable, and the ability to dial flow often prevents the "too much/too little" problems that plague fixed AC setups.</p>
+
+    <h2>The failure-mode angle most people miss</h2>
+    <p>If a DC controller dies, the pump stops — full stop — until you replace the controller. An AC pump has no controller to die. That's why a lot of experienced reefers run DC as their daily driver but keep a cheap AC pump boxed up as a same-day backup. Redundancy is cheaper than a tank crash.</p>
+
+    <h2>So: which, for your build?</h2>
+    <p>Whichever you choose, the number that matters isn't the box GPH — it's the real flow at <em>your</em> head height and plumbing. Size it properly:</p>
+    <p><a href={url('/tools/return-pump-calculator')} class="inlinecta">→ Size your return pump (DC and AC, ranked together)</a></p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+</style>

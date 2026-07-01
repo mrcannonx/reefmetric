@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+---
+<Base
+  title="How We Rate Reef Gear"
+  description="ReefMetric's methodology — how we source specs, run the sizing math, mark estimates honestly, and keep recommendations independent of affiliate payouts."
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Methodology</p>
+    <h1>How we rate reef gear</h1>
+    <p class="lede-dark">ReefMetric exists because most reef "best of" lists are opinions dressed up as advice. Our recommendations start with numbers, and we show our work. Here's exactly how.</p>
+
+    <h2>1. We start from published specs</h2>
+    <p>Every pump, skimmer, and light in our tools is entered from manufacturer spec sheets and reputable retailer listings, with the source recorded. We convert everything to common units (GPH, feet of head, gallons) so different brands are actually comparable — a surprising amount of "which is bigger" confusion is just L/h vs GPH and meters vs feet.</p>
+
+    <h2>2. We do the math the box won't</h2>
+    <p>Specs alone mislead. A pump's "max GPH" is measured at zero head; a skimmer's "rated gallons" assumes light stocking. So our tools compute the number you actually care about:</p>
+    <ul>
+      <li><strong>Return pumps:</strong> real delivered flow at <em>your</em> total dynamic head, using the Hazen-Williams friction equation plus fitting losses, solved at each pump's operating point.</li>
+      <li><strong>Skimmers:</strong> honest capacity for <em>your</em> bioload, using the manufacturer's own light/medium/heavy ratings where published, and a conservative derate where they only give one optimistic number.</li>
+    </ul>
+
+    <h2>3. We mark estimates as estimates</h2>
+    <p>When a manufacturer doesn't publish enough data — a pump with no full curve, a skimmer with no bioload breakdown — we approximate, and we <strong>flag it</strong> (you'll see a "*"). We would rather tell you "this is a close approximation" than pretend to a precision we don't have. Where a real curve or rating exists, we use it, and those figures are exact.</p>
+
+    <h2>4. We keep it current</h2>
+    <p>Gear gets discontinued, revised, and re-priced. We update the datasets and re-check specs on a rolling basis, and date what we can. If you spot a spec that's drifted, tell us.</p>
+
+    <h2>5. Rankings are not for sale</h2>
+    <p>We earn affiliate commissions when you buy through our links, at no extra cost to you — it's how the site stays free. But the ranking is driven entirely by the data and the fit to your setup, never by which program pays more. If the best pump for your tank is a $55 one, that's what ranks first. <a href={url('/disclosure')}>Full affiliate disclosure →</a></p>
+
+    <h2>What's next</h2>
+    <p>We're building toward first-hand bench data — measured flow-at-head, noise, and power draw on our own rig — to go beyond published specs. When a figure is our own measurement rather than a manufacturer's, we'll label it clearly.</p>
+  </section>
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .prose ul { color: var(--muted); }
+  .prose li { margin-bottom: 6px; }
+</style>
