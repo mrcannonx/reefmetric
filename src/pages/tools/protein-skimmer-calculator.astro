@@ -71,16 +71,14 @@ const isSample = (skimmerData as any).sample === true;
 <script>
   import { recommendSkimmers } from '../../utils/skimmer-calc';
   import data from '../../data/skimmers.json';
+  import { goHref } from '../../data/affiliate-config';
 
   const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
 
   function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
 
-  function buyUrl(s: { brand: string; model: string; retailers?: string[] }) {
-    const q = encodeURIComponent(`${s.brand} ${s.model} protein skimmer`);
-    if (s.retailers && s.retailers.includes('Bulk Reef Supply')) return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
-    return `https://www.amazon.com/s?k=${q}`;
-  }
+  const buyUrl = (s: { brand: string; model: string; retailers?: string[] }) =>
+    goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`);
 
   function render() {
     const gallons = Number(val('sDisplayGallons')) || 0;

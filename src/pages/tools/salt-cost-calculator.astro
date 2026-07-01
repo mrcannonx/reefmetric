@@ -59,16 +59,14 @@ const isSample = (saltData as any).sample === true;
 <script>
   import { rankSalts, FREQUENCIES } from '../../utils/salt-cost-calc';
   import data from '../../data/salts.json';
+  import { goHref } from '../../data/affiliate-config';
 
   const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
   const money2 = (n: number) => '$' + n.toFixed(2);
   const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
 
-  function buyUrl(s: { brand: string; product: string; retailers?: string[] }) {
-    const q = encodeURIComponent(`${s.brand} ${s.product} reef salt`);
-    if (s.retailers && s.retailers.includes('Bulk Reef Supply')) return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
-    return `https://www.amazon.com/s?k=${q}`;
-  }
+  const buyUrl = (s: { brand: string; product: string; retailers?: string[] }) =>
+    goHref(s.retailers || [], `${s.brand} ${s.product} reef salt`);
 
   function render() {
     const gallons = Number(val('stGallons')) || 0;

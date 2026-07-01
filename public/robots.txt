@@ -1,6 +1,7 @@
 # ReefMetric — allow all search engines
 User-agent: *
 Allow: /
+Disallow: /go/
 
 # AI answer engines — explicitly allowlisted so we can be cited in AI answers.
 # (llms.txt is a dud; robots.txt allowlisting + a Bing sitemap is the real lever.)

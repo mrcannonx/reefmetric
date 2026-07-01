@@ -115,6 +115,7 @@ const pumpCount = (pumpData as any).pumps.length;
 <script>
   import { recommend } from '../../utils/pump-calc';
   import data from '../../data/pumps.json';
+  import { goHref } from '../../data/affiliate-config';
 
   const $ = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
 
@@ -129,13 +130,8 @@ const pumpCount = (pumpData as any).pumps.length;
     };
   }
 
-  function buyUrl(p: { brand: string; model: string; retailers?: string[] }) {
-    const q = encodeURIComponent(`${p.brand} ${p.model} return pump`);
-    if (p.retailers && p.retailers.includes('Bulk Reef Supply')) {
-      return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
-    }
-    return `https://www.amazon.com/s?k=${q}`;
-  }
+  const buyUrl = (p: { brand: string; model: string; retailers?: string[] }) =>
+    goHref(p.retailers || [], `${p.brand} ${p.model} return pump`);
 
   function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
 

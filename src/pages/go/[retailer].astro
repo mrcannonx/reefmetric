@@ -1,0 +1,46 @@
+---
+import { RETAILERS } from '../../data/affiliate-config';
+
+export function getStaticPaths() {
+  return Object.keys(RETAILERS).map((key) => ({ params: { retailer: key } }));
+}
+
+const { retailer } = Astro.params;
+const r = RETAILERS[retailer as string];
+const searchTemplate = r.searchUrl('__Q__');
+const fallback = r.searchUrl('');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting to {r.name}…</title>
+    <script define:vars={{ searchTemplate, fallback }}>
+      const params = new URLSearchParams(location.search);
+      const q = params.get('q');
+      const u = params.get('u');
+      let dest = fallback;
+      if (u && /^https?:\/\//i.test(u)) dest = u;
+      else if (q) dest = searchTemplate.replace('__Q__', encodeURIComponent(q));
+      location.replace(dest);
+    </script>
+    <style>
+      body { font-family: system-ui, sans-serif; color: #16262f; background: #f5f8f8; display: grid; place-items: center; min-height: 100vh; margin: 0; }
+      .box { text-align: center; }
+      a { color: #0c7d7b; }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>Taking you to {r.name}…</p>
+      <p><a id="fallback" href={fallback}>Continue &rarr;</a></p>
+      <script define:vars={{ searchTemplate }}>
+        // update the fallback link with the query, in case the auto-redirect is blocked
+        const q = new URLSearchParams(location.search).get('q');
+        if (q) { const a = document.getElementById('fallback'); if (a) a.href = searchTemplate.replace('__Q__', encodeURIComponent(q)); }
+      </script>
+    </div>
+  </body>
+</html>
