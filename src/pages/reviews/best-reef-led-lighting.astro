@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import { parAtHeight, type Light, type ParBand } from '../../utils/light-calc';
+import lightData from '../../data/lights.json';
+
+const data = lightData as any;
+const dataDate = data.generated as string;
+const lights = data.lights as Light[];
+const bands = data.parTargets as (ParBand & { key: string })[];
+const gapFixtures = data.noParData as { brand: string; model: string; priceUSD: number; note: string; priceSource: string }[];
+
+const REF_HEIGHT = 18; // a reasonable common "typical mount" reference — see methodology note
+const money = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Check price');
+
+interface Row { light: Light; par18: number; exact: boolean; }
+const rows: Row[] = lights.map((light) => {
+  const { par, exact } = parAtHeight(light, REF_HEIGHT);
+  return { light, par18: Math.round(par), exact };
+});
+
+interface Pick { badge: string; why: string; row: Row; }
+const byModel = (m: string) => rows.find((r) => r.light.model === m)!;
+const picks: Pick[] = [
+  {
+    badge: 'Best all-around',
+    why: 'The only fixture in this comparison with an independent third-party lab curve, not just a manufacturer number — 1908→462→197 PAR from 12 to 24in shows exactly how much mount height changes real output.',
+    row: byModel('Hydra 32 HD'),
+  },
+  {
+    badge: 'Best budget pick',
+    why: 'Cheapest fixture here with a genuine manufacturer PAR figure behind it — 100 PAR at 24in is softies/LPS territory, sized right for a nano or first "real" reef.',
+    row: byModel('Prime 16HD'),
+  },
+  {
+    badge: 'Best for SPS',
+    why: 'Highest verified PAR ceiling in the dataset and the widest published coverage map (43×25in) — still reads 401 PAR at nearly 24in, SPS-range output even mounted high.',
+    row: byModel('Atlantik iCon'),
+  },
+  {
+    badge: 'Best rimless strip',
+    why: 'Cheapest overall, no mounting arm needed — 94 PAR at 12in keeps it in softies/LPS territory rather than SPS.',
+    row: byModel('Sea Marine 3.0 (46W)'),
+  },
+];
+
+const buy = (l: Light) => goHref(l.retailers || [], `${l.brand} ${l.model} reef LED light`);
+const buyGap = (g: { brand: string; model: string }) => goHref([], `${g.brand} ${g.model} reef LED light`);
+
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Reef LED Lighting — Ranked by Verified PAR Data',
+  numberOfItems: picks.length,
+  itemListElement: picks.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: `${p.row.light.brand} ${p.row.light.model}` })),
+};
+---
+<Base
+  title="Best Reef LED Lighting (2026) — Ranked by Verified PAR Data"
+  description="The best reef tank LED lights, ranked only where real PAR data exists — manufacturer charts or independent lab tests, not marketing claims. Includes a transparency scorecard for the popular fixtures that publish no PAR data at all."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · LED Lighting</p>
+    <h1>Best reef LED lighting — ranked by data that actually exists</h1>
+    <p class="lede-dark">Every "best reef light" list repeats manufacturer PAR claims as if they were tested fact. We checked: of the 11 popular fixtures in this comparison, only <strong>4 have a real PAR figure behind them</strong> — a manufacturer chart or an independent lab test. The rest, including some of the most popular fixtures in the hobby, publish nothing verifiable. We rank the four, and we name the gap on the rest instead of quietly copying their marketing copy.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). Reference mounting height for the headline PAR figure below is {REF_HEIGHT}in above the water — see the methodology note for why. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The picks</h2>
+    <div class="results">
+      {picks.map((p, idx) => (
+        <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          <div class="rmain">
+            <div class="rname">{p.row.light.brand} {p.row.light.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+            <div class="rmeta">{p.why}</div>
+            <div class="rmeta">
+              {p.row.light.watts}W · {p.row.light.footprintIn}" coverage · {p.row.light.curveSource} PAR data
+            </div>
+            <div class="rmeta">Curve: {p.row.light.parCurve.map((pt) => `${pt.par} PAR @ ${pt.heightIn}"`).join(' · ')}</div>
+          </div>
+          <div class="rflow"><span class="n">{p.row.par18}</span><br /><span class="u">~PAR @ {REF_HEIGHT}"{p.row.exact ? '' : '*'}</span></div>
+          <div class="rbuy"><a class="aff" href={buy(p.row.light)} target="_blank" rel="sponsored nofollow noopener">{money(p.row.light.priceUSD)} ↗</a></div>
+        </div>
+      ))}
+    </div>
+    <p class="rnote">* Interpolated or extrapolated from the fixture's tested points, not a reading measured exactly at {REF_HEIGHT}in — see each curve above. Coral bands: {bands.map((b) => `${b.band} ${b.minPPFD}-${b.maxPPFD} PAR`).join(' · ')}.</p>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>PAR transparency scorecard</h2>
+    <p style="color:var(--muted);max-width:68ch;">Before you buy on a PAR claim, check whether it's actually backed by anything. These are widely-used, well-regarded fixtures — the gap isn't quality, it's that the brand (or anyone independent) hasn't published a verifiable number.</p>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>Fixture</th><th>Price</th><th>PAR data</th><th></th></tr></thead>
+        <tbody>
+          {gapFixtures.map((g) => (
+            <tr>
+              <td><strong>{g.brand}</strong> {g.model}</td>
+              <td>{money(g.priceUSD)}</td>
+              <td style="color:var(--muted)">{g.note}</td>
+              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">Prices sourced from each fixture's retailer/manufacturer page on {dataDate} — they move with sales, so check current price before buying. We're not saying these are bad lights; several are among the most popular fixtures in the hobby. We're saying you can't verify their PAR from anything public, so we won't rank them on a number nobody can show their work on.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>Matching light to coral</h2>
+    <p>How to read the curves above against these bands: find the height in a fixture's tested curve closest to how you'll actually mount it. A reading inside a band's range is a comfortable fit; well above a band's ceiling means real headroom (all four of these are dimmable, so "too bright at 100%" just means turn it down); well below a floor means mount it closer or size up.</p>
+    <p><strong>Softies and LPS ({bands[0].minPPFD}-{bands[0].maxPPFD} PAR):</strong> the easiest band to hit — every ranked fixture clears it somewhere in its tested range, even mounted high or dimmed down. The Fluval Sea Marine 3.0 (94 PAR at 12in) is the cheapest way in if this is your ceiling.</p>
+    <p><strong>Mixed reef ({bands[1].minPPFD}-{bands[1].maxPPFD} PAR):</strong> the Hydra 32 HD is the clearest fit of the four — its curve brackets this band between 18in (462 PAR, above it) and 24in (197 PAR, just below it), so the right mounting height sits in between. The AI Prime 16HD's only tested point (100 PAR at 24in) sits below this band, not in it — it's a softies/LPS light unless mounted noticeably closer than 24in.</p>
+    <p><strong>SPS-dominant ({bands[2].minPPFD}-{bands[2].maxPPFD} PAR):</strong> the Orphek Atlantik iCon is built for this — still reading 401 PAR at nearly 24in, so a taller display that can't mount close to the water still gets SPS-strength light. The Hydra 32 HD can hit this range too, but needs a closer mount (between 18 and 24in) or dimming down from its 18in reading of 462 PAR.</p>
+    <h2>Why we didn't rank Radion, Kessil, or Reef Breeders</h2>
+    <p>These are genuinely good, popular fixtures — leaving them out of the ranked picks isn't a quality verdict. EcoTech's Mobius app reports its own internal light metrics rather than publishing a static PPFD table; Kessil has never published PAR data for its point-source A-series in over a decade of selling it; Reef Breeders references a chart image that isn't machine-verifiable. We'd rather tell you that plainly than dress up a forum guess as a fact.</p>
+    <h2>Methodology note on the {REF_HEIGHT}" reference height</h2>
+    <p>Unlike pump plumbing or skimmer bioload, reef lights don't share one physical reference frame — some manufacturers measure height above the water, Orphek measures from the tank bottom, and mounting height itself is a personal choice. {REF_HEIGHT} inches is a reasonable middle ground across the tested ranges we found; it is not "correct" in any absolute sense, and every fixture's full tested curve is shown above so you can read the number for your actual setup rather than trust our single reference point.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 620px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+</style>

@@ -20,6 +20,12 @@ const reviews = [
     href: '/reviews/best-reef-salt-mix',
     status: 'New',
   },
+  {
+    name: 'Best Reef LED Lighting, Ranked by Verified PAR',
+    desc: 'Of 11 popular fixtures compared, only 4 have real PAR data behind them — a manufacturer chart or an independent lab test. We rank those four and name the gap on the rest.',
+    href: '/reviews/best-reef-led-lighting',
+    status: 'New',
+  },
 ];
 ---
 <Base
@@ -39,6 +45,6 @@ const reviews = [
         </a>
       ))}
     </div>
-    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Coming next: best reef LED lights (with PAR-at-depth data) and best reef controllers — see the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a> while we finish it.</p>
+    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for controllers? See the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a>. Coming next: skimmer brand face-offs.</p>
   </section>
 </Base>
