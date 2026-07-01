@@ -1,0 +1,119 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { TIERS, CORALS } from '../../utils/cost-calc';
+---
+<Base
+  title="Reef Tank Cost Calculator (up-front + monthly)"
+  description="Free reef tank cost calculator. Enter your tank size, build tier, and coral type — get an itemized up-front cost estimate plus the monthly running cost (electricity, salt, consumables)."
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Tank Cost Calculator</h1>
+    <p class="lede-dark">The two questions every new reefer underestimates: what does it cost to <em>build</em>, and what does it cost to <em>run</em>. Here's an honest itemized estimate for both — up-front and monthly.</p>
+
+    <div class="calc card">
+      <form id="cost-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="cGallons" type="number" min="5" step="1" value="75" />
+        </label>
+        <label>Build tier
+          <select id="cTier">
+            {TIERS.map((t) => <option value={t.value} selected={t.value === 'mid'}>{t.label}</option>)}
+          </select>
+        </label>
+        <label>Coral type
+          <select id="cCoral">
+            {CORALS.map((c) => <option value={c.value} selected={c.value === 'mixed'}>{c.label}</option>)}
+          </select>
+        </label>
+        <label>Sump?
+          <select id="cSump">
+            <option value="yes" selected>Yes (recommended)</option>
+            <option value="no">No / all-in-one</option>
+          </select>
+        </label>
+        <label>Electricity rate ($/kWh)
+          <input id="cKwh" type="number" min="0" step="0.01" value="0.17" />
+        </label>
+      </form>
+      <div id="cost-totals"></div>
+    </div>
+
+    <Disclosure />
+    <div id="cost-table"></div>
+
+    <p style="margin-top:18px;"><a href={url('/tools/return-pump-calculator')} class="inlinecta">→ Size the return pump exactly</a> &nbsp; <a href={url('/tools/protein-skimmer-calculator')} class="inlinecta">→ Size the skimmer exactly</a></p>
+  </section>
+
+  <section class="container prose">
+    <h2>Why "how much does a reef tank cost" has no single answer</h2>
+    <p>The tank is the cheap part. Where the money goes is the equipment — lighting, skimmer, flow, and the reverse-osmosis unit you'll need for clean water — and then the ongoing cost of salt, electricity, and test kits. Our estimate splits it out so you can see exactly where each dollar goes and where you can save (buy value gear) versus where you shouldn't (RODI water, a right-sized skimmer).</p>
+
+    <h2>Up-front vs. monthly</h2>
+    <p>Up-front is a range because you can build the same tank at very different price points — that's the "tier" control. Monthly is mostly <strong>electricity</strong> (heaters and pumps run 24/7) plus <strong>salt and RODI</strong> for water changes and a bit for consumables. Bigger tanks cost proportionally more to run; efficient DC gear (the premium tier) actually lowers the monthly bill even as it raises the up-front cost.</p>
+
+    <h2>These are estimates</h2>
+    <p>Every number here is a reasoned range, not a quote — real prices vary by brand, sales, and where you live. Use it to budget and to sanity-check a build, then pin down the two biggest variable pieces (pump and skimmer) with the exact-sizing calculators linked above.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { estimateCost } from '../../utils/cost-calc';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+  const money = (n: number) => '$' + Math.round(n).toLocaleString();
+
+  function render() {
+    const gallons = Number(val('cGallons')) || 0;
+    const tier = (val('cTier') || 'mid') as 'budget' | 'mid' | 'premium';
+    const coral = (val('cCoral') || 'mixed') as 'softie' | 'mixed' | 'sps';
+    const hasSump = val('cSump') !== 'no';
+    const kwhRate = Number(val('cKwh')) || 0.17;
+
+    const totals = document.getElementById('cost-totals');
+    const table = document.getElementById('cost-table');
+    if (!totals || !table) return;
+    if (gallons <= 0) { totals.innerHTML = ''; table.innerHTML = ''; return; }
+
+    const est = estimateCost({ gallons, tier, hasSump, coral, kwhRate });
+
+    totals.innerHTML = `
+      <div class="bigtotals">
+        <div class="bigtotal">
+          <div class="lbl">Up-front build</div>
+          <div class="amt">${money(est.upfrontLow)}–${money(est.upfrontHigh)}</div>
+          <div class="sub">${tier} tier, ${gallons} gal${hasSump ? ', with sump' : ', no sump'}</div>
+        </div>
+        <div class="bigtotal">
+          <div class="lbl">Monthly running</div>
+          <div class="amt">${money(est.monthlyLow)}–${money(est.monthlyHigh)}/mo</div>
+          <div class="sub">~${est.avgWatts}W avg draw + salt &amp; consumables</div>
+        </div>
+      </div>`;
+
+    table.innerHTML = `
+      <table class="breakdown">
+        <tbody>
+          ${est.lines.map((l: any) => `<tr><td>${l.item}</td><td>${money(l.low)} – ${money(l.high)}</td></tr>`).join('')}
+          <tr class="total"><td>Up-front total</td><td>${money(est.upfrontLow)} – ${money(est.upfrontHigh)}</td></tr>
+        </tbody>
+      </table>
+      <p class="rnote">Estimate only — real prices vary by brand, sales, and region. Livestock and corals aren't included (add those gradually after the tank cycles). Pump and skimmer baselines are anchored to the medians of our real spec datasets.</p>`;
+  }
+
+  ['cGallons', 'cTier', 'cCoral', 'cSump', 'cKwh'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>
+<style>
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+</style>

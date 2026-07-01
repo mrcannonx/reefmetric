@@ -116,3 +116,15 @@ section { padding: 56px 0; }
 /* clickable cards */
 .cardlink { display:block; color:inherit; text-decoration:none; transition: transform .15s ease, box-shadow .15s ease; }
 .cardlink:hover { text-decoration:none; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(13,27,38,.10); }
+
+/* cost breakdown table + total cards (JS-injected → global) */
+.breakdown { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:.95rem; }
+.breakdown td { padding:9px 4px; border-bottom:1px solid var(--line); }
+.breakdown td:last-child { text-align:right; color:var(--muted); white-space:nowrap; }
+.breakdown tr.total td { font-family:var(--font-display); font-weight:700; color:var(--ink); border-top:2px solid var(--line); border-bottom:none; padding-top:14px; }
+.breakdown tr.total td:last-child { color:var(--ink); }
+.bigtotals { display:flex; gap:16px; flex-wrap:wrap; margin:18px 0; }
+.bigtotal { flex:1; min-width:180px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px; box-shadow:var(--shadow); }
+.bigtotal .lbl { font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:700; font-family:var(--font-display); }
+.bigtotal .amt { font-family:var(--font-display); font-weight:700; font-size:1.55rem; color:var(--ink); margin-top:4px; }
+.bigtotal .sub { font-size:.8rem; color:var(--muted); margin-top:2px; }
