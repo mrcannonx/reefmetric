@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { FREQUENCIES } from '../../utils/salt-cost-calc';
+import saltData from '../../data/salts.json';
+const isSample = (saltData as any).sample === true;
+---
+<Base
+  title="Reef Salt Cost Calculator (cost per gallon + monthly)"
+  description="Compare reef salt mixes by real cost per mixed gallon — not the box price — and see your actual monthly salt cost based on your tank size and water-change schedule."
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Salt Cost Calculator</h1>
+    <p class="lede-dark">A cheaper box isn't a cheaper salt. What matters is <strong>cost per mixed gallon</strong> — and what your water changes actually cost you each month. Here's both, ranked.</p>
+
+    {isSample && (
+      <p class="sample-note">⚙️ Preview build — running on sample salt prices while the full, source-verified data is finalized. Numbers here are illustrative.</p>
+    )}
+
+    <div class="calc card">
+      <form id="salt-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="stGallons" type="number" min="1" step="1" value="75" />
+        </label>
+        <label>Water change size (%)
+          <input id="stPct" type="number" min="1" max="100" step="1" value="10" />
+        </label>
+        <label>Water change frequency
+          <select id="stFreq">
+            {FREQUENCIES.map((f) => <option value={f.value} selected={f.value === 'weekly'}>{f.label}</option>)}
+          </select>
+        </label>
+      </form>
+      <div id="salt-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="salt-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>Why cost per gallon, not per box</h2>
+    <p>Salt is sold by the box, but you use it by the gallon. Two boxes at the same price can make very different amounts of saltwater, so the only fair comparison is <strong>price ÷ gallons the box actually mixes</strong> (at reef salinity, ~1.025). That's what we rank on here.</p>
+
+    <h2>Your real monthly cost</h2>
+    <p>Salt is the quiet recurring expense of the hobby. Your monthly cost is simply your tank volume × your water-change percentage × how often you change — times the cost per gallon of your salt. A 75-gallon tank doing weekly 10% changes goes through about 32 gallons of new saltwater a month; the salt you pick decides whether that's $10 or $25.</p>
+
+    <h2>Cheap salt vs. reef salt</h2>
+    <p>Base salts (like plain Instant Ocean) mix to near-natural-seawater levels and cost the least — great for fish-only tanks and fine for many mixed reefs that dose separately. "Reef" and "Pro" salts run elevated alkalinity, calcium, and magnesium to feed coral growth, at a higher price per gallon. For an SPS-heavy tank the elevated salt can be worth it; for softies and LPS, the cheaper salt usually is.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { rankSalts, FREQUENCIES } from '../../utils/salt-cost-calc';
+  import data from '../../data/salts.json';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+  const money2 = (n: number) => '$' + n.toFixed(2);
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+  function buyUrl(s: { brand: string; product: string; retailers?: string[] }) {
+    const q = encodeURIComponent(`${s.brand} ${s.product} reef salt`);
+    if (s.retailers && s.retailers.includes('Bulk Reef Supply')) return `https://www.bulkreefsupply.com/catalogsearch/result/?q=${q}`;
+    return `https://www.amazon.com/s?k=${q}`;
+  }
+
+  function render() {
+    const gallons = Number(val('stGallons')) || 0;
+    const pct = Number(val('stPct')) || 0;
+    const freq = FREQUENCIES.find((f) => f.value === val('stFreq')) || FREQUENCIES[0];
+
+    const summary = document.getElementById('salt-summary');
+    const results = document.getElementById('salt-results');
+    if (!summary || !results) return;
+
+    const { results: ranked, gallonsMonthly } = rankSalts(gallons, pct, freq.perMonth, (data as any).salts);
+    summary.innerHTML = `A <b>${gallons.toLocaleString()} gal</b> tank at <b>${pct}%</b> ${freq.label.toLowerCase()} changes ≈ <b>${Math.round(gallonsMonthly).toLocaleString()} gallons</b> of new saltwater a month. Cheapest per gallon first:`;
+
+    if (gallons <= 0) { results.innerHTML = ''; return; }
+
+    results.innerHTML = ranked.map((r: any, idx: number) => {
+      const s = r.salt;
+      const params = s.params ? `<div class="rmeta">${esc(s.params)}</div>` : '';
+      return `
+        <div class="rcard ${idx === 0 ? 'win' : ''}">
+          <div class="rrank">${idx + 1}</div>
+          <div class="rmain">
+            <div class="rname">${esc(s.brand)} ${esc(s.product)}${idx === 0 ? ' <span class="pill-win">Cheapest/gal</span>' : ''}</div>
+            ${params}
+            <div class="rmeta">~$${s.priceUSD} box · makes ${s.gallonsPerBox} gal · <strong>${money2(r.monthly)}/mo for your tank</strong></div>
+          </div>
+          <div class="rflow"><span class="n">${money2(r.costPerGal)}</span><br><span class="u">per gallon</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+        </div>`;
+    }).join('') +
+      `<p class="rnote">Cost per gallon = box price ÷ gallons it mixes at reef salinity. Prices vary by retailer and sales; your monthly figure assumes the water volume above. Livestock-safe salinity is ~1.024–1.026.</p>`;
+  }
+
+  ['stGallons', 'stPct', 'stFreq'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>
