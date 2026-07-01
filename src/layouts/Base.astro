@@ -7,11 +7,12 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  noindex?: boolean;
 }
-const { title, description = SITE.description, canonical } = Astro.props;
+const { title, description = SITE.description, canonical, noindex: noindexProp = false } = Astro.props;
 const pageTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, SITE.url).href;
-const noindex = import.meta.env.PUBLIC_NOINDEX === 'true';
+const noindex = noindexProp || import.meta.env.PUBLIC_NOINDEX === 'true';
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
