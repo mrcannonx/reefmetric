@@ -1,0 +1,18 @@
+{
+  "generated": "2026-07-01",
+  "additives": [
+    { "name": "Soda Ash (Sodium Carbonate)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.0716, "note": "DIY alk; dissolve + pH-match before dosing (raw soda ash spikes pH)" },
+    { "name": "Baking Soda (Sodium Bicarbonate)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.1135, "note": "DIY alk; gentler on pH than soda ash" },
+    { "name": "Baked Baking Soda (→ Soda Ash)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.0716, "note": "Bake NaHCO3 at ~300°F to convert to soda ash, then use this weight" },
+    { "name": "Calcium Chloride Dihydrate", "parameter": "ca", "doseUnit": "g", "perUnitPerGallon": 0.01388, "note": "DIY calcium (CaCl2·2H2O)" },
+    { "name": "Magnesium Mix (DIY stock solution)", "parameter": "mg", "doseUnit": "mL", "perUnitPerGallon": 0.0376, "note": "Stock = 720g MgCl2·6H2O + 180g MgSO4·7H2O per gallon RO/DI" },
+    { "name": "BRS 2-Part Liquid Soda Ash (Alk)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 0.667, "note": "BRS standard soda-ash stock; verify with the BRS calculator per batch" },
+    { "name": "BRS 2-Part Liquid Calcium Chloride", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.1, "note": "BRS standard CaCl stock" },
+    { "name": "ESV B-Ionic Alkalinity (Comp. 1)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 0.483, "note": "Never exceed 1 mL/gal/day; dose components 1+ hr apart" },
+    { "name": "ESV B-Ionic Calcium (Comp. 2)", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.0625, "note": "Never exceed 1 mL/gal/day" },
+    { "name": "Red Sea Reef Foundation A (Calcium)", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.5, "note": "Manufacturer: 1 mL raises 25 gal by 2 ppm Ca" },
+    { "name": "Red Sea Reef Foundation B (Alkalinity)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 2.5, "note": "Manufacturer: 1 mL raises 25 gal by 0.1 dKH" },
+    { "name": "Red Sea Reef Foundation C (Magnesium)", "parameter": "mg", "doseUnit": "mL", "perUnitPerGallon": 0.5, "note": "Manufacturer: 1 mL raises 25 gal by 1 ppm Mg" }
+  ],
+  "safeDailyMax": { "alk_dKH": 1.4, "ca_ppm": 50, "mg_ppm": 100 }
+}

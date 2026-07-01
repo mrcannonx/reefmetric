@@ -1,0 +1,135 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import doseData from '../../data/dose-data.json';
+const isSample = (doseData as any).sample === true;
+---
+<Base
+  title="Reef Dosing Calculator (Alk, Calcium, Magnesium)"
+  description="Free reef dosing calculator for alkalinity, calcium, and magnesium. Enter your tank size, current and target levels, and additive — get the exact dose, split safely across days if the correction is large."
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Dosing Calculator</h1>
+    <p class="lede-dark">Raise alkalinity, calcium, or magnesium to your target — with the exact dose for your tank, and an automatic split across days when the jump is too big to do safely at once.</p>
+
+    {isSample && (
+      <p class="sample-note">⚙️ Preview build — running on sample dosing constants while the source-verified chemistry is finalized. Numbers here are illustrative — do not dose from them yet.</p>
+    )}
+
+    <div class="calc card">
+      <form id="dose-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="dGallons" type="number" min="1" step="1" value="75" />
+        </label>
+        <label>Parameter
+          <select id="dParam">
+            <option value="alk" selected>Alkalinity (dKH)</option>
+            <option value="ca">Calcium (ppm)</option>
+            <option value="mg">Magnesium (ppm)</option>
+          </select>
+        </label>
+        <label>Additive
+          <select id="dAdditive"></select>
+        </label>
+        <label>Current level <span id="dUnitA" class="unit"></span>
+          <input id="dCurrent" type="number" min="0" step="0.1" value="7" />
+        </label>
+        <label>Target level <span id="dUnitB" class="unit"></span>
+          <input id="dTarget" type="number" min="0" step="0.1" value="9" />
+        </label>
+      </form>
+      <div id="dose-out" class="summary"></div>
+    </div>
+
+    <Disclosure />
+
+    <p class="safety">⚠️ <strong>Dose to a test, not to a calculator.</strong> Always confirm your levels with a reliable test kit first, add supplements to a high-flow area, and never exceed the daily limits shown. Chase one parameter at a time. When in doubt, dose less and re-test.</p>
+  </section>
+
+  <section class="container prose">
+    <h2>How reef dosing works</h2>
+    <p>Corals consume alkalinity, calcium, and magnesium as they grow, and your job is to replace what's used and correct anything that's drifted. The dose is simple arithmetic — how far you're raising the level, times your water volume, times the strength of your additive — but the <em>safety</em> is in the pace. Big, fast swings (especially in alkalinity) stress and can burn coral tissue.</p>
+
+    <h2>Raise slowly — especially alkalinity</h2>
+    <p>The community-accepted ceiling is roughly <strong>1.4 dKH of alkalinity per day</strong>, about 50 ppm of calcium, and 100 ppm of magnesium. If your correction is bigger than that, this calculator automatically splits the total dose across enough days to stay under the limit. Rushing it is the fastest way to lose corals.</p>
+
+    <h2>DIY two-part vs. bottled additives</h2>
+    <p>Raw chemicals — soda ash or baking soda for alkalinity, calcium chloride for calcium, a magnesium mix for magnesium — are the cheapest way to dose a growing reef and are exactly what most bottled "two-part" products are. Bottled versions cost more but are premixed and convenient. Either works; pick the additive above and we'll do the math for the one you have.</p>
+
+    <h2>Test first, every time</h2>
+    <p>A dosing calculator is only as good as the number you feed it. Test with a kit you trust, enter your real current value, and re-test after dosing to confirm you landed where you expected — then set a daily maintenance dose to hold it steady.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { computeDose, PARAM_META } from '../../utils/dose-calc';
+  import data from '../../data/dose-data.json';
+
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+  const num = (id: string) => Number((el(id) as HTMLInputElement)?.value) || 0;
+  const round = (n: number) => n >= 100 ? Math.round(n) : n >= 10 ? Math.round(n * 10) / 10 : Math.round(n * 100) / 100;
+
+  function additivesFor(param: string) {
+    return (data as any).additives.filter((a: any) => a.parameter === param);
+  }
+
+  function populateAdditives() {
+    const param = (el('dParam') as HTMLSelectElement).value;
+    const sel = el('dAdditive') as HTMLSelectElement;
+    const opts = additivesFor(param);
+    sel.innerHTML = opts.map((a: any, i: number) => `<option value="${i}">${a.name}</option>`).join('');
+    // update unit hints
+    const unit = (PARAM_META as any)[param].unit;
+    const uA = document.getElementById('dUnitA'); const uB = document.getElementById('dUnitB');
+    if (uA) uA.textContent = `(${unit})`;
+    if (uB) uB.textContent = `(${unit})`;
+  }
+
+  function render() {
+    const gallons = num('dGallons');
+    const param = (el('dParam') as HTMLSelectElement).value as 'alk' | 'ca' | 'mg';
+    const idx = Number((el('dAdditive') as HTMLSelectElement)?.value) || 0;
+    const additive = additivesFor(param)[idx];
+    const current = num('dCurrent');
+    const target = num('dTarget');
+    const out = document.getElementById('dose-out');
+    if (!out || !additive) return;
+
+    const meta = (PARAM_META as any)[param];
+    const r = computeDose({ gallons, param, current, target, additive, safeDailyMax: (data as any).safeDailyMax });
+
+    if (target <= current) {
+      out.innerHTML = `You're already at or above your target of <b>${target} ${meta.unit}</b> — no dose needed. To <em>lower</em> a parameter, do a water change instead.`;
+      return;
+    }
+
+    let html = `To raise <b>${meta.label}</b> by <b>${round(r.rise)} ${meta.unit}</b> (${current} → ${target}) in <b>${gallons} gal</b>, dose <b>${round(r.totalDose)} ${r.unit}</b> of ${additive.name} total.`;
+    if (r.exceedsDaily) {
+      html += `<div class="split">That correction is above the safe <b>${r.dailyMax} ${meta.unit}/day</b> limit — split it: <b>~${round(r.perDay)} ${r.unit}/day for ${r.days} days</b>, re-testing along the way.</div>`;
+    } else {
+      html += `<div class="split">This is within the safe daily limit — you can dose it in one day, then re-test.</div>`;
+    }
+    out.innerHTML = html;
+  }
+
+  const paramEl = el('dParam');
+  if (paramEl) paramEl.addEventListener('change', () => { populateAdditives(); render(); });
+  ['dGallons', 'dAdditive', 'dCurrent', 'dTarget'].forEach((id) => {
+    const e = el(id);
+    if (e) e.addEventListener('input', render);
+  });
+  populateAdditives();
+  render();
+</script>
+<style>
+  .unit { font-weight:400; color:var(--muted); }
+  .safety { background:#fff6ed; border:1px solid #ffd9b8; color:#8a4b1e; font-size:.9rem; padding:12px 16px; border-radius:12px; margin-top:20px; line-height:1.5; }
+  #dose-out .split { margin-top:10px; font-size:.95rem; color:var(--muted); }
+  #dose-out .split b { color:var(--ink); font-family:var(--font-display); }
+</style>
