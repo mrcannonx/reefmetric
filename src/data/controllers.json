@@ -139,20 +139,20 @@
         "Steepest learning curve — Apex switchers say you have to 'forget the Apex mindset'",
         "Companion software (GCC) described as crash-prone and slow by owners",
         "Customer service criticized for templated troubleshooting",
-        "Weakest US retail footprint and worst price transparency — US store pages 404 and BRS hides pricing until cart"
+        "Weakest US retail footprint — thin coverage at specialty retailers like BRS vs Neptune/CoralVue; GHL's own US storefront is the reliable price source"
       ],
       "testing": "ION Director — reagent-free Ca/Mg/K/Na/NO3 via ion-selective electrodes; sold in US bundles with a GHL Doser from ~$1,034.",
       "dosing": "GHL Doser 3 (EXT/standalone) — bundled with ProfiLux/ION Director from ~$1,020; standalone US pricing not cleanly published.",
       "kits": [
         {
           "model": "ProfiLux 4 Mega-Set 6E",
-          "priceUSD": null,
+          "priceUSD": 997.90,
           "includedProbes": ["pH", "temp", "ORP", "conductivity/salinity"],
           "outlets": 6,
           "outletsNotes": "Powerbar 6E-PAB (6 controllable AC outlets) + lab-grade probe set with full calibration fluids — the most complete kit contents in this comparison",
           "connectivity": "WiFi + Ethernet",
-          "retailers": ["Bulk Reef Supply"],
-          "source": "https://www.bulkreefsupply.com/profilux-4-mega-set-black-ghl.html"
+          "retailers": ["GHL USA", "Bulk Reef Supply"],
+          "source": "https://www.aquariumcomputer.com/usa/product/profilux-4-mega-set-6e/"
         }
       ]
     }
