@@ -24,12 +24,8 @@ jobs:
           node-version: "22"
       - name: Install
         run: npm ci
-      - name: Build preview (reefmetric base, noindexed)
+      - name: Build (production — reefmetric.com, indexable)
         run: npm run build
-        env:
-          DEPLOY_BASE: /reefmetric
-          DEPLOY_SITE: https://mrcannonx.github.io
-          PUBLIC_NOINDEX: "true"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
