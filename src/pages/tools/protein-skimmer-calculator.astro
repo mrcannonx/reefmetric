@@ -106,8 +106,12 @@ const isSample = (skimmerData as any).sample === true;
       const watts = s.pumpWatts ? ` · ${s.pumpWatts}W` : '';
       const price = s.priceUSD ? ` · ~$${s.priceUSD}` : '';
       const basis = r.usesPublishedRating ? '' : ' <span title="Derated from the single manufacturer rating (no published bioload breakdown)">*</span>';
+      const thumb = s.imageUrl
+        ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        : '';
       return `
         <div class="rcard ${r.fits ? 'win' : ''}">
+          ${thumb}
           <div class="rrank">${idx + 1}</div>
           <div class="rmain">
             <div class="rname">${esc(s.brand)} ${esc(s.model)}${badge}</div>
