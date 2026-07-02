@@ -1,9 +1,27 @@
 {
   "generated": "2026-07-01",
   "parTargets": [
-    { "key": "softies", "band": "Softies / LPS", "minPPFD": 75, "maxPPFD": 250, "source": "https://www.bulkreefsupply.com/content/post/how-to-use-a-par-meter" },
-    { "key": "mixed", "band": "Mixed reef", "minPPFD": 150, "maxPPFD": 300, "source": "Reef2Reef community consensus — the deliberate overlap zone between the Softies/LPS and SPS bands; BRS does not publish a distinct fourth number for it." },
-    { "key": "sps", "band": "SPS-dominant", "minPPFD": 250, "maxPPFD": 350, "source": "https://www.bulkreefsupply.com/content/post/how-to-use-a-par-meter" }
+    {
+      "key": "softies",
+      "band": "Softies / LPS",
+      "minPPFD": 75,
+      "maxPPFD": 250,
+      "source": "https://www.bulkreefsupply.com/content/post/how-to-use-a-par-meter"
+    },
+    {
+      "key": "mixed",
+      "band": "Mixed reef",
+      "minPPFD": 150,
+      "maxPPFD": 300,
+      "source": "Reef2Reef community consensus \u2014 the deliberate overlap zone between the Softies/LPS and SPS bands; BRS does not publish a distinct fourth number for it."
+    },
+    {
+      "key": "sps",
+      "band": "SPS-dominant",
+      "minPPFD": 250,
+      "maxPPFD": 350,
+      "source": "https://www.bulkreefsupply.com/content/post/how-to-use-a-par-meter"
+    }
   ],
   "lights": [
     {
@@ -11,77 +29,127 @@
       "model": "Prime 16HD",
       "priceUSD": 264.99,
       "footprintIn": "24 x 24",
-      "footprintNotes": "Manufacturer-stated spread at 24in depth — sized for nano to small/medium tanks.",
-      "parCurve": [{ "heightIn": 24, "par": 100 }],
+      "footprintNotes": "Manufacturer-stated spread at 24in depth \u2014 sized for nano to small/medium tanks.",
+      "parCurve": [
+        {
+          "heightIn": 24,
+          "par": 100
+        }
+      ],
       "curveSource": "manufacturer",
       "watts": 55,
       "dimmable": true,
       "app": "myAI app",
-      "spectrum": "Tunable — 17 LED channels with dynamic HD power-sharing",
-      "retailers": ["Bulk Reef Supply", "Aquarium Specialty"],
+      "spectrum": "Tunable \u2014 17 LED channels with dynamic HD power-sharing",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Aquarium Specialty"
+      ],
       "priceSource": "https://www.bulkreefsupply.com/prime-16-hd-led-reef-light-black-body-aqua-illumination.html",
-      "parSource": "https://www.aquaillumination.com/products/prime"
+      "parSource": "https://www.aquaillumination.com/products/prime",
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/p/r/prime16hd-reef-bottom-black-1200x1200.jpg"
     },
     {
       "brand": "Aqua Illumination",
       "model": "Hydra 32 HD",
       "priceUSD": 413.99,
       "footprintIn": "24 x 24",
-      "footprintNotes": "Manufacturer: 24×24in effective spread, 8-10in recommended mounting height.",
+      "footprintNotes": "Manufacturer: 24\u00d724in effective spread, 8-10in recommended mounting height.",
       "parCurve": [
-        { "heightIn": 12, "par": 1908 },
-        { "heightIn": 18, "par": 462 },
-        { "heightIn": 24, "par": 197 }
+        {
+          "heightIn": 12,
+          "par": 1908
+        },
+        {
+          "heightIn": 18,
+          "par": 462
+        },
+        {
+          "heightIn": 24,
+          "par": 197
+        }
       ],
       "curveSource": "independent lab (DaniReef)",
       "watts": 90,
       "dimmable": true,
       "app": "myAI app",
-      "spectrum": "Tunable — 7(+1) LED channels with dynamic HD power-sharing",
-      "retailers": ["Bulk Reef Supply", "Aquarium Specialty"],
+      "spectrum": "Tunable \u2014 7(+1) LED channels with dynamic HD power-sharing",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Aquarium Specialty"
+      ],
       "priceSource": "https://www.bulkreefsupply.com/hydra-32-hd-led-reef-light-black-aqua-illumination.html",
-      "parSource": "https://reefs.com/ai-hydra-32-led-ceiling-light-performances-and-par-analyzed-in-the-danireef-lab/"
+      "parSource": "https://reefs.com/ai-hydra-32-led-ceiling-light-performances-and-par-analyzed-in-the-danireef-lab/",
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/y/hydra-32-black-bottom-led-show-1200x1200.jpg"
     },
     {
       "brand": "Orphek",
       "model": "Atlantik iCon",
       "priceUSD": 794.75,
       "footprintIn": "43 x 25",
-      "footprintNotes": "Manufacturer: one unit covers 43×25in SPS/LPS reef tanks, hung at 36in+ above the tank bottom for even spread.",
+      "footprintNotes": "Manufacturer: one unit covers 43\u00d725in SPS/LPS reef tanks, hung at 36in+ above the tank bottom for even spread.",
       "parCurve": [
-        { "heightIn": 6.69, "par": 1774 },
-        { "heightIn": 14.56, "par": 1000 },
-        { "heightIn": 22.24, "par": 620 },
-        { "heightIn": 23.62, "par": 401 },
-        { "heightIn": 35.43, "par": 248 }
+        {
+          "heightIn": 6.69,
+          "par": 1774
+        },
+        {
+          "heightIn": 14.56,
+          "par": 1000
+        },
+        {
+          "heightIn": 22.24,
+          "par": 620
+        },
+        {
+          "heightIn": 23.62,
+          "par": 401
+        },
+        {
+          "heightIn": 35.43,
+          "par": 248
+        }
       ],
       "curveSource": "manufacturer",
       "watts": 229,
       "dimmable": true,
       "app": "Orphek OSIX (WiFi)",
-      "spectrum": "Tunable — 78 dual-chip LEDs across 12 diode types",
-      "retailers": ["Bulk Reef Supply"],
+      "spectrum": "Tunable \u2014 78 dual-chip LEDs across 12 diode types",
+      "retailers": [
+        "Bulk Reef Supply"
+      ],
       "priceSource": "https://www.bulkreefsupply.com/atlantik-icon-led-fixture-orphek.html",
-      "parSource": "https://orphek.com/atlantik-icon-coverage-and-par-map-over-48-inch-120cm-aquarium/"
+      "parSource": "https://orphek.com/atlantik-icon-coverage-and-par-map-over-48-inch-120cm-aquarium/",
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232772-orphek-atlantik-icon-led-lighting-cv3.jpg"
     },
     {
       "brand": "Fluval",
       "model": "Sea Marine 3.0 (46W)",
       "priceUSD": 219.99,
       "footprintIn": "36-48 (rim-mount strip, expandable legs)",
-      "footprintNotes": "Strip-style fixture — coverage is matching length to tank rim, not a hanging pendant's WxD spread.",
+      "footprintNotes": "Strip-style fixture \u2014 coverage is matching length to tank rim, not a hanging pendant's WxD spread.",
       "parCurve": [
-        { "heightIn": 3, "par": 381 },
-        { "heightIn": 12, "par": 94 }
+        {
+          "heightIn": 3,
+          "par": 381
+        },
+        {
+          "heightIn": 12,
+          "par": 94
+        }
       ],
       "curveSource": "manufacturer",
       "watts": 46,
       "dimmable": true,
       "app": "FluvalSmart app",
       "spectrum": "3 preset habitat modes across 7 band-wave LEDs (not fully independent RGB+)",
-      "retailers": ["Bulk Reef Supply", "AquaCave"],
+      "retailers": [
+        "Bulk Reef Supply",
+        "AquaCave"
+      ],
       "priceSource": "https://aquacave.com/fluval-sea-marine-3-0-led-fixture-46w-36-48.html",
-      "parSource": "https://aquacave.com/fluval-sea-marine-3-0-led-fixture-46w-36-48.html"
+      "parSource": "https://aquacave.com/fluval-sea-marine-3-0-led-fixture-46w-36-48.html",
+      "imageUrl": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/8845/53082/46w%5F600x600%5F1%5F%5F78572.1703072214.jpg?c=1"
     }
   ],
   "noParData": [
@@ -89,49 +157,49 @@
       "brand": "EcoTech Marine",
       "model": "Radion XR15 G6 Pro",
       "priceUSD": 529.99,
-      "note": "No manufacturer PAR chart published for this generation, and no independent lab test found for it — EcoTech relies on its Mobius app's own light metrics rather than a static PPFD table.",
+      "note": "No manufacturer PAR chart published for this generation, and no independent lab test found for it \u2014 EcoTech relies on its Mobius app's own light metrics rather than a static PPFD table.",
       "priceSource": "https://www.bulkreefsupply.com/radion-xr15-g6-pro-led-light-fixture-ecotech-marine.html"
     },
     {
       "brand": "EcoTech Marine",
       "model": "Radion XR30 G6 Pro",
       "priceUSD": 999.99,
-      "note": "Same gap as the XR15 — no published or independently tested PPFD table found for the G6 Pro generation.",
+      "note": "Same gap as the XR15 \u2014 no published or independently tested PPFD table found for the G6 Pro generation.",
       "priceSource": "https://www.bulkreefsupply.com/radion-xr30-g6-pro-led-light-fixture-ecotech-marine.html"
     },
     {
       "brand": "Kessil",
       "model": "A160 Tuna Sun",
-      "priceUSD": 289.00,
-      "note": "Kessil has never published official PAR data for the A-series — a long-standing, well-known gap in the hobby. Only scattered, non-standardized forum readings exist.",
+      "priceUSD": 289.0,
+      "note": "Kessil has never published official PAR data for the A-series \u2014 a long-standing, well-known gap in the hobby. Only scattered, non-standardized forum readings exist.",
       "priceSource": "https://www.bulkreefsupply.com/kessil-a160we-tuna-sun-led-light.html"
     },
     {
       "brand": "Kessil",
       "model": "A360X Tuna Sun",
-      "priceUSD": 449.00,
-      "note": "Same gap as the A160 — no manufacturer PAR chart. A single forum-reported reading (~213 PAR at 8in) exists but isn't a controlled, repeatable test.",
+      "priceUSD": 449.0,
+      "note": "Same gap as the A160 \u2014 no manufacturer PAR chart. A single forum-reported reading (~213 PAR at 8in) exists but isn't a controlled, repeatable test.",
       "priceSource": "https://www.bulkreefsupply.com/a360x-controllable-led-aquarium-light-tuna-sun-kessil.html"
     },
     {
       "brand": "Kessil",
       "model": "AP700",
-      "priceUSD": 1039.00,
-      "note": "BRStv has publicly tested this fixture's PAR output, but the results live only in embedded video/images, not a text-extractable table — a real test exists, we just can't cite hard numbers from it. Price is approximate; verify at checkout.",
+      "priceUSD": 1039.0,
+      "note": "BRStv has publicly tested this fixture's PAR output, but the results live only in embedded video/images, not a text-extractable table \u2014 a real test exists, we just can't cite hard numbers from it. Price is approximate; verify at checkout.",
       "priceSource": "https://www.bulkreefsupply.com/ap700-led-lighting-panel-kessil.html"
     },
     {
       "brand": "Reef Breeders",
       "model": "Photon 24-V2 Pro",
       "priceUSD": 549.99,
-      "note": "Manufacturer references a PAR chart image that isn't machine-readable, and community readings blend inconsistent mounting heights — not a controlled curve, so we're not ranking it on PAR.",
+      "note": "Manufacturer references a PAR chart image that isn't machine-readable, and community readings blend inconsistent mounting heights \u2014 not a controlled curve, so we're not ranking it on PAR.",
       "priceSource": "https://reefbreeders.com/products/photon-24-v2-pro"
     },
     {
       "brand": "Current USA",
       "model": "Orbit Marine IC (24-36in)",
       "priceUSD": 226.95,
-      "note": "A manufacturer PAR datasheet exists for the higher-output IC PRO sibling, but not for this base IC model — treat as a different fixture, not evidence for this one.",
+      "note": "A manufacturer PAR datasheet exists for the higher-output IC PRO sibling, but not for this base IC model \u2014 treat as a different fixture, not evidence for this one.",
       "priceSource": "https://current-usa.com/products/orbit-marine-ic-led-with-app-bluetooth-control-24-to-36-inch"
     }
   ]

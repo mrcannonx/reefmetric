@@ -1,17 +1,139 @@
 {
   "generated": "2026-07-01",
   "salts": [
-    { "brand": "Instant Ocean", "product": "Sea Salt", "gallonsPerBox": 200, "priceUSD": 74.99, "params": "Baseline reef-safe formula near natural seawater levels (alk/ca/mg not elevated)", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Instant Ocean", "product": "Reef Crystals", "gallonsPerBox": 160, "priceUSD": 74.99, "params": "Enriched with extra calcium and trace elements for coral growth vs standard Sea Salt", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Red Sea", "product": "Coral Pro Salt", "gallonsPerBox": 175, "priceUSD": 109.99, "params": "Elevated alkalinity (11-12.4 dKH) and calcium for enhanced coral calcification (SPS-friendly)", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Red Sea", "product": "Red Sea Salt (Blue Bucket)", "gallonsPerBox": 200, "priceUSD": 119.99, "params": "Natural seawater ionic ratios, moderate alk (~8.3 dKH), lower nutrient import for stability", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Tropic Marin", "product": "Pro Reef Salt", "gallonsPerBox": 200, "priceUSD": 181.99, "params": "Balanced bio-active formula with elevated calcium/magnesium tuned for reef tanks", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Tropic Marin", "product": "Classic Sea Salt", "gallonsPerBox": 200, "priceUSD": 159.99, "params": "Near-natural seawater parameters, low nutrient, favored for sensitive/mixed reef systems", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Fritz Aquatics", "product": "RPM (Reef Pro Mix)", "gallonsPerBox": 200, "priceUSD": 94.99, "params": "Elevated alk/ca/mg profile formulated for stony coral growth and stability", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Brightwell Aquatics", "product": "NeoMarine", "gallonsPerBox": 150, "priceUSD": 89.99, "params": "USP/ACS reagent-grade ingredients, natural seawater ratios (~7.5 dKH alk) for reef stability", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Aquaforest", "product": "Reef Salt", "gallonsPerBox": 200, "priceUSD": 99.99, "params": "Elevated alk/ca/mg (SPS-focused), low phosphate/nitrate for pristine reef water", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Aquaforest", "product": "Sea Salt", "gallonsPerBox": 200, "priceUSD": 89.99, "params": "Balanced general-reef formula, moderate alk/ca for mixed fish/coral systems", "retailers": ["Bulk Reef Supply", "Amazon", "Marine Depot"] },
-    { "brand": "Kent Marine", "product": "Sea Salt (Reef Blend)", "gallonsPerBox": 200, "priceUSD": 89.99, "params": "Elevated calcium, magnesium and strontium vs natural seawater for reef growth", "retailers": ["Amazon", "Marine Depot"] },
-    { "brand": "Seachem", "product": "Vibrant Sea", "gallonsPerBox": 160, "priceUSD": 79.99, "params": "Natural seawater ionic balance with added trace elements, low-nutrient reef formula", "retailers": ["Amazon", "Marine Depot"] }
+    {
+      "brand": "Instant Ocean",
+      "product": "Sea Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 74.99,
+      "params": "Baseline reef-safe formula near natural seawater levels (alk/ca/mg not elevated)",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250338-instantocean-seasalt-mix-150gallon-box-cv1_1.jpg"
+    },
+    {
+      "brand": "Instant Ocean",
+      "product": "Reef Crystals",
+      "gallonsPerBox": 160,
+      "priceUSD": 74.99,
+      "params": "Enriched with extra calcium and trace elements for coral growth vs standard Sea Salt",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/256337-reef-crystals-160-gallon-bucket-instant-ocean_1.jpg"
+    },
+    {
+      "brand": "Red Sea",
+      "product": "Coral Pro Salt",
+      "gallonsPerBox": 175,
+      "priceUSD": 109.99,
+      "params": "Elevated alkalinity (11-12.4 dKH) and calcium for enhanced coral calcification (SPS-friendly)",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Red Sea",
+      "product": "Red Sea Salt (Blue Bucket)",
+      "gallonsPerBox": 200,
+      "priceUSD": 119.99,
+      "params": "Natural seawater ionic ratios, moderate alk (~8.3 dKH), lower nutrient import for stability",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Tropic Marin",
+      "product": "Pro Reef Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 181.99,
+      "params": "Balanced bio-active formula with elevated calcium/magnesium tuned for reef tanks",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Tropic Marin",
+      "product": "Classic Sea Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 159.99,
+      "params": "Near-natural seawater parameters, low nutrient, favored for sensitive/mixed reef systems",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Fritz Aquatics",
+      "product": "RPM (Reef Pro Mix)",
+      "gallonsPerBox": 200,
+      "priceUSD": 94.99,
+      "params": "Elevated alk/ca/mg profile formulated for stony coral growth and stability",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Brightwell Aquatics",
+      "product": "NeoMarine",
+      "gallonsPerBox": 150,
+      "priceUSD": 89.99,
+      "params": "USP/ACS reagent-grade ingredients, natural seawater ratios (~7.5 dKH alk) for reef stability",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Aquaforest",
+      "product": "Reef Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 99.99,
+      "params": "Elevated alk/ca/mg (SPS-focused), low phosphate/nitrate for pristine reef water",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ]
+    },
+    {
+      "brand": "Aquaforest",
+      "product": "Sea Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 89.99,
+      "params": "Balanced general-reef formula, moderate alk/ca for mixed fish/coral systems",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/e/sea-salt_22-kg_new_2.jpg"
+    },
+    {
+      "brand": "Seachem",
+      "product": "Vibrant Sea",
+      "gallonsPerBox": 160,
+      "priceUSD": 79.99,
+      "params": "Natural seawater ionic balance with added trace elements, low-nutrient reef formula",
+      "retailers": [
+        "Amazon",
+        "Marine Depot"
+      ]
+    }
   ]
 }

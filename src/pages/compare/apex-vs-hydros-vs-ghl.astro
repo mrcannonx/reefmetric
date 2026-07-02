@@ -134,6 +134,11 @@ const ld = [
       <div class="results" style="margin-top:16px;">
         {e.kits.map((k: any, idx: number) => (
           <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+            {k.imageUrl && (
+              <div class="rthumb">
+                <img src={k.imageUrl} alt={`${e.brand} ${k.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+              </div>
+            )}
             <div class="rmain">
               <div class="rname">{k.model}{idx === 0 ? <span class="pill-win" style="margin-left:8px;">Flagship</span> : null}</div>
               <div class="rmeta">Probes: {probes(k.includedProbes)} · {k.outletsNotes}</div>

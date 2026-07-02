@@ -18,6 +18,7 @@ export interface Skimmer {
   priceUSD?: number | null;
   retailers?: string[];
   source?: string;
+  imageUrl?: string | null;
 }
 
 export type Bioload = 'light' | 'medium' | 'heavy';

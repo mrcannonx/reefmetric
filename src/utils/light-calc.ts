@@ -21,6 +21,7 @@ export interface Light {
   retailers?: string[];
   priceSource?: string;
   parSource?: string;
+  imageUrl?: string | null;
 }
 
 export interface ParBand { key: string; label: string; minPPFD: number; maxPPFD: number; source?: string; }

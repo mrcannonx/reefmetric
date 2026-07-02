@@ -75,6 +75,11 @@ const itemListLd = {
     <div class="results">
       {picks.map((p, idx) => (
         <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          {p.row.light.imageUrl && (
+            <div class="rthumb">
+              <img src={p.row.light.imageUrl} alt={`${p.row.light.brand} ${p.row.light.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
           <div class="rmain">
             <div class="rname">{p.row.light.brand} {p.row.light.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
             <div class="rmeta">{p.why}</div>

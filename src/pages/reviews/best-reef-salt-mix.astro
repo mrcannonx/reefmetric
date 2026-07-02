@@ -13,6 +13,7 @@ interface Salt {
   priceUSD: number;
   params: string;
   retailers?: string[];
+  imageUrl?: string | null;
 }
 const salts = (saltData as any).salts as Salt[];
 const dataDate = (saltData as any).generated as string;
@@ -92,6 +93,11 @@ const itemListLd = {
     <div class="results">
       {picks.map((p) => (
         <div class={`rcard ${p.win ? 'win' : ''}`}>
+          {p.s.imageUrl && (
+            <div class="rthumb">
+              <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.product}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
           <div class="rmain">
             <div class="rname">{p.s.brand} {p.s.product} <span class={p.win ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
             <div class="rmeta">{p.why}</div>
