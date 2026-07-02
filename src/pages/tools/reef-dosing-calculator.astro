@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
 import doseData from '../../data/dose-data.json';
 const isSample = (doseData as any).sample === true;
 ---
@@ -60,6 +61,9 @@ const isSample = (doseData as any).sample === true;
 
     <h2>Test first, every time</h2>
     <p>A dosing calculator is only as good as the number you feed it. Test with a kit you trust, enter your real current value, and re-test after dosing to confirm you landed where you expected — then set a daily maintenance dose to hold it steady.</p>
+
+    <h2>Ready to automate it?</h2>
+    <p>Once you know your numbers, a dosing pump adds them on schedule without you standing over the tank daily. See <a href={url('/reviews/best-reef-dosing-pumps')}>our dosing pump comparison</a> — including which well-known doser can't run at all without a controller you probably don't already own.</p>
   </section>
 
   <section class="container">

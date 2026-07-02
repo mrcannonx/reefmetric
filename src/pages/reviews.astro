@@ -26,6 +26,12 @@ const reviews = [
     href: '/reviews/best-reef-led-lighting',
     status: 'New',
   },
+  {
+    name: 'Best Reef Dosing Pumps',
+    desc: "Red Sea ReefDose, GHL Doser 3, Focustronic, Reef Factory — ranked, plus which well-known doser can't run at all without a controller you probably don't already own.",
+    href: '/reviews/best-reef-dosing-pumps',
+    status: 'New',
+  },
 ];
 ---
 <Base
@@ -36,7 +42,7 @@ const reviews = [
     <p class="eyebrow" style="color:var(--brand-2)">Reviews</p>
     <h1>Reviews, backed by numbers.</h1>
     <p style="color:var(--muted);max-width:62ch;">Every roundup here is computed from spec data — pump curves, bioload ratings, mix yields — with the methodology shown and the estimates flagged. No pay-to-play, no "we tested it" theater. <a href={url('/how-we-rate')}>How we rate →</a></p>
-    <div class="grid cols-2" style="margin-top:26px;">
+    <div class="grid cols-3" style="margin-top:26px;">
       {reviews.map((r) => (
         <a class="card cardlink" href={url(r.href)}>
           <span class="pill">{r.status}</span>

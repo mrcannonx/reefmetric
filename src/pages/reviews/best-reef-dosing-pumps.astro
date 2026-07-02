@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { goHref } from '../../data/affiliate-config';
+import doserData from '../../data/dosers.json';
+
+interface Doser {
+  brand: string; model: string; priceUSD: number; heads: number; accuracy: string;
+  app: string; reservoirNotes: string; knownIssues: string[]; riskFlag?: string;
+  retailers?: string[]; source: string; imageUrl?: string | null;
+}
+const data = doserData as any;
+const dosers = data.dosers as Doser[];
+const notStandalone = data.notStandalone as { brand: string; model: string; priceUSD: number | null; note: string; priceSource: string }[];
+const dataDate = data.generated as string;
+
+const money = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Check price');
+const buy = (d: { brand: string; model: string; retailers?: string[] }) => goHref(d.retailers || [], `${d.brand} ${d.model} dosing pump`);
+const buyGap = (d: { brand: string; model: string }) => goHref([], `${d.brand} ${d.model} dosing pump`);
+
+interface Pick { badge: string; why: string; d: Doser; }
+const byModel = (m: string) => dosers.find((d) => d.model === m)!;
+const picks: Pick[] = [
+  {
+    badge: 'Best budget standalone',
+    why: `Cheapest doser here that's genuinely complete out of the box — no controller purchase required — and the lowest owner-complaint volume of the five.`,
+    d: byModel('ReefDose 2'),
+  },
+  {
+    badge: 'Best step-up',
+    why: `Same reliability profile as the ReefDose 2, doubled to 4 heads — the pick once you're dosing more than two additives.`,
+    d: byModel('ReefDose 4'),
+  },
+  {
+    badge: 'Best for GHL owners',
+    why: `Ties straight into myGHL/ProfiLux if you're already in that ecosystem. Real WiFi-reconnect complaints exist — budget for the occasional power-cycle.`,
+    d: byModel('Doser 3 SA'),
+  },
+  {
+    badge: 'Most channels',
+    why: `5 pumps (7 on the Pro's extra channels) for tanks dosing several additives at once — offset by tighter tubing clearance and a software limit that locks all Alkatronic-slaved pumps to one dose amount.`,
+    d: byModel('Dosetronic Pro'),
+  },
+];
+const accuracyPick = byModel('Dosing Pump Pro X4');
+
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Reef Dosing Pumps',
+  numberOfItems: dosers.length,
+  itemListElement: dosers.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: `${d.brand} ${d.model}` })),
+};
+const faqs = [
+  {
+    q: 'Do I need an existing controller to use a dosing pump?',
+    a: `Depends which one. Red Sea's ReefDose 2/4, GHL's Doser 3 SA, Focustronic's Dosetronic, and Reef Factory's X4 are all genuinely standalone — app-controlled, no other hardware required. Neptune Systems' DOS is the exception: it's a $374.99 accessory that can't be programmed at all without a separate Apex A2 or A3 controller ($360+ more) to host it.`,
+  },
+  {
+    q: 'Can I use any of these to dose kalkwasser?',
+    a: `You can push kalkwasser through any of them, but a plain doser alone isn't the full setup — kalkwasser settles and needs continuous stirring, and ideally pH-gated dosing to avoid pH spikes at higher dose rates. None of these dose based on pH natively; DOS (paired with an Apex pH probe) and GHL's Doser (paired with ProfiLux's pH modules) are the two with a realistic path to it. Budget for a stirring kalk reactor as a second purchase either way.`,
+  },
+  {
+    q: 'Is the Reef Factory X4 still safe to buy?',
+    a: `It has the best published accuracy in this comparison (±0.01mL), but the manufacturer entered bankruptcy proceedings in 2025. It's still an active, orderable product with the company saying support continues, but long-term warranty and software support carry real uncertainty — weigh that against a financially stable brand before choosing it purely on the accuracy number.`,
+  },
+];
+---
+<Base
+  title="Best Reef Dosing Pumps (2026) — Ranked, With the Ones That Aren't Really Standalone"
+  description="The best reef aquarium dosing pumps compared — Red Sea ReefDose, GHL Doser 3, Focustronic Dosetronic, Reef Factory X4 — plus which ones secretly require a separate controller to work at all."
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Dosing Pumps</p>
+    <h1>Best reef dosing pumps — and which ones aren't really standalone</h1>
+    <p class="lede-dark">Our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> tells you how much Alkalinity, Calcium, or Magnesium to add. This page is the hardware that adds it automatically. The catch nobody mentions upfront: one of the best-known dosers on the market can't run at all without a controller you probably don't already own — we name it below instead of letting you find out after checkout.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). Nobody pays for placement, and a real business-risk fact (see the Reef Factory pick) gets stated plainly, not buried. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The picks</h2>
+    <div class="results">
+      {picks.map((p, idx) => (
+        <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          {p.d.imageUrl && (
+            <div class="rthumb">
+              <img src={p.d.imageUrl} alt={`${p.d.brand} ${p.d.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
+          <div class="rmain">
+            <div class="rname">{p.d.brand} {p.d.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+            <div class="rmeta">{p.why}</div>
+            <div class="rmeta">{p.d.heads} heads · {p.d.accuracy} · {p.d.app}</div>
+          </div>
+          <div class="rflow"><span class="n">{p.d.heads}</span><br /><span class="u">heads</span></div>
+          <div class="rbuy"><a class="aff" href={buy(p.d)} target="_blank" rel="sponsored nofollow noopener">{money(p.d.priceUSD)} ↗</a></div>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="margin-top:32px;">Best accuracy — with a real caveat</h2>
+    <div class="results">
+      <div class="rcard">
+        {accuracyPick.imageUrl && (
+          <div class="rthumb">
+            <img src={accuracyPick.imageUrl} alt={`${accuracyPick.brand} ${accuracyPick.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+          </div>
+        )}
+        <div class="rmain">
+          <div class="rname">{accuracyPick.brand} {accuracyPick.model} <span class="rbadge" style="background:#fbeadd;color:#9a5a3a;">Manufacturer bankruptcy — read first</span></div>
+          <div class="rmeta">The tightest published accuracy of any doser here, at a genuinely standalone $339.99. But Reef Factory (Poland) entered bankruptcy proceedings in 2025 — it's still an active, orderable product with support reportedly continuing, but long-term warranty and software support carry real uncertainty. We're not telling you to skip it; we're telling you what a spec sheet won't.</div>
+          <div class="rmeta">{accuracyPick.heads} heads · {accuracyPick.accuracy} · {accuracyPick.app}</div>
+        </div>
+        <div class="rflow"><span class="n">±0.01</span><br /><span class="u">mL accuracy</span></div>
+        <div class="rbuy"><a class="aff" href={buy(accuracyPick)} target="_blank" rel="sponsored nofollow noopener">{money(accuracyPick.priceUSD)} ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Not what they look like on the spec sheet</h2>
+    <p style="color:var(--muted);max-width:68ch;">Three products people search for by name that don't do what a first-time buyer would assume — named plainly instead of discovered after checkout.</p>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>Product</th><th>Price</th><th>What it actually is</th><th></th></tr></thead>
+        <tbody>
+          {notStandalone.map((g) => (
+            <tr>
+              <td><strong>{g.brand}</strong> {g.model}</td>
+              <td>{money(g.priceUSD)}</td>
+              <td style="color:var(--muted)">{g.note}</td>
+              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>What about kalkwasser?</h2>
+    <p>{data.kalkwasserNotes}</p>
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 640px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+</style>
