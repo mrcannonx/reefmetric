@@ -3,16 +3,25 @@ import { SITE, NAV } from '../consts';
 import { url } from '../utils/url';
 import '../styles/global.css';
 
+interface Breadcrumb { name: string; href: string; }
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   noindex?: boolean;
+  image?: string;
+  breadcrumbs?: Breadcrumb[];
 }
-const { title, description = SITE.description, canonical, noindex: noindexProp = false } = Astro.props;
+const { title, description = SITE.description, canonical, noindex: noindexProp = false, image, breadcrumbs } = Astro.props;
 const pageTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
-const canonicalURL = canonical ?? new URL(Astro.url.pathname, SITE.url).href;
+// Strip the .html extension (and trailing /index) that Astro.url.pathname carries under
+// build.format:'file' — the sitemap and every internal link use the extensionless form,
+// so the canonical must match it or GSC reports every URL as a duplicate with a mismatched
+// canonical.
+const cleanPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+const canonicalURL = canonical ?? new URL(cleanPath || '/', SITE.url).href;
 const noindex = noindexProp || import.meta.env.PUBLIC_NOINDEX === 'true';
+const ogImage = new URL(image ?? '/og-default.png', SITE.url).href;
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -20,6 +29,23 @@ const orgLd = {
   url: SITE.url,
   description: SITE.description,
 };
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+};
+const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    item: new URL(url(b.href), SITE.url).href,
+  })),
+} : null;
 ---
 
 <!doctype html>
@@ -31,15 +57,26 @@ const orgLd = {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <meta name="theme-color" content="#0d1b26" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+    {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
   </head>
   <body>
     <header class="site-header">
@@ -51,6 +88,17 @@ const orgLd = {
     <div class="disclosure-bar">
       Some links are paid links — if you buy through them we may earn a commission, at no extra cost to you. <a href={url('/disclosure')}>How this works</a>.
     </div>
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <nav class="breadcrumbs container" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        {breadcrumbs.map((b, i) => (
+          <>
+            <span aria-hidden="true"> / </span>
+            {i === breadcrumbs.length - 1 ? <span aria-current="page">{b.name}</span> : <a href={url(b.href)}>{b.name}</a>}
+          </>
+        ))}
+      </nav>
+    )}
     <main>
       <slot />
     </main>
@@ -63,7 +111,7 @@ const orgLd = {
         <a href={url('/disclosure')}>Affiliate Disclosure</a>
         <a href={url('/privacy')}>Privacy</a>
       </nav>
-      <p class="fine">© 2026 ReefMetric. Independent and reader-supported. We participate in affiliate programs and earn from qualifying purchases — it never affects our ratings.</p>
+      <p class="fine">© 2026 ReefMetric. Independent and reader-supported. As an Amazon Associate we earn from qualifying purchases. We also participate in other affiliate programs and earn from qualifying purchases — it never affects our ratings.</p>
     </footer>
   </body>
 </html>

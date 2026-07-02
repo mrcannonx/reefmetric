@@ -3,8 +3,12 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { SITE } from '../../consts';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import doserData from '../../data/dosers.json';
+
+const slug = (d: { brand: string; model: string }) =>
+  `${d.brand}-${d.model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 interface Doser {
   brand: string; model: string; priceUSD: number; heads: number; accuracy: string;
@@ -17,7 +21,7 @@ const notStandalone = data.notStandalone as { brand: string; model: string; pric
 const dataDate = data.generated as string;
 
 const money = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Check price');
-const buy = (d: { brand: string; model: string; retailers?: string[] }) => goHref(d.retailers || [], `${d.brand} ${d.model} dosing pump`);
+const buy = (d: { brand: string; model: string; retailers?: string[]; source?: string }) => goHref(d.retailers || [], `${d.brand} ${d.model} dosing pump`, d.source);
 const buyGap = (d: { brand: string; model: string }) => goHref([], `${d.brand} ${d.model} dosing pump`);
 
 interface Pick { badge: string; why: string; d: Doser; }
@@ -46,12 +50,13 @@ const picks: Pick[] = [
 ];
 const accuracyPick = byModel('Dosing Pump Pro X4');
 
+const pageURL = new URL(url('/reviews/best-reef-dosing-pumps'), SITE.url).href;
 const itemListLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Best Reef Dosing Pumps',
   numberOfItems: dosers.length,
-  itemListElement: dosers.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: `${d.brand} ${d.model}` })),
+  itemListElement: dosers.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: `${d.brand} ${d.model}`, url: `${pageURL}#${slug(d)}` })),
 };
 const faqs = [
   {
@@ -67,10 +72,20 @@ const faqs = [
     a: `It has the best published accuracy in this comparison (±0.01mL), but the manufacturer entered bankruptcy proceedings in 2025. It's still an active, orderable product with the company saying support continues, but long-term warranty and software support carry real uncertainty — weigh that against a financially stable brand before choosing it purely on the accuracy number.`,
   },
 ];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 <Base
   title="Best Reef Dosing Pumps (2026) — Ranked, With the Ones That Aren't Really Standalone"
   description="The best reef aquarium dosing pumps compared — Red Sea ReefDose, GHL Doser 3, Focustronic Dosetronic, Reef Factory X4 — plus which ones secretly require a separate controller to work at all."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Dosing Pumps', href: '/reviews/best-reef-dosing-pumps' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Dosing Pumps</p>
@@ -84,7 +99,7 @@ const faqs = [
     <h2>The picks</h2>
     <div class="results">
       {picks.map((p, idx) => (
-        <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+        <div id={slug(p.d)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
           {p.d.imageUrl && (
             <div class="rthumb">
               <img src={p.d.imageUrl} alt={`${p.d.brand} ${p.d.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
@@ -96,14 +111,14 @@ const faqs = [
             <div class="rmeta">{p.d.heads} heads · {p.d.accuracy} · {p.d.app}</div>
           </div>
           <div class="rflow"><span class="n">{p.d.heads}</span><br /><span class="u">heads</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.d)} target="_blank" rel="sponsored nofollow noopener">{money(p.d.priceUSD)} ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(p.d)} target="_blank" rel="sponsored nofollow noopener">{money(p.d.priceUSD)} at {retailerName(p.d.retailers)} ↗</a></div>
         </div>
       ))}
     </div>
 
     <h2 style="margin-top:32px;">Best accuracy — with a real caveat</h2>
     <div class="results">
-      <div class="rcard">
+      <div id={slug(accuracyPick)} class="rcard">
         {accuracyPick.imageUrl && (
           <div class="rthumb">
             <img src={accuracyPick.imageUrl} alt={`${accuracyPick.brand} ${accuracyPick.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
@@ -115,7 +130,7 @@ const faqs = [
           <div class="rmeta">{accuracyPick.heads} heads · {accuracyPick.accuracy} · {accuracyPick.app}</div>
         </div>
         <div class="rflow"><span class="n">±0.01</span><br /><span class="u">mL accuracy</span></div>
-        <div class="rbuy"><a class="aff" href={buy(accuracyPick)} target="_blank" rel="sponsored nofollow noopener">{money(accuracyPick.priceUSD)} ↗</a></div>
+        <div class="rbuy"><a class="aff" href={buy(accuracyPick)} target="_blank" rel="sponsored nofollow noopener">{money(accuracyPick.priceUSD)} at {retailerName(accuracyPick.retailers)} ↗</a></div>
       </div>
     </div>
   </section>
@@ -132,7 +147,7 @@ const faqs = [
               <td><strong>{g.brand}</strong> {g.model}</td>
               <td>{money(g.priceUSD)}</td>
               <td style="color:var(--muted)">{g.note}</td>
-              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></td>
+              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price at Amazon ↗</a></td>
             </tr>
           ))}
         </tbody>
@@ -161,6 +176,7 @@ const faqs = [
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </Base>
 
 <style>
