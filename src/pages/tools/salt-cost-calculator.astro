@@ -9,6 +9,7 @@ const isSample = (saltData as any).sample === true;
 <Base
   title="Reef Salt Cost Calculator (cost per gallon + monthly)"
   description="Compare reef salt mixes by real cost per mixed gallon — not the box price — and see your actual monthly salt cost based on your tank size and water-change schedule."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Salt Cost Calculator', href: '/tools/salt-cost-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
@@ -59,7 +60,7 @@ const isSample = (saltData as any).sample === true;
 <script>
   import { rankSalts, FREQUENCIES } from '../../utils/salt-cost-calc';
   import data from '../../data/salts.json';
-  import { goHref } from '../../data/affiliate-config';
+  import { goHref, retailerName } from '../../data/affiliate-config';
 
   const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
   const money2 = (n: number) => '$' + n.toFixed(2);
@@ -98,7 +99,7 @@ const isSample = (saltData as any).sample === true;
             <div class="rmeta">~$${s.priceUSD} box · makes ${s.gallonsPerBox} gal · <strong>${money2(r.monthly)}/mo for your tank</strong></div>
           </div>
           <div class="rflow"><span class="n">${money2(r.costPerGal)}</span><br><span class="u">per gallon</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} ↗</a></div>
         </div>`;
     }).join('') +
       `<p class="rnote">Cost per gallon = box price ÷ gallons it mixes at reef salinity. Prices vary by retailer and sales; your monthly figure assumes the water volume above. Livestock-safe salinity is ~1.024–1.026.</p>`;

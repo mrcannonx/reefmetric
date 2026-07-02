@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import controllerData from '../../data/controllers.json';
 
 const data = controllerData as any;
@@ -13,7 +13,7 @@ const ecosystems = data.ecosystems as any[];
 const flagship3 = ecosystems.slice(0, 3);
 const budgetEcosystems = ecosystems.slice(3);
 
-const buy = (kit: any, brand: string) => goHref(kit.retailers || [], `${brand} ${kit.model}`);
+const buy = (kit: any, brand: string) => goHref(kit.retailers || [], `${brand} ${kit.model}`, kit.source);
 const price = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'See retailer');
 const probes = (p: string[] | null) => (p == null ? 'Not itemized' : p.length === 0 ? 'None' : p.join(', '));
 
@@ -74,6 +74,7 @@ const ld = [
 <Base
   title="Apex vs HYDROS vs GHL: Best Reef Tank Controller Comparison (2026)"
   description="Neptune Apex vs CoralVue HYDROS vs GHL ProfiLux, compared spec by spec: kit prices, included probes, cloud fees (all free), programming difficulty, dosing and automated testing ecosystems, and honest owner-reported weaknesses."
+  breadcrumbs={[{ name: 'Compare', href: '/compare' }, { name: 'Apex vs HYDROS vs GHL', href: '/compare/apex-vs-hydros-vs-ghl' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Compare · Controllers</p>
@@ -155,7 +156,7 @@ const ld = [
               <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
             </div>
             <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
-            <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+            <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗</a></div>
           </div>
         ))}
       </div>
@@ -191,7 +192,7 @@ const ld = [
                 <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
               </div>
               <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
-              <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+              <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗</a></div>
             </div>
           ))}
         </div>

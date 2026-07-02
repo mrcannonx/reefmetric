@@ -368,7 +368,7 @@
         "Amazon",
         "Walmart"
       ],
-      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf (official Jebao DCP owner's manual performance parameters table: 3000 L/H, 3.0M head, 25W)",
+      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf",
       "modeled": true,
       "imageUrl": null
     },
@@ -440,7 +440,7 @@
         "Bulk Reef Supply",
         "Marine Depot"
       ],
-      "source": "https://www.bulkreefsupply.com/current-usa-eflux-dc-flow-pump.html (manufacturer spec via retailer: 210-1050 GPH range, 10.5ft/3.2m max head, 6-30W, $161.46)",
+      "source": "https://www.bulkreefsupply.com/current-usa-eflux-dc-flow-pump.html",
       "modeled": true,
       "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250093-currentusa-eflux-6009-dc-flowpump-1050gph-pump-cv1.jpg"
     },
@@ -491,7 +491,7 @@
         "Amazon",
         "Bulk Reef Supply"
       ],
-      "source": "https://www.amazon.com/Jebao-Marine-Controllable-DCT-4000-1056GPH/dp/B0CLB7LLZ2 (retailer-listed spec: 1056 GPH, 9.8ft max head, 30W)",
+      "source": "https://www.amazon.com/Jebao-Marine-Controllable-DCT-4000-1056GPH/dp/B0CLB7LLZ2",
       "modeled": true,
       "imageUrl": null
     },
@@ -719,7 +719,7 @@
         "Amazon",
         "Bulk Reef Supply"
       ],
-      "source": "https://www.amazon.com/Jebao-Jecod-Marine-Controllable-Water/dp/B00SQX5CCO (retailer-listed spec: 2113 GPH, 14.8ft max head, 68W)",
+      "source": "https://www.amazon.com/Jebao-Jecod-Marine-Controllable-Water/dp/B00SQX5CCO",
       "modeled": true,
       "imageUrl": "https://petocart.com/cdn/shop/files/61p6tjdF4UL.jpg?v=1741885003&width=1400"
     },
@@ -745,7 +745,7 @@
         "Amazon",
         "Bulk Reef Supply"
       ],
-      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf (official Jebao DCP owner's manual performance parameters table: 8000 L/H, 5.2M head, 65W)",
+      "source": "https://www.theaquariumsolution.com/sites/default/files/downloads/DCP%20Pumps%20Operating%20Instructions.pdf",
       "modeled": true,
       "imageUrl": "https://reef-aquarium-store.com/content/Products/Jebao-opvoerpomp-DCP8000-incl-controller.jpg"
     },
@@ -795,7 +795,7 @@
       "retailers": [
         "Amazon"
       ],
-      "source": "https://aquaterradigital.com/product/jebao-dcs-12000-silent-pump-2375-to-3170-gph/ and owlpump.com DCS series listing (9000 L/H, 5.2M head, 65W, DC24V)",
+      "source": "https://aquaterradigital.com/product/jebao-dcs-12000-silent-pump-2375-to-3170-gph/",
       "modeled": true,
       "imageUrl": "https://m.fish-street.com/image_show.php?item_id=793&type=large&vc=4e669d80cbb3d4f85543a5e3033c5aff"
     },
@@ -820,7 +820,7 @@
       "retailers": [
         "Amazon"
       ],
-      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf (official Coral Box DCA owner's manual performance parameters table: DCA9000, 9200 L/H, 5.2M head, 65W, DC24V)",
+      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf",
       "modeled": true,
       "imageUrl": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca-9000-return-pump-16783802761351_600x.png?v=1595602702"
     },
@@ -974,7 +974,7 @@
         "Bulk Reef Supply",
         "Marine Depot"
       ],
-      "source": "https://www.bulkreefsupply.com/current-usa-eflux-6011-dc-flow-pump-3170gph.html (manufacturer spec via retailer: 635-3170 GPH range, 20ft/6m max head, 16-80W, $254.46)",
+      "source": "https://www.bulkreefsupply.com/current-usa-eflux-6011-dc-flow-pump-3170gph.html",
       "modeled": true,
       "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/c/u/current-usa-eflux-6011-dc-flow-pump-3170gph-99.jpg"
     },
@@ -1024,7 +1024,7 @@
       "retailers": [
         "Amazon"
       ],
-      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf (official Coral Box DCA owner's manual performance parameters table: DCA12000, 12200 L/H, 6.0M head, 80W, DC24V)",
+      "source": "https://coral-box.com/uploads/3/5/7/2/35728429/dca12002000300040006000900012000.pdf",
       "modeled": true,
       "imageUrl": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca12000-dc-pump-16783814787207.png?v=1595657165"
     },

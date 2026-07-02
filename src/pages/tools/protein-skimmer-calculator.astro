@@ -10,6 +10,7 @@ const isSample = (skimmerData as any).sample === true;
 <Base
   title="Protein Skimmer Size Calculator (what size do I need?)"
   description="Free protein skimmer size calculator. Enter your tank volume and bioload — we derate the optimistic manufacturer ratings and show which skimmers actually fit your reef, ranked, with footprint and price."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Protein Skimmer Calculator', href: '/tools/protein-skimmer-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
@@ -71,14 +72,14 @@ const isSample = (skimmerData as any).sample === true;
 <script>
   import { recommendSkimmers } from '../../utils/skimmer-calc';
   import data from '../../data/skimmers.json';
-  import { goHref } from '../../data/affiliate-config';
+  import { goHref, retailerName } from '../../data/affiliate-config';
 
   const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
 
   function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
 
-  const buyUrl = (s: { brand: string; model: string; retailers?: string[] }) =>
-    goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`);
+  const buyUrl = (s: { brand: string; model: string; retailers?: string[]; source?: string }) =>
+    goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`, s.source);
 
   function render() {
     const gallons = Number(val('sDisplayGallons')) || 0;
@@ -118,7 +119,7 @@ const isSample = (skimmerData as any).sample === true;
             <div class="rmeta">${pill}${foot}${depth}${watts}${price}${basis}</div>
           </div>
           <div class="rflow"><span class="n">${r.effectiveGallons.toLocaleString()}</span><br><span class="u">gal @ ${bioload}</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} ↗</a></div>
         </div>`;
     }).join('');
     results.innerHTML = cards +

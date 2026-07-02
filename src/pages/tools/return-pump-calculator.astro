@@ -11,6 +11,7 @@ const pumpCount = (pumpData as any).pumps.length;
 <Base
   title="Reef Return Pump Calculator (real flow after head loss)"
   description="Free reef return pump calculator. Enter your tank size, head height, and plumbing — get the real flow each pump delivers at your total dynamic head, not the misleading box-rated GPH."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Return Pump Calculator', href: '/tools/return-pump-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
@@ -93,7 +94,7 @@ const pumpCount = (pumpData as any).pumps.length;
 <script>
   import { recommend } from '../../utils/pump-calc';
   import data from '../../data/pumps.json';
-  import { goHref } from '../../data/affiliate-config';
+  import { goHref, retailerName } from '../../data/affiliate-config';
 
   const $ = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
 
@@ -108,8 +109,8 @@ const pumpCount = (pumpData as any).pumps.length;
     };
   }
 
-  const buyUrl = (p: { brand: string; model: string; retailers?: string[] }) =>
-    goHref(p.retailers || [], `${p.brand} ${p.model} return pump`);
+  const buyUrl = (p: { brand: string; model: string; retailers?: string[]; source?: string }) =>
+    goHref(p.retailers || [], `${p.brand} ${p.model} return pump`, p.source);
 
   function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
 
@@ -148,7 +149,7 @@ const pumpCount = (pumpData as any).pumps.length;
             <div class="rmeta">${pill} &nbsp; ${r.turnoverAtDisplay}× on your display${watts}${price}${modeled}</div>
           </div>
           <div class="rflow"><span class="n">${r.deliveredGPH.toLocaleString()}</span><br><span class="u">GPH @ ${r.operatingHeadFt} ft</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(p)}" target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(p)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(p.retailers))} ↗</a></div>
         </div>`;
     }).join('');
     results.innerHTML = cards +

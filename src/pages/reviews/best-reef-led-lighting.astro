@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import { parAtHeight, type Light, type ParBand } from '../../utils/light-calc';
 import lightData from '../../data/lights.json';
 
@@ -47,7 +47,7 @@ const picks: Pick[] = [
   },
 ];
 
-const buy = (l: Light) => goHref(l.retailers || [], `${l.brand} ${l.model} reef LED light`);
+const buy = (l: Light) => goHref(l.retailers || [], `${l.brand} ${l.model} reef LED light`, l.priceSource);
 const buyGap = (g: { brand: string; model: string }) => goHref([], `${g.brand} ${g.model} reef LED light`);
 
 const itemListLd = {
@@ -61,6 +61,7 @@ const itemListLd = {
 <Base
   title="Best Reef Tank LED Lighting (2026) — Ranked by Verified PAR Data"
   description="The best reef tank LED lights, ranked only where real PAR data exists — manufacturer charts or independent lab tests, not marketing claims. Includes a transparency scorecard for the popular fixtures that publish no PAR data at all."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef LED Lighting', href: '/reviews/best-reef-led-lighting' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · LED Lighting</p>
@@ -89,7 +90,7 @@ const itemListLd = {
             <div class="rmeta">Curve: {p.row.light.parCurve.map((pt) => `${pt.par} PAR @ ${pt.heightIn}"`).join(' · ')}</div>
           </div>
           <div class="rflow"><span class="n">{p.row.par18}</span><br /><span class="u">~PAR @ {REF_HEIGHT}"{p.row.exact ? '' : '*'}</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.row.light)} target="_blank" rel="sponsored nofollow noopener">{money(p.row.light.priceUSD)} ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(p.row.light)} target="_blank" rel="sponsored nofollow noopener">{money(p.row.light.priceUSD)} at {retailerName(p.row.light.retailers)} ↗</a></div>
         </div>
       ))}
     </div>
@@ -108,7 +109,7 @@ const itemListLd = {
               <td><strong>{g.brand}</strong> {g.model}</td>
               <td>{money(g.priceUSD)}</td>
               <td style="color:var(--muted)">{g.note}</td>
-              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></td>
+              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price at Amazon ↗</a></td>
             </tr>
           ))}
         </tbody>

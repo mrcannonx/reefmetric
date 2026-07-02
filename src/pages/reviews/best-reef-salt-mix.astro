@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import saltData from '../../data/salts.json';
 
 interface Salt {
@@ -79,6 +79,7 @@ const itemListLd = {
 <Base
   title="Best Reef Salt Mix (2026) — Ranked by Real Cost per Gallon"
   description="Every major reef salt ranked by true cost per mixed gallon — Instant Ocean, Red Sea, Tropic Marin, Fritz, Aquaforest and more — with growth vs natural-parameter formulas explained."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Salt Mix', href: '/reviews/best-reef-salt-mix' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Salt Mix</p>
@@ -104,7 +105,7 @@ const itemListLd = {
             <div class="rmeta">{p.s.params} · ~${p.s.priceUSD} box mixes {p.s.gallonsPerBox} gal · ≈{monthly75(p.s.costPerGal)}/mo on a 75-gal tank at 10% weekly changes</div>
           </div>
           <div class="rflow"><span class="n">{money(p.s.costPerGal)}</span><br /><span class="u">per gallon</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.s.retailers)} ↗</a></div>
         </div>
       ))}
     </div>

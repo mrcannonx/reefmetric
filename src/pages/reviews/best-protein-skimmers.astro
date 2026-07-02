@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import { recommendSkimmers, effectiveCapacity, type Skimmer } from '../../utils/skimmer-calc';
 import skimmerData from '../../data/skimmers.json';
 
@@ -84,7 +84,7 @@ const table = skimmers
   }))
   .sort((a, b) => b.eff - a.eff);
 
-const buy = (s: Skimmer) => goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`);
+const buy = (s: Skimmer) => goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`, s.source);
 const allPicks = sections.flatMap((x) => x.picks);
 const itemListLd = {
   '@context': 'https://schema.org',
@@ -101,6 +101,7 @@ const itemListLd = {
 <Base
   title="Best Protein Skimmers by Tank Size (2026) — Honest Capacity Ratings"
   description="The best protein skimmers for nano, 40 breeder, 75 and 120+ gallon reef tanks — ranked by honest bioload-adjusted capacity, not the box's optimistic 'rated up to' number."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Protein Skimmers', href: '/reviews/best-protein-skimmers' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Protein Skimmers</p>
@@ -133,7 +134,7 @@ const itemListLd = {
               </div>
             </div>
             <div class="rflow"><span class="n">{p.effective}</span><br /><span class="u">honest gal</span></div>
-            <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+            <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.s.retailers)} ↗</a></div>
           </div>
         ))}
       </div>

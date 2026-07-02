@@ -9,6 +9,7 @@ const { retailer } = Astro.params;
 const r = RETAILERS[retailer as string];
 const searchTemplate = r.searchUrl('__Q__');
 const fallback = r.searchUrl('');
+const allowedDomain = r.domain;
 ---
 <!doctype html>
 <html lang="en">
@@ -16,16 +17,7 @@ const fallback = r.searchUrl('');
     <meta charset="utf-8" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirecting to {r.name}…</title>
-    <script define:vars={{ searchTemplate, fallback }}>
-      const params = new URLSearchParams(location.search);
-      const q = params.get('q');
-      const u = params.get('u');
-      let dest = fallback;
-      if (u && /^https?:\/\//i.test(u)) dest = u;
-      else if (q) dest = searchTemplate.replace('__Q__', encodeURIComponent(q));
-      location.replace(dest);
-    </script>
+    <title>Redirecting to {r.name}</title>
     <style>
       body { font-family: system-ui, sans-serif; color: #16262f; background: #f5f8f8; display: grid; place-items: center; min-height: 100vh; margin: 0; }
       .box { text-align: center; }
@@ -34,13 +26,30 @@ const fallback = r.searchUrl('');
   </head>
   <body>
     <div class="box">
-      <p>Taking you to {r.name}…</p>
+      <p>Taking you to {r.name}&hellip;</p>
       <p><a id="fallback" href={fallback}>Continue &rarr;</a></p>
-      <script define:vars={{ searchTemplate }}>
-        // update the fallback link with the query, in case the auto-redirect is blocked
-        const q = new URLSearchParams(location.search).get('q');
-        if (q) { const a = document.getElementById('fallback'); if (a) a.href = searchTemplate.replace('__Q__', encodeURIComponent(q)); }
-      </script>
     </div>
+    <script is:inline define:vars={{ searchTemplate, fallback, allowedDomain }}>
+      // Only trust a direct product URL (?u=) if its host is the retailer's own domain
+      // (exact or subdomain) — otherwise anyone could pass ?u=https://evil.example and
+      // ride this same-domain redirect anywhere. Falls back to the tagged search URL.
+      function safeDirect(u) {
+        try {
+          var parsed = new URL(u);
+          if (parsed.protocol !== 'https:') return null;
+          var host = parsed.hostname.toLowerCase();
+          if (host === allowedDomain || host.endsWith('.' + allowedDomain)) return u;
+        } catch (e) {}
+        return null;
+      }
+      var params = new URLSearchParams(location.search);
+      var q = params.get('q');
+      var u = params.get('u');
+      var direct = u ? safeDirect(u) : null;
+      var dest = direct || (q ? searchTemplate.replace('__Q__', encodeURIComponent(q)) : fallback);
+      var a = document.getElementById('fallback');
+      if (a) a.href = dest;
+      location.replace(dest);
+    </script>
   </body>
 </html>

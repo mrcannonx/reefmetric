@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { goHref } from '../../data/affiliate-config';
+import { goHref, retailerName } from '../../data/affiliate-config';
 import { recommend, type Pump, type SizingInputs } from '../../utils/pump-calc';
 import pumpData from '../../data/pumps.json';
 
@@ -108,7 +108,7 @@ const table = recommend(refClass.inputs, pumps).results
   .slice()
   .sort((a, b) => b.deliveredGPH - a.deliveredGPH);
 
-const buy = (p: Pump) => goHref(p.retailers || [], `${p.brand} ${p.model} return pump`);
+const buy = (p: Pump) => goHref(p.retailers || [], `${p.brand} ${p.model} return pump`, p.source);
 const allPicks = sections.flatMap((s) => s.picks);
 const itemListLd = {
   '@context': 'https://schema.org',
@@ -125,6 +125,7 @@ const itemListLd = {
 <Base
   title="Best Return Pumps for Reef Tanks (2026) — Ranked by Delivered Flow"
   description="The best reef return pumps by tank size, ranked by real delivered flow at realistic head — computed from manufacturer curves with Hazen-Williams friction math, not zero-head box numbers."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Return Pumps', href: '/reviews/best-return-pumps' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Return Pumps</p>
@@ -157,7 +158,7 @@ const itemListLd = {
               </div>
             </div>
             <div class="rflow"><span class="n">{p.deliveredGPH}</span><br /><span class="u">GPH delivered</span></div>
-            <div class="rbuy"><a class="aff" href={buy(p.pump)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+            <div class="rbuy"><a class="aff" href={buy(p.pump)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.pump.retailers)} ↗</a></div>
           </div>
         ))}
       </div>
