@@ -77,6 +77,8 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
     {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+    <!-- Cloudflare Web Analytics — cookieless, no personal data, no consent banner required -->
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aff7ac4ac456478781ac996eb3f26a0a"}'></script>
   </head>
   <body>
     <header class="site-header">
