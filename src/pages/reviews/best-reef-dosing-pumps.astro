@@ -142,7 +142,11 @@ const faqs = [
 
   <section class="container prose" style="padding-top:24px;">
     <h2>What about kalkwasser?</h2>
-    <p>{data.kalkwasserNotes}</p>
+    <p>{data.kalkwasserNotes} Full mixing ratios, the stirrer requirement, and safe dosing methods: <a href={url('/guides/kalkwasser-dosing')}>our kalkwasser dosing guide →</a></p>
+
+    <h2>What about nitrate and phosphate?</h2>
+    <p>Every doser on this page can also run carbon dosing (vodka, vinegar, or a bottled product like NOPX) — it's the same hardware, just a different bottle. That's a nutrient-export method, completely unrelated to the Alk/Ca/Mg chemistry the rest of this page covers. See <a href={url('/guides/carbon-dosing')}>our carbon dosing guide →</a> for the ramp-up protocol and the bacterial-bloom risk to avoid.</p>
+
     <h2>FAQ</h2>
     {faqs.map((f) => (
       <>

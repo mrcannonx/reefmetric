@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+
+const faqs = [
+  {
+    q: 'Is kalkwasser better than two-part dosing?',
+    a: "Neither is strictly better — they solve different problems. Kalkwasser is cheaper, replaces calcium and alkalinity in a single dose, and nudges pH up (useful on a tank running low). Two-part is easier to automate precisely with any standalone doser, doesn't need a stirrer, and scales further for heavy SPS demand. Plenty of experienced reefers run kalkwasser through the ATO for baseline demand and add two-part or a calcium reactor for the rest.",
+  },
+  {
+    q: 'How much kalkwasser powder do I mix per gallon?',
+    a: 'From 1/2 teaspoon per gallon of RO/DI for low-demand tanks up to about 2 teaspoons per gallon, which is the practical solubility limit at room temperature (a saturated solution). Adding more powder past that point does not make the solution stronger — it just leaves undissolved powder at the bottom, which is exactly what a stirrer is for.',
+  },
+  {
+    q: 'Can I dose kalkwasser with a normal dosing pump?',
+    a: "You can push it through any doser, but a plain pump alone isn't the full setup — kalkwasser settles out of solution and needs continuous stirring, and pushing it in fast risks a dangerous pH spike. See our dosing pump comparison for which controllers can pH-gate a kalkwasser dose natively.",
+  },
+  {
+    q: "What happens if I overdose kalkwasser?",
+    a: 'Your pH spikes, and if it climbs far enough the excess calcium and carbonate precipitate out — you\'ll see the water go cloudy. That precipitation reaction can burn coral tissue and, in a bad enough spike, kill corals outright. The fix if it happens: stop dosing, do a partial water change, and cut your dose rate before resuming.',
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Kalkwasser Dosing: The Complete Guide (2026)"
+  description="How to dose kalkwasser correctly — mixing ratio and saturation limit, the stirrer requirement, ATO-synced vs pH-gated dosing methods, overdose risks, and how it compares to two-part Alk/Ca/Mg dosing."
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Guide · Dosing</p>
+    <h1>Kalkwasser dosing, explained properly</h1>
+    <p class="lede-dark">One additive that replaces both alkalinity and calcium in a single dose, nudges pH <em>up</em> instead of down, and costs pennies a gallon in raw powder. It's also the fastest way in the hobby to crash your pH if you dose it wrong. Here's how reefers have used it safely for decades.</p>
+
+    <Disclosure />
+
+    <h2>The one-line answer</h2>
+    <p>Kalkwasser ("lime water") is a saturated solution of calcium hydroxide — Ca(OH)₂ — in RO/DI water. Dosed <strong>slowly and matched to evaporation</strong>, it replaces both calcium and alkalinity in one addition and helps hold pH up. Dosed too fast or too concentrated, it spikes pH hard enough to cloud your water and burn coral tissue. The chemistry is simple; the method is everything.</p>
+
+    <h2>What kalkwasser actually does</h2>
+    <p>Calcium hydroxide dissociates into Ca²⁺ and hydroxide ions (OH⁻). The Ca²⁺ is calcium, straightforwardly. The OH⁻ reacts with dissolved CO₂ and bicarbonate in your water, which raises both pH and alkalinity at the same time — a genuinely different mechanism from two-part dosing, where you're adding a carbonate/bicarbonate alkalinity source and a separate calcium chloride source that don't meaningfully move pH either direction. If your tank tends to run low pH (common in tightly sealed rooms with elevated CO₂), kalkwasser's pH lift is a real practical advantage two-part can't offer.</p>
+    <p>Our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> covers the two-part / DIY-additive math. Kalkwasser is the other major method — same target parameters (Alk, Ca), a different delivery mechanism.</p>
+
+    <h2>Mixing it: the saturation limit</h2>
+    <p>Mix calcium hydroxide powder into RO/DI water at roughly <strong>1/2 teaspoon per gallon for low-demand tanks, up to 1–1.5 teaspoons per gallon for medium-to-high demand</strong>. The practical ceiling is about <strong>2 teaspoons (≈6g) per gallon at room temperature</strong> — that's the solubility limit of a saturated solution. Adding more powder past that point doesn't make a stronger dose; the excess simply won't dissolve and settles as sediment. Mix, then let it sit at least 30 minutes before use so undissolved powder settles out — you want the clear solution, not the sediment.</p>
+
+    <h2>The stirrer requirement (this is not optional)</h2>
+    <p>Calcium hydroxide settles out of solution once mixed, so a static kalkwasser reservoir slowly turns back into powder at the bottom and RO/DI water on top — exactly the mix you don't want feeding your dosing line. A kalkwasser reactor solves this with a slow-turning stirrer (anything from a simple paddle to a motorized fin assembly) that keeps redistributing settled powder as the saturated solution above it gets drawn down. Run the stirrer on an intermittent schedule, not 24/7 — continuous stirring can pull too much undissolved powder into suspension and feed your tank a stronger, less predictable dose than intended.</p>
+
+    <h2>Three ways to actually dose it</h2>
+    <p><strong>ATO-synced (the classic method):</strong> replace your auto-top-off freshwater with kalkwasser solution instead. This is elegant because it's self-limiting — you can only add as much kalkwasser as your tank evaporates, and evaporation plus livestock consumption tend to track together reasonably well. It's also the easiest way to start: no separate pump schedule to tune.</p>
+    <p><strong>Slow metered drip:</strong> a dedicated peristaltic pump feeding kalkwasser continuously in small amounts spread across the day, independent of your ATO. Gives you more control over total volume than ATO-syncing alone.</p>
+    <p><strong>pH-gated dosing:</strong> the most precise method — a pump wired to a pH probe that only runs while pH is below a set point (a common example: on at pH 8.30, off at 8.31). This caps the dose automatically before it can overshoot. Few controllers do this natively; see our <a href={url('/compare/apex-vs-hydros-vs-ghl')}>controller comparison</a> for which ecosystems can pH-gate a dose (Apex with a DOS + pH probe, or GHL's Doser paired with a ProfiLux pH module) and our <a href={url('/reviews/best-reef-dosing-pumps')}>dosing pump review</a> for standalone hardware.</p>
+
+    <h2>The overdose risk — and how to avoid it</h2>
+    <p>A dosing event should never move your tank's pH by more than about <strong>0.2 units</strong>. Push past that and you risk a sharp spike that precipitates calcium carbonate out of solution — you'll see the water go cloudy, and that reaction can burn coral tissue or worse. If it happens: stop dosing immediately, do a partial water change to dilute and restore chemistry, and resume at a lower rate once things stabilize. The same rule that governs our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> applies here — dose to a test, not to a guess, and increase gradually while tracking pH and alkalinity.</p>
+
+    <h2>Kalkwasser vs two-part: which should you run?</h2>
+    <p>Kalkwasser wins on cost (raw powder is a few dollars for months of use), simplicity of chemistry (one addition covers Alk and Ca), and the pH assist. Two-part wins on precision and scale — it doesn't need a stirrer, works with any standalone doser with zero extra hardware, and doesn't run into kalkwasser's practical ceiling: a heavily stocked SPS tank often demands more calcium and alkalinity than evaporation volume alone can carry via kalkwasser. That's why a lot of advanced reefers run <em>both</em> — kalkwasser through the ATO for baseline demand, two-part or a calcium reactor to cover the shortfall.</p>
+
+    <h2>Ready to automate it?</h2>
+    <p>Once you've decided on a method, see our <a href={url('/reviews/best-reef-dosing-pumps')}>dosing pump comparison</a> for standalone hardware, or our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> if you're running two-part alongside it. Fighting nitrate or phosphate instead of (or in addition to) calcification chemistry? See our <a href={url('/guides/carbon-dosing')}>carbon dosing guide</a> — a completely different, unrelated dosing method for nutrient export.</p>
+
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+</style>

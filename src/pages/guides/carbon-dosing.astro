@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+
+const methods = [
+  { name: 'DIY vodka', control: 'Precise, manual', cost: 'Cheapest', notes: 'Ethanol only — potent, least forgiving if you overshoot a dose.' },
+  { name: 'DIY vinegar', control: 'Precise, manual', cost: 'Very cheap', notes: 'Acetic acid, roughly 1/7th the potency of vodka — the forgiving DIY option.' },
+  { name: 'Bottled liquid carbon (e.g. NOPX)', control: 'Precise, manual', cost: 'Moderate', notes: 'Blended ethanol/acetic acid plus trace organic-bonded elements that steady the bacterial response — costlier than DIY, less guesswork.' },
+  { name: 'Biopellet reactor', control: 'Low — self-regulating', cost: 'Higher upfront, cheap to run', notes: "Set-and-forget, but slower to respond and you can't time dosing to your tank's best O2/pH window." },
+];
+
+const faqs = [
+  {
+    q: 'What is NOPX (NOPOX) dosing?',
+    a: "NOPX — sold as Red Sea's NO3:PO4-X — is a bottled liquid carbon source, roughly a 6:1 blend of ethanol to acetic acid plus trace organic-bonded elements the manufacturer says steady the bacterial response. It works the same way as DIY vodka/vinegar dosing: feed bacteria, export the biomass via skimming. It costs more than mixing your own, but removes the ratio guesswork.",
+  },
+  {
+    q: 'Is carbon dosing the same as the Alk/Ca/Mg dosing my calculator covers?',
+    a: "No — they're unrelated. Alk/Ca/Mg dosing (two-part or kalkwasser) replaces what corals consume building skeleton. Carbon dosing feeds bacteria to strip nitrate and phosphate — a nutrient-export method with nothing to do with calcification chemistry. Plenty of reefers run both at once for different reasons.",
+  },
+  {
+    q: 'Do I need a protein skimmer to carbon dose?',
+    a: "Yes, effectively. Carbon dosing works by growing bacterial biomass that has to be removed from the system — a skimmer is how you export it. Without strong, healthy skimming, that biomass and the oxygen it consumes just build up in the tank instead of leaving it.",
+  },
+  {
+    q: 'How fast should I raise my carbon dose?',
+    a: "Slower than feels necessary. Start around 0.1 mL per 25 gallons per day, hold that dose for the better part of a week while watching for cloudiness, heavy fish breathing, or an overflowing skimmer cup, and only step up if nothing looks wrong. Test nitrate and phosphate on a fixed schedule rather than guessing — it can take weeks to see the full effect of a given dose.",
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Carbon Dosing for Reef Tanks: NOPX, Vodka & Vinegar (2026)"
+  description="How carbon dosing lowers nitrate and phosphate — vodka vs vinegar vs bottled NOPX vs biopellets, the safe ramp-up protocol, and the bacterial-bloom/oxygen-crash risk to avoid."
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Guide · Nutrient export</p>
+    <h1>Carbon dosing: cutting nitrate and phosphate without a bigger water change</h1>
+    <p class="lede-dark">Feed the right bacteria the right food, and they'll strip nitrate and phosphate out of your water for you — then you export them with your skimmer. It's cheap, it's effective, and it's also the nutrient-export method most likely to crash your tank's oxygen if you rush it. Here's how to do it safely.</p>
+
+    <Disclosure />
+
+    <h2>The one-line answer</h2>
+    <p>Carbon dosing means adding an organic carbon source — vodka, vinegar, or a bottled product like NOPX — to feed bacteria that consume nitrate and phosphate as they grow. Skim off the resulting bacterial biomass (or crop it off biopellets in a reactor) and the nutrients leave with it. Start low, raise slowly, and keep your skimmer strong — the bacteria you're growing also consume oxygen, and that's the real risk here.</p>
+
+    <h2>How it actually works</h2>
+    <p>This traces back to the Redfield ratio — the roughly consistent carbon:nitrogen:phosphorus ratio found in marine bacteria and plankton across the ocean. Your tank's bacteria are typically carbon-limited, not nitrogen- or phosphorus-limited, which is exactly why nitrate and phosphate build up in the first place: there's plenty of N and P, just not enough carbon for bacteria to use it all building biomass. Add carbon, and bacterial population grows, consuming nitrate and phosphate to do it. That growing bacterial mass then needs to leave the system — via a protein skimmer pulling it out as foam, or by growing on biopellets that get cropped and replaced.</p>
+
+    <h2>Not to be confused with Alk/Ca/Mg dosing</h2>
+    <p>This is a completely different topic from what our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> or <a href={url('/guides/kalkwasser-dosing')}>kalkwasser guide</a> cover. Those replace what corals consume building calcium carbonate skeleton. Carbon dosing feeds bacteria to strip excess nutrients — nothing to do with calcification chemistry. Plenty of reefers run both a calcification dosing routine and a carbon dosing routine at the same time, for entirely unrelated reasons.</p>
+
+    <h2>Three ways to carbon dose</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>Method</th><th>Control</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          {methods.map((m) => (
+            <tr><td><strong>{m.name}</strong></td><td>{m.control}</td><td>{m.cost}</td><td style="color:var(--muted)">{m.notes}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">The community-cited swap ratio is roughly 1 mL vodka ≈ 7 mL vinegar (vinegar is the far more forgiving of the two if you slightly overshoot a dose). A dosing pump handles any of the liquid options the same way it handles two-part — see our <a href={url('/reviews/best-reef-dosing-pumps')}>dosing pump review</a> if you want it automated.</p>
+
+    <h2>The ramp-up protocol</h2>
+    <p>Start small: roughly <strong>0.1 mL per 25 gallons per day</strong>, split across one or two doses. Hold that for the better part of a week and watch for trouble (see below) before increasing. If nothing looks wrong, step the dose up gradually and test nitrate and phosphate on a fixed schedule — not by feel — since it can take one to two weeks to see the full effect of a given dose level. Stop increasing once nutrients are trending down at a rate you're comfortable with; the goal is a slow, stable decline, not a race to zero.</p>
+
+    <h2>The real risk: bacterial bloom and oxygen crash</h2>
+    <p>The bacteria you're feeding consume dissolved oxygen as they multiply — dose too much, too fast, and you can trigger a bloom that outpaces your skimmer's ability to export it, crashing oxygen levels in the process. Warning signs: cloudy water, fish breathing heavily at the surface, or a skimmer cup filling far faster than usual. Treat any of those as a stop signal, not a sign to keep pushing. If it happens: stop dosing immediately, add surface agitation or extra aeration, and do a partial water change. This is also why carbon dosing without a skimmer isn't really an option — the entire method depends on exporting the biomass you're growing, and a skimmer is how that happens.</p>
+
+    <h2>Which method fits your tank?</h2>
+    <p><strong>New to carbon dosing, want the cheapest option:</strong> vinegar. It's the most forgiving of the three liquid methods if your dosing is slightly imprecise.</p>
+    <p><strong>Want a blended product with less guesswork:</strong> a bottled option like NOPX — costs more than DIY, but the ratio and trace-element blend are done for you.</p>
+    <p><strong>Want to set it and mostly forget it:</strong> a biopellet reactor. Slower to respond and you lose the ability to time doses to your tank's best oxygen window, but it needs far less day-to-day attention than a liquid dosing schedule.</p>
+
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin: 18px 0; }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 640px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+</style>
