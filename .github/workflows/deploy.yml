@@ -40,3 +40,39 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    # Pings Bing (and IndexNow partners: Yandex, Seznam, Naver — not Google, which doesn't
+    # support the protocol) the moment every page is live, instead of waiting to be crawled.
+    # The key file at public/<key>.txt was already being served with nothing ever calling
+    # the API — this is the other half of that setup.
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          KEY="7ebdafabc3f5c9289a68d7dd7e10df1f"
+          HOST="reefmetric.com"
+          SITEMAP_INDEX="https://reefmetric.com/sitemap-index.xml"
+
+          CHILD_SITEMAPS=$(curl -sf "$SITEMAP_INDEX" | grep -oE '<loc>[^<]+</loc>' | sed -E 's#</?loc>##g')
+          if [ -z "$CHILD_SITEMAPS" ]; then
+            echo "No child sitemaps found in $SITEMAP_INDEX — aborting."
+            exit 1
+          fi
+
+          URLS=""
+          for sm in $CHILD_SITEMAPS; do
+            PAGE_URLS=$(curl -sf "$sm" | grep -oE '<loc>[^<]+</loc>' | sed -E 's#</?loc>##g')
+            URLS="$URLS
+          $PAGE_URLS"
+          done
+          URLS=$(echo "$URLS" | grep -v '^$' | sort -u)
+          COUNT=$(echo "$URLS" | grep -c .)
+          echo "Submitting $COUNT URLs to IndexNow"
+
+          JSON_URLS=$(echo "$URLS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          curl -sf -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":$JSON_URLS}"
+          echo "IndexNow submission complete."
