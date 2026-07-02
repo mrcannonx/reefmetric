@@ -16,6 +16,7 @@ export interface Pump {
   retailers?: string[];
   modeled?: boolean;
   source?: string;
+  imageUrl?: string | null;
 }
 
 export interface SizingInputs {
