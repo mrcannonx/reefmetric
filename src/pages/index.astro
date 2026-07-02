@@ -2,6 +2,28 @@
 import Base from '../layouts/Base.astro';
 import EmailCapture from '../components/EmailCapture.astro';
 import { url } from '../utils/url';
+import { recommend, type Pump } from '../utils/pump-calc';
+import pumpData from '../data/pumps.json';
+import skimmerData from '../data/skimmers.json';
+import saltData from '../data/salts.json';
+import controllerData from '../data/controllers.json';
+import lightData from '../data/lights.json';
+
+// Hero proof stat, computed live from the dataset at build time so it can't go stale or look
+// cherry-picked. Same reference plumbing as the 75-gallon class on the return-pump review page.
+const pumps = (pumpData as any).pumps as Pump[];
+const REF_PLUMBING = { displayGallons: 75, turnover: 7, staticHeadFt: 4.5, pipeIdInches: 1.029, pipeLengthFt: 10, elbows: 4 };
+const { results: pumpResults } = recommend(REF_PLUMBING, pumps);
+const ratios = pumpResults.filter((r) => r.deliveredGPH > 0).map((r) => r.deliveredGPH / r.pump.maxFlowGPH);
+const avgDeliveredPct = Math.round((ratios.reduce((a, b) => a + b, 0) / ratios.length) * 100);
+
+const datasetCounts = {
+  pumps: pumps.length,
+  skimmers: (skimmerData as any).skimmers.length,
+  salts: (saltData as any).salts.length,
+  controllerKits: (controllerData as any).ecosystems.reduce((n: number, e: any) => n + e.kits.length, 0),
+  lights: (lightData as any).lights.length,
+};
 
 const tools = [
   { name: 'Return Pump Calculator', desc: 'The real flow each pump delivers at your actual head — not the box GPH. 41 pumps, ranked.', tag: 'Calculator · Live', href: '/tools/return-pump-calculator' },
@@ -18,14 +40,23 @@ const clusters = [
 ---
 <Base>
   <section class="hero">
-    <div class="container">
-      <p class="eyebrow">Measured, not guessed</p>
-      <h1>The reef gear authority that shows its math.</h1>
-      <p class="lede">Data-driven reviews, side-by-side comparison databases, and calculators for saltwater aquarium gear — so you buy the right skimmer, pump, or light the first time.</p>
-      <p style="margin-top:26px;">
-        <a href={url('/tools')} class="btn">Explore the tools</a>
-        <a href={url('/guides')} class="btn btn-ghost">Read the guides</a>
-      </p>
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Measured, not guessed</p>
+        <h1>The reef gear authority that shows its math.</h1>
+        <p class="lede">Data-driven reviews, side-by-side comparison databases, and calculators for saltwater aquarium gear — so you buy the right skimmer, pump, or light the first time.</p>
+        <p style="margin-top:26px;">
+          <a href={url('/tools')} class="btn">Explore the tools</a>
+          <a href={url('/guides')} class="btn btn-ghost">Read the guides</a>
+        </p>
+      </div>
+      <a href={url('/tools/return-pump-calculator')} class="hero-proof">
+        <p class="hero-proof-eyebrow">Real number, not marketing</p>
+        <div class="hero-proof-stat">{avgDeliveredPct}<span>%</span></div>
+        <p class="hero-proof-caption">is all the average return pump delivers of its box-rated GPH once real head and plumbing losses are counted.</p>
+        <p class="hero-proof-cta">See your pump's real number →</p>
+        <p class="hero-proof-scale">{datasetCounts.pumps} pumps · {datasetCounts.skimmers} skimmers · {datasetCounts.salts} salts · {datasetCounts.controllerKits} controller kits · {datasetCounts.lights} lights rated</p>
+      </a>
     </div>
   </section>
 
@@ -52,7 +83,7 @@ const clusters = [
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Gear, organized by your tank</p>
     <h2>Start with your setup.</h2>
-    <div class="grid cols-2" style="margin-top:26px;">
+    <div class="grid cols-3" style="margin-top:26px;">
       {clusters.map((c) => (
         <a class="card cardlink" href={url(c.href)}>
           <h3>{c.name}</h3>
