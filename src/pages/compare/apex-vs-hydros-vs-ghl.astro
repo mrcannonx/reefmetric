@@ -10,6 +10,8 @@ const data = controllerData as any;
 const dataDate = data.generated as string;
 const [apex, hydros, ghl] = data.ecosystems;
 const ecosystems = data.ecosystems as any[];
+const flagship3 = ecosystems.slice(0, 3);
+const budgetEcosystems = ecosystems.slice(3);
 
 const buy = (kit: any, brand: string) => goHref(kit.retailers || [], `${brand} ${kit.model}`);
 const price = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'See retailer');
@@ -36,6 +38,14 @@ const faqs = [
     q: 'Is a DIY Reef-Pi controller worth it?',
     a: `Only if you're technical and enjoy the project. Reef-Pi is actively maintained open source and runs ~$${data.reefPi.roughCostUSD} in parts for ATO, temp, lighting and dosing control — but there's no warranty, no support, and the build is the hobby.`,
   },
+  {
+    q: 'Is the Reef Angel controller worth it?',
+    a: `Yes, if you want the cheapest complete kit here ($399, relay box and probes included) and don't mind an open-source Arduino platform over a polished closed app. It's actively maintained and has real WiFi built in, but it has no automated water tester, no native dosing pump, and the smallest support ecosystem of any current option compared on this page.`,
+  },
+  {
+    q: 'Is Digital Aquatics ReefKeeper still available?',
+    a: `No — it's discontinued. Digital Aquatics was a side project of Dynon Instruments, which exited the aquarium-controller business entirely: no new units, no firmware updates, no support. digitalaquatics.com now redirects to a domain-parking page. Existing units generally keep running locally, but anyone buying new should look at Reef Angel (budget/DIY) or Apex/HYDROS/GHL (supported flagships) instead.`,
+  },
 ];
 
 const ld = [
@@ -43,7 +53,7 @@ const ld = [
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Apex vs HYDROS vs GHL ProfiLux reef controller comparison',
-    numberOfItems: 3,
+    numberOfItems: ecosystems.length,
     itemListElement: ecosystems.map((e: any, i: number) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -95,7 +105,7 @@ const ld = [
   </section>
 
   <section class="container" style="padding-top:8px;">
-    <h2>Head to head</h2>
+    <h2 id="head-to-head">Head to head</h2>
     <div class="tablewrap">
       <table class="specs">
         <thead>
@@ -118,7 +128,7 @@ const ld = [
     <p class="rnote">App ratings exist (Fusion 3.4★/128, HYDROS 3.9★/18, GHL Connect 4.0★/4) but the samples are too small to decide anything — we don't rank on them.</p>
   </section>
 
-  {ecosystems.map((e: any) => (
+  {flagship3.map((e: any) => (
     <section class="container" style="padding-top:24px;padding-bottom:8px;">
       <h2>{e.brand} {e.ecosystem}</h2>
       <div class="grid cols-2" style="margin-top:14px;">
@@ -151,6 +161,47 @@ const ld = [
       </div>
     </section>
   ))}
+
+  <section class="container" id="budget" style="padding-top:24px;padding-bottom:8px;">
+    <h2>Budget & DIY-friendly controllers</h2>
+    <p style="color:var(--muted);max-width:68ch;">Not every reefer needs — or wants to pay for — an $800+ flagship kit. Two names come up constantly in that budget/DIY conversation. One is a real, current, actively developed option. The other is a cautionary tale worth knowing before you buy one used.</p>
+    {budgetEcosystems.map((e: any) => (
+      <>
+        <div class="grid cols-2" style="margin-top:18px;">
+          <div class="card">
+            <h3 style="font-size:1.05rem;">Where it wins</h3>
+            <ul class="pmlist">{e.strengths.map((s: string) => <li>{s}</li>)}</ul>
+          </div>
+          <div class="card">
+            <h3 style="font-size:1.05rem;">Where it hurts</h3>
+            <ul class="pmlist">{e.weaknesses.map((w: string) => <li>{w}</li>)}</ul>
+          </div>
+        </div>
+        <div class="results" style="margin-top:16px;">
+          {e.kits.map((k: any, idx: number) => (
+            <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+              {k.imageUrl && (
+                <div class="rthumb">
+                  <img src={k.imageUrl} alt={`${e.brand} ${k.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+                </div>
+              )}
+              <div class="rmain">
+                <div class="rname">{k.model}</div>
+                <div class="rmeta">Probes: {probes(k.includedProbes)} · {k.outletsNotes}</div>
+                <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
+              </div>
+              <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
+              <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price ↗</a></div>
+            </div>
+          ))}
+        </div>
+      </>
+    ))}
+
+    <h3 style="margin-top:28px;">What about ReefKeeper?</h3>
+    <p style="color:var(--muted);max-width:68ch;">Digital Aquatics' ReefKeeper (RK1, ReefKeeper Lite, ReefKeeper Elite/Elite Plus) built a loyal following over more than a decade, and owners still describe the hardware as rock-solid. It's also <strong>completely discontinued</strong>. Digital Aquatics was a side project of Dynon Instruments, an avionics company — Dynon exited the aquarium-controller business entirely, so there are no new units, no firmware updates, and no manufacturer support. As of {dataDate}, digitalaquatics.com itself redirects to a GoDaddy domain-parking page — about as final a signal as a shutdown gets.</p>
+    <p style="color:var(--muted);max-width:68ch;">If you already own one, the hardware generally keeps running locally, but don't expect app updates or help if something breaks. Bulk Reef Supply occasionally lists open-box ReefKeeper stock — a fine cheap secondhand buy with your eyes open, but it's old dead stock, not a supported product. Buying new today, you're better served by Reef Angel above for a budget/DIY build, or by Apex, HYDROS, or GHL — all three compared in full <a href="#head-to-head">further up this page</a>.</p>
+  </section>
 
   <section class="container prose" style="padding-top:24px;">
     <h2>Which one fits your build?</h2>

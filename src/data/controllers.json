@@ -204,6 +204,47 @@
           "imageUrl": "https://www.aquariumcomputer.com/usa/wp-content/uploads/sites/5/2024/12/P420Mega-Set206E.webp"
         }
       ]
+    },
+    {
+      "brand": "Reef Angel",
+      "ecosystem": "Star",
+      "cloudFeeUSDmo": 0,
+      "cloudNotes": "Reef Angel app (iOS/Android) is free, no paid tier — remote monitoring, control, and push/email alerts.",
+      "programmingModel": "Open-source Arduino (ATmega) platform — a setup wizard auto-generates code for common automation, and the full Arduino sketch is yours to edit for anything the wizard doesn't cover.",
+      "programmingDifficulty": "Wizard-easy for the basics; genuinely technical (Arduino/C++) once you go past it",
+      "appNotes": "Reef Angel app handles remote monitoring, control, and alerts — owners consistently describe it as more utilitarian than Fusion/myGHL/HYDROS.",
+      "strengths": [
+        "Cheapest complete kit on this page — $399 includes the relay box, probes, and float switches with nothing extra required to get running",
+        "Fully open-source (Arduino) — public source code and hardware schematics, a real point of difference from every closed ecosystem above",
+        "Built-in WiFi on the Star — the earlier RA+ needed a separate add-on module",
+        "Actively maintained — GitHub commits into December 2025, still a going concern (unlike some DIY-era peers, see ReefKeeper below)"
+      ],
+      "weaknesses": [
+        "Smallest third-party ecosystem here — no automated water-testing hardware exists for it (no Trident/ION Director equivalent)",
+        "No native dosing pump — relay outlets can switch a third-party doser on/off but can't program a dose volume",
+        "Full customization requires real Arduino/C++ comfort — the wizard covers the basics, but the 'open and hackable' pitch cuts both ways",
+        "Smallest community and support footprint of any current (non-discontinued) option on this page"
+      ],
+      "testing": "No automated water-testing hardware in the Reef Angel ecosystem — pair a manual test kit and log results in the app.",
+      "dosing": "No native dosing pump. Relay outlets can switch a third-party doser on/off only — for programmable dose volumes, pair it with a standalone doser (see our dosing pump review).",
+      "kits": [
+        {
+          "model": "Reef Angel Star",
+          "priceUSD": 399.0,
+          "includedProbes": [
+            "temp",
+            "pH"
+          ],
+          "outlets": 8,
+          "outletsNotes": "8-port relay box + 2 float-switch inputs included; 3 temperature channels total (1 probe in the box, more sold separately)",
+          "connectivity": "WiFi (built-in)",
+          "retailers": [
+            "Amazon"
+          ],
+          "source": "https://reefangel.com/store/",
+          "imageUrl": null
+        }
+      ]
     }
   ],
   "reefPi": {
