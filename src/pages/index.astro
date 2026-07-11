@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import EmailCapture from '../components/EmailCapture.astro';
+import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
 import { recommend, type Pump } from '../utils/pump-calc';
 import pumpData from '../data/pumps.json';
@@ -26,20 +27,20 @@ const datasetCounts = {
 };
 
 const tools = [
-  { name: 'Return Pump Calculator', desc: 'The real flow each pump delivers at your actual head — not the box GPH. 41 pumps, ranked.', tag: 'Calculator · Live', href: '/tools/return-pump-calculator' },
-  { name: 'Protein Skimmer Sizer', desc: 'Which skimmers actually fit your tank once we derate the optimistic ratings for your bioload.', tag: 'Calculator · Live', href: '/tools/protein-skimmer-calculator' },
-  { name: 'Reef Build Cost Estimator', desc: 'Itemized up-front + monthly running cost for any tank size and tier.', tag: 'Calculator · Live', href: '/tools/reef-build-cost-calculator' },
+  { name: 'Return Pump Calculator', desc: 'The real flow each pump delivers at your actual head — not the box GPH. 41 pumps, ranked.', tag: 'Calculator · Live', href: '/tools/return-pump-calculator', art: 'calc-pump' },
+  { name: 'Protein Skimmer Sizer', desc: 'Which skimmers actually fit your tank once we derate the optimistic ratings for your bioload.', tag: 'Calculator · Live', href: '/tools/protein-skimmer-calculator', art: 'calc-skimmer' },
+  { name: 'Reef Build Cost Estimator', desc: 'Itemized up-front + monthly running cost for any tank size and tier.', tag: 'Calculator · Live', href: '/tools/reef-build-cost-calculator', art: 'calc-cost' },
 ];
 const clusters = [
-  { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.', href: '/reviews/best-protein-skimmers' },
-  { name: 'Return Pumps & Flow', desc: 'DC vs AC, turnover math, and real delivered flow at your head.', href: '/reviews/best-return-pumps' },
-  { name: 'Salt & Consumables', desc: 'Every major salt mix ranked by true cost per mixed gallon.', href: '/reviews/best-reef-salt-mix' },
-  { name: 'Controllers', desc: 'Apex vs GHL vs Hydros, plus budget/DIY picks and why ReefKeeper is off the list.', href: '/compare/apex-vs-hydros-vs-ghl' },
-  { name: 'Reef Lighting', desc: 'Only 4 of 11 popular fixtures have real PAR data behind them — ranked, plus a transparency scorecard on the rest.', href: '/reviews/best-reef-led-lighting' },
-  { name: 'Dosing Pumps', desc: "Ranked, plus which well-known doser can't run at all without a controller you probably don't already own.", href: '/reviews/best-reef-dosing-pumps' },
-  { name: 'Wavemakers', desc: 'Ranked by real dollars per GPH — with each line\'s documented reliability record next to the price.', href: '/reviews/best-wavemakers' },
-  { name: 'Test Kits', desc: 'Hanna vs Salifert vs Red Sea on the specs they publish but nobody compares — accuracy, resolution, cost per test.', href: '/reviews/best-reef-test-kits' },
-  { name: 'Setup Guides by Tank Size', desc: '30, 40B, 55, 75, and 120 gallon — the full build, sized piece by piece, with honest costs.', href: '/guides' },
+  { name: 'Protein Skimmers', desc: 'By tank size, by budget, by real bioload rating — not guesses.', href: '/reviews/best-protein-skimmers', art: 'skimmer' },
+  { name: 'Return Pumps & Flow', desc: 'DC vs AC, turnover math, and real delivered flow at your head.', href: '/reviews/best-return-pumps', art: 'pump' },
+  { name: 'Salt & Consumables', desc: 'Every major salt mix ranked by true cost per mixed gallon.', href: '/reviews/best-reef-salt-mix', art: 'salt' },
+  { name: 'Controllers', desc: 'Apex vs GHL vs Hydros, plus budget/DIY picks and why ReefKeeper is off the list.', href: '/compare/apex-vs-hydros-vs-ghl', art: 'controller' },
+  { name: 'Reef Lighting', desc: 'Only 4 of 11 popular fixtures have real PAR data behind them — ranked, plus a transparency scorecard on the rest.', href: '/reviews/best-reef-led-lighting', art: 'light' },
+  { name: 'Dosing Pumps', desc: "Ranked, plus which well-known doser can't run at all without a controller you probably don't already own.", href: '/reviews/best-reef-dosing-pumps', art: 'doser' },
+  { name: 'Wavemakers', desc: 'Ranked by real dollars per GPH — with each line\'s documented reliability record next to the price.', href: '/reviews/best-wavemakers', art: 'wavemaker' },
+  { name: 'Test Kits', desc: 'Hanna vs Salifert vs Red Sea on the specs they publish but nobody compares — accuracy, resolution, cost per test.', href: '/reviews/best-reef-test-kits', art: 'testkit' },
+  { name: 'Setup Guides by Tank Size', desc: '30, 40B, 55, 75, and 120 gallon — the full build, sized piece by piece, with honest costs.', href: '/guides', art: 'tank' },
 ];
 ---
 <Base>
@@ -70,12 +71,14 @@ const clusters = [
     <div class="grid cols-3" style="margin-top:26px;">
       {tools.map((t) => (t as any).href ? (
         <a class="card cardlink" href={url((t as any).href)}>
+          <CardArt kind={t.art} />
           <span class="pill">{t.tag}</span>
           <h3>{t.name}</h3>
           <p style="color:var(--muted)">{t.desc}</p>
         </a>
       ) : (
         <div class="card">
+          <CardArt kind={t.art} />
           <span class="pill">{t.tag}</span>
           <h3>{t.name}</h3>
           <p style="color:var(--muted)">{t.desc}</p>
@@ -90,6 +93,7 @@ const clusters = [
     <div class="grid cols-3" style="margin-top:26px;">
       {clusters.map((c) => (
         <a class="card cardlink" href={url(c.href)}>
+          <CardArt kind={c.art} />
           <h3>{c.name}</h3>
           <p style="color:var(--muted)">{c.desc}</p>
         </a>

@@ -1,15 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
 const guides = [
-  { name: '30 Gallon Reef Tank: Setup, Gear List & Cost', desc: 'The smallest forgiving size — the honest sump-or-no-sump answer, one-fixture lighting, the discipline stocking list, and real 2026 costs.', href: '/guides/30-gallon-reef-tank-setup', status: 'New' },
-  { name: '40 Gallon Breeder Reef Tank: Setup, Gear List & Cost', desc: 'The best beginner reef, fully specced — why the 40B wins, the complete gear list, a realistic cost breakdown, and the calculators to size your pump and skimmer.', href: '/guides/40-gallon-breeder-reef-tank-setup', status: 'Guide' },
-  { name: '55 Gallon Reef Tank: Read This Before You Buy One', desc: 'The most-discounted tank in the store and the most regretted reef size in the hobby. The 13-inch problem, when a 55 still makes sense, and how to build one well.', href: '/guides/55-gallon-reef-tank-setup', status: 'New' },
-  { name: '75 Gallon Reef Tank: Setup, Gear List & Cost', desc: "The hobby's sweet spot — four feet long, a real 18 inches deep, and stability you can't buy smaller. The full build, sized piece by piece.", href: '/guides/75-gallon-reef-tank-setup', status: 'New' },
-  { name: '120 Gallon Reef Tank: Setup, Gear List & Cost', desc: 'What the second foot of depth changes about lighting and aquascaping — plus floor loading, evaporation, and the logistics smaller-tank guides never mention.', href: '/guides/120-gallon-reef-tank-setup', status: 'New' },
-  { name: 'Kalkwasser Dosing: The Complete Guide', desc: 'Mixing ratio and saturation limit, the stirrer requirement, ATO-synced vs pH-gated dosing, overdose risks, and how it compares to two-part.', href: '/guides/kalkwasser-dosing', status: 'Guide' },
-  { name: 'Carbon Dosing: NOPX, Vodka & Vinegar Explained', desc: 'How feeding bacteria strips nitrate and phosphate — the three methods compared, the ramp-up protocol, and the bacterial-bloom risk to avoid.', href: '/guides/carbon-dosing', status: 'Guide' },
-  { name: 'DC vs AC Return Pumps: Which Should You Buy?', desc: 'Controllability, noise, efficiency, price, and the failure-mode most people miss — with the calculator to size whichever you pick.', href: '/guides/dc-vs-ac-return-pumps', status: 'Guide' },
+  { name: '30 Gallon Reef Tank: Setup, Gear List & Cost', desc: 'The smallest forgiving size — the honest sump-or-no-sump answer, one-fixture lighting, the discipline stocking list, and real 2026 costs.', href: '/guides/30-gallon-reef-tank-setup', status: 'New', art: 'tank', label: '30G' },
+  { name: '40 Gallon Breeder Reef Tank: Setup, Gear List & Cost', desc: 'The best beginner reef, fully specced — why the 40B wins, the complete gear list, a realistic cost breakdown, and the calculators to size your pump and skimmer.', href: '/guides/40-gallon-breeder-reef-tank-setup', status: 'Guide', art: 'tank', label: '40B' },
+  { name: '55 Gallon Reef Tank: Read This Before You Buy One', desc: 'The most-discounted tank in the store and the most regretted reef size in the hobby. The 13-inch problem, when a 55 still makes sense, and how to build one well.', href: '/guides/55-gallon-reef-tank-setup', status: 'New', art: 'tank', label: '55G' },
+  { name: '75 Gallon Reef Tank: Setup, Gear List & Cost', desc: "The hobby's sweet spot — four feet long, a real 18 inches deep, and stability you can't buy smaller. The full build, sized piece by piece.", href: '/guides/75-gallon-reef-tank-setup', status: 'New', art: 'tank', label: '75G' },
+  { name: '120 Gallon Reef Tank: Setup, Gear List & Cost', desc: 'What the second foot of depth changes about lighting and aquascaping — plus floor loading, evaporation, and the logistics smaller-tank guides never mention.', href: '/guides/120-gallon-reef-tank-setup', status: 'New', art: 'tank', label: '120G' },
+  { name: 'Kalkwasser Dosing: The Complete Guide', desc: 'Mixing ratio and saturation limit, the stirrer requirement, ATO-synced vs pH-gated dosing, overdose risks, and how it compares to two-part.', href: '/guides/kalkwasser-dosing', status: 'Guide', art: 'doser' },
+  { name: 'Carbon Dosing: NOPX, Vodka & Vinegar Explained', desc: 'How feeding bacteria strips nitrate and phosphate — the three methods compared, the ramp-up protocol, and the bacterial-bloom risk to avoid.', href: '/guides/carbon-dosing', status: 'Guide', art: 'chem' },
+  { name: 'DC vs AC Return Pumps: Which Should You Buy?', desc: 'Controllability, noise, efficiency, price, and the failure-mode most people miss — with the calculator to size whichever you pick.', href: '/guides/dc-vs-ac-return-pumps', status: 'Guide', art: 'pump' },
 ];
 ---
 <Base title="Reef Guides" description="Setup guides and buying decisions for saltwater aquariums, organized by tank size and build stage.">
@@ -20,6 +21,7 @@ const guides = [
     <div class="grid cols-2" style="margin-top:26px;">
       {guides.map((g) => (
         <a class="card cardlink" href={url(g.href)}>
+          <CardArt kind={g.art} label={(g as any).label} />
           <span class="pill">{g.status}</span>
           <h3>{g.name}</h3>
           <p style="color:var(--muted)">{g.desc}</p>

@@ -1,17 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
+import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
 const tools = [
-  { name: 'Return Pump Calculator', desc: 'Enter your tank size, head height, and plumbing → the real flow each of 41 pumps delivers at your total dynamic head, ranked, with the math shown.', status: 'Live · Free', href: '/tools/return-pump-calculator' },
-  { name: 'Protein Skimmer Size Calculator', desc: 'Enter your tank volume + bioload → which skimmers actually fit once we derate the optimistic manufacturer ratings, ranked, with footprint and price.', status: 'Live · Free', href: '/tools/protein-skimmer-calculator' },
-  { name: 'Reef Tank Cost Calculator', desc: 'Itemized up-front cost + monthly running cost (electricity, salt, consumables) for any tank size and build tier.', status: 'Live · Free', href: '/tools/reef-build-cost-calculator' },
-  { name: 'Salt Cost-per-Gallon Calculator', desc: 'Compare 12 reef salts by real cost per mixed gallon — not the box price — plus your actual monthly salt cost.', status: 'Live · Free', href: '/tools/salt-cost-calculator' },
-  { name: 'Reef Dosing Calculator', desc: 'Alk, calcium, or magnesium — the exact dose to hit your target, split safely across days, for DIY and bottled two-parts.', status: 'Live · Free', href: '/tools/reef-dosing-calculator' },
-  { name: 'Water Change Calculator', desc: 'Nitrate at 40 and want 10? The exact dilution math — one big change vs. a series of small ones, with gallons and the level after each step.', status: 'Live · Free', href: '/tools/water-change-calculator' },
-  { name: 'Flow Calculator', desc: 'Your turnover target by coral type, minus what your return already delivers — then the wavemakers that close the gap, ranked by real cost.', status: 'Live · Free', href: '/tools/flow-calculator' },
-  { name: 'Tank Volume Calculator', desc: 'True water volume — minus sand, rock, and air gap, plus sump — and the pounds of sand your bed depth needs. The number every dose depends on.', status: 'Live · Free', href: '/tools/tank-volume-calculator' },
-  { name: 'Heater Size Calculator', desc: 'Wattage from your volume and real room temperature, why two heaters beat one, and the controller that catches the classic stuck-on failure.', status: 'Live · Free', href: '/tools/heater-calculator' },
-  { name: 'Controller Comparison', desc: 'Apex vs GHL vs Hydros vs budget — every kit, price, and feature, side by side.', status: 'Live · Free', href: '/compare/apex-vs-hydros-vs-ghl' },
+  { name: 'Return Pump Calculator', desc: 'Enter your tank size, head height, and plumbing → the real flow each of 41 pumps delivers at your total dynamic head, ranked, with the math shown.', status: 'Live · Free', href: '/tools/return-pump-calculator', art: 'calc-pump' },
+  { name: 'Protein Skimmer Size Calculator', desc: 'Enter your tank volume + bioload → which skimmers actually fit once we derate the optimistic manufacturer ratings, ranked, with footprint and price.', status: 'Live · Free', href: '/tools/protein-skimmer-calculator', art: 'calc-skimmer' },
+  { name: 'Reef Tank Cost Calculator', desc: 'Itemized up-front cost + monthly running cost (electricity, salt, consumables) for any tank size and build tier.', status: 'Live · Free', href: '/tools/reef-build-cost-calculator', art: 'calc-cost' },
+  { name: 'Salt Cost-per-Gallon Calculator', desc: 'Compare 12 reef salts by real cost per mixed gallon — not the box price — plus your actual monthly salt cost.', status: 'Live · Free', href: '/tools/salt-cost-calculator', art: 'salt' },
+  { name: 'Reef Dosing Calculator', desc: 'Alk, calcium, or magnesium — the exact dose to hit your target, split safely across days, for DIY and bottled two-parts.', status: 'Live · Free', href: '/tools/reef-dosing-calculator', art: 'doser' },
+  { name: 'Water Change Calculator', desc: 'Nitrate at 40 and want 10? The exact dilution math — one big change vs. a series of small ones, with gallons and the level after each step.', status: 'Live · Free', href: '/tools/water-change-calculator', art: 'water-change' },
+  { name: 'Flow Calculator', desc: 'Your turnover target by coral type, minus what your return already delivers — then the wavemakers that close the gap, ranked by real cost.', status: 'Live · Free', href: '/tools/flow-calculator', art: 'wavemaker' },
+  { name: 'Tank Volume Calculator', desc: 'True water volume — minus sand, rock, and air gap, plus sump — and the pounds of sand your bed depth needs. The number every dose depends on.', status: 'Live · Free', href: '/tools/tank-volume-calculator', art: 'tank' },
+  { name: 'Heater Size Calculator', desc: 'Wattage from your volume and real room temperature, why two heaters beat one, and the controller that catches the classic stuck-on failure.', status: 'Live · Free', href: '/tools/heater-calculator', art: 'heater' },
+  { name: 'Controller Comparison', desc: 'Apex vs GHL vs Hydros vs budget — every kit, price, and feature, side by side.', status: 'Live · Free', href: '/compare/apex-vs-hydros-vs-ghl', art: 'controller' },
 ];
 ---
 <Base title="Reef Tools & Calculators" description="Free calculators and comparison databases for saltwater aquarium gear — return pumps, skimmers, lighting, and full reef builds.">
@@ -22,12 +23,14 @@ const tools = [
     <div class="grid cols-2" style="margin-top:26px;">
       {tools.map((t) => (t as any).href ? (
         <a class="card cardlink" href={url((t as any).href)}>
+          <CardArt kind={t.art} />
           <span class="pill">{t.status}</span>
           <h3>{t.name}</h3>
           <p style="color:var(--muted)">{t.desc}</p>
         </a>
       ) : (
         <div class="card">
+          <CardArt kind={t.art} />
           <span class="pill">{t.status}</span>
           <h3>{t.name}</h3>
           <p style="color:var(--muted)">{t.desc}</p>

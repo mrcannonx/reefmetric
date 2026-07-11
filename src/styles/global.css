@@ -102,6 +102,11 @@ section { padding: 56px 0; }
 @media (max-width: 800px) { .cols-3, .cols-2 { grid-template-columns: 1fr; } .site-header nav { display: none; } }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
 .card h3 { margin: 8px 0; }
+
+/* full-bleed diagram thumbnail at the top of a card (see components/CardArt.astro) */
+.card-art { margin: -24px -24px 18px; border-bottom: 1px solid var(--line); border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+.card-art svg { display: block; width: 100%; height: auto; }
+.cardlink:hover .card-art { border-bottom-color: #bfe4e2; }
 .pill { display: inline-block; font-family: var(--font-display); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--brand-2); background: #e7f4f3; padding: 4px 10px; border-radius: 999px; }
 
 /* footer */
