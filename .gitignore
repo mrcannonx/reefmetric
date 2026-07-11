@@ -8,3 +8,6 @@ dist/
 
 # internal strategy — keep out of the public repo
 docs/
+
+# Reddit growth playbook — NEVER commit (public repo; discoverable promo coordination)
+reddit/
