@@ -11,8 +11,10 @@
 interface Props {
   kind: string;
   label?: string; // optional spec-sheet tag rendered top-right (e.g. a tank's gallon count)
+  bare?: boolean; // foreground only, no tinted panel/baseline/wrapper — for dropping into an
+                  // existing thumbnail band (e.g. the /reviews photo band as an image fallback)
 }
-const { kind, label } = Astro.props;
+const { kind, label, bare } = Astro.props;
 
 // Foreground fragments, drawn on a 240×96 canvas inside the shared backdrop.
 const art: Record<string, string> = {
@@ -131,6 +133,10 @@ const tag = label
   ? `<text x="224" y="26" text-anchor="end" font-family="'Space Grotesk',system-ui,sans-serif" font-weight="700" font-size="16" letter-spacing="-0.5" fill="#0c7d7b">${label}</text>`
   : '';
 ---
-<div class="card-art" aria-hidden="true">
-  <svg viewBox="0 0 240 96" role="img" set:html={backdrop + fg + tag}></svg>
-</div>
+{bare ? (
+  <svg class="card-art-bare" viewBox="0 0 240 96" role="img" aria-hidden="true" set:html={fg + tag}></svg>
+) : (
+  <div class="card-art" aria-hidden="true">
+    <svg viewBox="0 0 240 96" role="img" set:html={backdrop + fg + tag}></svg>
+  </div>
+)}

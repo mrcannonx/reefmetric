@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
 import skimmers from '../data/skimmers.json';
 import pumps from '../data/pumps.json';
@@ -22,6 +23,7 @@ const reviews = [
     desc: 'Nano to 120+ gallons, ranked by honest bioload-adjusted capacity — not the box\'s optimistic "rated up to" number. Right-size, value, and heavy-bioload picks per class.',
     href: '/reviews/best-protein-skimmers',
     status: 'New',
+    art: 'skimmer',
     image: firstImg(skimmers.skimmers as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -29,6 +31,7 @@ const reviews = [
     desc: 'Ranked by delivered flow through realistic plumbing — computed from manufacturer curves with the same Hazen-Williams math as our calculator. Picks for AIO through 120+.',
     href: '/reviews/best-return-pumps',
     status: 'New',
+    art: 'pump',
     image: firstImg(pumps.pumps as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -36,6 +39,7 @@ const reviews = [
     desc: 'Every major salt ranked by what a mixed gallon really costs, split into growth formulas vs natural-parameter baselines — and which family fits how you run your tank.',
     href: '/reviews/best-reef-salt-mix',
     status: 'New',
+    art: 'salt',
     image: firstImg(salts.salts as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -43,6 +47,7 @@ const reviews = [
     desc: 'Of 11 popular fixtures compared, only 4 have real PAR data behind them — a manufacturer chart or an independent lab test. We rank those four and name the gap on the rest.',
     href: '/reviews/best-reef-led-lighting',
     status: 'New',
+    art: 'light',
     image: firstImg(lightData.lights as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -50,6 +55,7 @@ const reviews = [
     desc: "Red Sea ReefDose, GHL Doser 3, Focustronic, Reef Factory — ranked, plus which well-known doser can't run at all without a controller you probably don't already own.",
     href: '/reviews/best-reef-dosing-pumps',
     status: 'New',
+    art: 'doser',
     image: firstImg(dosers.dosers as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -57,6 +63,7 @@ const reviews = [
     desc: 'VorTech, AI Nero, Maxspect Gyre, Red Sea ReefWave, Tunze, Jebao — ranked by real dollars per GPH, with each line\'s documented reliability record next to it.',
     href: '/reviews/best-wavemakers',
     status: 'New',
+    art: 'wavemaker',
     image: firstImg(wavemakers.wavemakers as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -64,6 +71,7 @@ const reviews = [
     desc: 'Auto top-off has one catastrophic failure mode — the sensor sticking on. We ranked by layers of overfill protection first, price second.',
     href: '/reviews/best-ato',
     status: 'New',
+    art: 'water-change',
     image: firstImg(atos.atos as Array<{ imageUrl?: string | null }>),
   },
   {
@@ -71,6 +79,7 @@ const reviews = [
     desc: 'The specs manufacturers publish but nobody compares — accuracy, resolution, and true cost per test across all five parameters reefers track.',
     href: '/reviews/best-reef-test-kits',
     status: 'New',
+    art: 'testkit',
     image: firstImg(testkits.kits as Array<{ imageUrl?: string | null }>),
   },
 ];
@@ -86,11 +95,15 @@ const reviews = [
     <div class="grid cols-3" style="margin-top:26px;">
       {reviews.map((r) => (
         <a class="card cardlink rcard" href={url(r.href)}>
-          {r.image && (
-            <div class="rcard-thumb">
-              <img src={r.image} alt="" loading="lazy" onerror="this.parentElement.style.display='none'" />
-            </div>
-          )}
+          <div class="rcard-thumb">
+            {r.image && (
+              <img src={r.image} alt="" loading="lazy"
+                onerror="this.style.display='none';this.parentElement.querySelector('.rcard-fallback').style.display='flex'" />
+            )}
+            <span class="rcard-fallback" style={r.image ? 'display:none' : ''}>
+              <CardArt kind={r.art} bare />
+            </span>
+          </div>
           <span class="pill">{r.status}</span>
           <h3>{r.name}</h3>
           <p style="color:var(--muted)">{r.desc}</p>
@@ -123,5 +136,19 @@ const reviews = [
     max-height: 100%;
     object-fit: contain;
     mix-blend-mode: multiply;
+  }
+  /* Diagram fallback for roundups whose dataset has no product photo (or a photo that 404s),
+     so every review card carries a visual instead of a bare card in the grid. */
+  .rcard-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .rcard-fallback .card-art-bare {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
   }
 </style>
