@@ -6,6 +6,9 @@ import pumps from '../data/pumps.json';
 import salts from '../data/salts.json';
 import lightData from '../data/lights.json';
 import dosers from '../data/dosers.json';
+import wavemakers from '../data/wavemakers.json';
+import atos from '../data/atos.json';
+import testkits from '../data/testkits.json';
 
 // Representative product shot for each roundup: the first ranked item in the source
 // dataset that has an image. Single source of truth — if a data file's imageUrl
@@ -49,6 +52,27 @@ const reviews = [
     status: 'New',
     image: firstImg(dosers.dosers as Array<{ imageUrl?: string | null }>),
   },
+  {
+    name: 'Best Wavemakers, by Cost per GPH',
+    desc: 'VorTech, AI Nero, Maxspect Gyre, Red Sea ReefWave, Tunze, Jebao — ranked by real dollars per GPH, with each line\'s documented reliability record next to it.',
+    href: '/reviews/best-wavemakers',
+    status: 'New',
+    image: firstImg(wavemakers.wavemakers as Array<{ imageUrl?: string | null }>),
+  },
+  {
+    name: 'Best ATO Systems, by Failsafes',
+    desc: 'Auto top-off has one catastrophic failure mode — the sensor sticking on. We ranked by layers of overfill protection first, price second.',
+    href: '/reviews/best-ato',
+    status: 'New',
+    image: firstImg(atos.atos as Array<{ imageUrl?: string | null }>),
+  },
+  {
+    name: 'Best Test Kits: Hanna vs Salifert vs Red Sea',
+    desc: 'The specs manufacturers publish but nobody compares — accuracy, resolution, and true cost per test across all five parameters reefers track.',
+    href: '/reviews/best-reef-test-kits',
+    status: 'New',
+    image: firstImg(testkits.kits as Array<{ imageUrl?: string | null }>),
+  },
 ];
 ---
 <Base
@@ -73,7 +97,7 @@ const reviews = [
         </a>
       ))}
     </div>
-    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for controllers? See the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a>. Coming next: skimmer brand face-offs.</p>
+    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for controllers? See the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a> — or the <a href={url('/compare/reef-octopus-vs-nyos-vs-aquamaxx')}>skimmer brand face-off</a>.</p>
   </section>
 </Base>
 

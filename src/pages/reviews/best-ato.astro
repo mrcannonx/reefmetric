@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { SITE } from '../../consts';
+import { goHref, retailerName } from '../../data/affiliate-config';
+import atoData from '../../data/atos.json';
+
+interface ATO {
+  brand: string; model: string; priceUSD: number; sensorType: string; sensorCount: number;
+  failsafes: string[]; pumpMaxHeadFt: number | null; controllerTieIn: string;
+  knownIssues?: string[]; retailers?: string[]; source: string; imageUrl?: string | null;
+}
+const data = atoData as any;
+// Ranked by layers of overfill protection first (the failure that matters), then price.
+const atos = (data.atos as ATO[]).slice().sort(
+  (a, b) => (b.failsafes.length - a.failsafes.length) || (a.priceUSD - b.priceUSD)
+);
+const dataDate = data.generated as string;
+
+const slug = (a: { brand: string; model: string }) =>
+  `${a.brand}-${a.model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const buy = (a: ATO) => goHref(a.retailers || [], `${a.brand} ${a.model} auto top off`, a.source);
+const byModel = (m: string) => (data.atos as ATO[]).find((a) => a.model.includes(m))!;
+
+interface Pick { badge: string; why: string; a: ATO; }
+const picks: Pick[] = [
+  {
+    badge: 'Most failsafes',
+    why: `Dual optical sensors, a run-time intelligence cutoff, AND a mechanical float valve as the final backstop — the most layers of overfill protection sold. The honest catch: its PMUP pump is the weak link, with widespread impeller-failure reports.`,
+    a: byModel('ATK v2'),
+  },
+  {
+    badge: 'The reliability pick',
+    why: `The hobby's default for over a decade: optical sensor with a float-switch backup, run-dry protection, and the fewest catastrophic-failure reports of anything here. Just don't push kalkwasser through it — that wear isn't warranty-covered.`,
+    a: byModel('Osmolator Universal'),
+  },
+  {
+    badge: 'Best value with a backup sensor',
+    why: `Dual optical sensors and a learned-baseline alarm at a mid-pack price. The documented catch: a cluster of owner reports of pump/sensor failures just past the 1-year warranty — budget for that possibility.`,
+    a: byModel('Duetto2'),
+  },
+  {
+    badge: 'Budget — single sensor',
+    why: `The cheapest optical unit here, and it works — but it's a single sensor with no second layer, and the owner threads about overnight full-reservoir dumps are exactly what that architecture risks. Fine on a small reservoir; think twice on a big one.`,
+    a: byModel('Smart ATO Micro'),
+  },
+];
+
+const pageURL = new URL(url('/reviews/best-ato'), SITE.url).href;
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Auto Top-Off (ATO) Systems for Reef Tanks',
+  numberOfItems: atos.length,
+  itemListElement: atos.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: `${a.brand} ${a.model}`, url: `${pageURL}#${slug(a)}` })),
+};
+const faqs = [
+  {
+    q: 'Do I actually need an ATO?',
+    a: `Once your tank passes nano size, effectively yes. Open reef tanks evaporate roughly 1–3% of system volume per day (BRS's guideline: a 5-gallon reservoir refilled about weekly covers most tanks up to ~100 gallons) — and every gallon that leaves takes zero salt with it, so salinity climbs daily without top-off. Hand-topping works; doing it twice a day for years doesn't.`,
+  },
+  {
+    q: 'What actually fails on an ATO?',
+    a: `The sensor, in the "on" position. A fouled or stuck sensor keeps the pump running, which pumps your entire freshwater reservoir into the tank — crashing salinity and often flooding the floor. That's why sensor count and failsafe layers are the first column in our ranking, not the pump specs. Calcium buildup, algae, and snails sitting on the sensor are the classic triggers; clean the sensor when you clean the glass.`,
+  },
+  {
+    q: 'Optical or float sensor?',
+    a: `Optical has no moving parts to jam with salt creep, which is why nearly every current unit leads with one. The strongest designs pair optical with a different second technology (Tunze's float backup, Neptune's mechanical float valve) so one failure mode can't take out both layers at once.`,
+  },
+  {
+    q: 'How big should the reservoir be?',
+    a: `Big enough for a trip, small enough to limit the damage: if the sensor sticks, the entire reservoir goes into the tank. A 5-gallon jug on a 75-gallon system is a salinity annoyance; a 20-gallon barrel on a 50-gallon tank is a documented disaster (one owner's overnight dump dropped salinity to 1.018). Size it to about a week of evaporation.`,
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base
+  title="Best Auto Top-Off Systems (2026) — Ranked by Failsafes, Not Features"
+  description="ATO systems compared — Tunze Osmolator, Neptune ATK, XP Aqua Duetto, Red Sea ReefATO+, IceCap, AutoAqua — ranked by layers of overfill protection, because the sensor sticking on is the failure that actually matters."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best ATO Systems', href: '/reviews/best-ato' }]}
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Auto Top-Off</p>
+    <h1>Best ATO systems — ranked by what happens when they fail</h1>
+    <p class="lede-dark">An ATO has one job and one catastrophic failure mode: the sensor sticks on, and the pump quietly moves your whole freshwater reservoir into the tank. So we ranked by <strong>layers of overfill protection</strong> — sensor count, run-time cutoffs, mechanical backstops — before price, and put each unit's documented failure reports right in the table.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Known issues are documented owner reports — including for the premium brands. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The picks</h2>
+    <div class="results">
+      {picks.map((p, idx) => (
+        <div id={slug(p.a)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          {p.a.imageUrl && (
+            <div class="rthumb">
+              <img src={p.a.imageUrl} alt={`${p.a.brand} ${p.a.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
+          <div class="rmain">
+            <div class="rname">{p.a.brand} {p.a.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+            <div class="rmeta">{p.why}</div>
+            <div class="rmeta">{p.a.sensorType} · {p.a.controllerTieIn}</div>
+          </div>
+          <div class="rflow"><span class="n">{p.a.failsafes.length}</span><br /><span class="u">failsafes</span></div>
+          <div class="rbuy"><a class="aff" href={buy(p.a)} target="_blank" rel="sponsored nofollow noopener">{money(p.a.priceUSD)} at {retailerName(p.a.retailers)} ↗</a></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Every unit, ranked by overfill protection</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>#</th><th>ATO</th><th>Sensors</th><th>Failsafe layers</th><th>The catch (documented)</th><th>Price</th></tr></thead>
+        <tbody>
+          {atos.map((a, i) => (
+            <tr id={slug(a)}>
+              <td>{i + 1}</td>
+              <td><strong>{a.brand}</strong> {a.model}<br /><span style="color:var(--muted);font-size:.85em;">{a.sensorType}</span></td>
+              <td>{a.sensorCount}</td>
+              <td style="color:var(--muted)">{a.failsafes.join(' · ')}</td>
+              <td style="color:var(--muted)">{(a.knownIssues && a.knownIssues[0]) || '—'}</td>
+              <td><a class="aff aff-sm" href={buy(a)} target="_blank" rel="sponsored nofollow noopener">{money(a.priceUSD)} ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">Failsafe count is our primary sort because overfill is the failure that kills tanks — a cheaper unit with one sensor is a different product than a similar-priced unit with three layers. Every brand here, including the winners, has documented failure reports; the architecture decides how much a failure costs you.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+    <p>Planning the rest of the build? Evaporation scales with tank size — the setup guides cover where the ATO fits: <a href={url('/guides/75-gallon-reef-tank-setup')}>75 gallon</a> · <a href={url('/guides/120-gallon-reef-tank-setup')}>120 gallon</a>.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 720px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+</style>

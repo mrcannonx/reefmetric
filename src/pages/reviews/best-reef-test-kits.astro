@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { SITE } from '../../consts';
+import { goHref, retailerName } from '../../data/affiliate-config';
+import tkData from '../../data/testkits.json';
+
+interface Kit {
+  brand: string; parameter: string; model: string; priceUSD: number;
+  accuracy: string | null; resolution: string | null; range: string;
+  testsPerKit: number; reagentRefillPriceUSD: number | null; costPerTest: number | null;
+  method: string; knownIssues?: string[]; retailers?: string[];
+  source: string; priceSource: string; imageUrl?: string | null;
+}
+const data = tkData as any;
+const kits = data.kits as Kit[];
+const dataDate = data.generated as string;
+
+const PARAMS = [
+  { key: 'alkalinity', label: 'Alkalinity', note: 'The one to test weekly — it moves fastest and corals feel it first.' },
+  { key: 'calcium', label: 'Calcium', note: 'Moves slowly; every 1–2 weeks is plenty for most tanks.' },
+  { key: 'magnesium', label: 'Magnesium', note: 'The stabilizer — check every few weeks, or when Alk/Ca act strange.' },
+  { key: 'phosphate', label: 'Phosphate', note: 'The algae budget. Low numbers need real resolution to be meaningful.' },
+  { key: 'nitrate', label: 'Nitrate', note: 'The other nutrient — modern reefs run it low but not zero.' },
+];
+
+const slug = (k: { brand: string; parameter: string }) =>
+  `${k.brand}-${k.parameter}`.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const buy = (k: Kit) => goHref(k.retailers || [], `${k.brand} ${k.model} test kit`, k.priceSource);
+const forParam = (p: string) => kits.filter((k) => k.parameter === p);
+
+const pageURL = new URL(url('/reviews/best-reef-test-kits'), SITE.url).href;
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Reef Test Kits — Hanna vs Salifert vs Red Sea',
+  numberOfItems: kits.length,
+  itemListElement: kits.map((k, i) => ({ '@type': 'ListItem', position: i + 1, name: `${k.brand} ${k.model}`, url: `${pageURL}#${slug(k)}` })),
+};
+const faqs = [
+  {
+    q: 'Which parameter should I test most often?',
+    a: `Alkalinity. It drives coral skeletal growth, buffers pH, and moves faster than anything else you track — the standard advice is to test daily while dialing in dosing (until it holds within ~0.3 dKH for three straight days), then weekly. Calcium and magnesium drift slowly and can run on a 1–2 week cadence.`,
+  },
+  {
+    q: 'Digital (Hanna) or titration (Salifert / Red Sea)?',
+    a: `The real difference is who judges the endpoint. Hanna's checkers read the color with an LED and photocell — objective, repeatable, and roughly 5–10× the cost per test. Salifert and Red Sea end on a human-judged color change, which is the single most repeated complaint across owner forums: two careful people can read the same titration ~0.4 dKH apart. A common setup: Hanna for alkalinity (the high-frequency, precision-sensitive test), Salifert for everything else.`,
+  },
+  {
+    q: 'Why do two kits disagree on the same water?',
+    a: `Partly endpoint subjectivity, partly units: Salifert's phosphate kit reports phosphorus (PO4-P), not phosphate ion — multiply by ~3.066 before comparing it to a Hanna or Red Sea reading. Owner threads describing "wildly different readings" between brands are usually one or both of these. When kits disagree and it matters, an ICP lab test ($30–50, every few months) is the tiebreaker.`,
+  },
+  {
+    q: 'Do ICP tests replace test kits?',
+    a: `No — they complement them. ICP labs measure trace elements your kits can't and validate your kits' accuracy, but a 1–2 week mail turnaround can't catch an alkalinity swing that stresses coral in 48 hours. ICP quarterly, alkalinity weekly.`,
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base
+  title="Best Reef Test Kits (2026) — Hanna vs Salifert vs Red Sea, by Published Specs"
+  description="Reef test kits compared on the numbers the manufacturers actually publish — accuracy, resolution, and true cost per test — for alkalinity, calcium, magnesium, phosphate, and nitrate."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Test Kits', href: '/reviews/best-reef-test-kits' }]}
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Test Kits</p>
+    <h1>Hanna vs Salifert vs Red Sea — the test kit face-off, by published specs</h1>
+    <p class="lede-dark">Every "best test kit" list says <em>accurate</em>; almost none quotes an accuracy spec. The manufacturers publish these numbers — Hanna states ±0.3 dKH ±5%, Red Sea claims 0.14 dKH, Salifert publishes step resolution but no ± spec at all — and comparing them changes the answer. Here's each parameter, with the published specs, the true cost per test, and the failure modes owners actually report.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Where a manufacturer publishes no accuracy spec, we say "not published" — we don't fill the gap with vibes. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>The one-paragraph verdict</h2>
+    <p style="max-width:68ch;">For <strong>alkalinity</strong> — the test you'll run 50 times a year — Hanna's objective digital readout justifies its ~$3/test cost, and it's the only alkalinity option with a full published ± spec. For <strong>everything else</strong>, Salifert's titrations at $0.19–0.44/test are the value play the hobby quietly standardized on, if you can live with judging a color endpoint. Red Sea's Pro kits sit between: tighter claimed specs than Salifert, bigger kits, but the same human-judged endpoint and the most owner complaints about reading it.</p>
+
+    {PARAMS.map((p) => (
+      <>
+        <h2 style="margin-top:32px;">{p.label}</h2>
+        <p style="color:var(--muted);max-width:68ch;">{p.note}</p>
+        <div class="tablewrap">
+          <table class="specs">
+            <thead><tr><th>Kit</th><th>Published accuracy</th><th>Resolution</th><th>Method</th><th>Cost/test</th><th>Price</th></tr></thead>
+            <tbody>
+              {forParam(p.key).map((k) => (
+                <tr id={slug(k)}>
+                  <td><strong>{k.brand}</strong> {k.model}<br /><span style="color:var(--muted);font-size:.85em;">{k.testsPerKit} tests{k.reagentRefillPriceUSD ? ` · refill ${money(k.reagentRefillPriceUSD)}` : ''}</span></td>
+                  <td>{k.accuracy || <em style="color:var(--muted)">not published</em>}</td>
+                  <td>{k.resolution || <em style="color:var(--muted)">not published</em>}</td>
+                  <td style="color:var(--muted)">{k.method}</td>
+                  <td>{k.costPerTest != null ? <strong>{money(k.costPerTest)}</strong> : '—'}</td>
+                  <td><a class="aff aff-sm" href={buy(k)} target="_blank" rel="sponsored nofollow noopener">{money(k.priceUSD)} ↗</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    ))}
+    <p class="rnote">Cost per test = kit price ÷ tests per kit, computed only where the manufacturer publishes a test count. "Not published" means exactly that — Salifert documents titration step size but no ± accuracy; treat step size as a floor on uncertainty, not a substitute for it. Salifert phosphate reports PO4-P (phosphorus), not phosphate ion — ×3.066 to compare across brands.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>The catch column, spelled out</h2>
+    <p><strong>Hanna:</strong> the cuvette technique matters — owners recommend syringe-measuring the sample rather than trusting the fill line, and the phosphate checker's reagent-powder handling is the classic source of user error. The calcium and nitrate checkers are multi-step; the alkalinity checker is the easy one.</p>
+    <p><strong>Salifert:</strong> the color endpoint is genuinely subjective — owner threads document ~0.4 dKH spread between readers of the same titration. Test counts are honest but consumption scales with your levels.</p>
+    <p><strong>Red Sea:</strong> the endpoint drifts in over ~5 drops, which is the most-complained-about readability in the category; the magnesium refill holds fewer tests than the original kit, so the refill economics are worse than the sticker suggests.</p>
+
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+    <p>Reading high nitrate or phosphate? <a href={url('/tools/water-change-calculator')}>The water change calculator</a> turns the number into a plan, and <a href={url('/guides/carbon-dosing')}>the carbon dosing guide</a> covers export when dilution isn't enough. Dosing to targets: <a href={url('/tools/reef-dosing-calculator')}>the dosing calculator</a>.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 720px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+</style>

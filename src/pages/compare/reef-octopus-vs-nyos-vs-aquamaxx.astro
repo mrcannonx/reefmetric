@@ -1,0 +1,164 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { SITE } from '../../consts';
+import { goHref, retailerName } from '../../data/affiliate-config';
+import skimmerData from '../../data/skimmers.json';
+
+interface Skimmer {
+  brand: string; model: string; type: string; ratedGallons: number | null;
+  ratingLight: number | null; ratingMedium: number | null; ratingHeavy: number | null;
+  footprintIn: string | null; pumpWatts: number | null; priceUSD: number;
+  retailers?: string[]; source: string; imageUrl?: string | null;
+}
+const data = skimmerData as any;
+const dataDate = data.generated as string;
+const BRANDS = ['Reef Octopus', 'Nyos', 'AquaMaxx'];
+
+// Only models with a real US price and an honest medium-bioload rating qualify for the
+// value math — no invented numbers for the rest.
+const all = (data.skimmers as Skimmer[]).filter(
+  (s) => BRANDS.includes(s.brand) && s.priceUSD > 0 && s.ratingMedium
+);
+const byBrand = (b: string) => all.filter((s) => s.brand === b);
+
+// Brand-level aggregates, computed live from the dataset.
+const brandStats = BRANDS.map((b) => {
+  const models = byBrand(b);
+  const dollarPerGal = models.map((s) => s.priceUSD / (s.ratingMedium as number));
+  const wattsPerGal = models.filter((s) => s.pumpWatts).map((s) => (s.pumpWatts as number) / (s.ratingMedium as number) * 100);
+  const avg = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
+  return {
+    brand: b,
+    count: models.length,
+    minPrice: Math.min(...models.map((s) => s.priceUSD)),
+    maxPrice: Math.max(...models.map((s) => s.priceUSD)),
+    avgDollarPerGal: avg(dollarPerGal),
+    avgWattsPer100Gal: wattsPerGal.length ? avg(wattsPerGal) : null,
+    bestValue: models.slice().sort((x, y) => (x.priceUSD / (x.ratingMedium as number)) - (y.priceUSD / (y.ratingMedium as number)))[0],
+  };
+}).sort((a, b) => a.avgDollarPerGal - b.avgDollarPerGal);
+
+const ranked = all.slice().sort(
+  (a, b) => (a.priceUSD / (a.ratingMedium as number)) - (b.priceUSD / (b.ratingMedium as number))
+);
+
+const slug = (s: { brand: string; model: string }) =>
+  `${s.brand}-${s.model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const buy = (s: Skimmer) => goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`, s.source);
+
+const pageURL = new URL(url('/compare/reef-octopus-vs-nyos-vs-aquamaxx'), SITE.url).href;
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Reef Octopus vs Nyos vs AquaMaxx Protein Skimmers',
+  numberOfItems: ranked.length,
+  itemListElement: ranked.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: `${s.brand} ${s.model}`, url: `${pageURL}#${slug(s)}` })),
+};
+const faqs = [
+  {
+    q: 'Why compare on the medium-bioload rating instead of the box rating?',
+    a: `Because the box rating assumes a lightly-stocked tank. Manufacturers publish tiered ratings (light/medium/heavy bioload) for exactly this reason, and the medium figure is the honest one for a normally-stocked reef. A skimmer that costs less per box-rated gallon can cost more per honestly-rated gallon — the whole point of doing the math.`,
+  },
+  {
+    q: 'Are these three brands actually different, or just badges on the same pumps?',
+    a: `Genuinely different. Reef Octopus builds the broadest range with its own Aquatrance pumps and wins on availability and parts. Nyos is German-designed with its Quantum line's easy-service twist-off cups and strong owner loyalty at the performance end. AquaMaxx is the value line of the three, frequently undercutting comparable capacity. The table shows where each one's economics actually land.`,
+  },
+  {
+    q: 'Which one should a first-time sump owner buy?',
+    a: `Size first, brand second: run your true volume and stocking through our skimmer calculator, then buy whichever of these three hits your honest capacity number at the best price — that's usually an AquaMaxx or a mid-line Reef Octopus. Brand loyalty is worth paying for on the second skimmer, not the first.`,
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base
+  title="Reef Octopus vs Nyos vs AquaMaxx (2026) — Skimmer Brands by the Numbers"
+  description="The skimmer brand face-off, computed: dollars per honestly-rated gallon and watts per 100 gallons across Reef Octopus, Nyos, and AquaMaxx — from published medium-bioload ratings, not box numbers."
+  breadcrumbs={[{ name: 'Compare', href: '/compare' }, { name: 'Reef Octopus vs Nyos vs AquaMaxx', href: '/compare/reef-octopus-vs-nyos-vs-aquamaxx' }]}
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Compare · Skimmer Brands</p>
+    <h1>Reef Octopus vs Nyos vs AquaMaxx — by the numbers</h1>
+    <p class="lede-dark">The three most cross-shopped skimmer brands, compared the only fair way: <strong>dollars per honestly-rated gallon</strong> — the medium-bioload rating each manufacturer publishes, not the optimistic box number — plus what each brand's pumps cost to run. Computed from the same dataset behind <a href={url('/tools/protein-skimmer-calculator')}>our skimmer calculator</a>.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Only models with a current US price and a published medium-bioload rating are in the value math — no gaps quietly filled. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The brand scoreboard</h2>
+    <div class="results">
+      {brandStats.map((b, idx) => (
+        <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          <div class="rmain">
+            <div class="rname">{b.brand} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{idx === 0 ? 'Best value/gal' : `#${idx + 1} on value`}</span></div>
+            <div class="rmeta">{b.count} qualifying models, {money(b.minPrice)}–{money(b.maxPrice)}. Best value in the line: {b.bestValue.model} at {money(b.bestValue.priceUSD / (b.bestValue.ratingMedium as number))}/rated gallon.</div>
+            {b.avgWattsPer100Gal && <div class="rmeta">Running cost: ~{b.avgWattsPer100Gal.toFixed(1)}W per 100 honestly-rated gallons (line average)</div>}
+          </div>
+          <div class="rflow"><span class="n">{money(b.avgDollarPerGal)}</span><br /><span class="u">avg $/rated gal</span></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Every qualifying model, ranked by value</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>#</th><th>Skimmer</th><th>Medium-bioload rating</th><th>$/rated gal</th><th>Pump</th><th>Footprint</th><th>Price</th></tr></thead>
+        <tbody>
+          {ranked.map((s, i) => (
+            <tr id={slug(s)}>
+              <td>{i + 1}</td>
+              <td><strong>{s.brand}</strong> {s.model}</td>
+              <td>{s.ratingMedium} gal</td>
+              <td><strong>{money(s.priceUSD / (s.ratingMedium as number))}</strong></td>
+              <td style="color:var(--muted)">{s.pumpWatts ? `${s.pumpWatts}W` : '—'}</td>
+              <td style="color:var(--muted)">{s.footprintIn ? `${s.footprintIn}″` : '—'}</td>
+              <td><a class="aff aff-sm" href={buy(s)} target="_blank" rel="sponsored nofollow noopener">{money(s.priceUSD)} ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">$/rated gallon = price ÷ manufacturer's published medium-bioload rating. It's a value metric with an assumption inside it — that manufacturers rate honestly relative to each other. Where a model publishes no medium rating or no current US price, it's excluded rather than guessed.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>What the numbers don't capture</h2>
+    <p>Serviceability and parts. Reef Octopus's parts availability in the US is the best of the three — pumps, cups, and o-rings are stocked everywhere, which matters in year three. Nyos's twist-off cup design is the nicest weekly-cleaning experience in the category, and owners pay the premium for it on purpose. AquaMaxx wins checkout day; the other two argue they win the years after. All three are legitimate — which is why we show the math and say the trade out loud.</p>
+
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+    <p><a href={url('/tools/protein-skimmer-calculator')} class="inlinecta">→ Size your skimmer first, then pick the brand</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>Or see the full cross-brand skimmer rankings →</a></p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 720px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+</style>

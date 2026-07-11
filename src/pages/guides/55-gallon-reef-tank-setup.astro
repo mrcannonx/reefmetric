@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+
+const cost = [
+  { item: 'Tank + stand (55g, 48×13×21″)', budget: '$250–400', mid: '$400–700' },
+  { item: 'Sump (20-long) or HOB alternative', budget: '$80–150', mid: '$150–350' },
+  { item: 'Return pump (~385 GPH at the tank)', budget: '$70–120', mid: '$120–220' },
+  { item: 'Protein skimmer', budget: '$140–220', mid: '$220–450' },
+  { item: 'Reef lighting (2 fixtures across 48″)', budget: '$400–700', mid: '$700–1,200' },
+  { item: 'Powerheads / flow', budget: '$100–180', mid: '$180–350' },
+  { item: 'Heater(s) ~200–250W + controller', budget: '$40–80', mid: '$80–160' },
+  { item: 'Rock (~40–55 lb) + sand (~45 lb)', budget: '$90–170', mid: '$170–300' },
+  { item: 'RODI unit', budget: '$80–150', mid: '$150–250' },
+  { item: 'Salt, test kits, extras', budget: '$80–140', mid: '$140–260' },
+];
+---
+<Base
+  title="55 Gallon Reef Tank Setup Guide — Read This Before You Buy One"
+  description="The 55 gallon is the most-discounted tank in the store and the most regretted reef size in the hobby. Why the 13-inch width matters, when a 55 still makes sense, the full gear list, and the honest cost breakdown."
+  breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '55 Gallon Reef Setup', href: '/guides/55-gallon-reef-tank-setup' }]}
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
+    <h1>55 Gallon Reef Tank: Setup, Gear List &amp; the Thing the Sale Price Doesn't Mention</h1>
+    <p class="lede-dark">The 55 is the tank everyone almost buys — it's four feet long, it's always on sale, and the number sounds substantial. Here's the honest version other guides skip: the 55 is only <strong>13 inches front-to-back</strong>, and that one dimension is why so many reefers regret it. We'll show you when it still makes sense, and exactly how to build one well.</p>
+
+    <Disclosure />
+
+    <h2>The 13-inch problem, stated plainly</h2>
+    <p>A reef tank is aquascaped front-to-back: rock structure, coral growth room, and open sand in front. At 48 × 13 × 21 inches, the 55 has <em>less</em> front-to-back room than a 40 breeder (18″) despite holding more water. Once the rock is in, corals grow toward the glass fast, big-bodied fish struggle to turn, and there's nowhere to put a powerhead that isn't blasting something. The extra length vs. a 40B is real — but almost everyone who reefs a 55 wishes those gallons had been shaped like <a href={url('/guides/75-gallon-reef-tank-setup')}>a 75</a> (same length, 5 more inches of depth, usually ~$100–150 more with the stand).</p>
+
+    <h2>When a 55 still makes sense</h2>
+    <p>Three honest cases: the tank is <strong>free or nearly free</strong> (hand-me-downs and $1/gallon sales are how most 55s happen); the stand location is genuinely too shallow for an 18-inch tank; or you're building a <strong>fish-and-softies</strong> display where wall-to-wall rockwork matters less. In those cases — build it well, and the length is still a real asset for wrasses and other cruisers.</p>
+
+    <h2>Know your real volume first</h2>
+    <p>A "55" typically sees water volume in the mid-40s after sand, rock, and the air gap. Pin down your true number before you dose anything: <a href={url('/tools/tank-volume-calculator')} class="inlinecta">→ get your true water volume</a> (the 55 is a preset).</p>
+
+    <h2>The core gear list</h2>
+
+    <h3>Sump + return pump</h3>
+    <p>Most 55s aren't drilled, so you'll either run an overflow box to a 20-long sump or skip the sump and accept a hang-on-back skimmer (a real option at this size — less capable, much simpler). If you do run a sump, aim for roughly <strong>7× display turnover delivered</strong> — about 385 GPH at the tank:</p>
+    <p><a href={url('/tools/return-pump-calculator')} class="inlinecta">→ Size your return pump with the calculator</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-return-pumps')}>See our full return pump rankings →</a></p>
+
+    <h3>Protein skimmer</h3>
+    <p>The 13-inch width also squeezes the stand — check skimmer footprint against your sump before buying, not after. Rated-gallons numbers assume light stocking; derate them for a normal fish load:</p>
+    <p><a href={url('/tools/protein-skimmer-calculator')} class="inlinecta">→ Find the right skimmer for your bioload</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>See our full protein skimmer rankings →</a></p>
+
+    <h3>Lighting</h3>
+    <p>Same four-foot rule as the 75: <strong>two fixtures</strong> for even coverage. The good news is the narrow, 21-inch-tall water column is easy to light — mid-range fixtures reach the sand without breaking a sweat. <a href={url('/reviews/best-reef-led-lighting')}>Buy from the four fixtures with verifiable PAR data</a>, not the marketing copy.</p>
+
+    <h3>Flow</h3>
+    <p>Target <strong>20–40× total turnover</strong> (1,100–2,200 GPH), but placement matters more here than in any other size — in 13 inches of width, a powerful gyre or wide-flow pump pointed wrong is a sandstorm. Two smaller powerheads angled along the length beat one big unit. <a href={url('/tools/flow-calculator')}>Work out your target →</a></p>
+
+    <h3>Heat, rock, sand</h3>
+    <p><strong>200–250W</strong> of heat on an external controller (two smaller heaters if your sump has room — <a href={url('/tools/heater-calculator')}>size it here</a>). Rock: 40–55 lb, scaped tall and narrow rather than deep. Sand: a 1–1.5″ bed over the 48×13 footprint runs about <strong>45–65 lb</strong>.</p>
+
+    <h2>What a 55 build actually costs</h2>
+    <p>Note what the table shows: the equipment costs almost the same as a 75 — four feet of lighting is four feet of lighting — so the "cheap" tank saves you $100–200 on glass and nothing else. That's the honest economics of the 55. Itemize your own build with <a href={url('/tools/reef-build-cost-calculator')}>the cost calculator</a>.</p>
+
+    <table class="costtable">
+      <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
+      <tbody>
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+      </tbody>
+      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$1,300–2,300</strong></td><td><strong>~$2,300–4,200</strong></td></tr></tfoot>
+    </table>
+    <p class="rnote">Ranges, not quotes. If you're pricing from zero and can spend the extra ~$150, run these numbers against <a href={url('/guides/75-gallon-reef-tank-setup')}>the 75 guide</a> before committing — the delta buys 5 inches of depth you'll use every day.</p>
+
+    <h2>Stocking a 55</h2>
+    <p>Think <em>length</em> fish, not <em>bulk</em> fish: fairy and flasher wrasses, a midas blenny, clown pair, royal gramma, firefish, a goby/pistol pair. Skip tangs other than perhaps a bristletooth, and skip anything that turns like a truck — the 13-inch width is the constraint, not the 55 gallons.</p>
+
+    <h2>The order of operations</h2>
+    <p>Set the tank (overflow box or drill before water!) → plumb the sump → RODI, saltwater, aquascape → pumps, skimmer, heat on → cycle (2–6 weeks) → cleanup crew → fish, then corals, slowly.</p>
+
+    <h2>Other sizes</h2>
+    <p><a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>The 40 breeder</a> — less water, better shape, cheaper lighting (one fixture). <a href={url('/guides/75-gallon-reef-tank-setup')}>The 75</a> — the same length done right. <a href={url('/guides/30-gallon-reef-tank-setup')}>The 30</a> — the smallest size we'd call forgiving.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+  .costtable { width:100%; border-collapse:collapse; margin:18px 0; font-size:.95rem; }
+  .costtable th, .costtable td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  .costtable thead th { font-family:var(--font-display); color:var(--ink); border-bottom:2px solid var(--line); }
+  .costtable tfoot td { border-top:2px solid var(--line); border-bottom:none; }
+  .costtable td:nth-child(2), .costtable td:nth-child(3), .costtable th:nth-child(2), .costtable th:nth-child(3) { white-space:nowrap; color:var(--muted); }
+</style>

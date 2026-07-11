@@ -1,0 +1,170 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { SITE } from '../../consts';
+import { goHref, retailerName } from '../../data/affiliate-config';
+import wmData from '../../data/wavemakers.json';
+
+interface WM {
+  brand: string; model: string; priceUSD: number; maxFlowGPH: number; watts: number;
+  tankRangeGal: string | null; mountType: string; controller: string;
+  knownIssues?: string[]; retailers?: string[]; source: string; imageUrl?: string | null;
+}
+const data = wmData as any;
+const wms = (data.wavemakers as WM[]).slice().sort(
+  (a, b) => (a.priceUSD / a.maxFlowGPH) - (b.priceUSD / b.maxFlowGPH)
+);
+const dataDate = data.generated as string;
+
+const slug = (w: { brand: string; model: string }) =>
+  `${w.brand}-${w.model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const per1k = (w: WM) => (w.priceUSD / w.maxFlowGPH) * 1000;
+const buy = (w: WM) => goHref(w.retailers || [], `${w.brand} ${w.model} wavemaker`, w.source);
+const byModel = (m: string) => (data.wavemakers as WM[]).find((w) => w.model.includes(m))!;
+
+interface Pick { badge: string; why: string; w: WM; }
+const picks: Pick[] = [
+  {
+    badge: 'Best overall',
+    why: `The best $-per-GPH of any premium-brand pump here, sized right for the 40–100 gallon tanks most people own — and its known issues are app annoyances, not hardware failures.`,
+    w: byModel('Nero 5'),
+  },
+  {
+    badge: 'Best for large tanks',
+    why: `5,280 GPH of gyre-style sheet flow at a better price-per-GPH than any premium competitor. The trade: a real monthly cleaning burden, and a hum above half power that Maxspect itself only calls "near silent."`,
+    w: byModel('XF350'),
+  },
+  {
+    badge: 'The premium default',
+    why: `The pump the high-end hobby standardized on — wireless wet-side, the deepest ecosystem, unmatched resale. You pay for it twice: the sticker, and eventually the dry-side bearings, the line's well-documented wear item.`,
+    w: byModel('MP40'),
+  },
+  {
+    badge: 'Budget, caveat stated',
+    why: `A quarter the price of the premium pumps for real flow. Owners consistently report 1–2 year service life and a cleaning-dependent impeller — the trade is stated on the tin, and for a first tank it's often the right one.`,
+    w: byModel('SLW-10'),
+  },
+];
+
+const pageURL = new URL(url('/reviews/best-wavemakers'), SITE.url).href;
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Reef Wavemakers & Powerheads',
+  numberOfItems: wms.length,
+  itemListElement: wms.map((w, i) => ({ '@type': 'ListItem', position: i + 1, name: `${w.brand} ${w.model}`, url: `${pageURL}#${slug(w)}` })),
+};
+const faqs = [
+  {
+    q: 'How much flow do I actually need?',
+    a: `Bulk Reef Supply's published baseline is 20–40× your display volume per hour in total flow — softies and LPS at the low end, SPS at the top, and surveys of standout SPS tanks routinely run higher still. Your return pump counts toward the total. Our flow calculator does the math for your tank and coral type, then shows which of these pumps close the gap.`,
+  },
+  {
+    q: 'One big wavemaker or two smaller ones?',
+    a: `Two, almost always. Corals want chaotic, colliding flow, not a laminar river — two moderate pumps on opposing ends produce better flow than one monster, avoid a dead zone behind the single pump, and give you redundancy when one eventually needs cleaning or fails.`,
+  },
+  {
+    q: 'Why do app-controlled pumps keep failing to connect?',
+    a: `The most common cause isn't the pump: both Red Sea's ReefBeat and Tunze's WiFi hub only join 2.4GHz networks, so a 5GHz-only home WiFi setup fails pairing every time. AI's Nero line uses Bluetooth instead — different protocol, similar owner complaints, usually cleared by power-cycling the pump.`,
+  },
+  {
+    q: 'Are the manufacturer GPH ratings real?',
+    a: `They're measured maximums, not typical output — real-world flow falls with wave modes (which pulse below max by design), biofilm and coralline buildup, and age. That's one more reason to size toward the top of your target band rather than buying exactly the minimum.`,
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base
+  title="Best Reef Wavemakers (2026) — Ranked by Real Cost per GPH"
+  description="Wavemakers and powerheads for reef tanks — VorTech, AI Nero, Maxspect Gyre, Red Sea ReefWave, Tunze, Jebao — ranked by actual dollars per GPH, with the reliability records other reviews leave out."
+  breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Wavemakers', href: '/reviews/best-wavemakers' }]}
+>
+  <section class="container tool-wrap prose">
+    <p class="eyebrow" style="color:var(--brand-2)">Reviews · Wavemakers</p>
+    <h1>Best reef wavemakers — ranked by what flow actually costs</h1>
+    <p class="lede-dark">Every wavemaker review ranks by brand prestige. We ranked by <strong>dollars per GPH</strong> — and then put each pump's real reliability record next to it, because the premium pumps have documented wear items too, and the budget pumps' short lifespan is a knowable trade, not a scandal. Start with <a href={url('/tools/flow-calculator')}>the flow calculator</a> to get your GPH target; this page is what to buy to hit it.</p>
+    <Disclosure />
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Flow figures are manufacturer max ratings, labeled as such. Known issues come from documented owner reports, not our imagination — and not omitted because a brand is popular. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+  </section>
+
+  <section class="container" style="padding-top:8px;padding-bottom:16px;">
+    <h2>The picks</h2>
+    <div class="results">
+      {picks.map((p, idx) => (
+        <div id={slug(p.w)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
+          {p.w.imageUrl && (
+            <div class="rthumb">
+              <img src={p.w.imageUrl} alt={`${p.w.brand} ${p.w.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
+          <div class="rmain">
+            <div class="rname">{p.w.brand} {p.w.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
+            <div class="rmeta">{p.why}</div>
+            <div class="rmeta">{p.w.maxFlowGPH.toLocaleString()} GPH max · {p.w.watts}W · {p.w.controller}</div>
+          </div>
+          <div class="rflow"><span class="n">${per1k(p.w).toFixed(0)}</span><br /><span class="u">per 1k GPH</span></div>
+          <div class="rbuy"><a class="aff" href={buy(p.w)} target="_blank" rel="sponsored nofollow noopener">{money(p.w.priceUSD)} at {retailerName(p.w.retailers)} ↗</a></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container" style="padding-top:8px;">
+    <h2>Every pump, ranked by cost per GPH</h2>
+    <div class="tablewrap">
+      <table class="specs">
+        <thead><tr><th>#</th><th>Pump</th><th>Max flow</th><th>$/1k GPH</th><th>Watts</th><th>Control</th><th>The catch (documented)</th><th>Price</th></tr></thead>
+        <tbody>
+          {wms.map((w, i) => (
+            <tr id={slug(w)}>
+              <td>{i + 1}</td>
+              <td><strong>{w.brand}</strong> {w.model}</td>
+              <td>{w.maxFlowGPH.toLocaleString()} GPH</td>
+              <td><strong>${per1k(w).toFixed(0)}</strong></td>
+              <td>{w.watts}W</td>
+              <td style="color:var(--muted)">{w.controller}</td>
+              <td style="color:var(--muted)">{(w.knownIssues && w.knownIssues[0]) || '—'}</td>
+              <td><a class="aff aff-sm" href={buy(w)} target="_blank" rel="sponsored nofollow noopener">{money(w.priceUSD)} ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="rnote">Cost per 1,000 GPH = price ÷ manufacturer max flow × 1,000 — a value metric, not a quality score. Budget pumps win it while trading service life; the table's "catch" column is the other half of the decision.</p>
+  </section>
+
+  <section class="container prose" style="padding-top:24px;">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <>
+        <h3 style="font-size:1.05rem;">{f.q}</h3>
+        <p style="color:var(--muted)">{f.a}</p>
+      </>
+    ))}
+    <p><a href={url('/tools/flow-calculator')} class="inlinecta">→ Get your tank's flow target, then come back for the pump</a></p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Base>
+
+<style>
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table.specs { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 760px; }
+  table.specs th { text-align: left; font-family: var(--font-display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 12px 14px; border-bottom: 2px solid var(--line); }
+  table.specs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.specs tr:last-child td { border-bottom: none; }
+  .aff-sm { padding: 7px 12px; font-size: .8rem; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+</style>

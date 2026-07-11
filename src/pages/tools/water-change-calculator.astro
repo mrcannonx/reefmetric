@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+---
+<Base
+  title="Reef Water Change Calculator (nitrate & phosphate dilution)"
+  description="How much water do you actually need to change to get nitrate or phosphate down to target? Exact dilution math — one big change vs. a series of small ones, with total gallons and the step-by-step levels."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Water Change Calculator', href: '/tools/water-change-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Water Change Calculator</h1>
+    <p class="lede-dark">"Do a water change" is the universal forum answer — but nobody tells you <strong>how much</strong>. A 20% change removes exactly 20% of your nitrate, no more. Enter where you are and where you want to be, and get the real plan: one big change vs. a series of smaller ones, with gallons and the level after each step.</p>
+
+    <div class="calc card">
+      <form id="wc-form" class="calc-grid" autocomplete="off">
+        <label>Parameter
+          <select id="wcParam">
+            <option value="nitrate" selected>Nitrate (ppm)</option>
+            <option value="phosphate">Phosphate (ppm)</option>
+            <option value="other">Other (any unit)</option>
+          </select>
+        </label>
+        <label>Current level
+          <input id="wcCurrent" type="number" min="0" step="any" value="40" />
+        </label>
+        <label>Target level
+          <input id="wcTarget" type="number" min="0" step="any" value="10" />
+        </label>
+        <label>True water volume (gallons)
+          <input id="wcGallons" type="number" min="1" step="1" value="75" />
+        </label>
+      </form>
+      <p class="rnote" style="margin:10px 0 0;">True water volume = display + sump − rock and sand. Don't know it? <a href={url('/tools/tank-volume-calculator')}>Work it out with the volume calculator →</a></p>
+      <div id="wc-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="wc-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>The math (shown, as always)</h2>
+    <p>A water change of <em>p</em>% replaces <em>p</em>% of the water — and therefore removes exactly <em>p</em>% of anything dissolved in it. After one change your level is <code>current × (1 − p)</code>; after <em>n</em> changes it's <code>current × (1 − p)ⁿ</code>. That's why repeated small changes have diminishing returns: the second 20% change removes 20% <em>of what's left</em>, not of the original.</p>
+
+    <h2>One big change or several small ones?</h2>
+    <p>Chemically they get you to the same place — the difference is stability. A very large change (50%+) can swing temperature, salinity, and alkalinity fast enough to stress coral, so match your new saltwater carefully or split the work across a few days. For most tanks, a series of 20–30% changes over a week or two is the calm way to knock a high reading down.</p>
+
+    <h2>The assumption that matters</h2>
+    <p>This is pure dilution math — it assumes your tank isn't <em>producing</em> more nitrate or phosphate between changes. Real tanks are. If your levels creep back up after every change, water changes are treating the symptom; the fix is export: better skimming (<a href={url('/tools/protein-skimmer-calculator')}>size yours here</a>), or <a href={url('/guides/carbon-dosing')}>carbon dosing</a> for nitrate and phosphate together.</p>
+
+    <h2>What this costs in salt</h2>
+    <p>Every gallon you change is a gallon of new saltwater. Once you have your plan, <a href={url('/tools/salt-cost-calculator')}>the salt cost calculator</a> turns those gallons into a real dollar figure across 12 salts — the difference between brands is bigger than most people expect.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { singleChangeFraction, changesNeeded, planFor, STANDARD_PCTS } from '../../utils/water-change-calc';
+  import { url } from '../../utils/url';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+  const fmt = (n: number, digits = 2) => n.toLocaleString('en-US', { maximumFractionDigits: digits });
+
+  function render() {
+    const current = Number(val('wcCurrent'));
+    const target = Number(val('wcTarget'));
+    const gallons = Number(val('wcGallons')) || 0;
+    const param = val('wcParam');
+    const unit = param === 'other' ? '' : ' ppm';
+
+    const summary = document.getElementById('wc-summary');
+    const results = document.getElementById('wc-results');
+    if (!summary || !results) return;
+
+    if (!(current > 0) || gallons <= 0 || !(target >= 0)) {
+      summary.innerHTML = '';
+      results.innerHTML = '';
+      return;
+    }
+
+    if (target >= current) {
+      summary.innerHTML = '';
+      results.innerHTML = `<p class="rnote">Your target is at or above your current level — a water change only <em>lowers</em> dissolved nutrients, so there's nothing to dilute here. If you're trying to <strong>raise</strong> alkalinity, calcium, or magnesium, that's dosing, not water changes: <a href="${url('/tools/reef-dosing-calculator')}">use the dosing calculator →</a></p>`;
+      return;
+    }
+
+    const singleP = singleChangeFraction(current, target);
+    const singleGal = singleP * gallons;
+    const reduction = (1 - target / current) * 100;
+
+    summary.innerHTML = `You need to remove <b>${fmt(reduction, 1)}%</b> of what's in the water: <b>${fmt(current)}${unit} → ${fmt(target)}${unit}</b> in a <b>${fmt(gallons)} gal</b> system.`;
+
+    const bigWarn = singleP > 0.5
+      ? `<p class="rnote" style="margin-top:8px;">⚠ That's a very large single change. Chemically fine, but big swings in temperature, salinity, and alkalinity stress coral — match your new water carefully, or use one of the multi-change plans below instead.</p>`
+      : '';
+
+    const singleCard = target <= 0
+      ? `<p class="rnote">Dilution can never reach exactly 0 — every change removes a percentage of what's left. Pick a small non-zero target (e.g. 1–2 ppm nitrate, 0.02 ppm phosphate) for a realistic plan.</p>`
+      : `
+      <div class="rcard win">
+        <div class="rrank">1×</div>
+        <div class="rmain">
+          <div class="rname">One change of ${fmt(singleP * 100, 1)}% <span class="pill-win">Fastest</span></div>
+          <div class="rmeta">Replace ${fmt(singleGal, 1)} gallons in one go and you land exactly on ${fmt(target)}${unit}.</div>
+        </div>
+        <div class="rflow"><span class="n">${fmt(singleGal, 1)}</span><br><span class="u">gallons</span></div>
+      </div>${bigWarn}`;
+
+    const plans = STANDARD_PCTS
+      .map((pct) => ({ pct, plan: planFor(current, target, pct, gallons) }))
+      .filter((x) => x.plan && x.plan.changes > 1 && x.plan.changes <= 12);
+
+    const planRows = plans.map(({ pct, plan }) => {
+      const p = plan!;
+      const steps = p.levels.map((l) => fmt(l, param === 'phosphate' ? 3 : 1)).join(' → ');
+      return `
+        <div class="rcard">
+          <div class="rrank">${p.changes}×</div>
+          <div class="rmain">
+            <div class="rname">${p.changes} changes of ${pct}%</div>
+            <div class="rmeta">Level after each: ${fmt(current, param === 'phosphate' ? 3 : 1)} → ${steps}${unit}</div>
+          </div>
+          <div class="rflow"><span class="n">${fmt(p.totalNewWaterGal, 0)}</span><br><span class="u">total gal</span></div>
+        </div>`;
+    }).join('');
+
+    const salt = `<p class="rnote">Every plan above is new saltwater you'll mix — <a href="${url('/tools/salt-cost-calculator')}">see what those gallons cost across 12 salts →</a>. Assumes nothing new is produced between changes; if levels rebound, see the export note below.</p>`;
+
+    results.innerHTML = singleCard + (planRows ? `<h2 style="margin-top:28px;">Or spread it out</h2>${planRows}` : '') + salt;
+  }
+
+  ['wcParam', 'wcCurrent', 'wcTarget', 'wcGallons'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>

@@ -1,0 +1,364 @@
+{
+ "generated": "2026-07-11",
+ "kits": [
+  {
+   "brand": "Hanna",
+   "parameter": "alkalinity",
+   "model": "HI772 Marine Alkalinity Checker",
+   "priceUSD": 74.99,
+   "accuracy": "\u00b10.3 dKH \u00b15% of reading",
+   "resolution": "0.1 dKH",
+   "range": "0.0-20.0 dKH",
+   "testsPerKit": 25,
+   "reagentRefillPriceUSD": 18.99,
+   "costPerTest": 3.0,
+   "method": "digital colorimeter",
+   "knownIssues": [
+    "Owners recommend dosing the sample with a syringe instead of the cuvette fill line",
+    "Some owners report it reading consistently lower dKH than Salifert on the same sample"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://hannainst.com/marine-alkalinity-dkh-checkerr-hc-hi772.html",
+   "priceSource": "https://www.bulkreefsupply.com/alkalinity-dkh-colorimeter-hi772-hanna-checker-marine-water.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210018-hannainstruments-colorimeter-seawater-alkalinity-testing-fr.jpg"
+  },
+  {
+   "brand": "Salifert",
+   "parameter": "alkalinity",
+   "model": "KH/Alk Profi-Test",
+   "priceUSD": 18.79,
+   "accuracy": null,
+   "resolution": "0.1 meq/L (~0.3 dKH) per titration step; double in high-res mode",
+   "range": "~0.3-16 dKH",
+   "testsPerKit": 100,
+   "reagentRefillPriceUSD": null,
+   "costPerTest": 0.19,
+   "method": "titration (drop-count, color endpoint)",
+   "knownIssues": [
+    "No formal \u00b1accuracy spec published \u2014 only step resolution",
+    "Color endpoint is subjective; owners report up to ~0.4 dKH spread between readers"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "AquaCave"
+   ],
+   "source": "https://m.fish-street.com/salifert-kh-alkalinity-test-kit",
+   "priceSource": "https://www.bulkreefsupply.com/salifert-kh-alkalinity-aquarium-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205101-salifert-alkalinity-kit-testing-inp.jpg"
+  },
+  {
+   "brand": "Red Sea",
+   "parameter": "alkalinity",
+   "model": "KH/Alkalinity Pro",
+   "priceUSD": 44.99,
+   "accuracy": "0.05 meq/L (0.14 dKH)",
+   "resolution": null,
+   "range": "titration \u2014 no fixed ceiling",
+   "testsPerKit": 75,
+   "reagentRefillPriceUSD": 28.99,
+   "costPerTest": 0.6,
+   "method": "titration (syringe, color endpoint)",
+   "knownIssues": [
+    "Color change is gradual over ~5 drops \u2014 endpoint hard to pinpoint",
+    "Red Sea and Salifert reported to disagree noticeably on the same sample"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://redseafish.com/de/reef-care-program/foundation-elements/kh-alkalinity-pro-test-kit/",
+   "priceSource": "https://www.bulkreefsupply.com/red-sea-alkalinity-pro-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207090-redsea-alkalinityprotestkit-inp.jpg"
+  },
+  {
+   "brand": "Hanna",
+   "parameter": "calcium",
+   "model": "HI758 Marine Calcium Checker",
+   "priceUSD": 74.99,
+   "accuracy": "\u00b16 ppm \u00b15% of reading",
+   "resolution": "1 ppm",
+   "range": "200-600 ppm",
+   "testsPerKit": 25,
+   "reagentRefillPriceUSD": 34.99,
+   "costPerTest": 3.0,
+   "method": "digital colorimeter",
+   "knownIssues": [
+    "Multi-step two-reagent procedure with a precise 100\u00b5L sample \u2014 the most technique-sensitive Hanna here"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://hannainst.com/hi758-calcium.html",
+   "priceSource": "https://www.bulkreefsupply.com/calcium-colorimeter-hi758-hanna-checker-hc-marine-water.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/206202-hannachecker-marinecalcium-c.jpg"
+  },
+  {
+   "brand": "Salifert",
+   "parameter": "calcium",
+   "model": "Calcium Profi-Test",
+   "priceUSD": 21.79,
+   "accuracy": null,
+   "resolution": "5 mg/L per titration step",
+   "range": "~10-500 ppm",
+   "testsPerKit": 50,
+   "reagentRefillPriceUSD": null,
+   "costPerTest": 0.44,
+   "method": "titration (drop-count, pink\u2192blue endpoint)",
+   "knownIssues": [
+    "No formal \u00b1accuracy spec published",
+    "Real-world yield ~50 tests; reagent use scales with the tank's calcium level"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "AquaCave"
+   ],
+   "source": "https://www.fish-street.com/salifert_calcium_test_kit",
+   "priceSource": "https://www.bulkreefsupply.com/salifert-calcium-aquarium-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205100-salifert-calcium-ca-50-100-test-kit-inp.jpg"
+  },
+  {
+   "brand": "Red Sea",
+   "parameter": "calcium",
+   "model": "Calcium Pro",
+   "priceUSD": 44.99,
+   "accuracy": "5 ppm",
+   "resolution": null,
+   "range": "titration \u2014 no fixed ceiling",
+   "testsPerKit": 75,
+   "reagentRefillPriceUSD": 28.99,
+   "costPerTest": 0.6,
+   "method": "titration (syringe, color endpoint)",
+   "knownIssues": [
+    "Endpoint reported hard to distinguish, consistent with the other Pro titration kits"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://redseafish.com/de/reef-care-program/foundation-elements/calcium-pro-test-kit/",
+   "priceSource": "https://www.bulkreefsupply.com/red-sea-calcium-pro-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207089-redsea-calciumprotestkit-inp.jpg"
+  },
+  {
+   "brand": "Hanna",
+   "parameter": "magnesium",
+   "model": "HI783 Marine Magnesium Checker",
+   "priceUSD": 74.99,
+   "accuracy": "\u00b15% of reading",
+   "resolution": "5 ppm",
+   "range": "1000-1800 ppm",
+   "testsPerKit": 25,
+   "reagentRefillPriceUSD": 25.99,
+   "costPerTest": 3.0,
+   "method": "digital colorimeter",
+   "knownIssues": [
+    "Range floor is 1000 ppm \u2014 a badly out-of-range tank needs dilution before this checker can read it"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://hannainst.com/marine-magnesium-checker-hc.html",
+   "priceSource": "https://www.bulkreefsupply.com/marine-magnesium-colorimeter-hi783-hanna-instruments.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/t/stock-hannainstruments-magnesium-checker-hi783.png"
+  },
+  {
+   "brand": "Salifert",
+   "parameter": "magnesium",
+   "model": "Magnesium Profi-Test",
+   "priceUSD": 21.99,
+   "accuracy": null,
+   "resolution": "30 mg/L per titration step",
+   "range": "~30-1500 ppm",
+   "testsPerKit": 50,
+   "reagentRefillPriceUSD": null,
+   "costPerTest": 0.44,
+   "method": "titration (drop-count, grey/blue endpoint)",
+   "knownIssues": [
+    "No formal \u00b1accuracy spec published",
+    "Instruction revisions over time cause confusion comparing results across kit vintages"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "AquaCave"
+   ],
+   "source": "https://eastoceansg.com/products/salifert-magnesium-profi-test",
+   "priceSource": "https://www.bulkreefsupply.com/salifert-magnesium-aquarium-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205102-salifert-magnesium-testing-kit-inp.jpg"
+  },
+  {
+   "brand": "Red Sea",
+   "parameter": "magnesium",
+   "model": "Magnesium Pro",
+   "priceUSD": 44.99,
+   "accuracy": "20 ppm (Red Sea's page; BRS's listing says \u00b110 ppm \u2014 we report the manufacturer's own number)",
+   "resolution": null,
+   "range": "titration \u2014 no fixed ceiling",
+   "testsPerKit": 100,
+   "reagentRefillPriceUSD": 28.99,
+   "costPerTest": 0.45,
+   "method": "titration (syringe, color endpoint)",
+   "knownIssues": [
+    "Refill is rated 75 tests vs 100 in the original kit \u2014 refill cost-per-test is worse than the sticker implies",
+    "Owners report difficulty reading the endpoint"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://redseafish.com/de/reef-care-program/foundation-elements/magnesium-pro-test-kit/",
+   "priceSource": "https://www.bulkreefsupply.com/red-sea-magnesium-pro-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207091-redsea-magnesiumprotestkit-inp.jpg"
+  },
+  {
+   "brand": "Hanna",
+   "parameter": "phosphate",
+   "model": "HI774 Phosphate ULR Checker",
+   "priceUSD": 74.99,
+   "accuracy": "\u00b10.02 ppm \u00b15% of reading",
+   "resolution": "0.01 ppm",
+   "range": "0.00-0.90 ppm",
+   "testsPerKit": 10,
+   "reagentRefillPriceUSD": 18.99,
+   "costPerTest": 7.5,
+   "method": "digital colorimeter",
+   "knownIssues": [
+    "Reagent-powder technique sensitivity is the classic source of user error",
+    "For ultra-low-nutrient tanks (<0.03 ppm), owners point to the HI736 ppb-resolution Phosphorus checker instead"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://hannainst.com/phosphate-ultra-low-range-colorimeter-checkerr-hc-hi774.html",
+   "priceSource": "https://www.bulkreefsupply.com/phosphate-ppm-ultra-low-range-colorimeter-hi774-hanna-checker-marine-water.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212044-hannainstruments-colorimeter-phosphate-testing-fr.jpg"
+  },
+  {
+   "brand": "Salifert",
+   "parameter": "phosphate",
+   "model": "Phosphate Profi-Test",
+   "priceUSD": 21.99,
+   "accuracy": null,
+   "resolution": null,
+   "range": "0.01-1 mg/L (low) / 0.02-2 mg/L (medium) as PO4-P \u2014 NOT phosphate-ion; \u00d73.066 to compare with Hanna/Red Sea",
+   "testsPerKit": 60,
+   "reagentRefillPriceUSD": null,
+   "costPerTest": 0.37,
+   "method": "visual comparator card",
+   "knownIssues": [
+    "Publishes range in phosphorus (PO4-P), not phosphate ion \u2014 a real cross-brand comparison trap",
+    "Comparator gradations hard to distinguish at low ppm"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "AquaCave"
+   ],
+   "source": "https://m.fish-street.com/salifert_phosphate_po4_test_kit",
+   "priceSource": "https://www.bulkreefsupply.com/salifert-phosphate-aquarium-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205106-Salifert-PhosphateTest-Kit_1.jpg"
+  },
+  {
+   "brand": "Red Sea",
+   "parameter": "phosphate",
+   "model": "Phosphate Pro",
+   "priceUSD": 57.99,
+   "accuracy": "\u00b10.02 ppm",
+   "resolution": null,
+   "range": "0-5 ppm",
+   "testsPerKit": 100,
+   "reagentRefillPriceUSD": 34.99,
+   "costPerTest": 0.58,
+   "method": "visual comparator card",
+   "knownIssues": [
+    "Owners report trouble matching the comparator color to the reference card"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://g1.redseafish.com/fr/reef-care-program/algae-management-program/p-po4-phosphate-pro-test-kit/",
+   "priceSource": "https://www.bulkreefsupply.com/red-sea-phosphate-pro-po4-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207093-redsea-phosphateprotestkit-inp.jpg"
+  },
+  {
+   "brand": "Hanna",
+   "parameter": "nitrate",
+   "model": "HI781 Marine Nitrate LR Checker",
+   "priceUSD": 74.99,
+   "accuracy": "\u00b10.25 ppm \u00b12% of reading (0-5 ppm direct; to 50 ppm via dilution)",
+   "resolution": "0.01 ppm",
+   "range": "0-5 ppm direct, 0-50 ppm with dilution",
+   "testsPerKit": 25,
+   "reagentRefillPriceUSD": 24.99,
+   "costPerTest": 3.0,
+   "method": "digital colorimeter",
+   "knownIssues": [
+    "Multi-reagent procedure \u2014 the most involved of the Hanna line alongside the calcium checker"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://hannainst.com/marine-nitrate-checker-hi781.html",
+   "priceSource": "https://www.bulkreefsupply.com/nitrate-low-range-colorimeter-hi781-marine-water-hanna-instruments.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/i/hi781-front-703x703.jpg"
+  },
+  {
+   "brand": "Salifert",
+   "parameter": "nitrate",
+   "model": "Nitrate Profi-Test",
+   "priceUSD": 19.79,
+   "accuracy": null,
+   "resolution": null,
+   "range": "0.2-10 mg/L (low) / 2-100 mg/L (medium)",
+   "testsPerKit": 60,
+   "reagentRefillPriceUSD": null,
+   "costPerTest": 0.33,
+   "method": "visual comparator card",
+   "knownIssues": [
+    "No formal \u00b1accuracy spec published \u2014 only range"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "AquaCave"
+   ],
+   "source": "https://m.fish-street.com/salifert_nitrate_test_kit_no3",
+   "priceSource": "https://www.bulkreefsupply.com/salifert-nitrate-aquarium-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205104-salifert-nitrate-kit-testing-inp.jpg"
+  },
+  {
+   "brand": "Red Sea",
+   "parameter": "nitrate",
+   "model": "Nitrate Pro",
+   "priceUSD": 57.99,
+   "accuracy": "\u00b10.125 ppm (BRS listing)",
+   "resolution": null,
+   "range": "0-64 ppm",
+   "testsPerKit": 100,
+   "reagentRefillPriceUSD": 34.99,
+   "costPerTest": 0.58,
+   "method": "visual comparator card",
+   "knownIssues": [
+    "Comparator readability complaints documented by owners"
+   ],
+   "retailers": [
+    "Bulk Reef Supply",
+    "SaltwaterAquarium.com"
+   ],
+   "source": "https://g1.redseafish.com/support/faq/products/nitrate-pro/",
+   "priceSource": "https://www.bulkreefsupply.com/red-sea-nitrate-pro-no3-test-kit.html",
+   "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207092-redsea-nitrateprotestkit-inp.jpg"
+  }
+ ],
+ "categoryNotes": [
+  "Alkalinity is the parameter to test most often \u2014 it drives coral skeletal growth and buffers pH; stability matters more than an exact number.",
+  "Digital colorimeters (Hanna) give an objective LED/photocell readout; titration and comparator kits (Salifert, Red Sea) end on a human-judged color \u2014 the single most repeated complaint across owner forums, and a real source of kit-to-kit variance.",
+  "ICP lab tests ($30-50, every 3-4 months) cross-check trace elements and validate your kits \u2014 they do not replace weekly alkalinity/nutrient testing.",
+  "Salifert's phosphate range is published in phosphorus (PO4-P), not phosphate ion \u2014 multiply by ~3.066 before comparing to Hanna/Red Sea numbers."
+ ]
+}

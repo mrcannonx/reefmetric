@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+
+const cost = [
+  { item: 'Tank + stand (30g / 29g class)', budget: '$150–280', mid: '$280–500' },
+  { item: 'Filtration (HOB skimmer or AIO conversion)', budget: '$100–180', mid: '$180–350' },
+  { item: 'Return/circulation pump', budget: '$40–80', mid: '$80–150' },
+  { item: 'Reef light (1 fixture)', budget: '$150–250', mid: '$250–500' },
+  { item: 'Powerhead(s)', budget: '$50–100', mid: '$100–200' },
+  { item: 'Heater ~100–150W + controller', budget: '$30–60', mid: '$60–120' },
+  { item: 'Rock (~20–30 lb) + sand (~30 lb)', budget: '$60–110', mid: '$110–200' },
+  { item: 'RODI unit (or LFS water to start)', budget: '$0–120', mid: '$120–250' },
+  { item: 'Salt, test kits, extras', budget: '$60–110', mid: '$110–220' },
+];
+---
+<Base
+  title="30 Gallon Reef Tank Setup Guide, Gear List & Cost"
+  description="The 30 gallon reef tank setup guide: the smallest size that's still forgiving, the honest gear list (with or without a sump), realistic 2026 costs, and the calculators to size everything for your build."
+  breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '30 Gallon Reef Setup', href: '/guides/30-gallon-reef-tank-setup' }]}
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
+    <h1>30 Gallon Reef Tank: Setup, Gear List &amp; Cost</h1>
+    <p class="lede-dark">Thirty gallons is the line where a reef stops being a nano. Below it, evaporation and one missed feeding can swing your chemistry in an afternoon; at 30, you finally get enough water to make mistakes in. Here's how to build one properly — including the honest question of whether you should run a sump at all.</p>
+
+    <Disclosure />
+
+    <h2>Why 30 is the smallest forgiving size</h2>
+    <p>Stability scales with volume. In a 10-gallon nano, a day of heavy evaporation is a measurable salinity spike; in a 30, the same day barely moves the needle. Whether it's the classic 29 (30×12×18″), a "30 breeder," or a 32-gallon AIO cube, this size holds parameters steady enough that a working adult can keep a healthy reef without checking it twice a day. It's also the cheapest entry that doesn't fight you.</p>
+
+    <h2>Sump or no sump — the honest answer</h2>
+    <p>At this size, <strong>no sump is a legitimate choice</strong>. All-in-one tanks (rear-chamber filtration) and hang-on-back skimmers carry a 30 comfortably at typical stocking. A sump still wins on equipment-hiding and added volume — but it roughly doubles the plumbing complexity for a tank this small. If this is your first reef, an AIO or HOB build is the version you'll actually finish.</p>
+
+    <h2>Know your real volume first</h2>
+    <p>After rock, sand, and the air gap, a "30" usually sees water in the low-to-mid 20s — which changes every dose you'll ever calculate. <a href={url('/tools/tank-volume-calculator')} class="inlinecta">→ Get your true water volume</a> (the 29 is a preset; AIO rear chambers count as sump volume).</p>
+
+    <h2>The core gear list</h2>
+
+    <h3>Skimmer (or skimmerless)</h3>
+    <p>A 30 with a light fish load can genuinely run skimmerless on water changes alone — that's not a compromise, it's how most nano-adjacent reefs run. If you stock normally, a compact HOB or AIO-chamber skimmer earns its keep:</p>
+    <p><a href={url('/tools/protein-skimmer-calculator')} class="inlinecta">→ Check which skimmers honestly fit a 30 at your bioload</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>See our full protein skimmer rankings →</a></p>
+
+    <h3>Lighting</h3>
+    <p>The one place a 30 is genuinely cheap: <strong>one quality fixture covers it</strong>. A 24–36″ footprint under 18″ of water means even mid-range LEDs deliver SPS-capable light at the sand. <a href={url('/reviews/best-reef-led-lighting')}>Pick from the fixtures with verified PAR data</a> and spend the savings on the light you actually want.</p>
+
+    <h3>Flow</h3>
+    <p>Target <strong>20–40× turnover</strong> — 600–1,200 GPH total — which one well-placed small powerhead (plus the return) usually covers. In 12 inches of width, aim flow along the length, never straight at the rock. <a href={url('/tools/flow-calculator')}>Work out your target →</a></p>
+
+    <h3>Heat</h3>
+    <p><strong>100–150W</strong> on an external controller. In a small volume a stuck-on heater cooks the tank <em>fast</em> — the controller isn't optional at this size, it's the cheapest insurance in the hobby. <a href={url('/tools/heater-calculator')}>Size it for your room →</a></p>
+
+    <h3>Rock + sand</h3>
+    <p>20–30 lb of rock scaped open, ~30 lb of sand for a 1–1.5″ bed. Resist filling it — negative space is what makes small tanks read as mature instead of cramped.</p>
+
+    <h2>What a 30 build actually costs</h2>
+    <p>The two honest columns, 2026 US prices. The RODI line is the flex point: many 30-gallon keepers start on purchased LFS water (a 30 only drinks a few gallons a week) and buy the RODI unit later. Itemize your own tier with <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a>.</p>
+
+    <table class="costtable">
+      <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
+      <tbody>
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+      </tbody>
+      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$650–1,300</strong></td><td><strong>~$1,300–2,500</strong></td></tr></tfoot>
+    </table>
+    <p class="rnote">Ranges, not quotes. Salt is the recurring line — a 30 doing 15% weekly changes mixes ~19 gallons a month; <a href={url('/reviews/best-reef-salt-mix')}>the salt rankings</a> show what that costs per brand, and <a href={url('/tools/water-change-calculator')}>the water change calculator</a> plans the changes themselves.</p>
+
+    <h2>Stocking a 30 — the short list</h2>
+    <p>This is the discipline size. A clown pair, a royal gramma or firefish, one goby, maybe a small blenny — and that's a <em>full</em> 30. No tangs, no angels except perhaps a coral-safe pygmy, nothing that cruises. Corals are where a 30 shines instead: the whole tank is prime real estate under one good light.</p>
+
+    <h2>The order of operations</h2>
+    <p>Tank placed and level → saltwater in → aquascape → equipment on → cycle (2–6 weeks, test, be patient) → cleanup crew → fish over months, corals as the tank matures. Small tanks punish rushing more than big ones.</p>
+
+    <h2>Other sizes</h2>
+    <p>If you have 36 inches of stand and another $300, <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>the 40 breeder</a> buys the front-to-back depth this size lacks. The step after that is <a href={url('/guides/75-gallon-reef-tank-setup')}>the 75</a> — the size most reefers wish they'd started at.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+  .costtable { width:100%; border-collapse:collapse; margin:18px 0; font-size:.95rem; }
+  .costtable th, .costtable td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  .costtable thead th { font-family:var(--font-display); color:var(--ink); border-bottom:2px solid var(--line); }
+  .costtable tfoot td { border-top:2px solid var(--line); border-bottom:none; }
+  .costtable td:nth-child(2), .costtable td:nth-child(3), .costtable th:nth-child(2), .costtable th:nth-child(3) { white-space:nowrap; color:var(--muted); }
+</style>

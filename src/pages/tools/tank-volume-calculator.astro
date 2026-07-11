@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { STANDARD_TANKS } from '../../utils/volume-calc';
+---
+<Base
+  title="Aquarium Volume Calculator — True Water Volume + Sand Needed"
+  description="Your tank doesn't hold what the sticker says. Calculate true water volume — minus sand bed, rock, and air gap, plus sump — and the pounds of sand your bed depth needs."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Tank Volume Calculator', href: '/tools/tank-volume-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Tank Volume Calculator</h1>
+    <p class="lede-dark">A "75 gallon" reef doesn't hold 75 gallons — after the sand bed, the rock, and the two inches of air at the top, it's usually closer to 60. That gap is why doses calculated on the sticker number overshoot. Here's your <strong>true water volume</strong>, plus the sand your bed depth actually needs.</p>
+
+    <div class="calc card">
+      <form id="tv-form" class="calc-grid" autocomplete="off">
+        <label>Tank size
+          <select id="tvPreset">
+            {STANDARD_TANKS.map((t) => <option value={t.key} selected={t.key === '75'}>{t.label}</option>)}
+          </select>
+        </label>
+        <label>Length (inches)
+          <input id="tvL" type="number" min="1" step="any" value="48" />
+        </label>
+        <label>Width (inches)
+          <input id="tvW" type="number" min="1" step="any" value="18" />
+        </label>
+        <label>Height (inches)
+          <input id="tvH" type="number" min="1" step="any" value="21" />
+        </label>
+        <label>Air gap at top (inches)
+          <input id="tvGap" type="number" min="0" step="any" value="1" />
+        </label>
+        <label>Sand bed depth (inches)
+          <input id="tvSand" type="number" min="0" step="any" value="1.5" />
+        </label>
+        <label>Rock (lbs)
+          <input id="tvRock" type="number" min="0" step="1" value="60" />
+        </label>
+        <label>Sump water volume (gallons)
+          <input id="tvSump" type="number" min="0" step="any" value="0" />
+        </label>
+      </form>
+      <div id="tv-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="tv-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>Why true volume matters</h2>
+    <p>Every dose you calculate — alkalinity, calcium, medication — scales with water volume. Use the sticker number and you're dosing water that isn't there. The same goes for stocking decisions and salt for water changes. Get the real number once, write it on the stand, and use it everywhere: <a href={url('/tools/reef-dosing-calculator')}>the dosing calculator</a> and <a href={url('/tools/water-change-calculator')}>the water change calculator</a> both want this figure, not the sticker.</p>
+
+    <h2>The assumptions (flagged, as always)</h2>
+    <p>Gallons are computed at 231 cubic inches each. Sand: dry aragonite runs about <strong>8 lb per square foot per inch of depth</strong> (bulk density ~96 lb/ft³, per CaribSea's spec sheets) — that's also the volume we subtract for the bed. Rock: dry reef rock is porous, so displacement varies; we estimate <strong>1 lb displaces ~0.075 gallons</strong> and flag it as an estimate. Dimensions are external and glass thickness is ignored, which over-counts a standard tank by roughly 2–4% — if you want to be precise, measure inside the glass.</p>
+
+    <h2>How deep should the sand bed be?</h2>
+    <p>For most reefs: <strong>1–2 inches</strong>. It's enough to look right, host sand-sifting critters, and stay easy to keep clean. Deep sand beds (4″+) are a deliberate filtration strategy with real maintenance implications — don't end up there by accident because a calculator told you to buy more sand. Bare-bottom is equally valid for SPS-heavy tanks chasing flow.</p>
+
+    <h2>Planning a full build?</h2>
+    <p>Volume is step one. <a href={url('/tools/reef-build-cost-calculator')}>The build cost calculator</a> itemizes the whole system for your size and tier, and the setup guides walk specific tanks end to end.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { computeVolume, STANDARD_TANKS } from '../../utils/volume-calc';
+
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+  const val = (id: string) => el(id)?.value ?? '';
+  const fmt = (n: number, d = 1) => n.toLocaleString('en-US', { maximumFractionDigits: d });
+
+  function applyPreset() {
+    const t = STANDARD_TANKS.find((x) => x.key === val('tvPreset'));
+    if (!t || t.key === 'custom') return;
+    (el('tvL') as HTMLInputElement).value = String(t.l);
+    (el('tvW') as HTMLInputElement).value = String(t.w);
+    (el('tvH') as HTMLInputElement).value = String(t.h);
+  }
+
+  function render() {
+    const L = Number(val('tvL')), W = Number(val('tvW')), H = Number(val('tvH'));
+    const summary = document.getElementById('tv-summary');
+    const results = document.getElementById('tv-results');
+    if (!summary || !results) return;
+    if (!(L > 0) || !(W > 0) || !(H > 0)) { summary.innerHTML = ''; results.innerHTML = ''; return; }
+
+    const r = computeVolume(L, W, H, Number(val('tvGap')) || 0, Number(val('tvSand')) || 0, Number(val('tvRock')) || 0, Number(val('tvSump')) || 0);
+
+    summary.innerHTML = `Filled to the rim these dimensions hold <b>${fmt(r.grossGal, 0)} gal</b>. Your water actually sees <b>${fmt(r.trueGal, 1)} gal</b>.`;
+
+    results.innerHTML = `
+      <div class="rcard win">
+        <div class="rmain">
+          <div class="rname">True water volume <span class="pill-win">Use this for dosing</span></div>
+          <div class="rmeta">Display to the water line (${fmt(r.filledGal, 1)} gal) − sand bed (${fmt(r.sandGal, 1)} gal) − rock est. (${fmt(r.rockGal, 1)} gal)${r.sumpGal > 0 ? ` + sump (${fmt(r.sumpGal, 1)} gal)` : ''}</div>
+        </div>
+        <div class="rflow"><span class="n">${fmt(r.trueGal, 1)}</span><br><span class="u">gallons</span></div>
+      </div>
+      <div class="rcard">
+        <div class="rmain">
+          <div class="rname">Sand for a ${fmt(Number(val('tvSand')) || 0, 1)}″ bed</div>
+          <div class="rmeta">${fmt(L)}″ × ${fmt(W)}″ footprint at ~8 lb per ft² per inch (dry aragonite). Round up to the nearest bag.</div>
+        </div>
+        <div class="rflow"><span class="n">${fmt(r.sandLb, 0)}</span><br><span class="u">lbs sand</span></div>
+      </div>
+      <p class="rnote">Rock displacement is an estimate — porosity varies bag to bag. Glass thickness is ignored (over-counts ~2–4% on standard tanks). Write your true volume somewhere permanent; every calculator on this site works better with it.</p>`;
+  }
+
+  el('tvPreset')?.addEventListener('input', () => { applyPreset(); render(); });
+  ['tvL', 'tvW', 'tvH', 'tvGap', 'tvSand', 'tvRock', 'tvSump'].forEach((id) => {
+    el(id)?.addEventListener('input', () => {
+      if (['tvL', 'tvW', 'tvH'].includes(id)) (el('tvPreset') as HTMLSelectElement).value = 'custom';
+      render();
+    });
+  });
+  render();
+</script>

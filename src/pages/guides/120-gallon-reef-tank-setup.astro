@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+
+const cost = [
+  { item: 'Tank + stand (120g, 48×24×24″)', budget: '$800–1,400', mid: '$1,400–2,800' },
+  { item: 'Sump (30–40g purpose-built)', budget: '$180–350', mid: '$350–700' },
+  { item: 'Return pump (~840 GPH at the tank)', budget: '$120–200', mid: '$200–380' },
+  { item: 'Protein skimmer', budget: '$250–400', mid: '$400–800' },
+  { item: 'Reef lighting (2–3 fixtures, 24″ punch)', budget: '$600–1,000', mid: '$1,000–2,200' },
+  { item: 'Powerheads / flow', budget: '$200–350', mid: '$350–700' },
+  { item: '2× heaters ~200–250W each + controller', budget: '$70–120', mid: '$120–220' },
+  { item: 'Rock (~80–120 lb) + sand (~110 lb)', budget: '$200–380', mid: '$380–650' },
+  { item: 'RODI unit (higher-output)', budget: '$120–200', mid: '$200–350' },
+  { item: 'Salt, test kits, ATO, extras', budget: '$150–260', mid: '$260–500' },
+];
+---
+<Base
+  title="120 Gallon Reef Tank Setup Guide, Gear List & Cost"
+  description="The 120 gallon reef tank setup guide: what the 2-foot depth changes about lighting and aquascaping, floor-loading and RODI logistics nobody mentions, the full gear list, and honest 2026 costs."
+  breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '120 Gallon Reef Setup', href: '/guides/120-gallon-reef-tank-setup' }]}
+>
+  <section class="container prose" style="padding-top:40px;">
+    <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
+    <h1>120 Gallon Reef Tank: Setup, Gear List &amp; Cost</h1>
+    <p class="lede-dark">The 120 (48 × 24 × 24″) is where a reef becomes an <em>aquascape</em>. Two full feet front-to-back means islands, canyons, and swim-throughs instead of a rock wall — and two feet of height means your lighting choice finally has consequences. Here's the build, including the logistics guides written around smaller tanks never mention.</p>
+
+    <Disclosure />
+
+    <h2>What the second foot of depth buys</h2>
+    <p>Every smaller standard tank is a corridor — 12, 13, or 18 inches deep. At 24 inches, rockwork can stand free of the glass on all sides, corals get years of growth room in every direction, and fish that pace a 75 settle down. The same footprint-to-length ratio is why the 120 is many hobbyists' "final" tank: it's the smallest size that doesn't feel like a compromise, while still fitting a standard 4-foot space.</p>
+
+    <h2>The logistics nobody mentions</h2>
+    <p>A running 120 system weighs <strong>~1,400–1,600 lb</strong> loaded — on a wood floor, place it across joists, ideally near a load-bearing wall (and check, don't hope, if you're above a crawlspace). Evaporation runs 1–2+ gallons a day, so an <a href={url('/reviews/best-ato')}>auto top-off</a> is day-one equipment, not an upgrade. And your RODI habit changes: a 75-GPD unit refilling a 120's reservoir plus water-change water spends hours running — buy 150 GPD once instead of twice.</p>
+
+    <h2>Know your real volume first</h2>
+    <p>Rock, a sand bed across 8 square feet, and the air gap take a real bite — most 120s see water volume around 100–105 gallons plus the sump. Every dose downstream keys off it: <a href={url('/tools/tank-volume-calculator')} class="inlinecta">→ get your true water volume</a> (the 120 is a preset).</p>
+
+    <h2>The core gear list</h2>
+
+    <h3>Sump + return pump</h3>
+    <p>A 30–40 gallon sump fits most 120 stands and gives skimmer, refugium, and ATO reservoir room to coexist. Aim for roughly <strong>7× display turnover delivered</strong> — about 840 GPH at the tank after head loss, which at this scale usually means a DC pump you can tune down rather than an AC pump at its limit:</p>
+    <p><a href={url('/tools/return-pump-calculator')} class="inlinecta">→ Size your return pump with the calculator</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-return-pumps')}>See our full return pump rankings →</a> · <a href={url('/guides/dc-vs-ac-return-pumps')}>DC vs AC, explained →</a></p>
+
+    <h3>Protein skimmer</h3>
+    <p>At 120 gallons with real stocking, the skimmer is carrying serious export load — derated honest capacity matters more here than at any smaller size:</p>
+    <p><a href={url('/tools/protein-skimmer-calculator')} class="inlinecta">→ Find the right skimmer for your bioload</a></p>
+    <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>See our full protein skimmer rankings →</a></p>
+
+    <h3>Lighting — where the 24″ height bites</h3>
+    <p>This is the line item the depth changes. Light falls off fast through two feet of water: fixtures that comfortably grow SPS at 16–18″ of depth may only deliver softie/LPS light at a 120's sand bed. You need fixtures with a <em>published PAR-at-depth curve</em> — not a marketing "suitable for SPS" badge — and at 48×24″ of surface, plan on <strong>two to three of them</strong>. <a href={url('/reviews/best-reef-led-lighting')}>Only 4 of 11 popular fixtures publish verifiable PAR curves — start there</a>, and check their 24″ numbers specifically.</p>
+
+    <h3>Flow</h3>
+    <p>Target <strong>20–40× turnover</strong> — 2,400–4,800 GPH total, more for SPS walls. The 24-inch width finally gives powerheads room to build broad, colliding gyres instead of jets; two larger units on opposing cycles beat four small ones fighting. <a href={url('/tools/flow-calculator')}>Work out your target and see which wavemakers actually move this much water →</a></p>
+
+    <h3>Heat</h3>
+    <p><strong>Two heaters, ~200–250W each</strong>, both on an external controller. Redundancy stops being a nicety at this investment level: one stuck-off heater still keeps the tank warm; one stuck-on heater can only push half the wattage. <a href={url('/tools/heater-calculator')}>Size the pair for your room →</a></p>
+
+    <h3>Rock + sand</h3>
+    <p>80–120 lb of rock builds real three-dimensional structure in this footprint. Sand: a 1.5″ bed across 48×24″ is about <strong>110–140 lb</strong> — compute your exact depth with <a href={url('/tools/tank-volume-calculator')}>the volume calculator</a>.</p>
+
+    <h2>What a 120 build actually costs</h2>
+    <p>The honest table, 2026 US prices. Lighting and glass dominate — and this is the size where used equipment markets (local reef clubs, forum classifieds) start saving four figures. Itemize your own tier with <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a>.</p>
+
+    <table class="costtable">
+      <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
+      <tbody>
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+      </tbody>
+      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$2,700–4,800</strong></td><td><strong>~$4,800–9,400</strong></td></tr></tfoot>
+    </table>
+    <p class="rnote">Ranges, not quotes. The recurring lines scale too: a 120 doing 10% weekly changes mixes ~52 gallons of saltwater a month — <a href={url('/reviews/best-reef-salt-mix')}>salt choice</a> is now a real annual number, and dosing demand usually justifies <a href={url('/reviews/best-reef-dosing-pumps')}>a dosing pump</a> within the first year.</p>
+
+    <h2>Stocking a 120</h2>
+    <p>The list finally opens up: most tangs (yellow, purple, tomini, even a hippo with rockwork planned for it), angel pairs, foxface, larger wrasses — alongside everything the smaller tanks allow. The 4-foot length is still the honest limit: adult naso tangs and true cruisers want six feet, and a 120 doesn't become a 180 because the fish is small today.</p>
+
+    <h2>The order of operations</h2>
+    <p>Verify the floor → tank, stand, sump placed and level → plumb and <em>water-test the plumbing with fresh water</em> (a 120's flood is a homeowners-insurance event, not a towel event) → RODI, saltwater, aquascape → equipment on → cycle (2–6 weeks) → cleanup crew → fish, then corals, slowly.</p>
+
+    <h2>Other sizes</h2>
+    <p>Not ready for the floor-loading and the four-figure lighting line? <a href={url('/guides/75-gallon-reef-tank-setup')}>The 75</a> keeps the four-foot length and 18″ of depth at half the running cost. Starting smaller: <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>the 40 breeder</a> or <a href={url('/guides/30-gallon-reef-tank-setup')}>the 30</a>.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .lede-dark { margin-bottom: 8px; }
+  .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+  .costtable { width:100%; border-collapse:collapse; margin:18px 0; font-size:.95rem; }
+  .costtable th, .costtable td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  .costtable thead th { font-family:var(--font-display); color:var(--ink); border-bottom:2px solid var(--line); }
+  .costtable tfoot td { border-top:2px solid var(--line); border-bottom:none; }
+  .costtable td:nth-child(2), .costtable td:nth-child(3), .costtable th:nth-child(2), .costtable th:nth-child(3) { white-space:nowrap; color:var(--muted); }
+</style>

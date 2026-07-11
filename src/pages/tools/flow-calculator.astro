@@ -1,0 +1,118 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import wmData from '../../data/wavemakers.json';
+const dataDate = (wmData as any).generated as string;
+---
+<Base
+  title="Reef Flow Calculator — Turnover Target + Wavemakers That Hit It"
+  description="How much flow does your reef actually need? Sourced turnover targets by coral type, minus your return pump's contribution — then the wavemakers that hit the number, ranked by real cost."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Flow Calculator', href: '/tools/flow-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Flow Calculator</h1>
+    <p class="lede-dark">"More flow" is reef advice; a number is a plan. Your target depends on what you keep — softies sway, SPS demand a storm — and your return pump is already doing part of the job. Enter both and get the real gap, plus the wavemakers that close it, ranked by what they cost to get there.</p>
+
+    <div class="calc card">
+      <form id="fl-form" class="calc-grid" autocomplete="off">
+        <label>Display volume (gallons)
+          <input id="flGallons" type="number" min="1" step="1" value="75" />
+        </label>
+        <label>What you keep
+          <select id="flBand">
+            {(wmData as any).turnoverGuidance.map((b: any) => (
+              <option value={b.key} selected={b.key === 'mixed'}>{b.band} ({b.minTurnover}–{b.maxTurnover}×)</option>
+            ))}
+          </select>
+        </label>
+        <label>Return pump flow at the tank (GPH, 0 if unsure)
+          <input id="flReturn" type="number" min="0" step="10" value="500" />
+        </label>
+      </form>
+      <p class="rnote" style="margin:10px 0 0;">Return flow is what the pump delivers <em>after head loss</em>, not the box rating — <a href={url('/tools/return-pump-calculator')}>the return pump calculator computes it →</a></p>
+      <div id="fl-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="fl-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>Where the targets come from</h2>
+    <p>The 20–40× total-turnover baseline is Bulk Reef Supply's published guidance — softie/LPS tanks at the lower end, SPS at the top. We band it: softies/LPS at 20–30×, mixed reefs at 25–40×, and SPS at 40–60×, because surveys of standout SPS tanks consistently run <em>above</em> the textbook minimum (one survey of 20 such tanks averaged 85×). Wavemaker flow numbers below are manufacturer max ratings, priced and sourced on {dataDate}.</p>
+
+    <h2>Placement beats horsepower</h2>
+    <p>Two moderate pumps on opposite ends, aimed to collide, produce the chaotic flow corals want; one monster pump produces a laminar river and a sandstorm in front of it. That's why the results below quote pairs where a single unit falls short — and why "one giant unit" is rarely the right buy even when the math allows it.</p>
+
+    <h2>The budget-tier trade, stated plainly</h2>
+    <p>Budget pumps (Jebao and kin) genuinely move the rated water at a quarter of the premium price — the trade is service life (owners consistently report 1–2 years) and a heavier cleaning schedule. That can still be the right call for a first tank; it's just a real trade, not a free lunch, and we label it instead of hiding it.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { flowTarget, rankWavemakers } from '../../utils/flow-calc';
+  import data from '../../data/wavemakers.json';
+  import { goHref, retailerName } from '../../data/affiliate-config';
+  import { url } from '../../utils/url';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+  const fmt = (n: number) => Math.round(n).toLocaleString('en-US');
+  const money = (n: number) => '$' + n.toFixed(2);
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+  const buyUrl = (w: any) => goHref(w.retailers || [], `${w.brand} ${w.model} wavemaker`, w.source);
+
+  function render() {
+    const gallons = Number(val('flGallons')) || 0;
+    const band = (data as any).turnoverGuidance.find((b: any) => b.key === val('flBand')) || (data as any).turnoverGuidance[0];
+    const returnGPH = Number(val('flReturn')) || 0;
+
+    const summary = document.getElementById('fl-summary');
+    const results = document.getElementById('fl-results');
+    if (!summary || !results) return;
+    if (gallons <= 0) { summary.innerHTML = ''; results.innerHTML = ''; return; }
+
+    const t = flowTarget(gallons, band, returnGPH);
+    summary.innerHTML = `A <b>${fmt(gallons)} gal</b> ${esc(band.band)} tank wants <b>${fmt(t.minGPH)}–${fmt(t.maxGPH)} GPH</b> total. Your return covers <b>${fmt(Math.min(returnGPH, t.maxGPH))} GPH</b> → powerheads need to add <b>~${fmt(t.powerheadMidGPH)} GPH</b> (mid-target).`;
+
+    if (t.powerheadMidGPH <= 0) {
+      results.innerHTML = `<p class="rnote">Your return pump alone already covers the mid-point of this target — unusual, and it usually means the return figure entered is a box rating, not delivered flow. Even so, most reefs still add at least one powerhead: return flow is laminar and fixed, while corals want randomized, colliding flow the return can't provide.</p>`;
+      return;
+    }
+
+    const fits = rankWavemakers(t, (data as any).wavemakers);
+    results.innerHTML = fits.map((f: any, idx: number) => {
+      const w = f.wm;
+      const thumb = w.imageUrl
+        ? `<div class="rthumb"><img src="${w.imageUrl}" alt="${esc(w.brand)} ${esc(w.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        : '';
+      const issues = (w.knownIssues && w.knownIssues[0]) ? `<div class="rmeta" style="color:#9a5a3a;">Known: ${esc(w.knownIssues[0])}</div>` : '';
+      return `
+        <div class="rcard ${idx === 0 ? 'win' : ''}">
+          ${thumb}
+          <div class="rrank">${f.unitsForMid}×</div>
+          <div class="rmain">
+            <div class="rname">${esc(w.brand)} ${esc(w.model)}${idx === 0 ? ' <span class="pill-win">Cheapest path</span>' : ''}</div>
+            <div class="rmeta">${f.unitsForMid} unit${f.unitsForMid > 1 ? 's' : ''} = ${fmt(f.comboFlowGPH)} GPH (mfr max rating) · ${w.watts}W each · ${esc(w.controller)}</div>
+            ${issues}
+          </div>
+          <div class="rflow"><span class="n">${money(f.comboCost)}</span><br><span class="u">${f.unitsForMid > 1 ? 'for the pair' : 'one unit'}</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(w)}" target="_blank" rel="sponsored nofollow noopener">${money(w.priceUSD)} at ${esc(retailerName(w.retailers))} ↗</a></div>
+        </div>`;
+    }).join('') +
+      `<p class="rnote">Flow figures are manufacturer max ratings — real output falls with mode, clogging, and age. Combos are sized to your mid-target (${fmt(t.powerheadMidGPH)} GPH of powerhead flow); SPS keepers should size toward the top of the band. Sourced ${(data as any).generated}. <a href="${url('/reviews/best-wavemakers')}">Full wavemaker rankings with the reliability notes →</a></p>`;
+  }
+
+  ['flGallons', 'flBand', 'flReturn'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>

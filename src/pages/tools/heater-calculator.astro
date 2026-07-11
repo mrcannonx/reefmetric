@@ -1,0 +1,146 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import htData from '../../data/heaters.json';
+const dataDate = (htData as any).generated as string;
+---
+<Base
+  title="Aquarium Heater Size Calculator — Watts by Tank Size & Room Temp"
+  description="What size heater does your tank actually need? Wattage computed from your volume and the real room-to-tank temperature gap — plus why two smaller heaters beat one big one, with sourced picks."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Heater Calculator', href: '/tools/heater-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Heater Size Calculator</h1>
+    <p class="lede-dark">Heater failure is the most common cause of catastrophic tank loss in this hobby — and half the risk is set at purchase time, by buying the wrong size or trusting one thermostat. Enter your volume and your <em>real</em> room temperature, and get the wattage, the split, and the safety setup.</p>
+
+    <div class="calc card">
+      <form id="ht-form" class="calc-grid" autocomplete="off">
+        <label>System water volume (gallons)
+          <input id="htGallons" type="number" min="1" step="1" value="75" />
+        </label>
+        <label>Coldest room temp (°F)
+          <input id="htRoom" type="number" min="40" max="85" step="1" value="68" />
+        </label>
+        <label>Target tank temp (°F)
+          <input id="htTarget" type="number" min="70" max="84" step="1" value="78" />
+        </label>
+      </form>
+      <p class="rnote" style="margin:10px 0 0;">Use the coldest the room realistically gets — a winter night with the thermostat down, not a summer afternoon. Volume = display + sump: <a href={url('/tools/tank-volume-calculator')}>true volume calculator →</a></p>
+      <div id="ht-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="ht-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>The math (sourced)</h2>
+    <p>The baseline is the industry's <strong>3–5 watts per gallon</strong> (BRS guidance), scaled by how far the room sits below the tank: a ≤5°F lift needs ~3 W/gal, ≤10°F ~5 W/gal, ≤15°F ~7.5 W/gal, and beyond that ~10 W/gal — bands cross-checked against Aqueon, Fluval, and Eheim's own sizing tables. If your number lands between two available wattages, round up.</p>
+
+    <h2>Two heaters, not one — and always a controller</h2>
+    <p>Every heater on the market — every brand, every price — has documented stuck-on failures. Two smaller heaters halve the damage a stuck-on unit can do and keep the tank warm if one sticks off; setting the second one slightly cooler makes it a true standby. And regardless of brand: put them on an independent external controller (an Inkbird ITC-306T is ~$30). The built-in thermostat is the component that fails; the controller is the second opinion that catches it.</p>
+
+    <h2>Placement</h2>
+    <p>Element in a sump chamber where the water level stays constant (the skimmer section, not the return section, which drops as water evaporates) — but the temperature <em>probe</em> goes in the display, because that's where the temperature actually matters to your livestock.</p>
+
+    <h2>Titanium elements: read before buying</h2>
+    <p>Bare titanium elements (BRS's, Finnex TH/THH) have <strong>no thermostat at all</strong> — they heat at full power whenever plugged in. On an external controller they're arguably the most robust option; without one they're a tank cooker. The controller isn't optional with these, so compare prices with it included.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import data from '../../data/heaters.json';
+  import { goHref, retailerName } from '../../data/affiliate-config';
+
+  const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
+  const money = (n: number) => '$' + n.toFixed(2);
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+  // Delta-adjusted W/gal bands (see sizingGuidance in heaters.json, each rule sourced)
+  function wattsPerGal(deltaF: number): number {
+    if (deltaF <= 5) return 3;
+    if (deltaF <= 10) return 5;
+    if (deltaF <= 15) return 7.5;
+    return 10;
+  }
+
+  const buyUrl = (h: any) => goHref(h.retailers || [], `${h.brand} ${h.model} aquarium heater`, h.source);
+
+  function render() {
+    const gallons = Number(val('htGallons')) || 0;
+    const room = Number(val('htRoom'));
+    const target = Number(val('htTarget'));
+
+    const summary = document.getElementById('ht-summary');
+    const results = document.getElementById('ht-results');
+    if (!summary || !results) return;
+    if (gallons <= 0 || !isFinite(room) || !isFinite(target)) { summary.innerHTML = ''; results.innerHTML = ''; return; }
+
+    const delta = target - room;
+    if (delta <= 0) {
+      summary.innerHTML = `Your room (${room}°F) is already at or above your target (${target}°F).`;
+      results.innerHTML = `<p class="rnote">No heating wattage needed at these temperatures — your problem in summer may be the opposite one (cooling/evaporation). A heater on a controller is still worth having for cold snaps; size it for your realistic winter room temperature instead.</p>`;
+      return;
+    }
+
+    const wpg = wattsPerGal(delta);
+    const totalW = Math.ceil((gallons * wpg) / 10) * 10;
+    const perHeater = totalW / 2;
+
+    summary.innerHTML = `A <b>${delta}°F</b> lift on <b>${gallons} gal</b> needs ~<b>${wpg} W/gal</b> → <b>${totalW}W total</b>, best as <b>two ~${Math.ceil(perHeater / 25) * 25}W heaters</b> on an external controller.`;
+
+    const heaters = (data as any).heaters.filter((h: any) => h.category === 'heater');
+    const controller = (data as any).heaters.find((h: any) => h.category === 'controller');
+
+    // For each heater line, find the smallest available wattage ≥ half the total (round-up split)
+    const rows = heaters.map((h: any) => {
+      const w = (h.wattageOptions || []).find((x: number) => x >= perHeater);
+      return { h, fitW: w };
+    }).filter((r: any) => r.fitW);
+
+    results.innerHTML = rows.map((r: any, idx: number) => {
+      const h = r.h;
+      const thumb = h.imageUrl
+        ? `<div class="rthumb"><img src="${h.imageUrl}" alt="${esc(h.brand)} ${esc(h.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        : '';
+      const acc = h.accuracy ? esc(h.accuracy) : 'no accuracy spec — element only';
+      const warn = h.builtInThermostat === false
+        ? `<div class="rmeta" style="color:#9a5a3a;">No thermostat — external controller is mandatory with this one, not optional.</div>`
+        : (h.failureModes && h.failureModes[0] ? `<div class="rmeta" style="color:#9a5a3a;">Known: ${esc(h.failureModes[0])}</div>` : '');
+      return `
+        <div class="rcard ${idx === 0 ? 'win' : ''}">
+          ${thumb}
+          <div class="rrank">2×</div>
+          <div class="rmain">
+            <div class="rname">${esc(h.brand)} ${esc(h.model)}${idx === 0 ? ' <span class="pill-win">Fits</span>' : ''}</div>
+            <div class="rmeta">2 × ${r.fitW}W · ${esc(h.element)} · ${acc}</div>
+            ${warn}
+          </div>
+          <div class="rflow"><span class="n">${r.fitW}W</span><br><span class="u">× 2 units</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(h)}" target="_blank" rel="sponsored nofollow noopener">${money(h.priceUSD)} at ${esc(retailerName(h.retailers))} ↗</a></div>
+        </div>`;
+    }).join('') +
+      (controller ? `
+        <div class="rcard">
+          <div class="rmain">
+            <div class="rname">${esc(controller.brand)} ${esc(controller.model)} <span class="rbadge">The $30 insurance</span></div>
+            <div class="rmeta">Independent dual-relay cutoff for whichever heaters you pick — the second opinion that catches a stuck-on thermostat. ${esc(controller.accuracy)}.</div>
+          </div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(controller)}" target="_blank" rel="sponsored nofollow noopener">${money(controller.priceUSD)} at ${esc(retailerName(controller.retailers))} ↗</a></div>
+        </div>` : '') +
+      `<p class="rnote">Prices are for a representative wattage (each product's note states which) and were sourced ${(data as any).generated} — heater lines are tier-priced, so your wattage may differ by a few dollars. Every heater here has documented failure reports; that's the category, not a brand — which is why the two-heater + controller setup is the actual recommendation.</p>`;
+  }
+
+  ['htGallons', 'htRoom', 'htTarget'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', render);
+  });
+  render();
+</script>
