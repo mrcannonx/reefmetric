@@ -1,36 +1,53 @@
 ---
 import Base from '../layouts/Base.astro';
 import { url } from '../utils/url';
+import skimmers from '../data/skimmers.json';
+import pumps from '../data/pumps.json';
+import salts from '../data/salts.json';
+import lightData from '../data/lights.json';
+import dosers from '../data/dosers.json';
+
+// Representative product shot for each roundup: the first ranked item in the source
+// dataset that has an image. Single source of truth — if a data file's imageUrl
+// changes, the card thumbnail follows automatically. No hardcoded URLs to drift.
+const firstImg = (arr: Array<{ imageUrl?: string | null }>): string | null =>
+  arr.find((x) => x?.imageUrl)?.imageUrl ?? null;
+
 const reviews = [
   {
     name: 'Best Protein Skimmers by Tank Size',
     desc: 'Nano to 120+ gallons, ranked by honest bioload-adjusted capacity — not the box\'s optimistic "rated up to" number. Right-size, value, and heavy-bioload picks per class.',
     href: '/reviews/best-protein-skimmers',
     status: 'New',
+    image: firstImg(skimmers.skimmers as Array<{ imageUrl?: string | null }>),
   },
   {
     name: 'Best Return Pumps for Reef Tanks',
     desc: 'Ranked by delivered flow through realistic plumbing — computed from manufacturer curves with the same Hazen-Williams math as our calculator. Picks for AIO through 120+.',
     href: '/reviews/best-return-pumps',
     status: 'New',
+    image: firstImg(pumps.pumps as Array<{ imageUrl?: string | null }>),
   },
   {
     name: 'Best Reef Salt Mix by Cost per Gallon',
     desc: 'Every major salt ranked by what a mixed gallon really costs, split into growth formulas vs natural-parameter baselines — and which family fits how you run your tank.',
     href: '/reviews/best-reef-salt-mix',
     status: 'New',
+    image: firstImg(salts.salts as Array<{ imageUrl?: string | null }>),
   },
   {
     name: 'Best Reef LED Lighting, Ranked by Verified PAR',
     desc: 'Of 11 popular fixtures compared, only 4 have real PAR data behind them — a manufacturer chart or an independent lab test. We rank those four and name the gap on the rest.',
     href: '/reviews/best-reef-led-lighting',
     status: 'New',
+    image: firstImg(lightData.lights as Array<{ imageUrl?: string | null }>),
   },
   {
     name: 'Best Reef Dosing Pumps',
     desc: "Red Sea ReefDose, GHL Doser 3, Focustronic, Reef Factory — ranked, plus which well-known doser can't run at all without a controller you probably don't already own.",
     href: '/reviews/best-reef-dosing-pumps',
     status: 'New',
+    image: firstImg(dosers.dosers as Array<{ imageUrl?: string | null }>),
   },
 ];
 ---
@@ -44,7 +61,12 @@ const reviews = [
     <p style="color:var(--muted);max-width:62ch;">Every roundup here is computed from spec data — pump curves, bioload ratings, mix yields — with the methodology shown and the estimates flagged. No pay-to-play, no "we tested it" theater. <a href={url('/how-we-rate')}>How we rate →</a></p>
     <div class="grid cols-3" style="margin-top:26px;">
       {reviews.map((r) => (
-        <a class="card cardlink" href={url(r.href)}>
+        <a class="card cardlink rcard" href={url(r.href)}>
+          {r.image && (
+            <div class="rcard-thumb">
+              <img src={r.image} alt="" loading="lazy" onerror="this.parentElement.style.display='none'" />
+            </div>
+          )}
           <span class="pill">{r.status}</span>
           <h3>{r.name}</h3>
           <p style="color:var(--muted)">{r.desc}</p>
@@ -54,3 +76,28 @@ const reviews = [
     <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for controllers? See the <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex vs HYDROS vs GHL comparison</a>. Coming next: skimmer brand face-offs.</p>
   </section>
 </Base>
+
+<style>
+  /* Full-bleed product thumbnail band at the top of each review card. Card padding is
+     24px (see .card in global.css); negative margins pull the band flush to the edges,
+     overflow:hidden keeps it inside the card's rounded corners. */
+  .rcard { overflow: hidden; }
+  .rcard-thumb {
+    margin: -24px -24px 18px;
+    height: 168px;
+    padding: 16px;
+    background: #eef4f4;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* multiply drops the product photos' white studio background into the tinted panel
+     so there's no hard white rectangle floating on the card. */
+  .rcard-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+</style>
