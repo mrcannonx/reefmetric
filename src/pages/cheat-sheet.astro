@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils/url';
+import { buildCheatSheet, money } from '../utils/cheat-sheet';
+
+// The lead-magnet deliverable. noindex on purpose: subscribers get here from the
+// signup success state and the email — it shouldn't outrank the pages that earn it.
+const { rows, dataDate } = buildCheatSheet();
+const tools = [
+  { name: 'Return Pump Calculator', href: '/tools/return-pump-calculator' },
+  { name: 'Protein Skimmer Sizer', href: '/tools/protein-skimmer-calculator' },
+  { name: 'Build Cost Estimator', href: '/tools/reef-build-cost-calculator' },
+];
+---
+<Base
+  title="The Reef Gear Cheat Sheet"
+  description="The exact skimmer, pump, and light picks by tank size, plus the full build-cost worksheet — computed from spec data."
+  noindex
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">The cheat sheet</p>
+    <h1>Reef gear picks, by tank size.</h1>
+    <p class="lede-dark">The right-size pick per category — the smallest gear that honestly does the job, computed with the same math as our calculators. Prices are street prices from our datasets (updated {dataDate}); cost ranges are mid-tier, mixed-reef estimates.</p>
+
+    {rows.map((r) => (
+      <div class="card" style="margin-top:22px;">
+        <h2 style="margin:0 0 4px;">{r.label}</h2>
+        <table class="breakdown">
+          <tbody>
+            {r.pump && (
+              <tr><td><strong>Return pump</strong> — {r.pump.name}<br /><span style="color:var(--muted);font-size:.85rem">{r.pump.note}</span></td><td>{money(r.pump.price)}</td></tr>
+            )}
+            {r.skimmer && (
+              <tr><td><strong>Protein skimmer</strong> — {r.skimmer.name}<br /><span style="color:var(--muted);font-size:.85rem">{r.skimmer.note}</span></td><td>{money(r.skimmer.price)}</td></tr>
+            )}
+            {r.light && (
+              <tr><td><strong>Light</strong> — {r.light.name}<br /><span style="color:var(--muted);font-size:.85rem">{r.light.note}</span></td><td>{money(r.light.price)}</td></tr>
+            )}
+            <tr class="total">
+              <td>Full build estimate (all gear, mid tier)</td>
+              <td>${r.upfrontLow.toLocaleString()}–${r.upfrontHigh.toLocaleString()}</td>
+            </tr>
+            <tr>
+              <td style="color:var(--muted)">Monthly running cost (power, salt, consumables)</td>
+              <td>${r.monthlyLow}–${r.monthlyHigh}/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    ))}
+
+    <div class="card" style="margin-top:22px;">
+      <h2 style="margin:0 0 6px;">Size it to <em>your</em> plumbing.</h2>
+      <p style="color:var(--muted);margin:0 0 14px;">These picks assume typical builds. Your head height and pipe run change the pump answer — run your real numbers:</p>
+      <p style="margin:0;">
+        {tools.map((t, i) => (
+          <>
+            <a href={url(t.href)}>{t.name}</a>{i < tools.length - 1 ? ' · ' : ''}
+          </>
+        ))}
+      </p>
+    </div>
+
+    <p class="rnote">Picks are computed from manufacturer spec data — pump curves at reference plumbing, honest medium-bioload skimmer ratings, verified PAR figures — not sponsorships. Some product links on the linked pages are paid links. <a href={url('/how-we-rate')}>How we rate →</a></p>
+  </section>
+</Base>

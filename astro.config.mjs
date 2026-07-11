@@ -15,5 +15,6 @@ export default defineConfig({
   base: process.env.DEPLOY_BASE || '/',
   trailingSlash: 'never',
   build: { format: 'file' }, // flat /about.html → clean URLs, no 301 on static hosts
-  integrations: [sitemap({ filter: (page) => !page.includes('/go/') })],
+  // /go/ = affiliate redirects; /cheat-sheet* = the noindex email-capture deliverable.
+  integrations: [sitemap({ filter: (page) => !page.includes('/go/') && !page.includes('/cheat-sheet') })],
 });
