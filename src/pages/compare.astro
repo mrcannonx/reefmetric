@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
 const comparisons = [
   {
@@ -7,30 +8,35 @@ const comparisons = [
     desc: 'The full reef controller comparison — kits and street prices, probes included vs extra, cloud fees, programming models, dosing and automated-testing ecosystems, and which controller fits which builder.',
     href: '/compare/apex-vs-hydros-vs-ghl',
     status: 'New',
+    art: 'controller',
   },
   {
     name: 'Reef Octopus vs Nyos vs AquaMaxx Skimmers',
     desc: 'The skimmer brand face-off, computed — dollars per honestly-rated gallon and watts per 100 gallons, from published medium-bioload ratings, not box numbers.',
     href: '/compare/reef-octopus-vs-nyos-vs-aquamaxx',
     status: 'New',
+    art: 'skimmer',
   },
   {
     name: 'Hanna vs Salifert vs Red Sea Test Kits',
     desc: 'Published accuracy and resolution specs, true cost per test, and the digital-vs-color-endpoint divide — for all five parameters reefers test.',
     href: '/reviews/best-reef-test-kits',
     status: 'New',
+    art: 'testkit',
   },
   {
     name: 'DC vs AC Return Pumps',
     desc: 'Controllability, noise, efficiency, price, and the failure mode most people miss — the buying decision behind every pump pick.',
     href: '/guides/dc-vs-ac-return-pumps',
     status: 'Guide',
+    art: 'pump',
   },
   {
     name: 'Reef Salt Mixes, Cost per Gallon',
     desc: 'Every major salt compared on what a mixed gallon really costs — plus growth vs natural-parameter chemistry, side by side.',
     href: '/reviews/best-reef-salt-mix',
     status: 'Data',
+    art: 'salt',
   },
 ];
 ---
@@ -45,6 +51,7 @@ const comparisons = [
     <div class="grid cols-2" style="margin-top:26px;">
       {comparisons.map((c) => (
         <a class="card cardlink" href={url(c.href)}>
+          <CardArt kind={c.art} />
           <span class="pill">{c.status}</span>
           <h3>{c.name}</h3>
           <p style="color:var(--muted)">{c.desc}</p>
