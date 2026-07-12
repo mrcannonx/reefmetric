@@ -1,0 +1,30 @@
+{
+  "generated": "2026-07-12",
+  "note": "Common reef-safe community fish. adultSizeIn = typical adult length; minTankGal = widely-cited minimum for long-term health (nominal tank size, not water volume); bioloadFactor = waste output per inch relative to a 1.0 baseline (active/messy eaters run higher). Sizes and minimums are hobby consensus (LiveAquaria / Reef2Reef), not lab figures.",
+  "fish": [
+    { "name": "Ocellaris Clownfish", "family": "Clownfish", "adultSizeIn": 3.5, "minTankGal": 20, "bioloadFactor": 1.0, "temperament": "peaceful", "shoaling": false, "careNote": "Keep as a bonded pair or a single — two unbonded adults will fight." },
+    { "name": "Clown Goby", "family": "Goby", "adultSizeIn": 1.5, "minTankGal": 10, "bioloadFactor": 0.8, "temperament": "peaceful", "shoaling": false },
+    { "name": "Yellow Watchman Goby", "family": "Goby", "adultSizeIn": 4, "minTankGal": 20, "bioloadFactor": 0.9, "temperament": "peaceful", "shoaling": false },
+    { "name": "Neon Goby", "family": "Goby", "adultSizeIn": 2, "minTankGal": 10, "bioloadFactor": 0.7, "temperament": "peaceful", "shoaling": false },
+    { "name": "Diamond Watchman Goby", "family": "Goby", "adultSizeIn": 6, "minTankGal": 30, "bioloadFactor": 1.1, "temperament": "peaceful", "shoaling": false, "careNote": "Sand sifter — will constantly spit sand onto low corals." },
+    { "name": "Firefish", "family": "Dartfish", "adultSizeIn": 3, "minTankGal": 20, "bioloadFactor": 0.8, "temperament": "peaceful", "shoaling": false, "careNote": "Shy jumper — needs a lid and calm tankmates." },
+    { "name": "Tailspot Blenny", "family": "Blenny", "adultSizeIn": 2.5, "minTankGal": 10, "bioloadFactor": 0.8, "temperament": "peaceful", "shoaling": false },
+    { "name": "Lawnmower Blenny", "family": "Blenny", "adultSizeIn": 5, "minTankGal": 30, "bioloadFactor": 1.0, "temperament": "peaceful", "shoaling": false, "careNote": "Eats film algae — needs an established tank to graze." },
+    { "name": "Midas Blenny", "family": "Blenny", "adultSizeIn": 4, "minTankGal": 30, "bioloadFactor": 1.0, "temperament": "semi", "shoaling": false },
+    { "name": "Royal Gramma", "family": "Basslet", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 1.0, "temperament": "semi", "shoaling": false, "careNote": "Cave-dweller — defends its rockwork spot." },
+    { "name": "Banggai Cardinalfish", "family": "Cardinalfish", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 0.9, "temperament": "peaceful", "shoaling": true, "careNote": "Best as a single or a bonded pair; a loose group needs space." },
+    { "name": "Pajama Cardinalfish", "family": "Cardinalfish", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 0.9, "temperament": "peaceful", "shoaling": true },
+    { "name": "Green Chromis", "family": "Damsel", "adultSizeIn": 3.5, "minTankGal": 30, "bioloadFactor": 1.0, "temperament": "peaceful", "shoaling": true, "careNote": "Shoal in odd groups of 5+ — small groups pick each other off one by one." },
+    { "name": "Azure Damsel", "family": "Damsel", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 1.1, "temperament": "semi", "shoaling": false, "careNote": "Gets territorial with age — add last." },
+    { "name": "Six Line Wrasse", "family": "Wrasse", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 1.1, "temperament": "semi", "shoaling": false, "careNote": "Becomes a bully in small tanks — add last, watch peaceful tankmates." },
+    { "name": "Melanurus Wrasse", "family": "Wrasse", "adultSizeIn": 5, "minTankGal": 55, "bioloadFactor": 1.2, "temperament": "semi", "shoaling": false, "careNote": "Sand sleeper — needs a sand bed and a tight lid." },
+    { "name": "Coral Beauty Angelfish", "family": "Angelfish", "adultSizeIn": 4, "minTankGal": 30, "bioloadFactor": 1.2, "temperament": "semi", "shoaling": false, "careNote": "Dwarf angel — may nip LPS/clam mantles (reef-safe with caution)." },
+    { "name": "Flame Angelfish", "family": "Angelfish", "adultSizeIn": 4, "minTankGal": 55, "bioloadFactor": 1.2, "temperament": "semi", "shoaling": false, "careNote": "Dwarf angel — reef-safe with caution; one per tank." },
+    { "name": "Yellow Tang", "family": "Tang", "adultSizeIn": 8, "minTankGal": 70, "bioloadFactor": 1.4, "temperament": "semi", "shoaling": false, "careNote": "Needs horizontal swim room, not just volume — 4ft+ tank." },
+    { "name": "Kole Tang", "family": "Tang", "adultSizeIn": 6, "minTankGal": 70, "bioloadFactor": 1.3, "temperament": "semi", "shoaling": false, "careNote": "Best algae-grazing tang for a mid-size reef; still wants a 4ft tank." },
+    { "name": "Blue Hippo Tang", "family": "Tang", "adultSizeIn": 12, "minTankGal": 125, "bioloadFactor": 1.5, "temperament": "semi", "shoaling": false, "careNote": "Gets large and ich-prone — a serious long-term commitment." },
+    { "name": "Lyretail Anthias", "family": "Anthias", "adultSizeIn": 5, "minTankGal": 70, "bioloadFactor": 1.3, "temperament": "semi", "shoaling": true, "careNote": "Needs multiple daily feedings and a harem (1 male : several females)." },
+    { "name": "Longnose Hawkfish", "family": "Hawkfish", "adultSizeIn": 5, "minTankGal": 30, "bioloadFactor": 1.2, "temperament": "semi", "shoaling": false, "careNote": "Will eat ornamental shrimp and small gobies — not shrimp-safe." },
+    { "name": "Mandarin Dragonet", "family": "Dragonet", "adultSizeIn": 3, "minTankGal": 30, "bioloadFactor": 0.7, "temperament": "peaceful", "shoaling": false, "careNote": "Eats live copepods — only for a mature tank with a healthy pod population." }
+  ]
+}

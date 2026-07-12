@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { REEF_TARGET } from '../../utils/salinity-calc';
+---
+<Base
+  title="Salinity Calculator — Specific Gravity ↔ ppt ↔ Conductivity"
+  description="Convert between specific gravity, salinity (ppt), and conductivity (mS/cm) at the 25°C reference — plus a temperature correction for glass hydrometers. Reef target: 35 ppt / 1.0264."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Salinity Calculator', href: '/tools/salinity-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Salinity Calculator</h1>
+    <p class="lede-dark">A hydrometer reads <strong>specific gravity</strong>, a refractometer reads <strong>ppt</strong>, a controller probe reads <strong>conductivity</strong> — three numbers for one thing, and reef advice mixes them constantly. Enter whichever your instrument shows and get the other two, plus a straight verdict on whether you're where a reef wants to be ({REEF_TARGET.ppt} ppt / SG {REEF_TARGET.sg}).</p>
+
+    <div class="calc card">
+      <form id="sal-form" class="calc-grid" autocomplete="off">
+        <label>I measured with
+          <select id="salUnit">
+            <option value="sg" selected>Hydrometer — specific gravity</option>
+            <option value="ppt">Refractometer — salinity (ppt)</option>
+            <option value="cond">Probe — conductivity (mS/cm)</option>
+          </select>
+        </label>
+        <label>Reading
+          <input id="salValue" type="number" step="any" value="1.026" />
+        </label>
+      </form>
+      <div id="sal-summary" class="summary"></div>
+    </div>
+
+    <div class="calc card" style="margin-top:16px;">
+      <p style="margin:0 0 12px;font-weight:600;color:var(--ink)">Glass hydrometer temperature correction</p>
+      <p style="margin:0 0 14px;color:var(--muted);font-size:.9rem;">Swing-arm and glass hydrometers read true only at their calibration temperature (25°C / 77°F). If your tank runs warmer, the reading comes in low. Enter your SG reading and water temperature for the corrected value. <em>Refractometers with ATC don't need this.</em></p>
+      <form id="temp-form" class="calc-grid" autocomplete="off">
+        <label>Hydrometer SG reading
+          <input id="tcSG" type="number" step="any" value="1.025" />
+        </label>
+        <label>Water temperature (°F)
+          <input id="tcTemp" type="number" step="any" value="78" />
+        </label>
+      </form>
+      <div id="temp-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="sal-results" class="results"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>What the reef target actually is</h2>
+    <p>Natural seawater is <strong>35 ppt</strong> — the same as <strong>SG 1.0264</strong> and <strong>~53 mS/cm</strong> at 25°C. That's the number to aim for with corals and inverts; a fish-only tank tolerates a little lower. The band worth staying inside is roughly 33–36 ppt. What matters more than the exact figure is <em>stability</em> — a steady 34 beats a 35 that swings, because salinity drifts up as water evaporates and drops when you top off.</p>
+
+    <h2>Why your two instruments disagree</h2>
+    <p>Swing-arm hydrometers are cheap and notoriously off — bubbles cling to the arm, and they're calibrated for one temperature. A refractometer is the reef standard, but only if you <strong>calibrate it with RO/DI or 35 ppt calibration fluid</strong>, not "close enough." If your hydrometer and refractometer disagree, trust the calibrated refractometer. This tool converts cleanly between all three, but it can't fix an uncalibrated instrument — garbage in, garbage out.</p>
+
+    <h2>The assumptions (flagged, as always)</h2>
+    <p>Conversions are linear fits anchored to natural seawater (35 ppt = SG 1.0264 = 53.0 mS/cm at 25°C) and are accurate across the reef band (~28–40 ppt); outside it, readings are flagged as extrapolated. Specific gravity everywhere here is referenced to 25°C / 77°F, the aquarium standard — a different reference temp (some lab hydrometers use 60°F) shifts SG by a few points. The temperature correction uses water's density change near 25°C (~0.00025 SG per °C) and applies to glass/swing-arm hydrometers only.</p>
+
+    <h2>Mixing a fresh batch?</h2>
+    <p>Match your saltwater to your display before it goes in — same salinity, same temperature. The <a href={url('/tools/salt-cost-calculator')}>salt cost calculator</a> ranks mixes by true cost per mixed gallon, and the <a href={url('/tools/water-change-calculator')}>water change calculator</a> works out how much to swap.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { convertSalinity, correctHydrometerSG, fToC, type Unit } from '../../utils/salinity-calc';
+
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+  const val = (id: string) => el(id)?.value ?? '';
+  const fmt = (n: number, d: number) => n.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+  const STATUS_PILL: Record<string, string> = {
+    'very-low': 'pill-no', 'low': 'pill-no', 'ideal': 'pill-win', 'high': 'pill-no', 'very-high': 'pill-no',
+  };
+  const STATUS_LABEL: Record<string, string> = {
+    'very-low': 'Too low', 'low': 'Slightly low', 'ideal': 'Reef range', 'high': 'Slightly high', 'very-high': 'Too high',
+  };
+
+  function render() {
+    const unit = val('salUnit') as Unit;
+    const value = Number(val('salValue'));
+    const summary = document.getElementById('sal-summary');
+    const results = document.getElementById('sal-results');
+    if (!summary || !results) return;
+    if (!(value > 0)) { summary.innerHTML = ''; results.innerHTML = ''; return; }
+
+    const r = convertSalinity(unit, value);
+    summary.innerHTML = `That reads as <b>${fmt(r.ppt, 1)} ppt</b> — <b>SG ${fmt(r.sg, 4)}</b>, <b>${fmt(r.cond, 1)} mS/cm</b>.${r.extrapolated ? ' <span style="color:var(--coral)">(outside the reef band — extrapolated)</span>' : ''}`;
+
+    results.innerHTML = `
+      <div class="rcard ${r.status === 'ideal' ? 'win' : ''}">
+        <div class="rmain">
+          <div class="rname">Your salinity <span class="${STATUS_PILL[r.status]}">${STATUS_LABEL[r.status]}</span></div>
+          <div class="rmeta">${r.verdict}</div>
+        </div>
+        <div class="rflow"><span class="n">${fmt(r.ppt, 1)}</span><br><span class="u">ppt</span></div>
+      </div>
+      <div class="rcard">
+        <div class="rmain">
+          <div class="rname">The three readings, converted</div>
+          <div class="rmeta">Specific gravity <b>${fmt(r.sg, 4)}</b> · Salinity <b>${fmt(r.ppt, 1)} ppt</b> · Conductivity <b>${fmt(r.cond, 1)} mS/cm</b> — all at the 25°C reference.</div>
+        </div>
+      </div>`;
+  }
+
+  function renderTemp() {
+    const sg = Number(val('tcSG'));
+    const tempF = Number(val('tcTemp'));
+    const out = document.getElementById('temp-summary');
+    if (!out) return;
+    if (!(sg > 0) || !Number.isFinite(tempF)) { out.innerHTML = ''; return; }
+    const trueSG = correctHydrometerSG(sg, fToC(tempF));
+    const trueSal = convertSalinity('sg', trueSG);
+    const delta = trueSG - sg;
+    const dir = Math.abs(delta) < 0.0001 ? 'reads true at this temperature' : delta > 0 ? 'reading low' : 'reading high';
+    out.innerHTML = `At ${fmt(tempF, 0)}°F, a hydrometer showing <b>${fmt(sg, 4)}</b> is <b>${dir}</b> — true SG is about <b>${fmt(trueSG, 4)}</b> (${fmt(trueSal.ppt, 1)} ppt).`;
+  }
+
+  ['salUnit', 'salValue'].forEach((id) => el(id)?.addEventListener('input', render));
+  ['tcSG', 'tcTemp'].forEach((id) => el(id)?.addEventListener('input', renderTemp));
+  render();
+  renderTemp();
+</script>

@@ -1,0 +1,154 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { FILTRATION } from '../../utils/stocking-calc';
+import fishData from '../../data/fish.json';
+
+const fish = (fishData as any).fish as { name: string; family: string; adultSizeIn: number; minTankGal: number }[];
+const dataDate = (fishData as any).generated as string;
+// Group by family for a readable list.
+const families = [...new Set(fish.map((f) => f.family))];
+---
+<Base
+  title="Reef Stocking Calculator — Bioload & Tank Capacity"
+  description="Plan your reef's fish list without overstocking. Add fish, get a bioload score against your tank's real capacity, plus minimum-tank and aggression warnings for each pick."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Stocking Calculator', href: '/tools/stocking-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef Stocking Calculator</h1>
+    <p class="lede-dark">"How many fish can my tank hold?" has no exact answer — but it has a <strong>sensible range</strong>, and some hard rules about who fits where. Set your tank size, build a fish list, and get a bioload score against a conservative capacity — plus the minimum-tank and aggression warnings that actually sink stocking plans.</p>
+
+    <div class="calc card">
+      <form id="stk-form" class="calc-grid" autocomplete="off">
+        <label>True water volume (gallons)
+          <input id="stkGal" type="number" min="1" step="any" value="40" />
+        </label>
+        <label>Filtration
+          <select id="stkFilt">
+            {FILTRATION.map((f) => <option value={f.value} selected={f.value === 'standard'}>{f.label}</option>)}
+          </select>
+        </label>
+      </form>
+      <p style="margin:12px 0 0;color:var(--muted);font-size:.85rem;">Not sure of your real volume? The <a href={url('/tools/tank-volume-calculator')}>tank volume calculator</a> gives the true figure after rock and sand.</p>
+      <div id="stk-summary" class="summary"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <p style="margin:0 0 4px;font-weight:600;color:var(--ink)">Build your list</p>
+      <p style="margin:0 0 14px;color:var(--muted);font-size:.85rem;">Set a quantity for each fish you're planning.</p>
+      {families.map((fam) => (
+        <div class="stk-fam">
+          <div class="stk-fam-label">{fam}</div>
+          {fish.filter((f) => f.family === fam).map((f) => (
+            <div class="stk-row">
+              <div class="stk-name">{f.name} <span class="stk-meta">{f.adultSizeIn}″ · min {f.minTankGal}g</span></div>
+              <input class="stk-qty" type="number" min="0" max="30" step="1" value="0" data-fish={f.name} aria-label={`Quantity of ${f.name}`} />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <Disclosure />
+    <div id="stk-results" class="results"></div>
+    <div id="stk-warnings"></div>
+  </section>
+
+  <section class="container prose">
+    <h2>How the score works</h2>
+    <p>Each fish contributes a bioload from its <strong>adult</strong> size and how messy an eater it is — a tang puts out far more per inch than a goby. We total that against a capacity calibrated to real well-stocked reefs — not the old inch-per-gallon myth — scaled to your true water volume and adjusted for your filtration. Land in the <strong>well-stocked</strong> band and you've got a full, stable reef; go over and you're signing up for more water changes and more squabbling. It's a planning guide, not a hard limit — a lightly-fed tank with a big skimmer carries more than the number suggests.</p>
+
+    <h2>The rules that aren't fuzzy</h2>
+    <p>Bioload is an estimate; <strong>minimum tank size and aggression aren't</strong>. A yellow tang needs horizontal swimming room no 40-gallon provides, two dwarf angels will fight to the death in most tanks, and a six-line wrasse turns into a bully as it matures. Those warnings fire regardless of the load score — they're where stocking plans actually fail. Stock slowly, add the feisty fish last, and quarantine.</p>
+
+    <h2>The assumptions (flagged, as always)</h2>
+    <p>Adult sizes and minimum tanks are hobby consensus (LiveAquaria / Reef2Reef), not lab data — individual fish vary. Bioload factors are relative estimates, not measured waste output. The capacity line is deliberately conservative; experienced keepers with heavy export push past it. Fish list updated {dataDate}. This tool won't replace researching each species before you buy — it catches the obvious mistakes early.</p>
+
+    <h2>Stocked on paper? Size the gear.</h2>
+    <p>A full fish list needs a skimmer that keeps up. The <a href={url('/tools/protein-skimmer-calculator')}>skimmer sizer</a> derates the optimistic ratings for your bioload, and the <a href={url('/reviews/best-protein-skimmers')}>skimmer rankings</a> pick the right one by tank size.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<style>
+  .stk-fam { margin-bottom: 18px; }
+  .stk-fam-label { font-family: var(--font-display); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--brand-2); margin: 0 0 6px; }
+  .stk-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .stk-name { font-size: .95rem; color: var(--ink); }
+  .stk-meta { color: var(--muted); font-size: .8rem; margin-left: 6px; }
+  .stk-qty { width: 68px; flex: none; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; text-align: center; }
+  .stk-load { height: 12px; background: #e7f4f3; border-radius: 999px; overflow: hidden; margin: 12px 0 6px; }
+  .stk-load span { display: block; height: 100%; background: var(--brand); transition: width .25s ease, background .25s ease; }
+  .stk-load.over span { background: var(--coral); }
+  .warn-list { list-style: none; padding: 0; margin: 8px 0 0; }
+  .warn-list li { background: #fff6ed; border: 1px solid #ffd9b8; color: #8a4b1e; font-size: .88rem; padding: 9px 13px; border-radius: 10px; margin-top: 8px; }
+</style>
+
+<script>
+  import { computeStocking, FILTRATION, type Selection } from '../../utils/stocking-calc';
+  import fishData from '../../data/fish.json';
+
+  const fish = (fishData as any).fish;
+  const byName = new Map<string, any>(fish.map((f: any) => [f.name, f]));
+
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+  const val = (id: string) => el(id)?.value ?? '';
+  const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d });
+
+  const STATUS_PILL: Record<string, string> = {
+    empty: '', understocked: 'pill-win', 'well-stocked': 'pill-win', full: 'pill-no', overstocked: 'pill-no',
+  };
+  const STATUS_LABEL: Record<string, string> = {
+    empty: '', understocked: 'Room to grow', 'well-stocked': 'Well stocked', full: 'Full', overstocked: 'Overstocked',
+  };
+
+  function render() {
+    const trueGal = Number(val('stkGal')) || 0;
+    const mult = FILTRATION.find((f) => f.value === val('stkFilt'))?.mult ?? 1;
+    const selections: Selection[] = [];
+    document.querySelectorAll<HTMLInputElement>('.stk-qty').forEach((input) => {
+      const count = Number(input.value) || 0;
+      const f = byName.get(input.dataset.fish || '');
+      if (f && count > 0) selections.push({ fish: f, count });
+    });
+
+    const summary = document.getElementById('stk-summary');
+    const results = document.getElementById('stk-results');
+    const warnBox = document.getElementById('stk-warnings');
+    if (!summary || !results || !warnBox) return;
+    if (!(trueGal > 0)) { summary.innerHTML = ''; results.innerHTML = ''; warnBox.innerHTML = ''; return; }
+
+    const r = computeStocking(trueGal, mult, selections);
+    const pctShown = Math.min(r.pct, 160);
+
+    summary.innerHTML = r.totalFish > 0
+      ? `<b>${r.totalFish}</b> fish · bioload at <b>${fmt(r.pct)}%</b> of a comfortable ${fmt(trueGal)}-gallon load.`
+      : 'Set a quantity on the fish below to see your bioload.';
+
+    if (r.totalFish === 0) { results.innerHTML = ''; warnBox.innerHTML = ''; return; }
+
+    results.innerHTML = `
+      <div class="rcard ${r.status === 'overstocked' || r.status === 'full' ? '' : 'win'}">
+        <div class="rmain">
+          <div class="rname">${r.headline} ${r.status !== 'empty' ? `<span class="${STATUS_PILL[r.status]}">${STATUS_LABEL[r.status]}</span>` : ''}</div>
+          <div class="stk-load ${r.pct > 100 ? 'over' : ''}"><span style="width:${pctShown}%"></span></div>
+          <div class="rmeta">${fmt(r.pct)}% of comfortable capacity${r.pct > 160 ? ' (bar capped at 160%)' : ''} — a conservative planning line, not a hard wall.</div>
+        </div>
+        <div class="rflow"><span class="n">${fmt(r.pct)}<span style="font-size:1rem">%</span></span><br><span class="u">bioload</span></div>
+      </div>`;
+
+    warnBox.innerHTML = r.warnings.length
+      ? `<ul class="warn-list">${r.warnings.map((w) => `<li>${w}</li>`).join('')}</ul>`
+      : '';
+  }
+
+  ['stkGal', 'stkFilt'].forEach((id) => el(id)?.addEventListener('input', render));
+  document.querySelectorAll('.stk-qty').forEach((input) => input.addEventListener('input', render));
+  render();
+</script>

@@ -1,0 +1,130 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import lightData from '../../data/lights.json';
+
+const data = lightData as any;
+const bands = data.parTargets as { key: string; band: string; minPPFD: number; maxPPFD: number }[];
+const nLights = data.lights.length;
+const nGap = (data.noParData || []).length;
+const dataDate = data.generated as string;
+---
+<Base
+  title="Reef PAR Calculator — Real Light at Your Coral's Depth"
+  description="Enter your mount height and coral type — see the real PAR each fixture delivers at that height, and which ones actually hit your target band. Built only on published PAR data."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Reef PAR Calculator', href: '/tools/reef-par-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>Reef PAR Calculator</h1>
+    <p class="lede-dark">A fixture's "PAR rating" is one number at one height — usually measured closer to the water than you'll ever mount it. Tell us your <strong>real mount height</strong> and what you're keeping, and we'll show the PAR each fixture actually delivers at your coral's depth — and whether it lands in your target band. Only the {nLights} fixtures with <strong>published PAR data</strong> appear here; we don't guess the rest.</p>
+
+    <div class="calc card">
+      <form id="par-form" class="calc-grid" autocomplete="off">
+        <label>What are you keeping?
+          <select id="parBand">
+            {bands.map((b) => <option value={b.key} selected={b.key === 'mixed'}>{b.band} ({b.minPPFD}–{b.maxPPFD} PAR)</option>)}
+          </select>
+        </label>
+        <label>Mount height above water (inches)
+          <input id="parHeight" type="number" min="1" max="40" step="any" value="18" />
+        </label>
+        <label>Coral depth below surface (inches)
+          <input id="parDepth" type="number" min="0" max="36" step="any" value="8" />
+        </label>
+      </form>
+      <div id="par-summary" class="summary"></div>
+    </div>
+
+    <Disclosure />
+    <div id="par-results" class="results"></div>
+    <p class="rnote" id="par-gap"></p>
+  </section>
+
+  <section class="container prose">
+    <h2>How this works</h2>
+    <p>PAR (photosynthetically active radiation, measured as PPFD in μmol/m²/s) is the light corals actually use. It falls off with distance — through the air gap to the water, then through the water to the coral. We add your mount height and coral depth into one distance, then read each fixture's PAR at that point from its <strong>published curve</strong>. Fixtures with a multi-point curve interpolate honestly; single-point fixtures (one manufacturer number) are held flat and flagged — we won't invent a falloff rate we can't cite.</p>
+
+    <h2>The target bands</h2>
+    <p>Softies and LPS want roughly <strong>75–250 PAR</strong>; a mixed reef, <strong>150–300</strong>; SPS-dominant tanks, <strong>250–350+</strong>. These are community-and-BRS consensus ranges, not hard walls — acclimation matters more than hitting a number exactly. Too much PAR bleaches; too little starves. The goal is landing in the band at the depth your corals sit, then dialing intensity from there.</p>
+
+    <h2>Why only {nLights} fixtures?</h2>
+    <p>Because only {nLights} of the popular fixtures we track publish real PAR data — a manufacturer chart or an independent lab test. The other {nGap} sell hard on watts and spectrum but never put a PPFD number on paper. We won't rank a light on a number that doesn't exist. The full transparency scorecard, including who publishes what, is in <a href={url('/reviews/best-reef-led-lighting')}>the lighting review</a>. Data updated {dataDate}.</p>
+
+    <h2>Sized your light? Size the rest.</h2>
+    <p>Flow and light are the two levers that make or break coral color. Once your PAR is in band, get your turnover right with <a href={url('/tools/flow-calculator')}>the flow calculator</a>, and if you're speccing a whole build, <a href={url('/tools/reef-build-cost-calculator')}>the cost calculator</a> itemizes it.</p>
+  </section>
+
+  <section class="container">
+    <EmailCapture />
+  </section>
+</Base>
+
+<script>
+  import { parAtHeight, type Light } from '../../utils/light-calc';
+  import lightData from '../../data/lights.json';
+
+  const data = lightData as any;
+  const lights = data.lights as Light[];
+  const bands = data.parTargets as { key: string; band: string; minPPFD: number; maxPPFD: number }[];
+  const nGap = (data.noParData || []).length;
+
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+  const val = (id: string) => el(id)?.value ?? '';
+
+  function render() {
+    const band = bands.find((b) => b.key === val('parBand'))!;
+    const height = Number(val('parHeight')) || 0;
+    const depth = Number(val('parDepth')) || 0;
+    const distance = height + depth; // total distance light travels to the coral
+    const summary = document.getElementById('par-summary');
+    const results = document.getElementById('par-results');
+    const gap = document.getElementById('par-gap');
+    if (!summary || !results || !gap) return;
+    if (!(height > 0)) { summary.innerHTML = ''; results.innerHTML = ''; gap.innerHTML = ''; return; }
+
+    const rows = lights.map((light) => {
+      const { par } = parAtHeight(light, distance);
+      const rounded = Math.round(par);
+      const inBand = rounded >= band.minPPFD && rounded <= band.maxPPFD * 1.15;
+      const low = rounded < band.minPPFD;
+      return { light, par: rounded, inBand, low, singlePoint: light.parCurve.length <= 1 };
+    });
+    rows.sort((a, b) => {
+      if (a.inBand !== b.inBand) return a.inBand ? -1 : 1;
+      return b.par - a.par;
+    });
+
+    const nFit = rows.filter((r) => r.inBand).length;
+    summary.innerHTML = `At <b>${distance}″</b> from fixture to coral (${height}″ mount + ${depth}″ depth), <b>${nFit} of ${rows.length}</b> fixtures land in the <b>${band.band}</b> band (${band.minPPFD}–${band.maxPPFD} PAR).`;
+
+    results.innerHTML = rows
+      .map((r, i) => {
+        const pill = r.inBand
+          ? '<span class="pill-win">In band</span>'
+          : r.low
+            ? '<span class="pill-no">Too low here</span>'
+            : '<span class="pill-no">Too intense here</span>';
+        const flag = r.singlePoint
+          ? ' · <span style="color:var(--muted)">single published point, held flat</span>'
+          : ' · interpolated from a multi-point curve';
+        return `
+        <div class="rcard${r.inBand && i === 0 ? ' win' : ''}">
+          <div class="rrank">${i + 1}</div>
+          <div class="rmain">
+            <div class="rname">${r.light.brand} ${r.light.model} ${pill}</div>
+            <div class="rmeta">${r.light.priceUSD != null ? '$' + r.light.priceUSD.toLocaleString() : 'Check price'}${flag}</div>
+          </div>
+          <div class="rflow"><span class="n">${r.par}</span><br><span class="u">PAR here</span></div>
+        </div>`;
+      })
+      .join('');
+
+    gap.innerHTML = `Single-point fixtures are held flat at their one published height — a conservative honest choice, not a real falloff curve. ${nGap} other popular fixtures publish no PAR data at all and can't be ranked here; see the lighting review for the full scorecard.`;
+  }
+
+  ['parBand', 'parHeight', 'parDepth'].forEach((id) => el(id)?.addEventListener('input', render));
+  render();
+</script>
