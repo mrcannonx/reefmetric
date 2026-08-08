@@ -43,11 +43,27 @@ const picks: Pick[] = [
     w: byModel('MP40'),
   },
   {
-    badge: 'Budget, caveat stated',
+    badge: 'Best budget',
     why: `A quarter the price of the premium pumps for real flow. Owners consistently report 1–2 year service life and a cleaning-dependent impeller — the trade is stated on the tin, and for a first tank it's often the right one.`,
     w: byModel('SLW-10'),
   },
 ];
+
+// Sub-category deep dives. Every figure below is derived from the dataset, never typed by hand,
+// so a price refresh can't leave the prose asserting a stale number.
+const slw = byModel('SLW-10');
+const nero3 = byModel('Nero 3');
+const xf350 = byModel('XF350');
+const xf330 = byModel('XF330');
+const twoSlwPrice = slw.priceUSD * 2;
+const twoSlwFlow = slw.maxFlowGPH * 2;
+// The two-cheap-pumps case only holds while a pair genuinely undercuts the step-up on both
+// price and flow. If a price move ever breaks that, the paragraph hides itself rather than lying.
+const twoSlwBeatsNero3 = twoSlwPrice < nero3.priceUSD && twoSlwFlow > nero3.maxFlowGPH;
+// Gap to the runner-up on cost-per-flow. Read off the sorted list rather than a named model, so
+// this can never drift into comparing against whichever pump happened to be second when written.
+const runnerUp = wms[1];
+const slwLeadPct = Math.round((per1k(runnerUp) / per1k(slw) - 1) * 100);
 
 const pageURL = new URL(url('/reviews/best-wavemakers'), SITE.url).href;
 const itemListLd = {
@@ -83,7 +99,7 @@ const faqLd = {
 ---
 <Base
   title="Best Reef Wavemakers (2026) — Ranked by Real Cost per GPH"
-  description="Wavemakers and powerheads for reef tanks — VorTech, AI Nero, Maxspect Gyre, Red Sea ReefWave, Tunze, Jebao — ranked by actual dollars per GPH, with the reliability records other reviews leave out."
+  description="Reef wavemakers ranked by real dollars per GPH — VorTech, AI Nero, Maxspect Gyre, Red Sea, Tunze, Jebao — plus the best budget wavemaker and the best gyre pick, with the reliability records other reviews leave out."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Wavemakers', href: '/reviews/best-wavemakers' }]}
 >
   <section class="container tool-wrap prose">
@@ -96,6 +112,7 @@ const faqLd = {
 
   <section class="container" style="padding-top:8px;padding-bottom:16px;">
     <h2>The picks</h2>
+    <p class="rnote" style="margin-top:0">Shopping a sub-category? Jump to <a href="#best-budget-wavemaker">the best budget wavemaker</a> or <a href="#best-gyre-wavemaker">the best gyre wavemaker</a>.</p>
     <div class="results">
       {picks.map((p, idx) => (
         <div id={slug(p.w)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
@@ -114,6 +131,25 @@ const faqLd = {
         </div>
       ))}
     </div>
+  </section>
+
+  <section id="best-budget-wavemaker" class="container prose" style="padding-top:24px;">
+    <h2>Best budget wavemaker</h2>
+    <p>The <strong>{slw.brand} {slw.model}</strong>, at {money(slw.priceUSD)}. It isn't close: <strong>${per1k(slw).toFixed(0)} per 1,000 GPH</strong> is the cheapest flow on this page, and nothing else here comes within {slwLeadPct}% of it — the runner-up is the {runnerUp.brand} {runnerUp.model} at ${per1k(runnerUp).toFixed(0)}.</p>
+    <p>What you give up is stated plainly rather than hidden. Owners report a typical service life of <strong>1–2 years</strong>, and the ceramic bushing can seize if you never clean it — forum consensus is that routine cleaning is the single biggest factor in how long one lasts. You also get a wired controller with {slw.controller.includes('8 modes') ? '8 modes' : 'fixed modes'} and no app.</p>
+    {twoSlwBeatsNero3 && (
+      <p><strong>The math most budget buyers miss:</strong> two of these run {money(twoSlwPrice)} for {twoSlwFlow.toLocaleString()} GPH — still less money than one {nero3.brand} {nero3.model} at {money(nero3.priceUSD)}, and more flow than its {nero3.maxFlowGPH.toLocaleString()} GPH. Two opposing pumps is also the better flow pattern regardless of budget (see the FAQ below), so the cheap route and the correct route point the same way here.</p>
+    )}
+    <p>Step up to the <strong>{nero3.brand} {nero3.model}</strong> at {money(nero3.priceUSD)} if you want app control and a longer expected life from one pump instead of babysitting two. Its documented catch is Bluetooth pairing drops, not hardware failure.</p>
+  </section>
+
+  <section id="best-gyre-wavemaker" class="container prose" style="padding-top:24px;">
+    <h2>Best gyre wavemaker</h2>
+    <p>The <strong>{xf350.brand} {xf350.model}</strong> at {money(xf350.priceUSD)} — unless your tank is small, in which case skip to the XF330 below.</p>
+    <p>A gyre pump is a different shape of flow, not just a stronger powerhead. A long crossflow rotor pushes a wide <em>sheet</em> of water down the length of the tank and back along the bottom, instead of firing a cone-shaped jet from one spot. That's why people reach for them on long tanks with dead corners a traditional powerhead can't clear.</p>
+    <p><strong>Which gyre:</strong> the two Maxspect Gyres here are priced strangely close for how different they are. The {xf350.model.replace(' Cloud Edition', '')} moves {xf350.maxFlowGPH.toLocaleString()} GPH for {money(xf350.priceUSD)}; the {xf330.model.replace(' Cloud Edition', '')} moves {xf330.maxFlowGPH.toLocaleString()} GPH for {money(xf330.priceUSD)}. That's {(xf350.maxFlowGPH / xf330.maxFlowGPH).toFixed(1)}× the flow for {money(xf350.priceUSD - xf330.priceUSD)} more, which drops the cost per 1,000 GPH from <strong>${per1k(xf330).toFixed(0)}</strong> to <strong>${per1k(xf350).toFixed(0)}</strong> — close to half.</p>
+    <p><strong>The exception, and it matters:</strong> Maxspect rates the {xf350.model.replace(' Cloud Edition', '')} for {xf350.tankRangeGal} and the {xf330.model.replace(' Cloud Edition', '')} for {xf330.tankRangeGal}. On a tank under roughly 80 gallons the bigger pump is simply too much water, and the value math stops mattering — buy the XF330.</p>
+    <p><strong>What both of them cost you:</strong> an audible hum above about 40–50% power (Maxspect's own wording is "near silent," not silent), and roughly monthly shaft and bushing cleaning or the real flow drops off the rated number. Neither is a defect report; both are the standing trade for gyre-style flow at this price.</p>
   </section>
 
   <section class="container" style="padding-top:8px;">
