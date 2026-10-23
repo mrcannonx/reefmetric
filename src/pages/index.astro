@@ -70,7 +70,7 @@ const clusters = [
     <p class="eyebrow" style="color:var(--brand-2)">The tools</p>
     <h2>Answers you can’t get from a listicle.</h2>
     <p>Start with the <a href={url('/tools/return-pump-calculator')}>return pump calculator</a> for your plumbing, then compare the <a href={url('/reviews/best-protein-skimmers')}>protein skimmer rankings</a> against your tank's bioload before buying.</p>
-    <p>Find the right <a href={url('/tools')}>reef calculator</a> for the job: <a href={url('/tools/protein-skimmer-calculator')}>reef protein skimmer sizing</a>, <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost</a>, or <a href={url('/tools/salt-cost-calculator')}>Instant Ocean salt cost</a>. Each shows the inputs behind the answer.</p>
+    <p>Find the right <a href={url('/tools')}>reef tank calculator</a> for the job: the <a href={url('/tools/reef-dosing-calculator')}>reef calculator for alkalinity, calcium and magnesium</a>, <a href={url('/tools/protein-skimmer-calculator')}>reef protein skimmer sizing</a>, <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost</a>, or <a href={url('/tools/salt-cost-calculator')}>Instant Ocean salt cost</a>. Each shows the inputs behind the answer.</p>
     <div class="grid cols-3" style="margin-top:26px;">
       {tools.map((t) => (t as any).href ? (
         <a class="card cardlink" href={url((t as any).href)}>
