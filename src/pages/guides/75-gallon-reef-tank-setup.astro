@@ -16,15 +16,18 @@ const cost = [
   { item: 'RODI unit', budget: '$80–150', mid: '$150–250' },
   { item: 'Salt, test kits, extras', budget: '$90–160', mid: '$160–300' },
 ];
+
+const headline = "75 Gallon Reef Tank: Setup, Gear List & Cost";
 ---
 <Base
-  title="75 Gallon Reef Tank Setup Guide, Gear List & Cost"
-  description="The complete 75-gallon reef tank setup: why it's the hobby's sweet spot, the exact gear list with honest sizing, a realistic 2026 cost breakdown, and calculators to size the pump, skimmer, and flow for your build."
+  headline={headline}
+  title="75 Gallon Reef Tank Setup: Gear & Cost"
+  description="Plan a 75 gallon reef tank setup with a full gear list and cost estimates. Size the sump, return pump, skimmer, lighting, and flow for your build."
   breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '75 Gallon Reef Setup', href: '/guides/75-gallon-reef-tank-setup' }]}
 >
   <section class="container prose" style="padding-top:40px;">
     <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
-    <h1>75 Gallon Reef Tank: Setup, Gear List &amp; Cost</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">Ask experienced reefers what tank they'd buy again and the 75 comes up more than anything else. Four feet long, a real 18 inches front-to-back, and enough water volume that your parameters stop swinging at every mistake. Here's the full build — with each piece sized for <em>this</em> tank, not copied off a generic list.</p>
 
     <Disclosure />

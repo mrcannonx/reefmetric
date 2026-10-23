@@ -8,7 +8,7 @@
       "cloudNotes": "Apex Fusion is free for all Apex owners. No paid tier as of this dataset.",
       "programmingModel": "Apex programming language \u2014 If-This-Then-That style rule engine with virtual outlets and real scripting depth. GUI wizards cover common tasks; power users write code strings.",
       "programmingDifficulty": "Moderate",
-      "appNotes": "Apex Fusion iOS: 3.4/5 from 128 ratings \u2014 dated UX is the common complaint.",
+      "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
         "Largest install base and third-party ecosystem \u2014 most gear brands integrate with Apex first",
         "Trident is the most mature automated Alk/Ca/Mg tester on the market",
@@ -17,7 +17,7 @@
       ],
       "weaknesses": [
         "WiFi reliability is the #1 owner complaint \u2014 drop-offs, WPA3 trouble; many owners hardwire Ethernet",
-        "Fusion app UX widely criticized as dated (3.4/5 App Store)",
+        "Compare the programming interface and local access options before choosing a kit; an app-store score is not a hardware test.",
         "Trident needs ~$45 reagent refills every 2 months \u2014 a real recurring cost"
       ],
       "testing": "Trident automated Alk/Ca/Mg tester \u2014 $779.99 (Trident NP adds NO3/PO4). Reagent-based: ~$45 refill kit every ~2 months.",
@@ -39,7 +39,7 @@
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-pro-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=3840"
+          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=128"
         },
         {
           "model": "A3 Apex System",
@@ -56,7 +56,7 @@
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=3840"
+          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=128"
         },
         {
           "model": "A3 Apex Jr System",
@@ -72,7 +72,7 @@
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-jr-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=3840"
+          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=128"
         }
       ]
     },
@@ -83,7 +83,7 @@
       "cloudNotes": "HYDROS app is free; no paid tier found. Bluetooth local fallback exists but is more limited than Apex's local page.",
       "programmingModel": "Collectives \u2014 GUI automation builder, closest to smart-home app logic. Easiest of the three; no scripting layer.",
       "programmingDifficulty": "Easiest",
-      "appNotes": "HYDROS iOS app: 3.9/5 from just 18 ratings \u2014 small sample, newest ecosystem.",
+      "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
         "Distributed mesh architecture \u2014 brain and outlet units are separate, so one failure doesn't take down the system",
         "Native wave-pump control (WaveEngine LE, $248.31) \u2014 no third-party bolt-on needed",
@@ -94,10 +94,15 @@
         "Newest ecosystem: smallest community, thinnest third-party integration list",
         "WiFi power strip is the flaky link \u2014 owners report daily connect/disconnect alert flapping",
         "Some reports of manual power-cycling needed after outages",
-        "No automated water tester (no Trident / ION Director equivalent) \u2014 a real capability gap",
+        "Automated water testing needs extra hardware and consumables; the entry controller price is not a complete testing setup.",
         "Heavy SKU churn \u2014 several starter packs already retired on CoralVue's own site"
       ],
-      "testing": "None \u2014 no automated water-testing device in the HYDROS line as of this dataset.",
+      "testing": "HYDROS iV supports scheduled alkalinity testing, sampled pH, and optional salinity inputs. CoralVue also documents Maven for Alk/Ca/Mg/NO3/PO4 testing; confirm hardware requirements and current availability.",
+      "testingVerifiedOn": "2026-10-22",
+      "testingSources": [
+        { "name": "HYDROS iV setup manual", "url": "https://www.coralvuehydros.com/product-support/hydros-control/add-iv-tester/" },
+        { "name": "CoralVue Maven documentation", "url": "https://www.coralvue.com/blog/coralvue-news-1/automate-water-testing-with-the-new-hydros-maven-40" }
+      ],
       "dosing": "HYDROS dosing pump \u2014 $72.75 per pump, needs a free Drive Port on a Control unit. Modular per-pump pricing vs Neptune's all-in-one DOS.",
       "kits": [
         {
@@ -168,7 +173,7 @@
       "cloudNotes": "myGHL / GHL Connect cloud is free. Next-gen 'GHL Connect AI' announced for late 2026, pricing undisclosed.",
       "programmingModel": "Full logic-gate programming (AND/OR/NOT chains) \u2014 the most powerful and the steepest learning curve of the three. Optional Control Pad touchscreen ($249.90) for daily use without programming.",
       "programmingDifficulty": "Steepest",
-      "appNotes": "GHL Connect iOS: 4.0/5 from only 4 ratings \u2014 sample too small to mean anything.",
+      "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
         "Most complete out-of-box probe set: Mega-Set ships lab-grade pH, ORP, conductivity/salinity AND temp probes with calibration fluids",
         "Most powerful programming logic of the three for power users",

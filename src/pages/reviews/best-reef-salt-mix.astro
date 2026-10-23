@@ -75,15 +75,18 @@ const itemListLd = {
     name: `${s.brand} ${s.product}`,
   })),
 };
+
+const headline = "Best reef salt, ranked by what a gallon actually costs";
 ---
 <Base
-  title="Best Reef Salt Mix (2026) — Ranked by Real Cost per Gallon"
-  description="Every major reef salt ranked by true cost per mixed gallon — Instant Ocean, Red Sea, Tropic Marin, Fritz, Aquaforest and more — with growth vs natural-parameter formulas explained."
+  headline={headline}
+  title="Best Reef Salt Mix by Cost per Gallon (2026)"
+  description="Compare reef salt mixes by cost per mixed gallon, alkalinity, calcium, and magnesium. Choose growth or natural-parameter formulas for your tank."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Salt Mix', href: '/reviews/best-reef-salt-mix' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Salt Mix</p>
-    <h1>Best reef salt, ranked by what a gallon actually costs</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">Salt is the quiet recurring cost of reefing — and boxes lie by omission. A $75 box that mixes 200 gallons is cheaper salt than a $75 box that mixes 160. We rank every major mix by <strong>cost per mixed gallon</strong>, then split them into the two families that actually matter: elevated growth formulas vs near-natural-seawater baselines.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">How this ranking works: computed from box price ÷ manufacturer mix yield at reef salinity (~1.025), dataset updated {dataDate}. Parameter families come from each maker's published water chemistry. Nobody pays for placement. <a href={url('/how-we-rate')}>Full methodology →</a></p>
@@ -96,7 +99,7 @@ const itemListLd = {
         <div class={`rcard ${p.win ? 'win' : ''}`}>
           {p.s.imageUrl && (
             <div class="rthumb">
-              <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.product}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+              <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.product}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
             </div>
           )}
           <div class="rmain">

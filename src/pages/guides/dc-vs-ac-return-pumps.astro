@@ -3,33 +3,51 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
+import pumpData from '../../data/pumps.json';
+import { recommend, type Pump } from '../../utils/pump-calc';
+import { estimateElectricity } from '../../utils/cost-calc';
+
+const headline = "AC pump vs DC pump: reef return pumps compared";
+const reference = { displayGallons: 75, turnover: 7, staticHeadFt: 4.5, pipeIdInches: 1.029, pipeLengthFt: 10, elbows: 4 };
+const { targetGPH, results } = recommend(reference, pumpData.pumps as Pump[]);
+const comparison = ['AC', 'DC'].map((type) => results.find((r) => r.pump.type === type && r.meetsTarget && r.pump.watts != null && r.pump.approxPriceUSD != null)!);
+const annualCost = (watts: number) => estimateElectricity({ watts, hoursPerDay: 24, days: 365, kwhRate: 0.17 }).cost;
 ---
 <Base
-  title="DC vs AC Return Pumps: Which Should You Buy?"
-  description="DC vs AC reef return pumps compared — controllability, noise, efficiency, price, and reliability. When a controllable DC pump is worth it, and when a simple AC pump is the smarter buy."
+  headline={headline}
+  title="AC Pump vs DC Pump for Reef Tanks"
+  description="Compare DC and AC reef return pumps for flow control, noise, power use, price, and failure risks. Find out which type fits your plumbing and budget."
   breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: 'DC vs AC Return Pumps', href: '/guides/dc-vs-ac-return-pumps' }]}
 >
   <section class="container prose" style="padding-top:40px;">
     <p class="eyebrow" style="color:var(--brand-2)">Decision guide</p>
-    <h1>DC vs AC Return Pumps: Which Should You Buy?</h1>
-    <p class="lede-dark">Both move water. The difference is control, noise, and how they fail. Here's the honest breakdown so you don't overpay for features you won't use — or underbuy and regret it.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">Choose a DC return pump for adjustable speed and feed modes; choose an AC return pump when fixed-speed operation and fewer external control parts suit the build. Neither type wins on its label alone: compare delivered flow at your head height, power draw, replacement parts, and total cost.</p>
 
     <Disclosure />
 
-    <h2>The one-line answer</h2>
-    <p>Buy a <strong>DC pump</strong> if you want to dial in your flow, care about noise, or run a display where the return is visible/audible from the couch. Buy an <strong>AC pump</strong> if you want dead-simple reliability, a lower price, or a bulletproof backup that runs no matter what. Most modern reefers pick DC for the main return; plenty keep an AC pump on the shelf as an emergency spare.</p>
+    <h2 id="quick-answer">AC vs DC: the short answer</h2>
+    <p><strong>DC:</strong> speed control helps match the overflow and provides feed modes, but adds a controller and power supply to the replacement-parts list. <strong>AC:</strong> fixed-speed models are simpler to operate, but need careful sizing. Buy for the flow you need after plumbing losses; keep a compatible spare or a recovery plan whichever type you choose.</p>
+
+    <h2>A 75-gallon example from our pump data</h2>
+    <p>These are the smallest qualifying AC and DC pumps with recorded watts and prices in the calculator's ordered results. Both must reach {targetGPH} GPH after {reference.staticHeadFt} ft of lift, {reference.pipeLengthFt} ft of pipe with a {reference.pipeIdInches}-inch inside diameter, and {reference.elbows} elbows. Data date: {pumpData.generated}; prices have not been refreshed.</p>
+    <div class="tablewrap"><table class="breakdown">
+      <thead><tr><th>Type / model</th><th>Modeled delivered flow</th><th>Rated watts</th><th>Recorded price</th><th>Power / year</th></tr></thead>
+      <tbody>{comparison.map((r) => <tr><td>{r.pump.type}: {r.pump.brand} {r.pump.model}</td><td>{r.deliveredGPH} GPH</td><td>{r.pump.watts}W</td><td>${r.pump.approxPriceUSD?.toFixed(2)}</td><td>${annualCost(r.pump.watts!).toFixed(2)}</td></tr>)}</tbody>
+    </table></div>
+    <p class="rnote">Power cost assumes rated watts for 24 hours × 365 days at $0.17/kWh. It is an estimate, not a measured bill or an equal-flow efficiency test. Flow may use a modeled curve where marked in the <a href={url('/reviews/best-return-pumps')}>full return pump comparison</a>. Enter measured watts and your own rate in the <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost calculator</a>.</p>
 
     <h2>Controllability</h2>
-    <p>This is the real reason DC exists. A DC pump has a controller — you can tune the exact flow rate, ramp it, run feed mode, and often sync it to an aquarium controller. An AC pump runs at one fixed speed; to slow it you throttle the output with a gate valve (which wastes energy and can stress the pump). If you like to <em>tune</em> your system, DC wins outright.</p>
+    <p>A controllable DC pump lets you change speed without changing plumbing. Check whether the model supports feed mode and your aquarium controller before buying. A fixed-speed AC pump may allow outlet throttling, depending on its manual. Do not restrict the inlet or assume every pump responds the same way.</p>
 
     <h2>Noise</h2>
     <p>DC pumps are usually noticeably quieter, especially at the reduced speeds most people actually run. AC pumps hum at full tilt all the time. In a bedroom or living-room tank, that difference matters a lot more than the spec sheet suggests.</p>
 
     <h2>Efficiency</h2>
-    <p>DC motors are more energy-efficient and — because you can run them slower — you often pull real wattage savings over a year. On a big system that runs 24/7, the electricity difference is not nothing. On a nano, it's negligible.</p>
+    <p>Compare watts at the flow your system needs. A DC model turned down may use less power than an oversized fixed-speed model, but a DC badge alone does not establish savings. Every 10W of continuous draw uses 87.6 kWh in 365 days — ${annualCost(10).toFixed(2)} at the example rate. Measure the installed draw before claiming a payback period.</p>
 
     <h2>Price and reliability</h2>
-    <p>AC pumps are cheaper up front and mechanically dead-simple: fewer electronics to fail, and if the power blips they just start back up. DC pumps cost more and add a controller — one more part that can fail, and some cheaper DC controllers are the weak link. The counterpoint: quality DC pumps have gotten very reliable, and the ability to dial flow often prevents the "too much/too little" problems that plague fixed AC setups.</p>
+    <p>Check the actual model price rather than assuming AC is always cheaper. A DC controller and power supply add replaceable parts; an AC pump can still fail through wear, blockage, or restart trouble. This dataset has specifications, not a controlled failure-rate study. Test a power-off restart with your plumbing and keep strainers and impellers clean.</p>
 
     <h2>The failure-mode angle most people miss</h2>
     <p>If a DC controller dies, the pump stops — full stop — until you replace the controller. An AC pump has no controller to die. That's why a lot of experienced reefers run DC as their daily driver but keep a cheap AC pump boxed up as a same-day backup. Redundancy is cheaper than a tank crash.</p>
@@ -48,4 +66,6 @@ import { url } from '../../utils/url';
 <style>
   .lede-dark { margin-bottom: 8px; }
   .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+  .tablewrap { overflow-x:auto; }
+  .tablewrap table { min-width:640px; }
 </style>

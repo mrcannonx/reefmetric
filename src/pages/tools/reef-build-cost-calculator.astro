@@ -3,17 +3,23 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { TIERS, CORALS } from '../../utils/cost-calc';
+import { TIERS, CORALS, estimateCost, estimateElectricity } from '../../utils/cost-calc';
+
+const headline = "Reef tank cost & aquarium electricity calculator";
+const examples = TIERS.map((tier) => ({ tier, estimate: estimateCost({ gallons: 75, tier: tier.value, coral: 'mixed', hasSump: true, kwhRate: 0.17 }) }));
+const energyExample = estimateElectricity({ watts: 100, hoursPerDay: 24, days: 30, kwhRate: 0.17 });
+const money = (n: number) => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
 ---
 <Base
-  title="Reef Tank Cost Calculator (up-front + monthly)"
-  description="Free reef tank cost calculator. Enter your tank size, build tier, and coral type — get an itemized up-front cost estimate plus the monthly running cost (electricity, salt, consumables)."
+  headline={headline}
+  title="Reef Tank & Electricity Cost Calculator"
+  description="Calculate aquarium electricity costs from watts, daily hours, and your rate. Estimate reef build costs, monthly salt, and consumables by tank size."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Reef Build Cost Calculator', href: '/tools/reef-build-cost-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Tank Cost Calculator</h1>
-    <p class="lede-dark">The two questions every new reefer underestimates: what does it cost to <em>build</em>, and what does it cost to <em>run</em>. Here's an honest itemized estimate for both — up-front and monthly.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">Aquarium electricity cost = watts ÷ 1,000 × hours per day × days × your price per kWh. A 100W load running all day uses {energyExample.kwh.toFixed(0)} kWh in 30 days: ${energyExample.cost.toFixed(2)} at $0.17/kWh. Use the build estimator for a whole reef, or <a href="#aquarium-electricity-cost-calculator">enter measured equipment watts</a> for a separate power estimate.</p>
 
     <div class="calc card">
       <form id="cost-form" class="calc-grid" autocomplete="off">
@@ -40,7 +46,7 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
           <input id="cKwh" type="number" min="0" step="0.01" value="0.17" />
         </label>
       </form>
-      <div id="cost-totals"></div>
+      <div id="cost-totals" aria-live="polite"></div>
     </div>
 
     <Disclosure />
@@ -50,13 +56,37 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
   </section>
 
   <section class="container prose">
+    <h2 id="aquarium-electricity-cost-calculator">Aquarium electricity cost calculator</h2>
+    <p>Enter one device's watts and daily run time, or your aquarium's measured average draw at 24 hours a day. For a heater, use its actual on-time; its nameplate wattage is not its all-day average. This calculates the energy charge only, before fixed utility fees and taxes.</p>
+    <div class="calc card">
+      <form id="electricity-form" class="calc-grid" autocomplete="off">
+        <label>Power draw (watts)<input id="eWatts" type="number" min="0" step="any" value="100" required /></label>
+        <label>Hours running per day<input id="eHours" type="number" min="0" max="24" step="any" value="24" required /></label>
+        <label>Days<input id="eDays" type="number" min="0" step="1" value="30" required /></label>
+        <label>Your electricity rate ($/kWh)<input id="eRate" type="number" min="0" step="any" value="0.17" required /></label>
+      </form>
+      <p id="electricity-result" class="summary" aria-live="polite">{energyExample.kwh.toFixed(2)} kWh · ${energyExample.cost.toFixed(2)} for 30 days at $0.17/kWh.</p>
+    </div>
+    <p>Compare the <a href={url('/guides/dc-vs-ac-return-pumps')}>AC pump vs DC pump running-cost example</a>, then use the <a href={url('/tools/salt-cost-calculator')}>salt cost calculator</a> for your actual water-change schedule.</p>
+
+    <h2>A 75-gallon build: three budget examples</h2>
+    <p>These use this calculator's existing model: 75 display gallons, a sump, mixed corals, and $0.17/kWh. They exclude livestock and corals. Build tiers use editorial component allowances, not a live shopping cart; power uses a tier-based average draw rather than a measured equipment list.</p>
+    <div class="tablewrap">
+      <table class="breakdown">
+        <thead><tr><th>Build tier</th><th>Up-front estimate</th><th>Average watts</th><th>Electricity / 30 days</th><th>All running costs / month</th></tr></thead>
+        <tbody>{examples.map(({ tier, estimate: e }) => <tr><td>{tier.label}</td><td>{money(e.upfrontLow)}–{money(e.upfrontHigh)}</td><td>{e.avgWatts}W</td><td>${e.electricityMonthly.toFixed(2)}</td><td>{money(e.monthlyLow)}–{money(e.monthlyHigh)}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p>The whole-build monthly range adds electricity, a volume-based salt/RODI allowance, and a tier-based consumables allowance. For a different footprint, compare the <a href={url('/guides/30-gallon-reef-tank-setup')}>30-gallon equipment budget</a> with the <a href={url('/guides/120-gallon-reef-tank-setup')}>120-gallon equipment budget</a>; those itemized guide budgets are separate estimates.</p>
+
     <h2>Why "how much does a reef tank cost" has no single answer</h2>
     <p>The tank is the cheap part. Where the money goes is the equipment — lighting, skimmer, flow, and the reverse-osmosis unit you'll need for clean water — and then the ongoing cost of salt, electricity, and test kits. Our estimate splits it out so you can see exactly where each dollar goes and where you can save (buy value gear) versus where you shouldn't (RODI water, a right-sized skimmer).</p>
 
     <h2>Up-front vs. monthly</h2>
-    <p>Up-front is a range because you can build the same tank at very different price points — that's the "tier" control. Monthly is mostly <strong>electricity</strong> (heaters and pumps run 24/7) plus <strong>salt and RODI</strong> for water changes and a bit for consumables. Bigger tanks cost proportionally more to run; efficient DC gear (the premium tier) actually lowers the monthly bill even as it raises the up-front cost.</p>
+    <p>The tier control changes equipment allowances. Running costs add electricity, salt/RODI, and consumables. Pumps usually run all day, lights run on a schedule, and heaters switch on as needed. The premium tier assumes lower watts per gallon but higher consumables spending; it does not promise a lower total monthly bill.</p>
 
     <h2>These are estimates</h2>
+    <p>Use the result as a checklist before ordering, not a shopping cart total. Check which fittings, mounting arms, controllers, and test reagents come with the gear you choose. A low initial price can leave those parts out. Compare the <a href={url('/reviews/best-reef-led-lighting')}>reef lighting options</a> for coverage and the <a href={url('/reviews/best-reef-salt-mix')}>salt mix rankings</a> for an ongoing expense, then confirm current retailer prices for your exact sizes.</p>
     <p>Every number here is a reasoned range, not a quote — real prices vary by brand, sales, and where you live. Use it to budget and to sanity-check a build, then pin down the two biggest variable pieces (pump and skimmer) with the exact-sizing calculators linked above.</p>
   </section>
 
@@ -66,7 +96,7 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
 </Base>
 
 <script>
-  import { estimateCost } from '../../utils/cost-calc';
+  import { estimateCost, estimateElectricity } from '../../utils/cost-calc';
 
   const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? '';
   const money = (n: number) => '$' + Math.round(n).toLocaleString();
@@ -76,14 +106,26 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
     const tier = (val('cTier') || 'mid') as 'budget' | 'mid' | 'premium';
     const coral = (val('cCoral') || 'mixed') as 'softie' | 'mixed' | 'sps';
     const hasSump = val('cSump') !== 'no';
-    const kwhRate = Number(val('cKwh')) || 0.17;
+    const rateText = val('cKwh');
+    const kwhRate = Number(rateText);
 
     const totals = document.getElementById('cost-totals');
     const table = document.getElementById('cost-table');
     if (!totals || !table) return;
-    if (gallons <= 0) { totals.innerHTML = ''; table.innerHTML = ''; return; }
+    if (!Number.isFinite(gallons) || gallons < 5 || rateText.trim() === '' || !Number.isFinite(kwhRate) || kwhRate < 0) {
+      totals.textContent = 'Enter at least 5 gallons and a rate of zero or more.';
+      table.innerHTML = '';
+      return;
+    }
 
-    const est = estimateCost({ gallons, tier, hasSump, coral, kwhRate });
+    let est: ReturnType<typeof estimateCost>;
+    try {
+      est = estimateCost({ gallons, tier, hasSump, coral, kwhRate });
+    } catch {
+      totals.textContent = 'Check the volume and rate: the calculated total is too large.';
+      table.innerHTML = '';
+      return;
+    }
 
     totals.innerHTML = `
       <div class="bigtotals">
@@ -95,7 +137,7 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
         <div class="bigtotal">
           <div class="lbl">Monthly running</div>
           <div class="amt">${money(est.monthlyLow)}–${money(est.monthlyHigh)}/mo</div>
-          <div class="sub">~${est.avgWatts}W avg draw + salt &amp; consumables</div>
+          <div class="sub">~${est.avgWatts}W average draw: ${est.electricityKwhMonthly.toFixed(2)} kWh and $${est.electricityMonthly.toFixed(2)} electricity per 30 days, plus salt &amp; consumables</div>
         </div>
       </div>`;
 
@@ -106,7 +148,7 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
           <tr class="total"><td>Up-front total</td><td>${money(est.upfrontLow)} – ${money(est.upfrontHigh)}</td></tr>
         </tbody>
       </table>
-      <p class="rnote">Estimate only — real prices vary by brand, sales, and region. Livestock and corals aren't included (add those gradually after the tank cycles). Pump and skimmer baselines are anchored to the medians of our real spec datasets.</p>`;
+      <p class="rnote">Editorial budget estimate, not current retailer quotes. Livestock and corals are excluded. The model uses component allowances; it does not calculate pump or skimmer prices from the product databases.</p>`;
   }
 
   ['cGallons', 'cTier', 'cCoral', 'cSump', 'cKwh'].forEach((id) => {
@@ -114,7 +156,24 @@ import { TIERS, CORALS } from '../../utils/cost-calc';
     if (el) el.addEventListener('input', render);
   });
   render();
+
+  function renderElectricity() {
+    const result = document.getElementById('electricity-result');
+    const form = document.getElementById('electricity-form') as HTMLFormElement;
+    if (!result) return;
+    if (!form.checkValidity()) { result.textContent = 'Enter zero or more for each value, with no more than 24 hours per day.'; return; }
+    try {
+      const energy = estimateElectricity({ watts: Number(val('eWatts')), hoursPerDay: Number(val('eHours')), days: Number(val('eDays')), kwhRate: Number(val('eRate')) });
+      result.textContent = `${energy.kwh.toFixed(2)} kWh · $${energy.cost.toFixed(2)} for ${val('eDays')} days at $${val('eRate')}/kWh.`;
+    } catch {
+      result.textContent = 'Check the numbers: use finite values and no more than 24 hours per day.';
+    }
+  }
+  document.getElementById('electricity-form')?.addEventListener('input', renderElectricity);
+  renderElectricity();
 </script>
 <style>
   .inlinecta { display:inline-block; font-family:var(--font-display); font-weight:700; color:var(--brand-2); }
+  .tablewrap { overflow-x:auto; }
+  .tablewrap table { min-width:640px; }
 </style>

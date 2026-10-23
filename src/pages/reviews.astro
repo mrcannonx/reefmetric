@@ -14,8 +14,10 @@ import testkits from '../data/testkits.json';
 // Representative product shot for each roundup: the first ranked item in the source
 // dataset that has an image. Single source of truth — if a data file's imageUrl
 // changes, the card thumbnail follows automatically. No hardcoded URLs to drift.
-const firstImg = (arr: Array<{ imageUrl?: string | null }>): string | null =>
-  arr.find((x) => x?.imageUrl)?.imageUrl ?? null;
+const firstImg = (arr: Array<{ imageUrl?: string | null; brand?: string; model?: string; product?: string }>) => {
+  const item = arr.find((x) => x?.imageUrl);
+  return item ? { src: item.imageUrl, alt: [item.brand, item.model ?? item.product].filter(Boolean).join(' ') } : null;
+};
 
 const reviews = [
   {
@@ -90,14 +92,15 @@ const reviews = [
 >
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews</p>
-    <h1>Reviews, backed by numbers.</h1>
+    <h1>Reef gear reviews, backed by numbers.</h1>
     <p style="color:var(--muted);max-width:62ch;">Every roundup here is computed from spec data — pump curves, bioload ratings, mix yields — with the methodology shown and the estimates flagged. No pay-to-play, no "we tested it" theater. <a href={url('/how-we-rate')}>How we rate →</a></p>
+    <p>Choose <a href={url('/reviews/best-return-pumps')}>return pumps</a> by delivered flow, the <a href={url('/reviews/best-protein-skimmers')}>best protein skimmer</a> by stocked volume, a <a href={url('/reviews/best-reef-dosing-pumps')}>reef tank dosing pump</a> by separate dosing lines, and an <a href={url('/reviews/best-ato')}>auto top off</a> by backup protection. Compare <a href={url('/guides/dc-vs-ac-return-pumps')}>AC vs DC pumps</a> after sizing, and use the <a href={url('/tools')}>reef calculator tools</a> for your own inputs.</p>
     <div class="grid cols-3" style="margin-top:26px;">
       {reviews.map((r) => (
         <a class="card cardlink rcard" href={url(r.href)}>
           <div class="rcard-thumb">
             {r.image && (
-              <img src={r.image} alt="" loading="lazy"
+              <img src={r.image.src} alt={r.image.alt} width="300" height="168" loading="lazy" decoding="async"
                 onerror="this.style.display='none';this.parentElement.querySelector('.rcard-fallback').style.display='flex'" />
             )}
             <span class="rcard-fallback" style={r.image ? 'display:none' : ''}>

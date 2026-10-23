@@ -77,15 +77,18 @@ const faqLd = {
   '@type': 'FAQPage',
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
+
+const headline = "Reef Octopus vs Nyos vs AquaMaxx — by the numbers";
 ---
 <Base
-  title="Reef Octopus vs Nyos vs AquaMaxx (2026) — Skimmer Brands by the Numbers"
-  description="The skimmer brand face-off, computed: dollars per honestly-rated gallon and watts per 100 gallons across Reef Octopus, Nyos, and AquaMaxx — from published medium-bioload ratings, not box numbers."
+  headline={headline}
+  title="Reef Octopus vs Nyos vs AquaMaxx Skimmers"
+  description="Compare Reef Octopus, Nyos, and AquaMaxx skimmers by cost per rated gallon, power use, footprint, and published medium-bioload capacity."
   breadcrumbs={[{ name: 'Compare', href: '/compare' }, { name: 'Reef Octopus vs Nyos vs AquaMaxx', href: '/compare/reef-octopus-vs-nyos-vs-aquamaxx' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Compare · Skimmer Brands</p>
-    <h1>Reef Octopus vs Nyos vs AquaMaxx — by the numbers</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">The three most cross-shopped skimmer brands, compared the only fair way: <strong>dollars per honestly-rated gallon</strong> — the medium-bioload rating each manufacturer publishes, not the optimistic box number — plus what each brand's pumps cost to run. Computed from the same dataset behind <a href={url('/tools/protein-skimmer-calculator')}>our skimmer calculator</a>.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Only models with a current US price and a published medium-bioload rating are in the value math — no gaps quietly filled. <a href={url('/how-we-rate')}>Full methodology →</a></p>

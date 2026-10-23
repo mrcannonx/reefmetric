@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check:seo": "python3 scripts/check-seo.py",
+    "check:calculators": "node --experimental-strip-types --test scripts/check-calculators.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -57,15 +57,19 @@ const itemListLd = {
   numberOfItems: picks.length,
   itemListElement: picks.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: `${p.row.light.brand} ${p.row.light.model}` })),
 };
+
+const headline = "Best reef tank LED lighting — ranked by data that actually exists";
 ---
 <Base
-  title="Best Reef Tank LED Lighting (2026) — Ranked by Verified PAR Data"
-  description="The best reef tank LED lights, ranked only where real PAR data exists — manufacturer charts or independent lab tests, not marketing claims. Includes a transparency scorecard for the popular fixtures that publish no PAR data at all."
+  headline={headline}
+  title="Best Reef Tank LED Lighting (2026)"
+  description="Compare reef LED lights using published PAR data, coverage, and price. See ranked fixtures and which popular lights lack usable PAR measurements."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef LED Lighting', href: '/reviews/best-reef-led-lighting' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · LED Lighting</p>
-    <h1>Best reef tank LED lighting — ranked by data that actually exists</h1>
+    <h1>{headline}</h1>
+    <p>Use the <a href={url('/tools/reef-par-calculator')}>reef PAR calculator</a> to compare published light data at your mount height and coral depth. Check the <a href={url('/tools/reef-build-cost-calculator')}>build cost calculator</a> when coverage requires more than one fixture.</p>
     <p class="lede-dark">Every "best reef light" list repeats manufacturer PAR claims as if they were tested fact. We checked: of the 11 popular fixtures in this comparison, only <strong>4 have a real PAR figure behind them</strong> — a manufacturer chart or an independent lab test. The rest, including some of the most popular fixtures in the hobby, publish nothing verifiable. We rank the four, and we name the gap on the rest instead of quietly copying their marketing copy.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). Reference mounting height for the headline PAR figure below is {REF_HEIGHT}in above the water — see the methodology note for why. <a href={url('/how-we-rate')}>Full methodology →</a></p>
@@ -78,7 +82,7 @@ const itemListLd = {
         <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
           {p.row.light.imageUrl && (
             <div class="rthumb">
-              <img src={p.row.light.imageUrl} alt={`${p.row.light.brand} ${p.row.light.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+              <img src={p.row.light.imageUrl} alt={`${p.row.light.brand} ${p.row.light.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
             </div>
           )}
           <div class="rmain">

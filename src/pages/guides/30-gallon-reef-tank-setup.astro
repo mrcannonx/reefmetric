@@ -4,27 +4,22 @@ import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 
-const cost = [
-  { item: 'Tank + stand (30g / 29g class)', budget: '$150–280', mid: '$280–500' },
-  { item: 'Filtration (HOB skimmer or AIO conversion)', budget: '$100–180', mid: '$180–350' },
-  { item: 'Return/circulation pump', budget: '$40–80', mid: '$80–150' },
-  { item: 'Reef light (1 fixture)', budget: '$150–250', mid: '$250–500' },
-  { item: 'Powerhead(s)', budget: '$50–100', mid: '$100–200' },
-  { item: 'Heater ~100–150W + controller', budget: '$30–60', mid: '$60–120' },
-  { item: 'Rock (~20–30 lb) + sand (~30 lb)', budget: '$60–110', mid: '$110–200' },
-  { item: 'RODI unit (or LFS water to start)', budget: '$0–120', mid: '$120–250' },
-  { item: 'Salt, test kits, extras', budget: '$60–110', mid: '$110–220' },
-];
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../../data/setup-budgets';
+const cost = SETUP_BUDGETS[30];
+
+const headline = "30 Gallon Reef Tank: Setup, Gear List & Cost";
 ---
 <Base
-  title="30 Gallon Reef Tank Setup Guide, Gear List & Cost"
-  description="The 30 gallon reef tank setup guide: the smallest size that's still forgiving, the honest gear list (with or without a sump), realistic 2026 costs, and the calculators to size everything for your build."
+  headline={headline}
+  title="30 Gallon Reef Tank Setup: Gear & Cost"
+  description="Plan a 30 gallon reef tank setup with a gear list, sump and AIO options, stocking guidance, and cost estimates. Use calculators to size each part."
   breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '30 Gallon Reef Setup', href: '/guides/30-gallon-reef-tank-setup' }]}
 >
   <section class="container prose" style="padding-top:40px;">
     <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
-    <h1>30 Gallon Reef Tank: Setup, Gear List &amp; Cost</h1>
-    <p class="lede-dark">Thirty gallons is the line where a reef stops being a nano. Below it, evaporation and one missed feeding can swing your chemistry in an afternoon; at 30, you finally get enough water to make mistakes in. Here's how to build one properly — including the honest question of whether you should run a sump at all.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">A 30 gallon reef tank can use rear-chamber or hang-on-back filtration without a separate sump. Plan for one reef light, a 100–150W heater with a separate controller, and 600–1,200 GPH of in-tank circulation. The equipment listed below totals {moneyRange(setupTotal(30, 'budget'))} for a value build or {moneyRange(setupTotal(30, 'mid'))} for mid-range gear, before livestock.</p>
+    <p><strong>Start here:</strong> decide between an AIO and a standard tank before buying a skimmer. Measure the rear chamber or filter clearance, then calculate <a href={url('/tools/tank-volume-calculator')}>actual water volume</a>. The nominal 30 gallons is a planning size, not a safe dosing volume.</p>
 
     <Disclosure />
 
@@ -57,16 +52,16 @@ const cost = [
     <p>20–30 lb of rock scaped open, ~30 lb of sand for a 1–1.5″ bed. Resist filling it — negative space is what makes small tanks read as mature instead of cramped.</p>
 
     <h2>What a 30 build actually costs</h2>
-    <p>The two honest columns, 2026 US prices. The RODI line is the flex point: many 30-gallon keepers start on purchased LFS water (a 30 only drinks a few gallons a week) and buy the RODI unit later. Itemize your own tier with <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a>.</p>
+    <p>These are the guide's existing US equipment allowances, not newly checked retailer prices. The RODI line is the flex point: many 30-gallon keepers start on purchased LFS water (a 30 only drinks a few gallons a week) and buy the RODI unit later. Itemize your own tier with <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a>.</p>
 
     <table class="costtable">
       <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
       <tbody>
-        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{moneyRange(c.budget)}</td><td>{moneyRange(c.mid)}</td></tr>))}
       </tbody>
-      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$650–1,300</strong></td><td><strong>~$1,300–2,500</strong></td></tr></tfoot>
+      <tfoot><tr><td><strong>Sum of the listed gear</strong></td><td><strong>{moneyRange(setupTotal(30, 'budget'))}</strong></td><td><strong>{moneyRange(setupTotal(30, 'mid'))}</strong></td></tr></tfoot>
     </table>
-    <p class="rnote">Ranges, not quotes. Salt is the recurring line — a 30 doing 15% weekly changes mixes ~19 gallons a month; <a href={url('/reviews/best-reef-salt-mix')}>the salt rankings</a> show what that costs per brand, and <a href={url('/tools/water-change-calculator')}>the water change calculator</a> plans the changes themselves.</p>
+    <p class="rnote">Editorial ranges, not quotes. Totals sum the rows above; livestock and corals are excluded. Salt is the recurring line — a 30 doing 15% weekly changes mixes ~19 gallons a month; <a href={url('/reviews/best-reef-salt-mix')}>the salt rankings</a> show what that costs per brand, and <a href={url('/tools/water-change-calculator')}>the water change calculator</a> plans the changes themselves.</p>
 
     <h2>Stocking a 30 — the short list</h2>
     <p>This is the discipline size. A clown pair, a royal gramma or firefish, one goby, maybe a small blenny — and that's a <em>full</em> 30. No tangs, no angels except perhaps a coral-safe pygmy, nothing that cruises. Corals are where a 30 shines instead: the whole tank is prime real estate under one good light.</p>
@@ -90,5 +85,6 @@ const cost = [
   .costtable th, .costtable td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
   .costtable thead th { font-family:var(--font-display); color:var(--ink); border-bottom:2px solid var(--line); }
   .costtable tfoot td { border-top:2px solid var(--line); border-bottom:none; }
+  @media (max-width:520px){ .costtable { font-size:.85rem; } .costtable th, .costtable td { padding:8px 6px; } }
   .costtable td:nth-child(2), .costtable td:nth-child(3), .costtable th:nth-child(2), .costtable th:nth-child(3) { white-space:nowrap; color:var(--muted); }
 </style>

@@ -50,7 +50,7 @@ export const GET: APIRoute = () => {
 
   const html = `<!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>The Reef Gear Cheat Sheet</title></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex, follow"><title>The Reef Gear Cheat Sheet</title></head>
 <body style="margin:0;padding:0;background:#f5f8f8;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f8f8">
     <tr><td align="center" style="padding:28px 14px">

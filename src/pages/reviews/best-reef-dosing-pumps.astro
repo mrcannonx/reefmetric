@@ -29,12 +29,12 @@ const byModel = (m: string) => dosers.find((d) => d.model === m)!;
 const picks: Pick[] = [
   {
     badge: 'Best budget standalone',
-    why: `Cheapest doser here that's genuinely complete out of the box — no controller purchase required — and the lowest owner-complaint volume of the five.`,
+    why: `Lowest recorded price among these standalone dosers, with two heads for two additives and no separate controller required.`,
     d: byModel('ReefDose 2'),
   },
   {
     badge: 'Best step-up',
-    why: `Same reliability profile as the ReefDose 2, doubled to 4 heads — the pick once you're dosing more than two additives.`,
+    why: `Four heads rather than two, for keeping more additives on separate lines without a separate aquarium controller.`,
     d: byModel('ReefDose 4'),
   },
   {
@@ -81,16 +81,22 @@ const faqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+
+const headline = "Best dosing pump for a reef tank: heads, cost & control";
 ---
 <Base
-  title="Best Reef Dosing Pumps (2026) — Ranked, With the Ones That Aren't Really Standalone"
-  description="The best reef aquarium dosing pumps compared — Red Sea ReefDose, GHL Doser 3, Focustronic Dosetronic, Reef Factory X4 — plus which ones secretly require a separate controller to work at all."
+  headline={headline}
+  title="Best Dosing Pump for a Reef Tank (2026)"
+  description="Compare reef dosing pumps by published accuracy, channels, cost, and controller needs. See which pumps work alone and which need extra hardware."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Dosing Pumps', href: '/reviews/best-reef-dosing-pumps' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Dosing Pumps</p>
-    <h1>Best reef dosing pumps — and which ones aren't really standalone</h1>
-    <p class="lede-dark">Our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> tells you how much Alkalinity, Calcium, or Magnesium to add. This page is the hardware that adds it automatically. The catch nobody mentions upfront: one of the best-known dosers on the market can't run at all without a controller you probably don't already own — we name it below instead of letting you find out after checkout.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">For a reef tank dosing two separate additives, the {picks[0].d.brand} {picks[0].d.model} is our starting pick: {picks[0].d.heads} heads, standalone control, and {money(picks[0].d.priceUSD)} in the recorded dataset. Need four lines? The {picks[1].d.model} has {picks[1].d.heads} heads at {money(picks[1].d.priceUSD)}. Match the head count and controller needs to your routine before buying.</p>
+    <h2 id="quick-answer">Which reef dosing pump should you choose?</h2>
+    <p><strong>Two additives:</strong> start with ReefDose 2. <strong>More separate additives:</strong> compare ReefDose 4 and the standalone GHL Doser 3 SA. <strong>Already own an Apex:</strong> compare the DOS accessory below with the total cost of a standalone unit. Published accuracy is a specification, not proof of your dose after installation: calibrate with the tubing and liquid you will use.</p>
+    <p>A dosing pump schedules liquid delivery; it does not decide what your tank needs. Use measured consumption and the <a href={url('/tools/reef-dosing-calculator')}>reef dosing calculator</a> for alkalinity, calcium, or magnesium. Read the <a href={url('/guides/carbon-dosing')}>carbon dosing guide</a> separately for nutrient export.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). Nobody pays for placement, and a real business-risk fact (see the Reef Factory pick) gets stated plainly, not buried. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
@@ -102,7 +108,7 @@ const faqLd = {
         <div id={slug(p.d)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
           {p.d.imageUrl && (
             <div class="rthumb">
-              <img src={p.d.imageUrl} alt={`${p.d.brand} ${p.d.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+              <img src={p.d.imageUrl} alt={`${p.d.brand} ${p.d.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
             </div>
           )}
           <div class="rmain">
@@ -121,7 +127,7 @@ const faqLd = {
       <div id={slug(accuracyPick)} class="rcard">
         {accuracyPick.imageUrl && (
           <div class="rthumb">
-            <img src={accuracyPick.imageUrl} alt={`${accuracyPick.brand} ${accuracyPick.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+            <img src={accuracyPick.imageUrl} alt={`${accuracyPick.brand} ${accuracyPick.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
           </div>
         )}
         <div class="rmain">

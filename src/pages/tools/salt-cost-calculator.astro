@@ -1,20 +1,26 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { url } from '../../utils/url';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
-import { FREQUENCIES } from '../../utils/salt-cost-calc';
+import { FREQUENCIES, rankSalts } from '../../utils/salt-cost-calc';
 import saltData from '../../data/salts.json';
 const isSample = (saltData as any).sample === true;
+
+const headline = "Instant Ocean salt calculator & reef salt costs";
+const reference = { gallons: 75, pct: 10, frequency: FREQUENCIES.find((f) => f.value === 'weekly')! };
+const { results: examples, gallonsMonthly } = rankSalts(reference.gallons, reference.pct, reference.frequency.perMonth, saltData.salts.filter((s) => s.brand === 'Instant Ocean'));
 ---
 <Base
-  title="Reef Salt Cost Calculator (cost per gallon + monthly)"
-  description="Compare reef salt mixes by real cost per mixed gallon — not the box price — and see your actual monthly salt cost based on your tank size and water-change schedule."
+  headline={headline}
+  title="Instant Ocean Salt Calculator: Compare Costs"
+  description="Calculate Instant Ocean and Reef Crystals cost per mixed gallon and monthly salt costs. Compare reef mixes using your tank and water-change schedule."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Salt Cost Calculator', href: '/tools/salt-cost-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Salt Cost Calculator</h1>
-    <p class="lede-dark">A cheaper box isn't a cheaper salt. What matters is <strong>cost per mixed gallon</strong> — and what your water changes actually cost you each month. Here's both, ranked.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">For Instant Ocean salt, divide the box price by its stated mixed-water yield to get cost per gallon. Multiply by your water-change gallons to estimate monthly spending. This calculator compares Sea Salt, Reef Crystals, and {saltData.salts.length - examples.length} other mixes using recorded prices; it estimates cost, not grams of dry salt to add.</p>
 
     {isSample && (
       <p class="sample-note">⚙️ Preview build — running on sample salt prices while the full, source-verified data is finalized. Numbers here are illustrative.</p>
@@ -42,7 +48,16 @@ const isSample = (saltData as any).sample === true;
   </section>
 
   <section class="container prose">
+    <h2 id="instant-ocean-example">Instant Ocean: a 75-gallon cost example</h2>
+    <p>A {reference.pct}% weekly change on {reference.gallons} gallons uses {gallonsMonthly.toFixed(2)} new gallons per average month ({reference.frequency.perMonth} changes). These rows come from the same salt data and calculation as the live results. Dataset date: {saltData.generated}; check current package yield, salinity basis, and price before ordering.</p>
+    <table class="breakdown">
+      <thead><tr><th>Instant Ocean mix</th><th>Recorded box price</th><th>Stated yield</th><th>Cost / gallon</th><th>Salt / month</th></tr></thead>
+      <tbody>{examples.map((r) => <tr><td>{r.salt.product}</td><td>${r.salt.priceUSD.toFixed(2)}</td><td>{r.salt.gallonsPerBox} gal</td><td>${r.costPerGal.toFixed(3)}</td><td>${r.monthly.toFixed(2)}</td></tr>)}</tbody>
+    </table>
+    <p>Cost excludes shipping, RODI water, and mixing power. This is not a salt-dose recipe: follow your mix's instructions and measure the finished water. Use the <a href={url('/tools/salinity-calculator')}>salinity calculator</a> to check units, and the <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost calculator</a> for the pump and heater.</p>
+
     <h2>Why cost per gallon, not per box</h2>
+    <p>Use the <a href={url('/reviews/best-reef-salt-mix')}>reef salt mix rankings</a> to check chemistry as well as cost. Compare boxes at the same reef salinity: a larger advertised yield at a lower salinity does not mean more usable water for your tank. Enter your real water-change schedule above, then check the retailer's current package size and price. Shipping and a sale can change which mix costs least for your next order.</p>
     <p>Salt is sold by the box, but you use it by the gallon. Two boxes at the same price can make very different amounts of saltwater, so the only fair comparison is <strong>price ÷ gallons the box actually mixes</strong> (at reef salinity, ~1.025). That's what we rank on here.</p>
 
     <h2>Your real monthly cost</h2>
@@ -87,7 +102,7 @@ const isSample = (saltData as any).sample === true;
       const s = r.salt;
       const params = s.params ? `<div class="rmeta">${esc(s.params)}</div>` : '';
       const thumb = s.imageUrl
-        ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.product)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.product)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       return `
         <div class="rcard ${idx === 0 ? 'win' : ''}">

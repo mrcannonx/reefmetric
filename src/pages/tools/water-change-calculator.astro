@@ -3,15 +3,18 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
+
+const headline = "Reef Water Change Calculator";
 ---
 <Base
-  title="Reef Water Change Calculator (nitrate & phosphate dilution)"
-  description="How much water do you actually need to change to get nitrate or phosphate down to target? Exact dilution math — one big change vs. a series of small ones, with total gallons and the step-by-step levels."
+  headline={headline}
+  title="Reef Water Change Calculator"
+  description="Calculate water changes to reduce nitrate or phosphate. Compare one large change with repeated smaller changes using dilution math and true volume."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Water Change Calculator', href: '/tools/water-change-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Water Change Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">"Do a water change" is the universal forum answer — but nobody tells you <strong>how much</strong>. A 20% change removes exactly 20% of your nitrate, no more. Enter where you are and where you want to be, and get the real plan: one big change vs. a series of smaller ones, with gallons and the level after each step.</p>
 
     <div class="calc card">

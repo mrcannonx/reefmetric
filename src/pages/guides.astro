@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../data/setup-budgets';
+const budgetSizes = [30, 120] as const;
 const guides = [
   { name: '30 Gallon Reef Tank: Setup, Gear List & Cost', desc: 'The smallest forgiving size — the honest sump-or-no-sump answer, one-fixture lighting, the discipline stocking list, and real 2026 costs.', href: '/guides/30-gallon-reef-tank-setup', status: 'New', art: 'tank', label: '30G' },
   { name: '40 Gallon Breeder Reef Tank: Setup, Gear List & Cost', desc: 'The best beginner reef, fully specced — why the 40B wins, the complete gear list, a realistic cost breakdown, and the calculators to size your pump and skimmer.', href: '/guides/40-gallon-breeder-reef-tank-setup', status: 'Guide', art: 'tank', label: '40B' },
@@ -13,11 +15,15 @@ const guides = [
   { name: 'DC vs AC Return Pumps: Which Should You Buy?', desc: 'Controllability, noise, efficiency, price, and the failure-mode most people miss — with the calculator to size whichever you pick.', href: '/guides/dc-vs-ac-return-pumps', status: 'Guide', art: 'pump' },
 ];
 ---
-<Base title="Reef Guides" description="Setup guides and buying decisions for saltwater aquariums, organized by tank size and build stage.">
+<Base title="Reef Tank Setup Guides" description="Plan a reef tank setup by tank size, gear needs, and cost. Read guides for 30, 40 breeder, 55, 75, and 120 gallon builds, plus dosing and pump choices.">
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Guides</p>
-    <h1>Guides, by tank size and build stage.</h1>
-    <p style="color:var(--muted);max-width:60ch;">Equipment lists and decisions organized around your actual setup — the long-tail forums own, done properly and linked to the tools that size each piece.</p>
+    <h1>Reef tank setup guides, by size and build stage.</h1>
+    <p style="color:var(--muted);max-width:60ch;">Start with tank footprint and filtration, then size return flow, lighting, and heat. A 30-gallon AIO can avoid separate sump plumbing; a 48 × 24 × 24-inch 120-gallon build needs room for wider lighting coverage, larger water storage, and a checked floor. Choose the size guide before buying individual gear.</p>
+    <h2>Two equipment budgets, from the size guides</h2>
+    <p>These totals add the same component ranges used in each linked guide. They are US planning estimates, not current quotes, and exclude livestock and corals. The two builds have different equipment lists; use them to compare scale rather than treating cost per gallon as a fixed rule.</p>
+    <div class="tablewrap"><table class="breakdown"><thead><tr><th>Tank plan</th><th>Gear lines</th><th>Value equipment</th><th>Mid-range equipment</th></tr></thead><tbody>{budgetSizes.map((size) => <tr><td><a href={url(`/guides/${size}-gallon-reef-tank-setup`)}>{size}-gallon setup</a></td><td>{SETUP_BUDGETS[size].length}</td><td>{moneyRange(setupTotal(size, 'budget'))}</td><td>{moneyRange(setupTotal(size, 'mid'))}</td></tr>)}</tbody></table></div>
+    <p>For your own size, use the <a href={url('/tools/reef-build-cost-calculator')}>reef build and electricity cost calculator</a>. For an existing tank, choose <a href={url('/guides/carbon-dosing')}>carbon dosing</a> for nutrient export or <a href={url('/guides/kalkwasser-dosing')}>kalkwasser dosing</a> for calcium and alkalinity; those solve different problems.</p>
     <div class="grid cols-2" style="margin-top:26px;">
       {guides.map((g) => (
         <a class="card cardlink" href={url(g.href)}>
@@ -28,5 +34,12 @@ const guides = [
         </a>
       ))}
     </div>
+    <h2>Start with the whole build</h2>
+    <p>Run the <a href={url('/tools/reef-build-cost-calculator')}>reef tank cost calculator</a> before ordering individual pieces. Then use the <a href={url('/reviews/best-return-pumps')}>return pump rankings</a> and <a href={url('/reviews/best-protein-skimmers')}>protein skimmer rankings</a> alongside your size guide. Leave space in the budget for salt, test reagents, and ongoing power costs, not just the tank and stand. For an established tank, the dosing guides explain the choices and risks before you change a routine.</p>
+    <p>Choose <a href={url('/guides/dc-vs-ac-return-pumps')}>AC pump vs DC pump</a> after checking delivered flow. Compare the <a href={url('/reviews/best-reef-dosing-pumps')}>best dosing pump for your reef tank</a> only after measuring demand, and the <a href={url('/reviews/best-ato')}>best ATO options</a> by backup shutoffs and pump lift. The <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex, HYDROS, and GHL comparison</a> shows what extra control hardware each path needs.</p>
   </section>
 </Base>
+<style>
+  .tablewrap { overflow-x:auto; }
+  .tablewrap table { min-width:560px; }
+</style>

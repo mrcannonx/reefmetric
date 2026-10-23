@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { url } from '../../utils/url';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { PIPE_IDS, TURNOVER_GUIDE } from '../../utils/pump-calc';
@@ -7,15 +8,18 @@ import pumpData from '../../data/pumps.json';
 
 const isSample = (pumpData as any).sample === true;
 const pumpCount = (pumpData as any).pumps.length;
+
+const headline = "Reef Return Pump Calculator";
 ---
 <Base
-  title="Reef Return Pump Calculator (real flow after head loss)"
-  description="Free reef return pump calculator. Enter your tank size, head height, and plumbing — get the real flow each pump delivers at your total dynamic head, not the misleading box-rated GPH."
+  headline={headline}
+  title="Reef Return Pump Calculator: Head Loss & Flow"
+  description="Calculate reef return pump flow after head loss. Enter tank size, lift height, pipe size, and fittings to compare pumps using manufacturer curves."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Return Pump Calculator', href: '/tools/return-pump-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Return Pump Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">The GPH on the box is measured at <em>zero head</em> — a number your tank never sees. Enter your setup and we'll show the <strong>real flow each pump delivers</strong> at your actual head, with the math.</p>
 
     {isSample && (
@@ -68,6 +72,7 @@ const pumpCount = (pumpData as any).pumps.length;
     <p>Add static head + friction head and you get <strong>total dynamic head (TDH)</strong> — the real resistance your pump fights. We find each pump's <em>operating point</em> (where its flow-vs-head curve crosses your system's curve) and report the flow it truly delivers there. A pump "makes your target" only if that delivered flow meets your turnover goal.</p>
 
     <h2>Should you oversize?</h2>
+    <p>Compare the <a href={url('/reviews/best-return-pumps')}>best return pumps by tank size</a> for our reference setups, then use your own plumbing above to check the shortlist. The <a href={url('/guides/dc-vs-ac-return-pumps')}>DC vs AC return pump guide</a> explains the control and cost trade-offs before you buy.</p>
     <p>A little, yes — pick the smallest pump that clears your target, then confirm it has a bit of headroom (and a gate valve to dial it back). Massively oversizing wastes energy, adds heat and noise, and often gets throttled down anyway. DC pumps make this easy: they're adjustable and quieter, usually worth the premium over AC for a return.</p>
   </section>
 
@@ -138,7 +143,7 @@ const pumpCount = (pumpData as any).pumps.length;
       const watts = p.watts ? ` · ${p.watts}W` : '';
       const modeled = p.modeled ? ' <span title="Curve modeled from max flow + max head (no published mid-points)">*</span>' : '';
       const thumb = p.imageUrl
-        ? `<div class="rthumb"><img src="${p.imageUrl}" alt="${esc(p.brand)} ${esc(p.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        ? `<div class="rthumb"><img src="${p.imageUrl}" alt="${esc(p.brand)} ${esc(p.model)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       return `
         <div class="rcard ${r.meetsTarget ? 'win' : ''}">

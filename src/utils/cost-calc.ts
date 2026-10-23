@@ -1,7 +1,7 @@
 // Reef build cost estimator for ReefMetric.
 // These are ESTIMATE ranges, not quotes — every output is presented as a range and
-// clearly labelled. Component costs scale with tank volume and a build tier; the pump
-// and skimmer baselines are anchored to the medians of our real spec datasets.
+// clearly labelled. Component costs are editorial budget assumptions that scale with
+// tank volume and build tier, not live retailer quotes or computed dataset medians.
 
 export type Tier = 'budget' | 'mid' | 'premium';
 export type Coral = 'softie' | 'mixed' | 'sps';
@@ -52,6 +52,24 @@ export interface CostEstimate {
   monthlyLow: number;
   monthlyHigh: number;
   avgWatts: number;
+  electricityKwhMonthly: number;
+  electricityMonthly: number;
+}
+
+export interface ElectricityInputs {
+  watts: number;
+  hoursPerDay: number;
+  days: number;
+  kwhRate: number;
+}
+
+export function estimateElectricity(i: ElectricityInputs): { kwh: number; cost: number } {
+  if ([i.watts, i.hoursPerDay, i.days, i.kwhRate].some((n) => !Number.isFinite(n) || n < 0) || i.hoursPerDay > 24) {
+    throw new RangeError('Use non-negative finite numbers and no more than 24 hours per day.');
+  }
+  const kwh = i.watts / 1000 * i.hoursPerDay * i.days;
+  if (!Number.isFinite(kwh) || !Number.isFinite(kwh * i.kwhRate)) throw new RangeError('Energy total is too large.');
+  return { kwh, cost: kwh * i.kwhRate };
 }
 
 export function estimateCost(i: CostInputs): CostEstimate {
@@ -72,10 +90,10 @@ export function estimateCost(i: CostInputs): CostEstimate {
 
   // Monthly running cost estimate.
   const avgWatts = Math.round(g * WATTS_PER_GAL[i.tier]);
-  const elec = (avgWatts / 1000) * 24 * 30 * i.kwhRate; // $/mo
+  const electricity = estimateElectricity({ watts: avgWatts, hoursPerDay: 24, days: 30, kwhRate: i.kwhRate });
   const saltWater = g * 0.22;          // salt + RODI for ~monthly water changes
   const consumables = i.tier === 'premium' ? 40 : i.tier === 'mid' ? 25 : 15; // reagents, food, additives
-  const monthly = elec + saltWater + consumables;
+  const monthly = electricity.cost + saltWater + consumables;
 
   return {
     lines,
@@ -84,5 +102,7 @@ export function estimateCost(i: CostInputs): CostEstimate {
     monthlyLow: round5(monthly * 0.85),
     monthlyHigh: round5(monthly * 1.2),
     avgWatts,
+    electricityKwhMonthly: electricity.kwh,
+    electricityMonthly: electricity.cost,
   };
 }

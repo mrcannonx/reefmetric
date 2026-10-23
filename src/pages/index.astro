@@ -27,7 +27,7 @@ const datasetCounts = {
 };
 
 const tools = [
-  { name: 'Return Pump Calculator', desc: 'The real flow each pump delivers at your actual head — not the box GPH. 41 pumps, ranked.', tag: 'Calculator · Live', href: '/tools/return-pump-calculator', art: 'calc-pump' },
+  { name: 'Return Pump Calculator', desc: `Estimated flow at your actual head, using pump curves and plumbing inputs. ${datasetCounts.pumps} pumps, ranked.`, tag: 'Calculator · Live', href: '/tools/return-pump-calculator', art: 'calc-pump' },
   { name: 'Protein Skimmer Sizer', desc: 'Which skimmers actually fit your tank once we derate the optimistic ratings for your bioload.', tag: 'Calculator · Live', href: '/tools/protein-skimmer-calculator', art: 'calc-skimmer' },
   { name: 'Reef Build Cost Estimator', desc: 'Itemized up-front + monthly running cost for any tank size and tier.', tag: 'Calculator · Live', href: '/tools/reef-build-cost-calculator', art: 'calc-cost' },
 ];
@@ -43,12 +43,12 @@ const clusters = [
   { name: 'Setup Guides by Tank Size', desc: '30, 40B, 55, 75, and 120 gallon — the full build, sized piece by piece, with honest costs.', href: '/guides', art: 'tank' },
 ];
 ---
-<Base>
+<Base title="Saltwater Aquarium Gear: Reviews & Tools">
   <section class="hero">
     <div class="container hero-grid">
       <div>
         <p class="eyebrow">Measured, not guessed</p>
-        <h1>The reef gear authority that shows its math.</h1>
+        <h1>Saltwater aquarium gear, with the math shown.</h1>
         <p class="lede">Data-driven reviews, side-by-side comparison databases, and calculators for saltwater aquarium gear — so you buy the right skimmer, pump, or light the first time.</p>
         <p style="margin-top:26px;">
           <a href={url('/tools')} class="btn">Explore the tools</a>
@@ -58,9 +58,10 @@ const clusters = [
       <a href={url('/tools/return-pump-calculator')} class="hero-proof">
         <p class="hero-proof-eyebrow">Real number, not marketing</p>
         <div class="hero-proof-stat">{avgDeliveredPct}<span>%</span></div>
-        <p class="hero-proof-caption">is all the average return pump delivers of its box-rated GPH once real head and plumbing losses are counted.</p>
+        <p class="hero-proof-caption">of box-rated GPH is the average modeled flow in our reference 75-gallon setup. This is a calculation from the pump dataset, not a bench measurement.</p>
         <p class="hero-proof-cta">See your pump's real number →</p>
         <p class="hero-proof-scale">{datasetCounts.pumps} pumps · {datasetCounts.skimmers} skimmers · {datasetCounts.salts} salts · {datasetCounts.controllerKits} controller kits · {datasetCounts.lights} lights rated</p>
+        <p class="hero-proof-scale">Reference: {REF_PLUMBING.staticHeadFt} ft lift, {REF_PLUMBING.pipeLengthFt} ft pipe, {REF_PLUMBING.pipeIdInches} in internal diameter, {REF_PLUMBING.elbows} elbows. Pumps with zero modeled flow are excluded from this average.</p>
       </a>
     </div>
   </section>
@@ -68,6 +69,8 @@ const clusters = [
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">The tools</p>
     <h2>Answers you can’t get from a listicle.</h2>
+    <p>Start with the <a href={url('/tools/return-pump-calculator')}>return pump calculator</a> for your plumbing, then compare the <a href={url('/reviews/best-protein-skimmers')}>protein skimmer rankings</a> against your tank's bioload before buying.</p>
+    <p>Find the right <a href={url('/tools')}>reef calculator</a> for the job: <a href={url('/tools/protein-skimmer-calculator')}>reef protein skimmer sizing</a>, <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost</a>, or <a href={url('/tools/salt-cost-calculator')}>Instant Ocean salt cost</a>. Each shows the inputs behind the answer.</p>
     <div class="grid cols-3" style="margin-top:26px;">
       {tools.map((t) => (t as any).href ? (
         <a class="card cardlink" href={url((t as any).href)}>
@@ -90,6 +93,7 @@ const clusters = [
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Gear, organized by your tank</p>
     <h2>Start with your setup.</h2>
+    <p>For return pumps, compare the <a href={url('/reviews/best-return-pumps')}>best return pump for your reef tank size</a> and the <a href={url('/guides/dc-vs-ac-return-pumps')}>AC pump vs DC pump trade-offs</a>. For daily care, compare <a href={url('/reviews/best-reef-dosing-pumps')}>reef dosing pumps</a> and <a href={url('/reviews/best-ato')}>the best ATO options for reef tanks</a>.</p>
     <div class="grid cols-3" style="margin-top:26px;">
       {clusters.map((c) => (
         <a class="card cardlink" href={url(c.href)}>
@@ -102,6 +106,8 @@ const clusters = [
   </section>
 
   <section class="container">
+    <h2>Planning a new reef or changing a routine?</h2>
+    <p>The <a href={url('/guides/30-gallon-reef-tank-setup')}>30-gallon setup guide</a> starts with AIO and hang-on filtration; the <a href={url('/guides/120-gallon-reef-tank-setup')}>120-gallon setup guide</a> covers the wider footprint, sump, and water storage. Use the <a href={url('/tools/reef-build-cost-calculator')}>whole-build budget</a> before buying. For nutrient export on an established tank, read <a href={url('/guides/carbon-dosing')}>carbon dosing and its oxygen risks</a>. The <a href={url('/guides')}>guides hub</a> separates setup, mineral dosing, and nutrient export.</p>
     <EmailCapture />
   </section>
 </Base>

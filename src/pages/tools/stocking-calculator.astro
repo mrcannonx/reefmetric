@@ -10,15 +10,18 @@ const fish = (fishData as any).fish as { name: string; family: string; adultSize
 const dataDate = (fishData as any).generated as string;
 // Group by family for a readable list.
 const families = [...new Set(fish.map((f) => f.family))];
+
+const headline = "Reef Stocking Calculator";
 ---
 <Base
-  title="Reef Stocking Calculator — Bioload & Tank Capacity"
-  description="Plan your reef's fish list without overstocking. Add fish, get a bioload score against your tank's real capacity, plus minimum-tank and aggression warnings for each pick."
+  headline={headline}
+  title="Reef Stocking Calculator: Fish & Bioload"
+  description="Plan reef fish stocking using tank capacity and bioload estimates. Check minimum tank sizes and aggression warnings before adding fish to your list."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Stocking Calculator', href: '/tools/stocking-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Stocking Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">"How many fish can my tank hold?" has no exact answer — but it has a <strong>sensible range</strong>, and some hard rules about who fits where. Set your tank size, build a fish list, and get a bioload score against a conservative capacity — plus the minimum-tank and aggression warnings that actually sink stocking plans.</p>
 
     <div class="calc card">

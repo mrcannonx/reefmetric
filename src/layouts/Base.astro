@@ -1,5 +1,5 @@
 ---
-import { SITE, NAV } from '../consts';
+import { SITE, NAV, EDITORIAL_UPDATED_AT } from '../consts';
 import { url } from '../utils/url';
 import '../styles/global.css';
 
@@ -10,31 +10,44 @@ interface Props {
   canonical?: string;
   noindex?: boolean;
   image?: string;
+  headline?: string;
   breadcrumbs?: Breadcrumb[];
 }
-const { title, description = SITE.description, canonical, noindex: noindexProp = false, image, breadcrumbs } = Astro.props;
+const { title, description = SITE.description, canonical, noindex: noindexProp = false, image, headline, breadcrumbs: suppliedBreadcrumbs } = Astro.props;
 const pageTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
 // Strip the .html extension (and trailing /index) that Astro.url.pathname carries under
 // build.format:'file' — the sitemap and every internal link use the extensionless form,
 // so the canonical must match it or GSC reports every URL as a duplicate with a mismatched
 // canonical.
-const cleanPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
-const canonicalURL = canonical ?? new URL(cleanPath || '/', SITE.url).href;
+const cleanPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const localPath = basePath && cleanPath.startsWith(`${basePath}/`) ? cleanPath.slice(basePath.length) : cleanPath === basePath ? '/' : cleanPath;
+const siteURL = Astro.site ?? new URL(SITE.url);
+const resolvedCanonical = new URL(canonical ?? cleanPath, siteURL).href;
+// @astrojs/sitemap removes the root slash for build.format:'file'. Match its
+// emitted URL byte-for-byte, as well as keeping extensionless child canonicals.
+const canonicalURL = new URL(resolvedCanonical).pathname === '/' ? resolvedCanonical.replace(/\/$/, '') : resolvedCanonical;
 const noindex = noindexProp || import.meta.env.PUBLIC_NOINDEX === 'true';
-const ogImage = new URL(image ?? '/og-default.png', SITE.url).href;
+const ogImage = new URL(image ?? url('/og-default.png'), siteURL).href;
+const imageAlt = `${SITE.name} — ${SITE.tagline}`;
+const breadcrumbs = suppliedBreadcrumbs ?? (!noindex && localPath !== '/' ? [{ name: title ?? SITE.name, href: localPath }] : []);
+const homeURL = new URL(url('/'), siteURL).href;
+const isArticle = !noindex && headline && /^\/(?:guides|reviews|compare)\//.test(localPath);
+const isApp = !noindex && headline && localPath.startsWith('/tools/');
+const updatedLabel = new Date(EDITORIAL_UPDATED_AT).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Los_Angeles' });
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: SITE.name,
-  url: SITE.url,
-  description: SITE.description,
+  '@id': `${homeURL}#organization`,
+  url: homeURL,
 };
 const websiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SITE.name,
-  url: SITE.url,
-  description: SITE.description,
+  '@id': `${homeURL}#website`,
+  url: homeURL,
 };
 const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
   '@context': 'https://schema.org',
@@ -43,8 +56,32 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
     '@type': 'ListItem',
     position: i + 1,
     name: b.name,
-    item: new URL(url(b.href), SITE.url).href,
+    item: new URL(url(b.href), siteURL).href,
   })),
+} : null;
+const articleLd = isArticle ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${canonicalURL}#article`,
+  mainEntityOfPage: canonicalURL,
+  headline,
+  dateModified: EDITORIAL_UPDATED_AT,
+  author: { '@type': 'Organization', name: SITE.name, url: new URL(url('/about'), siteURL).href },
+  publisher: { '@id': `${homeURL}#organization` },
+} : null;
+// These are free browser tools, not mobile apps. Without genuine user reviews
+// they are not eligible for Google's software-app stars; never invent a rating.
+const appLd = isApp ? {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  '@id': `${canonicalURL}#calculator`,
+  name: headline,
+  url: canonicalURL,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  browserRequirements: 'JavaScript is needed for live results.',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
 } : null;
 ---
 
@@ -55,8 +92,9 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalURL} />
+    <link rel="preload" href={url('/fonts/space-grotesk-latin.woff2')} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -70,13 +108,17 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
     {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+    {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
+    {appLd && <script type="application/ld+json" set:html={JSON.stringify(appLd)} />}
     <!-- Cloudflare Web Analytics — cookieless, no personal data, no consent banner required -->
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aff7ac4ac456478781ac996eb3f26a0a"}'></script>
   </head>
@@ -102,6 +144,8 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
       </nav>
     )}
     <main>
+      {isArticle && <p class="container" data-page-meta style="padding-top:16px;font-size:.8rem;color:var(--muted)">By <a href={url('/about')}>ReefMetric</a>. Page updated: <time datetime={EDITORIAL_UPDATED_AT}>{updatedLabel}</time>. Equipment data keeps the source dates shown below.</p>}
+      {isApp && <p class="container" data-page-meta style="padding-top:16px;font-size:.8rem;color:var(--muted)">Free browser calculator. JavaScript is needed for live results. No account is required.</p>}
       <slot />
     </main>
     <footer class="site-footer">
@@ -113,7 +157,7 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
         <a href={url('/disclosure')}>Affiliate Disclosure</a>
         <a href={url('/privacy')}>Privacy</a>
       </nav>
-      <p class="fine">© 2026 ReefMetric. Independent and reader-supported. As an Amazon Associate we earn from qualifying purchases. We also participate in other affiliate programs and earn from qualifying purchases — it never affects our ratings.</p>
+      <p class="fine">© 2026 ReefMetric. Independent and reader-supported. Qualifying purchases through approved affiliate links may earn a commission. Our rankings follow our published method.</p>
     </footer>
   </body>
 </html>

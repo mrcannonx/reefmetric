@@ -5,15 +5,18 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 import wmData from '../../data/wavemakers.json';
 const dataDate = (wmData as any).generated as string;
+
+const headline = "Reef Flow Calculator";
 ---
 <Base
-  title="Reef Flow Calculator — Turnover Target + Wavemakers That Hit It"
-  description="How much flow does your reef actually need? Sourced turnover targets by coral type, minus your return pump's contribution — then the wavemakers that hit the number, ranked by real cost."
+  headline={headline}
+  title="Reef Flow Calculator: Turnover & Wavemakers"
+  description="Calculate reef flow targets by coral type, subtract return flow, and compare wavemakers by output and cost. See the assumptions behind each target."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Flow Calculator', href: '/tools/flow-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Flow Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">"More flow" is reef advice; a number is a plan. Your target depends on what you keep — softies sway, SPS demand a storm — and your return pump is already doing part of the job. Enter both and get the real gap, plus the wavemakers that close it, ranked by what they cost to get there.</p>
 
     <div class="calc card">
@@ -91,7 +94,7 @@ const dataDate = (wmData as any).generated as string;
     results.innerHTML = fits.map((f: any, idx: number) => {
       const w = f.wm;
       const thumb = w.imageUrl
-        ? `<div class="rthumb"><img src="${w.imageUrl}" alt="${esc(w.brand)} ${esc(w.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        ? `<div class="rthumb"><img src="${w.imageUrl}" alt="${esc(w.brand)} ${esc(w.model)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       const issues = (w.knownIssues && w.knownIssues[0]) ? `<div class="rmeta" style="color:#9a5a3a;">Known: ${esc(w.knownIssues[0])}</div>` : '';
       return `

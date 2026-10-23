@@ -2,11 +2,13 @@
 import Base from '../layouts/Base.astro';
 import CardArt from '../components/CardArt.astro';
 import { url } from '../utils/url';
+import pumpData from '../data/pumps.json';
+import saltData from '../data/salts.json';
 const tools = [
-  { name: 'Return Pump Calculator', desc: 'Enter your tank size, head height, and plumbing → the real flow each of 41 pumps delivers at your total dynamic head, ranked, with the math shown.', status: 'Live · Free', href: '/tools/return-pump-calculator', art: 'calc-pump' },
+  { name: 'Return Pump Calculator', desc: `Enter tank size, head height, and plumbing to estimate delivered flow for ${pumpData.pumps.length} pumps, with the math shown.`, status: 'Live · Free', href: '/tools/return-pump-calculator', art: 'calc-pump' },
   { name: 'Protein Skimmer Size Calculator', desc: 'Enter your tank volume + bioload → which skimmers actually fit once we derate the optimistic manufacturer ratings, ranked, with footprint and price.', status: 'Live · Free', href: '/tools/protein-skimmer-calculator', art: 'calc-skimmer' },
-  { name: 'Reef Tank Cost Calculator', desc: 'Itemized up-front cost + monthly running cost (electricity, salt, consumables) for any tank size and build tier.', status: 'Live · Free', href: '/tools/reef-build-cost-calculator', art: 'calc-cost' },
-  { name: 'Salt Cost-per-Gallon Calculator', desc: 'Compare 12 reef salts by real cost per mixed gallon — not the box price — plus your actual monthly salt cost.', status: 'Live · Free', href: '/tools/salt-cost-calculator', art: 'salt' },
+  { name: 'Reef Build & Aquarium Electricity Cost Calculator', desc: 'Estimate equipment and monthly costs, or calculate electricity from measured watts, hours, days, and your utility rate.', status: 'Live · Free', href: '/tools/reef-build-cost-calculator', art: 'calc-cost' },
+  { name: 'Instant Ocean & Reef Salt Cost Calculator', desc: `Compare ${saltData.salts.length} salt mixes by cost per mixed gallon, including Instant Ocean Sea Salt and Reef Crystals, plus monthly salt costs.`, status: 'Live · Free', href: '/tools/salt-cost-calculator', art: 'salt' },
   { name: 'Reef Dosing Calculator', desc: 'Alk, calcium, or magnesium — the exact dose to hit your target, split safely across days, for DIY and bottled two-parts.', status: 'Live · Free', href: '/tools/reef-dosing-calculator', art: 'doser' },
   { name: 'Water Change Calculator', desc: 'Nitrate at 40 and want 10? The exact dilution math — one big change vs. a series of small ones, with gallons and the level after each step.', status: 'Live · Free', href: '/tools/water-change-calculator', art: 'water-change' },
   { name: 'Flow Calculator', desc: 'Your turnover target by coral type, minus what your return already delivers — then the wavemakers that close the gap, ranked by real cost.', status: 'Live · Free', href: '/tools/flow-calculator', art: 'wavemaker' },
@@ -18,11 +20,18 @@ const tools = [
   { name: 'Controller Comparison', desc: 'Apex vs GHL vs Hydros vs budget — every kit, price, and feature, side by side.', status: 'Live · Free', href: '/compare/apex-vs-hydros-vs-ghl', art: 'controller' },
 ];
 ---
-<Base title="Reef Tools & Calculators" description="Free calculators and comparison databases for saltwater aquarium gear — return pumps, skimmers, lighting, and full reef builds.">
+<Base title="Reef Calculator: Free Aquarium Tools" description="Choose a reef calculator for return pumps, skimmer sizing, dosing, salt, aquarium electricity costs, or a full build. Free tools with their inputs shown.">
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Tools</p>
-    <h1>Reef tools &amp; calculators.</h1>
-    <p style="color:var(--muted);max-width:60ch;">The interactive data other reef sites don’t have. Built to answer the size- and setup-specific questions forums answer badly — and Google can’t summarize away.</p>
+    <h1>Reef calculator tools: size gear, dose &amp; budget.</h1>
+    <p>Planning equipment? Start with the <a href={url('/tools/return-pump-calculator')}>reef return pump calculator</a> for your plumbing and the <a href={url('/tools/protein-skimmer-calculator')}>protein skimmer size calculator</a> for your tank's stocking. Use the <a href={url('/tools/reef-build-cost-calculator')}>reef tank cost calculator</a> to compare the whole build before buying.</p>
+    <p style="color:var(--muted);max-width:60ch;">Choose the reef calculator for the question you need answered. Each tool explains its inputs and assumptions; equipment rankings use recorded specifications, and costs are estimates rather than current quotes. No account is needed.</p>
+    <h2 id="quick-answer">Which reef calculator do you need?</h2>
+    <ul>
+      <li><strong>Buying gear:</strong> calculate <a href={url('/tools/return-pump-calculator')}>return flow after head loss</a> or <a href={url('/tools/protein-skimmer-calculator')}>reef protein skimmer size</a>, then compare the <a href={url('/reviews/best-return-pumps')}>return pump picks</a> and <a href={url('/reviews/best-protein-skimmers')}>best protein skimmer picks</a>.</li>
+      <li><strong>Running costs:</strong> use the <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost calculator</a> for measured watts and the <a href={url('/tools/salt-cost-calculator')}>Instant Ocean salt calculator</a> for salt costs.</li>
+      <li><strong>Dosing and top-off:</strong> calculate mineral additions with the <a href={url('/tools/reef-dosing-calculator')}>reef dosing calculator</a>, compare <a href={url('/reviews/best-reef-dosing-pumps')}>reef tank dosing pumps</a>, and choose an <a href={url('/reviews/best-ato')}>ATO with backup shutoffs</a>.</li>
+    </ul>
     <div class="grid cols-2" style="margin-top:26px;">
       {tools.map((t) => (t as any).href ? (
         <a class="card cardlink" href={url((t as any).href)}>

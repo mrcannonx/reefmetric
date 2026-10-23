@@ -5,15 +5,18 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 import htData from '../../data/heaters.json';
 const dataDate = (htData as any).generated as string;
+
+const headline = "Heater Size Calculator";
 ---
 <Base
-  title="Aquarium Heater Size Calculator — Watts by Tank Size & Room Temp"
-  description="What size heater does your tank actually need? Wattage computed from your volume and the real room-to-tank temperature gap — plus why two smaller heaters beat one big one, with sourced picks."
+  headline={headline}
+  title="Aquarium Heater Size Calculator"
+  description="Estimate aquarium heater wattage from tank volume and room temperature. Compare heater options and see why split heating and a controller matter."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Heater Calculator', href: '/tools/heater-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Heater Size Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">Heater failure is the most common cause of catastrophic tank loss in this hobby — and half the risk is set at purchase time, by buying the wrong size or trusting one thermostat. Enter your volume and your <em>real</em> room temperature, and get the wattage, the split, and the safety setup.</p>
 
     <div class="calc card">
@@ -108,7 +111,7 @@ const dataDate = (htData as any).generated as string;
     results.innerHTML = rows.map((r: any, idx: number) => {
       const h = r.h;
       const thumb = h.imageUrl
-        ? `<div class="rthumb"><img src="${h.imageUrl}" alt="${esc(h.brand)} ${esc(h.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        ? `<div class="rthumb"><img src="${h.imageUrl}" alt="${esc(h.brand)} ${esc(h.model)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       const acc = h.accuracy ? esc(h.accuracy) : 'no accuracy spec — element only';
       const warn = h.builtInThermostat === false

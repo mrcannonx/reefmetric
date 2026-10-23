@@ -5,15 +5,18 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 import doseData from '../../data/dose-data.json';
 const isSample = (doseData as any).sample === true;
+
+const headline = "Reef Dosing Calculator";
 ---
 <Base
-  title="Reef Dosing Calculator (Alk, Calcium, Magnesium)"
-  description="Free reef dosing calculator for alkalinity, calcium, and magnesium. Enter your tank size, current and target levels, and additive — get the exact dose, split safely across days if the correction is large."
+  headline={headline}
+  title="Reef Dosing Calculator: Alk, Calcium & Mg"
+  description="Calculate reef alkalinity, calcium, and magnesium doses from water volume, current level, target, and additive. See limits for splitting corrections."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Reef Dosing Calculator', href: '/tools/reef-dosing-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef Dosing Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">Raise alkalinity, calcium, or magnesium to your target — with the exact dose for your tank, and an automatic split across days when the jump is too big to do safely at once.</p>
 
     {isSample && (

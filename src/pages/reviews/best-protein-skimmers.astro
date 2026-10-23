@@ -97,16 +97,23 @@ const itemListLd = {
     name: `${p.s.brand} ${p.s.model}`,
   })),
 };
+
+const headline = "Best protein skimmer for your reef tank size";
+const quickPick = sections[2].picks[0];
 ---
 <Base
-  title="Best Protein Skimmers by Tank Size (2026) — Honest Capacity Ratings"
-  description="The best protein skimmers for nano, 40 breeder, 75 and 120+ gallon reef tanks — ranked by honest bioload-adjusted capacity, not the box's optimistic 'rated up to' number."
+  headline={headline}
+  title="Best Protein Skimmer by Reef Tank Size (2026)"
+  description="Find protein skimmers for nano, 40 breeder, 75, and 120 gallon reef tanks. Compare capacity adjusted for bioload, footprint, and price."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Protein Skimmers', href: '/reviews/best-protein-skimmers' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Protein Skimmers</p>
-    <h1>Best protein skimmers, sized by honest capacity</h1>
-    <p class="lede-dark">A skimmer "rated up to 150 gallons" usually means 150 lightly-stocked gallons — on a normal mixed reef it's a 100-gallon skimmer, on a heavy fish load it's a 75. We rank by <strong>bioload-adjusted capacity</strong>: the manufacturer's own light/medium/heavy ratings where published, a conservative derate where they only give one optimistic number. Same math as our <a href={url('/tools/protein-skimmer-calculator')}>skimmer calculator</a>.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">The best protein skimmer is one that covers your tank at its actual fish load and fits the sump. For the 75-gallon, medium-load reference below, our smallest qualifying model is the {quickPick.s.brand} {quickPick.s.model}, with {quickPick.effective} gallons of {quickPick.published ? 'published' : 'estimated'} medium-load capacity. Use the <a href={url('/tools/protein-skimmer-calculator')}>protein skimmer sizing calculator</a> for a different tank or fish load.</p>
+    <h2 id="quick-answer">Choose capacity before brand</h2>
+    <p>Use the manufacturer's light, medium, or heavy rating when supplied. When only one rating exists, our model keeps 70% for a medium load or 50% for a heavy load. Then check body footprint, cup-removal clearance, and sump water depth. A larger headline gallon rating cannot solve a skimmer that does not physically fit.</p>
+    <p>For the brand choice, compare <a href={url('/compare/reef-octopus-vs-nyos-vs-aquamaxx')}>Reef Octopus, Nyos, and AquaMaxx</a> on the same capacity basis. For a full equipment budget, use the <a href={url('/tools/reef-build-cost-calculator')}>reef build cost calculator</a>.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">How these picks work: computed from manufacturer ratings (dataset updated {dataDate}) at a medium mixed-reef bioload — nobody pays for placement, and nothing here is described as hand-tested when it wasn't. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
@@ -120,7 +127,7 @@ const itemListLd = {
           <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
             {p.s.imageUrl && (
               <div class="rthumb">
-                <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+                <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
               </div>
             )}
             <div class="rmain">

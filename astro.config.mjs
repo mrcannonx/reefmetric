@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { copyFile } from 'node:fs/promises';
 
 // ReefMetric — static-first affiliate site (Cloudflare Pages target).
 // Doctrine: fast Core Web Vitals, flat URLs, static output, minimal client JS.
@@ -15,6 +16,24 @@ export default defineConfig({
   base: process.env.DEPLOY_BASE || '/',
   trailingSlash: 'never',
   build: { format: 'file' }, // flat /about.html → clean URLs, no 301 on static hosts
-  // /go/ = affiliate redirects; /cheat-sheet* = the noindex email-capture deliverable.
-  integrations: [sitemap({ filter: (page) => !page.includes('/go/') && !page.includes('/cheat-sheet') })],
+  // Keep the Astro integration as the source of the URL set. Its file-format
+  // sitemap uses the bare origin for home; Base.astro uses that same canonical.
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname.replace(/\/$/, '');
+        return !path.includes('/go/') && !path.includes('/cheat-sheet') && !path.endsWith('/404');
+      },
+    }),
+    {
+      name: 'reefmetric-sitemap-alias',
+      hooks: {
+        // Runs after @astrojs/sitemap, including when CI calls astro build directly.
+        // Copy the real index, rather than maintaining a second sitemap by hand.
+        'astro:build:done': async ({ dir }) => {
+          await copyFile(new URL('sitemap-index.xml', dir), new URL('sitemap.xml', dir));
+        },
+      },
+    },
+  ],
 });

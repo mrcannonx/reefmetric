@@ -63,15 +63,18 @@ const faqLd = {
   '@type': 'FAQPage',
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
+
+const headline = "Hanna vs Salifert vs Red Sea — the test kit face-off, by published specs";
 ---
 <Base
-  title="Best Reef Test Kits (2026) — Hanna vs Salifert vs Red Sea, by Published Specs"
-  description="Reef test kits compared on the numbers the manufacturers actually publish — accuracy, resolution, and true cost per test — for alkalinity, calcium, magnesium, phosphate, and nitrate."
+  headline={headline}
+  title="Best Reef Test Kits: Hanna, Salifert & Red Sea"
+  description="Compare Hanna, Salifert, and Red Sea reef test kits by published accuracy, resolution, and cost per test for five common water parameters."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Test Kits', href: '/reviews/best-reef-test-kits' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Test Kits</p>
-    <h1>Hanna vs Salifert vs Red Sea — the test kit face-off, by published specs</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">Every "best test kit" list says <em>accurate</em>; almost none quotes an accuracy spec. The manufacturers publish these numbers — Hanna states ±0.3 dKH ±5%, Red Sea claims 0.14 dKH, Salifert publishes step resolution but no ± spec at all — and comparing them changes the answer. Here's each parameter, with the published specs, the true cost per test, and the failure modes owners actually report.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Where a manufacturer publishes no accuracy spec, we say "not published" — we don't fill the gap with vibes. <a href={url('/how-we-rate')}>Full methodology →</a></p>

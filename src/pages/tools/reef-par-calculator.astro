@@ -10,15 +10,18 @@ const bands = data.parTargets as { key: string; band: string; minPPFD: number; m
 const nLights = data.lights.length;
 const nGap = (data.noParData || []).length;
 const dataDate = data.generated as string;
+
+const headline = "Reef PAR Calculator";
 ---
 <Base
-  title="Reef PAR Calculator — Real Light at Your Coral's Depth"
-  description="Enter your mount height and coral type — see the real PAR each fixture delivers at that height, and which ones actually hit your target band. Built only on published PAR data."
+  headline={headline}
+  title="Reef PAR Calculator: Light at Coral Depth"
+  description="Compare reef light PAR at your mounting height and coral depth using published data. Check soft coral, LPS, and SPS target bands and model limits."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Reef PAR Calculator', href: '/tools/reef-par-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Reef PAR Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">A fixture's "PAR rating" is one number at one height — usually measured closer to the water than you'll ever mount it. Tell us your <strong>real mount height</strong> and what you're keeping, and we'll show the PAR each fixture actually delivers at your coral's depth — and whether it lands in your target band. Only the {nLights} fixtures with <strong>published PAR data</strong> appear here; we don't guess the rest.</p>
 
     <div class="calc card">

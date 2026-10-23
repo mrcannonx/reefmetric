@@ -29,12 +29,12 @@ interface Pick { badge: string; why: string; a: ATO; }
 const picks: Pick[] = [
   {
     badge: 'Most failsafes',
-    why: `Dual optical sensors, a run-time intelligence cutoff, AND a mechanical float valve as the final backstop — the most layers of overfill protection sold. The honest catch: its PMUP pump is the weak link, with widespread impeller-failure reports.`,
+    why: `Dual optical sensing, a run-time cutoff, and a mechanical float valve provide several types of backup. The dataset also records PMUP impeller-failure reports; those reports do not establish a failure rate.`,
     a: byModel('ATK v2'),
   },
   {
-    badge: 'The reliability pick',
-    why: `The hobby's default for over a decade: optical sensor with a float-switch backup, run-dry protection, and the fewest catastrophic-failure reports of anything here. Just don't push kalkwasser through it — that wear isn't warranty-covered.`,
+    badge: 'Optical + float backup',
+    why: `An optical primary sensor and a separate float-switch backup use different sensing methods. Check the pump instructions before using additives; the dataset flags kalkwasser wear and warranty limits.`,
     a: byModel('Osmolator Universal'),
   },
   {
@@ -44,7 +44,7 @@ const picks: Pick[] = [
   },
   {
     badge: 'Budget — single sensor',
-    why: `The cheapest optical unit here, and it works — but it's a single sensor with no second layer, and the owner threads about overnight full-reservoir dumps are exactly what that architecture risks. Fine on a small reservoir; think twice on a big one.`,
+    why: `One optical sensor, with the recorded QST cutoff and siphon break but no separate backup level sensor. Keep the reservoir limited and compare these safeguards with dual-sensor units.`,
     a: byModel('Smart ATO Micro'),
   },
 ];
@@ -80,16 +80,23 @@ const faqLd = {
   '@type': 'FAQPage',
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
+
+const headline = "Best ATO for a reef tank: auto top off with backups";
+const quickPick = byModel('Osmolator Universal');
 ---
 <Base
-  title="Best Auto Top-Off Systems (2026) — Ranked by Failsafes, Not Features"
-  description="ATO systems compared — Tunze Osmolator, Neptune ATK, XP Aqua Duetto, Red Sea ReefATO+, IceCap, AutoAqua — ranked by layers of overfill protection, because the sensor sticking on is the failure that actually matters."
+  headline={headline}
+  title="Best ATO for Reef Tanks: Auto Top Off (2026)"
+  description="Compare reef auto top-off systems by overfill protection, sensor failsafes, and price. See Tunze, Neptune, XP Aqua, and other ATO options."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best ATO Systems', href: '/reviews/best-ato' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Auto Top-Off</p>
-    <h1>Best ATO systems — ranked by what happens when they fail</h1>
-    <p class="lede-dark">An ATO has one job and one catastrophic failure mode: the sensor sticks on, and the pump quietly moves your whole freshwater reservoir into the tank. So we ranked by <strong>layers of overfill protection</strong> — sensor count, run-time cutoffs, mechanical backstops — before price, and put each unit's documented failure reports right in the table.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">The best auto top off for a reef tank needs a backup if its main sensor stays on. The {quickPick.brand} {quickPick.model} is our starting pick for readers who want {quickPick.sensorType}: its recorded price is {money(quickPick.priceUSD)}. Compare pump lift, backup shutoffs, and reservoir size before choosing an ATO; extra sensors do not remove every failure risk.</p>
+    <h2 id="quick-answer">Best ATO: what changes the choice?</h2>
+    <p><strong>Different sensor technologies:</strong> compare Tunze's optical sensor and float backup. <strong>A mechanical final stop:</strong> Neptune's ATK v2 includes a float valve as well as optical sensing. <strong>Lower recorded cost:</strong> compare XP Aqua and IceCap against the full protection list below. This ranking counts documented safeguards; it does not measure failure rates.</p>
+    <p>Use freshwater for evaporation replacement: the salt stays in the aquarium. Keep the reservoir small enough to limit a stuck-on pump's impact, and verify the <a href={url('/tools/salinity-calculator')}>salinity reading</a> if the tank's water level changes unexpectedly. For a larger build, the <a href={url('/guides/120-gallon-reef-tank-setup')}>120-gallon setup guide</a> includes top-off storage in the plan.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Known issues are documented owner reports — including for the premium brands. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
@@ -101,7 +108,7 @@ const faqLd = {
         <div id={slug(p.a)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
           {p.a.imageUrl && (
             <div class="rthumb">
-              <img src={p.a.imageUrl} alt={`${p.a.brand} ${p.a.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+              <img src={p.a.imageUrl} alt={`${p.a.brand} ${p.a.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
             </div>
           )}
           <div class="rmain">
@@ -140,6 +147,7 @@ const faqLd = {
 
   <section class="container prose" style="padding-top:24px;">
     <h2>FAQ</h2>
+    <p>An ATO replaces evaporated fresh water; it does not replace salt lost during a water change. Use the <a href={url('/tools/salinity-calculator')}>salinity calculator</a> to understand your readings, and compare <a href={url('/reviews/best-reef-salt-mix')}>reef salt mixes</a> separately when planning new saltwater.</p>
     {faqs.map((f) => (
       <>
         <h3 style="font-size:1.05rem;">{f.q}</h3>

@@ -93,7 +93,7 @@ const sections = CLASSES.map((c) => {
   if (eff) {
     picks.push({
       badge: 'Efficiency pick',
-      why: `Best delivered-flow-per-watt of the pumps that qualify — ${Math.round(eff.deliveredGPH / eff.pump.watts!)} GPH per watt. Cheapest to run 24/7.`,
+      why: `Most delivered flow per rated watt among the remaining qualifying pumps — ${Math.round(eff.deliveredGPH / eff.pump.watts!)} GPH per watt. Actual power draw depends on the operating point.`,
       pump: eff.pump,
       deliveredGPH: eff.deliveredGPH,
       turnover: eff.turnoverAtDisplay,
@@ -121,30 +121,37 @@ const itemListLd = {
     name: `${p.pump.brand} ${p.pump.model}`,
   })),
 };
+
+const headline = "Best return pumps for reef tanks, by delivered flow";
+const quickPick = sections[2].picks[0];
 ---
 <Base
-  title="Best Return Pumps for Reef Tanks (2026) — Ranked by Delivered Flow"
-  description="The best reef return pumps by tank size, ranked by real delivered flow at realistic head — computed from manufacturer curves with Hazen-Williams friction math, not zero-head box numbers."
+  headline={headline}
+  title="Best Return Pumps for Reef Tanks (2026)"
+  description="Find reef return pumps by tank size and delivered flow after head loss. Rankings use manufacturer curves, plumbing estimates, and price."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Return Pumps', href: '/reviews/best-return-pumps' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Return Pumps</p>
-    <h1>Best return pumps, ranked by the flow you actually get</h1>
-    <p class="lede-dark">Every "best return pump" list ranks by the box's max GPH — a number measured at <em>zero</em> head that no sump setup ever sees. We rank by <strong>delivered flow through realistic plumbing</strong> for each tank size, computed from each pump's published curve. Same math as our <a href={url('/tools/return-pump-calculator')}>return pump calculator</a>.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">The best return pump for a reef tank meets your target flow <em>after</em> lift and pipe friction. For our 75-gallon reference setup, the {quickPick.pump.brand} {quickPick.pump.model} is the smallest qualifying pump: {quickPick.deliveredGPH} GPH against a {sections[2].targetGPH} GPH target. Change the plumbing in the <a href={url('/tools/return-pump-calculator')}>return pump calculator</a> before treating it as your pick.</p>
+    <h2 id="quick-answer">Which return pump fits your tank?</h2>
+    <ul>{sections.map((s) => <li><a href={`#pick-${s.cls.key}`}>{s.cls.label}</a>: {s.picks[0].pump.brand} {s.picks[0].pump.model}, {s.picks[0].deliveredGPH} GPH modeled against a {s.targetGPH} GPH target. Reference lift: {s.cls.inputs.staticHeadFt} ft.</li>)}</ul>
+    <p>These are sizing estimates from the recorded pump data, not bench tests. Sump return flow is separate from in-tank coral circulation. Compare <a href={url('/guides/dc-vs-ac-return-pumps')}>AC pump vs DC pump</a> control and running costs after sizing; a low purchase price cannot make an undersized pump fit.</p>
     <Disclosure />
     <p class="rnote" style="margin-top:0">How these picks work: rankings are computed from manufacturer flow curves (dataset updated {dataDate}) at each class's reference plumbing below — nobody pays for placement, and a pump we haven't bench-tested is never described as tested. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   {sections.map((s) => (
     <section class="container" style="padding-top:16px;padding-bottom:20px;">
-      <h2>{s.cls.label}</h2>
+      <h2 id={`pick-${s.cls.key}`}>{s.cls.label}</h2>
       <p style="color:var(--muted);max-width:64ch;">{s.cls.blurb} Target: <strong>{s.targetGPH} GPH</strong> delivered (7× turnover).</p>
       <div class="results">
         {s.picks.map((p, idx) => (
           <div class={`rcard ${idx === 0 ? 'win' : ''}`}>
             {p.pump.imageUrl && (
               <div class="rthumb">
-                <img src={p.pump.imageUrl} alt={`${p.pump.brand} ${p.pump.model}`} loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'" />
+                <img src={p.pump.imageUrl} alt={`${p.pump.brand} ${p.pump.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
               </div>
             )}
             <div class="rmain">

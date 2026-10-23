@@ -4,15 +4,18 @@ import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 import { REEF_TARGET } from '../../utils/salinity-calc';
+
+const headline = "Salinity Calculator";
 ---
 <Base
-  title="Salinity Calculator — Specific Gravity ↔ ppt ↔ Conductivity"
-  description="Convert between specific gravity, salinity (ppt), and conductivity (mS/cm) at the 25°C reference — plus a temperature correction for glass hydrometers. Reef target: 35 ppt / 1.0264."
+  headline={headline}
+  title="Salinity Calculator: Specific Gravity & ppt"
+  description="Convert reef salinity between specific gravity, ppt, and conductivity at 25°C. Apply glass-hydrometer temperature corrections and see the limits."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Salinity Calculator', href: '/tools/salinity-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Salinity Calculator</h1>
+    <h1>{headline}</h1>
     <p class="lede-dark">A hydrometer reads <strong>specific gravity</strong>, a refractometer reads <strong>ppt</strong>, a controller probe reads <strong>conductivity</strong> — three numbers for one thing, and reef advice mixes them constantly. Enter whichever your instrument shows and get the other two, plus a straight verdict on whether you're where a reef wants to be ({REEF_TARGET.ppt} ppt / SG {REEF_TARGET.sg}).</p>
 
     <div class="calc card">

@@ -4,28 +4,22 @@ import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
 
-const cost = [
-  { item: 'Tank + stand (120g, 48×24×24″)', budget: '$800–1,400', mid: '$1,400–2,800' },
-  { item: 'Sump (30–40g purpose-built)', budget: '$180–350', mid: '$350–700' },
-  { item: 'Return pump (~840 GPH at the tank)', budget: '$120–200', mid: '$200–380' },
-  { item: 'Protein skimmer', budget: '$250–400', mid: '$400–800' },
-  { item: 'Reef lighting (2–3 fixtures, 24″ punch)', budget: '$600–1,000', mid: '$1,000–2,200' },
-  { item: 'Powerheads / flow', budget: '$200–350', mid: '$350–700' },
-  { item: '2× heaters ~200–250W each + controller', budget: '$70–120', mid: '$120–220' },
-  { item: 'Rock (~80–120 lb) + sand (~110 lb)', budget: '$200–380', mid: '$380–650' },
-  { item: 'RODI unit (higher-output)', budget: '$120–200', mid: '$200–350' },
-  { item: 'Salt, test kits, ATO, extras', budget: '$150–260', mid: '$260–500' },
-];
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../../data/setup-budgets';
+const cost = SETUP_BUDGETS[120];
+
+const headline = "120 Gallon Reef Tank: Setup, Gear List & Cost";
 ---
 <Base
-  title="120 Gallon Reef Tank Setup Guide, Gear List & Cost"
-  description="The 120 gallon reef tank setup guide: what the 2-foot depth changes about lighting and aquascaping, floor-loading and RODI logistics nobody mentions, the full gear list, and honest 2026 costs."
+  headline={headline}
+  title="120 Gallon Reef Tank Setup: Gear & Cost"
+  description="Plan a 120 gallon reef tank with a gear list and cost estimates. Check lighting coverage, return flow, skimmer size, floor loading, and RODI needs."
   breadcrumbs={[{ name: 'Guides', href: '/guides' }, { name: '120 Gallon Reef Setup', href: '/guides/120-gallon-reef-tank-setup' }]}
 >
   <section class="container prose" style="padding-top:40px;">
     <p class="eyebrow" style="color:var(--brand-2)">Setup guide</p>
-    <h1>120 Gallon Reef Tank: Setup, Gear List &amp; Cost</h1>
-    <p class="lede-dark">The 120 (48 × 24 × 24″) is where a reef becomes an <em>aquascape</em>. Two full feet front-to-back means islands, canyons, and swim-throughs instead of a rock wall — and two feet of height means your lighting choice finally has consequences. Here's the build, including the logistics guides written around smaller tanks never mention.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">A 120 gallon reef tank with a 48 × 24 × 24-inch footprint needs lighting planned across both its width and depth, room for a sump, and a floor checked for the loaded system. At this guide's 7× return-flow target, plan for 840 GPH delivered after head loss. The gear list totals {moneyRange(setupTotal(120, 'budget'))} for a value build or {moneyRange(setupTotal(120, 'mid'))} for mid-range gear, before livestock.</p>
+    <p><strong>Before ordering:</strong> measure the sump chamber, check light coverage at 24 inches of water depth, and plan freshwater storage for top-off and water changes. Use the <a href={url('/tools/return-pump-calculator')}>return pump calculator</a> with your actual pipe run; an 840 GPH box rating does not mean 840 GPH reaches the display.</p>
 
     <Disclosure />
 
@@ -68,11 +62,11 @@ const cost = [
     <table class="costtable">
       <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
       <tbody>
-        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{moneyRange(c.budget)}</td><td>{moneyRange(c.mid)}</td></tr>))}
       </tbody>
-      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$2,700–4,800</strong></td><td><strong>~$4,800–9,400</strong></td></tr></tfoot>
+      <tfoot><tr><td><strong>Sum of the listed gear</strong></td><td><strong>{moneyRange(setupTotal(120, 'budget'))}</strong></td><td><strong>{moneyRange(setupTotal(120, 'mid'))}</strong></td></tr></tfoot>
     </table>
-    <p class="rnote">Ranges, not quotes. The recurring lines scale too: a 120 doing 10% weekly changes mixes ~52 gallons of saltwater a month — <a href={url('/reviews/best-reef-salt-mix')}>salt choice</a> is now a real annual number, and dosing demand usually justifies <a href={url('/reviews/best-reef-dosing-pumps')}>a dosing pump</a> within the first year.</p>
+    <p class="rnote">Editorial ranges, not quotes. Totals sum the rows above; livestock and corals are excluded. The recurring lines scale too: a 120 doing 10% weekly changes mixes ~52 gallons of saltwater a month — <a href={url('/reviews/best-reef-salt-mix')}>salt choice</a> is now a real annual number, and dosing demand usually justifies <a href={url('/reviews/best-reef-dosing-pumps')}>a dosing pump</a> within the first year.</p>
 
     <h2>Stocking a 120</h2>
     <p>The list finally opens up: most tangs (yellow, purple, tomini, even a hippo with rockwork planned for it), angel pairs, foxface, larger wrasses — alongside everything the smaller tanks allow. The 4-foot length is still the honest limit: adult naso tangs and true cruisers want six feet, and a 120 doesn't become a 180 because the fish is small today.</p>
@@ -81,7 +75,7 @@ const cost = [
     <p>Verify the floor → tank, stand, sump placed and level → plumb and <em>water-test the plumbing with fresh water</em> (a 120's flood is a homeowners-insurance event, not a towel event) → RODI, saltwater, aquascape → equipment on → cycle (2–6 weeks) → cleanup crew → fish, then corals, slowly.</p>
 
     <h2>Other sizes</h2>
-    <p>Not ready for the floor-loading and the four-figure lighting line? <a href={url('/guides/75-gallon-reef-tank-setup')}>The 75</a> keeps the four-foot length and 18″ of depth at half the running cost. Starting smaller: <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>the 40 breeder</a> or <a href={url('/guides/30-gallon-reef-tank-setup')}>the 30</a>.</p>
+    <p>Not ready for the floor-loading and the four-figure lighting line? <a href={url('/guides/75-gallon-reef-tank-setup')}>The 75</a> keeps the four-foot length and 18″ of depth with a smaller water volume and a lower equipment budget. Starting smaller: <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>the 40 breeder</a> or <a href={url('/guides/30-gallon-reef-tank-setup')}>the 30</a>.</p>
   </section>
 
   <section class="container">

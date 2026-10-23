@@ -1,21 +1,26 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { url } from '../../utils/url';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
-import { BIOLOAD_OPTIONS } from '../../utils/skimmer-calc';
+import { BIOLOAD_OPTIONS, effectiveCapacity, type Skimmer } from '../../utils/skimmer-calc';
 import skimmerData from '../../data/skimmers.json';
 
 const isSample = (skimmerData as any).sample === true;
+
+const headline = "Reef protein skimmer sizing calculator";
+const example = (skimmerData.skimmers as Skimmer[]).find((s) => s.ratingMedium && s.ratedGallons >= 100)!;
 ---
 <Base
-  title="Protein Skimmer Size Calculator (what size do I need?)"
-  description="Free protein skimmer size calculator. Enter your tank volume and bioload — we derate the optimistic manufacturer ratings and show which skimmers actually fit your reef, ranked, with footprint and price."
+  headline={headline}
+  title="Reef Protein Skimmer Sizing Calculator"
+  description="Size a protein skimmer for your reef tank and bioload. Compare adjusted capacity, sump footprint, water depth, and price using published specs."
   breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Protein Skimmer Calculator', href: '/tools/protein-skimmer-calculator' }]}
 >
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
-    <h1>Protein Skimmer Size Calculator</h1>
-    <p class="lede-dark">Skimmer "rated up to X gallons" numbers are marketing — measured at <em>light</em> bioload. Tell us your tank and how heavily it's stocked and we'll <strong>derate honestly</strong> and show what actually fits.</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">Size a reef protein skimmer by water volume, fish load, and sump space. Use the manufacturer's bioload-specific capacity where it exists; otherwise this calculator estimates 70% of the headline rating for a medium load and 50% for a heavy load. These are sizing assumptions, not measurements of waste removal.</p>
 
     {isSample && (
       <p class="sample-note">⚙️ Preview build — running on sample skimmer specs while the full, source-verified database is finalized. Numbers here are illustrative.</p>
@@ -51,6 +56,11 @@ const isSample = (skimmerData as any).sample === true;
   </section>
 
   <section class="container prose">
+    <h2 id="quick-answer">How much skimmer capacity do you need?</h2>
+    <p>The adjusted capacity must cover the volume you enter. For example, our recorded {example.brand} {example.model} has a headline rating of {example.ratedGallons} gallons. Its capacity changes with the selected load:</p>
+    <table class="breakdown"><thead><tr><th>Bioload</th><th>Capacity from this calculator</th></tr></thead><tbody>{BIOLOAD_OPTIONS.map((b) => <tr><td>{b.label}</td><td>{effectiveCapacity(example, b.value)} gallons</td></tr>)}</tbody></table>
+    <p>Example data date: {skimmerData.generated}. Check the model's sump water depth and footprint before buying. Compare the <a href={url('/reviews/best-protein-skimmers')}>best protein skimmer picks by tank size</a> when several options fit.</p>
+
     <h2>Why skimmer ratings are optimistic</h2>
     <p>Manufacturers rate a skimmer at its <em>best case</em> — a lightly-stocked, lightly-fed tank. Load the same tank with a full fish list and heavy feeding and that skimmer is suddenly undersized. That's why the reef rule of thumb is "buy a skimmer rated for roughly <strong>double your display volume</strong>." We do that math for you: we take the manufacturer's number and <strong>derate it by your bioload</strong> (heavy ≈ 50% of the rated number, medium ≈ 70%, light = as-rated), or use the manufacturer's own light/medium/heavy breakdown when they publish one.</p>
 
@@ -58,6 +68,7 @@ const isSample = (skimmerData as any).sample === true;
     <p>An oversized skimmer on a lightly-fed tank can skim <em>too</em> aggressively and go unstable (constant overflowing or nothing at all). Aim for a skimmer whose derated rating comfortably covers your tank — not one rated for triple. The smallest model that clears your number is usually the right buy.</p>
 
     <h2>Check the footprint and water depth</h2>
+    <p>Use the <a href={url('/reviews/best-protein-skimmers')}>protein skimmer rankings by tank size</a> to compare reference picks with your result. If several brands fit, the <a href={url('/compare/reef-octopus-vs-nyos-vs-aquamaxx')}>Reef Octopus, Nyos, and AquaMaxx comparison</a> separates capacity, power use, and price on the same basis.</p>
     <p>The best-rated skimmer is useless if it won't fit your sump. Two specs decide that: the skimmer's <strong>footprint</strong> (it needs to sit in your skimmer chamber) and its <strong>recommended water depth</strong> — run it too deep or too shallow and it won't skim right. Every skimmer below lists both.</p>
 
     <h2>In-sump vs. hang-on-back vs. nano</h2>
@@ -108,7 +119,7 @@ const isSample = (skimmerData as any).sample === true;
       const price = s.priceUSD ? ` · ~$${s.priceUSD}` : '';
       const basis = r.usesPublishedRating ? '' : ' <span title="Derated from the single manufacturer rating (no published bioload breakdown)">*</span>';
       const thumb = s.imageUrl
-        ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.model)}" loading="lazy" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
+        ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.model)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       return `
         <div class="rcard ${r.fits ? 'win' : ''}">
