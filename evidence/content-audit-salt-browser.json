@@ -1,0 +1,23 @@
+{
+  "browser": "Playwright Chromium public fresh headless context",
+  "results": [
+    {
+      "url": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "status": 200,
+      "title": "Seachem Vibrant Sea Salt - 220 gal",
+      "has10372": true,
+      "has9333": false,
+      "has220": true,
+      "visible_text_sample_sha256": "1cda3c2ded179d3b5b276cb78a99fcc6c82727b5665a84d2b35a72a667ff6b15"
+    },
+    {
+      "url": "https://squeakysaquatics.com/products/seachem-vibrant-sea-salt-mix-220-gallon",
+      "status": 200,
+      "title": "Seachem Vibrant Sea Salt Mix 220 Gallon | Enhanced Potassium Reef Salt \u2013 Squeaky's Aquatics",
+      "has10372": false,
+      "has9333": true,
+      "has220": true,
+      "visible_text_sample_sha256": "115b7f4c0232663c39959f5ea11f75bd594b55d9834765915d7f1c425ece310b"
+    }
+  ]
+}

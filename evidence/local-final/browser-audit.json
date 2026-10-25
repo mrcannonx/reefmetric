@@ -1,0 +1,5642 @@
+{
+  "origin": "http://127.0.0.1:4326",
+  "at": "2026-10-25T17:42:19.085Z",
+  "widths": [
+    320,
+    375,
+    390,
+    768,
+    1440
+  ],
+  "pages": [
+    {
+      "path": "/cheat-sheet-email.html",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 0,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 0,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 0,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 0,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 0,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/cheat-sheet-email.html",
+      "resources": []
+    },
+    {
+      "path": "/about",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/about",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 10
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 11
+        }
+      ]
+    },
+    {
+      "path": "/404",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/404",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 11
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 12
+        }
+      ]
+    },
+    {
+      "path": "/cheat-sheet",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/cheat-sheet",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "path": "/compare/reef-octopus-vs-nyos-vs-aquamaxx",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/compare/reef-octopus-vs-nyos-vs-aquamaxx",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "path": "/compare/apex-vs-hydros-vs-ghl",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/7f183508b41f58065220.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 128,
+          "naturalHeight": 97,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/4a8eea78b74a5f944ad9.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 128,
+          "naturalHeight": 85,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/f94f4d7e745533236456.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 128,
+          "naturalHeight": 122,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/c3e2f885dc12ba0e92d7.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/compare/apex-vs-hydros-vs-ghl",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 6
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/4a8eea78b74a5f944ad9.webp",
+          "bytes": 1550,
+          "transfer": 1850,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/7f183508b41f58065220.webp",
+          "bytes": 1850,
+          "transfer": 2150,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/f94f4d7e745533236456.webp",
+          "bytes": 1924,
+          "transfer": 2224,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/c3e2f885dc12ba0e92d7.webp",
+          "bytes": 10366,
+          "transfer": 10666,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "path": "/disclosure",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/disclosure",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/compare",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/compare",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/guides/120-gallon-reef-tank-setup",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/120-gallon-reef-tank-setup",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/guides/30-gallon-reef-tank-setup",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/30-gallon-reef-tank-setup",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/guides/40-gallon-breeder-reef-tank-setup",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/40-gallon-breeder-reef-tank-setup",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 12
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 12
+        }
+      ]
+    },
+    {
+      "path": "/guides/55-gallon-reef-tank-setup",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/55-gallon-reef-tank-setup",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/guides/75-gallon-reef-tank-setup",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/75-gallon-reef-tank-setup",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 13
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 11
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 13
+        }
+      ]
+    },
+    {
+      "path": "/guides/carbon-dosing",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/carbon-dosing",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 12
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 13
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 13
+        }
+      ]
+    },
+    {
+      "path": "/guides/dc-vs-ac-return-pumps",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 9
+              },
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/dc-vs-ac-return-pumps",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/guides/kalkwasser-dosing",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides/kalkwasser-dosing",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 12
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 12
+        }
+      ]
+    },
+    {
+      "path": "/guides",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 8
+              },
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 5
+              }
+            ]
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/guides",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 11
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 11
+        }
+      ]
+    },
+    {
+      "path": "/how-we-rate",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/how-we-rate",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "path": "/privacy",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/privacy",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 10
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 1,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 10
+              }
+            ]
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-ato",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/7ca72e7e1f46fa6f1c1b.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/63fe1f73a3f2226b8d6c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/5e90999b7587e57f9ec4.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-ato",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/63fe1f73a3f2226b8d6c.webp",
+          "bytes": 5444,
+          "transfer": 5744,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/7ca72e7e1f46fa6f1c1b.webp",
+          "bytes": 3630,
+          "transfer": 3930,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/5e90999b7587e57f9ec4.webp",
+          "bytes": 5868,
+          "transfer": 6168,
+          "duration": 7
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-reef-dosing-pumps",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/99547b941c30e12b864c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/4773bbba3c4a538a6a22.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/c5562f9c9e8d47dd03bd.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/26107baadf8c45d88028.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-reef-dosing-pumps",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/99547b941c30e12b864c.webp",
+          "bytes": 6560,
+          "transfer": 6860,
+          "duration": 8
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/4773bbba3c4a538a6a22.webp",
+          "bytes": 6146,
+          "transfer": 6446,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/26107baadf8c45d88028.webp",
+          "bytes": 2760,
+          "transfer": 3060,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/c5562f9c9e8d47dd03bd.webp",
+          "bytes": 3280,
+          "transfer": 3580,
+          "duration": 9
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-protein-skimmers",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/aa73daf0c7210e3e944f.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/16bb6ab97098b3fee810.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/b642bb68e1036822398a.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/16bb6ab97098b3fee810.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/b642bb68e1036822398a.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/123fff6a4b325e7efc2c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/084940191a95eddb79ae.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/15c9a3216d54244ca924.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/31b516c49bc1881fd276.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-protein-skimmers",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/aa73daf0c7210e3e944f.webp",
+          "bytes": 2960,
+          "transfer": 3260,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/16bb6ab97098b3fee810.webp",
+          "bytes": 3482,
+          "transfer": 3782,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "bytes": 3780,
+          "transfer": 4080,
+          "duration": 8
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/b642bb68e1036822398a.webp",
+          "bytes": 4562,
+          "transfer": 4862,
+          "duration": 8
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/123fff6a4b325e7efc2c.webp",
+          "bytes": 3756,
+          "transfer": 4056,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/084940191a95eddb79ae.webp",
+          "bytes": 3734,
+          "transfer": 4034,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/15c9a3216d54244ca924.webp",
+          "bytes": 6572,
+          "transfer": 6872,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/31b516c49bc1881fd276.webp",
+          "bytes": 4964,
+          "transfer": 5264,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-reef-led-lighting",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-reef-led-lighting",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-reef-salt-mix",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-reef-salt-mix",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-reef-test-kits",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-reef-test-kits",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-return-pumps",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/109adb74dc6ef255734b.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/936abae1e0ac863146c7.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/936abae1e0ac863146c7.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/27a29142761f57100c22.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 189,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/ab8beb024cc84327b88c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 170,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/aab4c23c0cd31b2d038e.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/ab8beb024cc84327b88c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 170,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/8df0eaa46e7b920fee43.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 205,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-return-pumps",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 11
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 11
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/936abae1e0ac863146c7.webp",
+          "bytes": 6738,
+          "transfer": 7038,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/109adb74dc6ef255734b.webp",
+          "bytes": 6774,
+          "transfer": 7074,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/ab8beb024cc84327b88c.webp",
+          "bytes": 3448,
+          "transfer": 3748,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/27a29142761f57100c22.webp",
+          "bytes": 5056,
+          "transfer": 5356,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/8df0eaa46e7b920fee43.webp",
+          "bytes": 1908,
+          "transfer": 2208,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/aab4c23c0cd31b2d038e.webp",
+          "bytes": 7292,
+          "transfer": 7592,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/reviews/best-wavemakers",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/a9d0c82cf8d6ec89e004.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/e1562a92a031d9fdb5eb.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/72cb60e0c417af2575db.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews/best-wavemakers",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 6
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/a9d0c82cf8d6ec89e004.webp",
+          "bytes": 6404,
+          "transfer": 6704,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/72cb60e0c417af2575db.webp",
+          "bytes": 5968,
+          "transfer": 6268,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/e1562a92a031d9fdb5eb.webp",
+          "bytes": 5636,
+          "transfer": 5936,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "path": "/reviews",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/aa73daf0c7210e3e944f.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/29f1af15c68aed3dfb44.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/a01f5b3232edfbdc89e7.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/86b9d2c87046fe0d5666.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/99547b941c30e12b864c.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/6421f8b9256d0c7d5584.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/5e90999b7587e57f9ec4.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/340c8e5751c7988db100.webp",
+          "width": 300,
+          "height": 135,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/reviews",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 6
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/aa73daf0c7210e3e944f.webp",
+          "bytes": 2960,
+          "transfer": 3260,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/a01f5b3232edfbdc89e7.webp",
+          "bytes": 6802,
+          "transfer": 7102,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/29f1af15c68aed3dfb44.webp",
+          "bytes": 3968,
+          "transfer": 4268,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/86b9d2c87046fe0d5666.webp",
+          "bytes": 3684,
+          "transfer": 3984,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/99547b941c30e12b864c.webp",
+          "bytes": 6560,
+          "transfer": 6860,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/5e90999b7587e57f9ec4.webp",
+          "bytes": 5868,
+          "transfer": 6168,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/6421f8b9256d0c7d5584.webp",
+          "bytes": 5674,
+          "transfer": 5974,
+          "duration": 10
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/340c8e5751c7988db100.webp",
+          "bytes": 4296,
+          "transfer": 4596,
+          "duration": 11
+        }
+      ]
+    },
+    {
+      "path": "/tools/flow-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/578bf10c643b7376626d.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/a9d0c82cf8d6ec89e004.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/9e1aea1242b71344f66c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/85aedfa0239d1d534c4c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/b8b6e4536ee235e505f1.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/6421f8b9256d0c7d5584.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/954c52ebdfdc8454f9a3.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/45fcea2850e19da14820.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/d8f50e67069dfed31ca0.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/72cb60e0c417af2575db.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/9b87e4309dff0d89af50.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/flow-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 7
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/flow-calculator.astro_astro_type_script_index_0_lang.fwEsWcg5.js",
+          "bytes": 15743,
+          "transfer": 16043,
+          "duration": 7
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/affiliate-config.BhWNB45F.js",
+          "bytes": 960,
+          "transfer": 1260,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/url.CoO0X_JH.js",
+          "bytes": 124,
+          "transfer": 424,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/578bf10c643b7376626d.webp",
+          "bytes": 6918,
+          "transfer": 7218,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/a9d0c82cf8d6ec89e004.webp",
+          "bytes": 6404,
+          "transfer": 6704,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/9e1aea1242b71344f66c.webp",
+          "bytes": 2668,
+          "transfer": 2968,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/85aedfa0239d1d534c4c.webp",
+          "bytes": 4686,
+          "transfer": 4986,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/b8b6e4536ee235e505f1.webp",
+          "bytes": 5808,
+          "transfer": 6108,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/6421f8b9256d0c7d5584.webp",
+          "bytes": 5674,
+          "transfer": 5974,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/954c52ebdfdc8454f9a3.webp",
+          "bytes": 5152,
+          "transfer": 5452,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/45fcea2850e19da14820.webp",
+          "bytes": 4972,
+          "transfer": 5272,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/d8f50e67069dfed31ca0.webp",
+          "bytes": 4148,
+          "transfer": 4448,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/72cb60e0c417af2575db.webp",
+          "bytes": 5968,
+          "transfer": 6268,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/9b87e4309dff0d89af50.webp",
+          "bytes": 9050,
+          "transfer": 9350,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/tools/heater-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/58aa0e3b2bc04f6dc4cf.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/392181aa9f9c40a199a3.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/9df8e2a07696e04ccd67.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/8f0da9b94539708909e7.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/heater-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 11
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 9
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 11
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/heater-calculator.astro_astro_type_script_index_0_lang.CxMOwep7.js",
+          "bytes": 10621,
+          "transfer": 10921,
+          "duration": 11
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/affiliate-config.BhWNB45F.js",
+          "bytes": 960,
+          "transfer": 1260,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/9df8e2a07696e04ccd67.webp",
+          "bytes": 6240,
+          "transfer": 6540,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/58aa0e3b2bc04f6dc4cf.webp",
+          "bytes": 3910,
+          "transfer": 4210,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/8f0da9b94539708909e7.webp",
+          "bytes": 6168,
+          "transfer": 6468,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/392181aa9f9c40a199a3.webp",
+          "bytes": 7332,
+          "transfer": 7632,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/tools/protein-skimmer-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/123fff6a4b325e7efc2c.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/084940191a95eddb79ae.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/15c9a3216d54244ca924.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/protein-skimmer-calculator",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/protein-skimmer-calculator.astro_astro_type_script_index_0_lang.BVDvPE3_.js",
+          "bytes": 19655,
+          "transfer": 19955,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/affiliate-config.BhWNB45F.js",
+          "bytes": 960,
+          "transfer": 1260,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/123fff6a4b325e7efc2c.webp",
+          "bytes": 3756,
+          "transfer": 4056,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/eab8725550c0ec85b637.webp",
+          "bytes": 3780,
+          "transfer": 4080,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/084940191a95eddb79ae.webp",
+          "bytes": 3734,
+          "transfer": 4034,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/15c9a3216d54244ca924.webp",
+          "bytes": 6572,
+          "transfer": 6872,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "path": "/tools/reef-build-cost-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "nodes": 8
+              },
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loading",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/reef-build-cost-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/reef-build-cost-calculator.astro_astro_type_script_index_0_lang.DWYXNnW8.js",
+          "bytes": 4169,
+          "transfer": 4469,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "path": "/tools/reef-dosing-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/reef-dosing-calculator",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 12
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 13
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 13
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/reef-dosing-calculator.astro_astro_type_script_index_0_lang.AKMQIMAA.js",
+          "bytes": 7580,
+          "transfer": 7880,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "path": "/tools/reef-par-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/reef-par-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 13
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 12
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/reef-par-calculator.astro_astro_type_script_index_0_lang.CvUPEFWk.js",
+          "bytes": 6634,
+          "transfer": 6934,
+          "duration": 14
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "path": "/tools/return-pump-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/8d76b5a5092bfe5105c4.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/37d37cabe14a4f57215b.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/8a944599d5c2ec913160.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/1fcd0d8a5ba62b13b68d.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/27a29142761f57100c22.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 189,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/b73ece0cb9ed43695a65.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/return-pump-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 6
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/return-pump-calculator.astro_astro_type_script_index_0_lang.Bu87MirS.js",
+          "bytes": 28164,
+          "transfer": 28464,
+          "duration": 6
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/affiliate-config.BhWNB45F.js",
+          "bytes": 960,
+          "transfer": 1260,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/8d76b5a5092bfe5105c4.webp",
+          "bytes": 5608,
+          "transfer": 5908,
+          "duration": 77
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/37d37cabe14a4f57215b.webp",
+          "bytes": 6840,
+          "transfer": 7140,
+          "duration": 77
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/8a944599d5c2ec913160.webp",
+          "bytes": 5578,
+          "transfer": 5878,
+          "duration": 77
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/1fcd0d8a5ba62b13b68d.webp",
+          "bytes": 7574,
+          "transfer": 7874,
+          "duration": 77
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/27a29142761f57100c22.webp",
+          "bytes": 5056,
+          "transfer": 5356,
+          "duration": 78
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/b73ece0cb9ed43695a65.webp",
+          "bytes": 2994,
+          "transfer": 3294,
+          "duration": 78
+        }
+      ]
+    },
+    {
+      "path": "/tools/salinity-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/salinity-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/salinity-calculator.astro_astro_type_script_index_0_lang.cDCCgNAr.js",
+          "bytes": 3698,
+          "transfer": 3998,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/tools/salt-cost-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4326/images/products/a01f5b3232edfbdc89e7.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:4326/images/products/da87bff4dcc21b1a01c1.webp",
+          "width": 62,
+          "height": 62,
+          "naturalWidth": 256,
+          "naturalHeight": 256,
+          "loading": "eager",
+          "complete": true
+        }
+      ],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/salt-cost-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/salt-cost-calculator.astro_astro_type_script_index_0_lang.gKQaOsaJ.js",
+          "bytes": 12097,
+          "transfer": 12397,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/affiliate-config.BhWNB45F.js",
+          "bytes": 960,
+          "transfer": 1260,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/a01f5b3232edfbdc89e7.webp",
+          "bytes": 6802,
+          "transfer": 7102,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/images/products/da87bff4dcc21b1a01c1.webp",
+          "bytes": 5862,
+          "transfer": 6162,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "path": "/tools/salt-mixing-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/salt-mixing-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 20
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 12
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "path": "/tools/tank-volume-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/tank-volume-calculator",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/tank-volume-calculator.astro_astro_type_script_index_0_lang.MhAwQzOX.js",
+          "bytes": 3333,
+          "transfer": 3633,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "path": "/tools/stocking-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 3,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/stocking-calculator",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/stocking-calculator.astro_astro_type_script_index_0_lang.C6D8489-.js",
+          "bytes": 9468,
+          "transfer": 9768,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/tools/water-change-calculator",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 2
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools/water-change-calculator",
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 3
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 2
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/water-change-calculator.astro_astro_type_script_index_0_lang.zn_09egX.js",
+          "bytes": 3661,
+          "transfer": 3961,
+          "duration": 4
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/input-calc.B9GVkr8K.js",
+          "bytes": 985,
+          "transfer": 1285,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/url.CoO0X_JH.js",
+          "bytes": 124,
+          "transfer": 424,
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "path": "/tools",
+      "widths": [
+        {
+          "innerWidth": 320,
+          "viewport": 320,
+          "scroll": 320,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 320
+        },
+        {
+          "innerWidth": 375,
+          "viewport": 375,
+          "scroll": 375,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 375
+        },
+        {
+          "innerWidth": 390,
+          "viewport": 390,
+          "scroll": 390,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 390,
+          "axe": {
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "nodes": 1
+              }
+            ]
+          }
+        },
+        {
+          "innerWidth": 768,
+          "viewport": 768,
+          "scroll": 768,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loading",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 768
+        },
+        {
+          "innerWidth": 1440,
+          "viewport": 1440,
+          "scroll": 1440,
+          "overflow": false,
+          "textEdges": [],
+          "fonts": "loaded",
+          "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "css": 2,
+          "width": 1440,
+          "axe": {
+            "violations": [],
+            "incomplete": []
+          }
+        }
+      ],
+      "console": [],
+      "pageErrors": [],
+      "httpErrors": [],
+      "images": [],
+      "status": 200,
+      "finalURL": "http://127.0.0.1:4326/tools",
+      "resources": [
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js",
+          "bytes": 0,
+          "transfer": 0,
+          "duration": 3
+        },
+        {
+          "url": "http://127.0.0.1:4326/_astro/about.Ck9CD83e.css",
+          "bytes": 10694,
+          "transfer": 10994,
+          "duration": 5
+        },
+        {
+          "url": "http://127.0.0.1:4326/fonts/space-grotesk-latin.woff2",
+          "bytes": 22320,
+          "transfer": 22620,
+          "duration": 5
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "overflow": {
+      "expected": "FAIL",
+      "detected": true,
+      "measurement": {
+        "innerWidth": 390,
+        "viewport": 390,
+        "scroll": 700,
+        "overflow": true,
+        "textEdges": [],
+        "fonts": "loaded",
+        "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "css": 1
+      }
+    },
+    "notFound": {
+      "expected": 404,
+      "status": 404
+    }
+  },
+  "blockedRequests": [
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "method": "GET"
+    }
+  ],
+  "notes": [
+    "Email POST and analytics blocked deliberately; no emails or live writes. Browser measurements cover rendered DOM, not field Core Web Vitals."
+  ],
+  "summary": {
+    "pages": 43,
+    "pageErrors": 0,
+    "consoleErrors": [],
+    "httpErrors": [],
+    "brokenImages": [],
+    "overflow": [],
+    "textEdges": [],
+    "axe": []
+  }
+}

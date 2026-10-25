@@ -9,6 +9,9 @@ export interface Salt {
   priceUSD: number;
   params?: string;
   retailers?: string[];
+  source?: string;
+  yieldSalinityPpt?: number | null;
+  yieldNote?: string;
 }
 
 export const FREQUENCIES: { value: string; label: string; perMonth: number }[] = [
@@ -36,10 +39,11 @@ export function rankSalts(
   changePct: number,
   changesPerMonth: number,
   salts: Salt[]
-): { results: SaltResult[]; gallonsMonthly: number } {
+): { results: SaltResult[]; gallonsMonthly: number; comparable: boolean } {
   const gpm = gallonsPerMonth(tankGallons, changePct, changesPerMonth);
+  const comparable = salts.length > 0 && salts.every((s) => s.yieldSalinityPpt != null && s.yieldSalinityPpt === salts[0].yieldSalinityPpt);
   const results = salts
-    .map((s) => ({ salt: s, costPerGal: costPerGallon(s), monthly: costPerGallon(s) * gpm }))
-    .sort((a, b) => a.costPerGal - b.costPerGal);
-  return { results, gallonsMonthly: gpm };
+    .map((s) => ({ salt: s, costPerGal: costPerGallon(s), monthly: costPerGallon(s) * gpm }));
+  if (comparable) results.sort((a, b) => a.costPerGal - b.costPerGal);
+  return { results, gallonsMonthly: gpm, comparable };
 }

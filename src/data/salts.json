@@ -4,136 +4,275 @@
     {
       "brand": "Instant Ocean",
       "product": "Sea Salt",
-      "gallonsPerBox": 200,
-      "priceUSD": 74.99,
-      "params": "Baseline reef-safe formula near natural seawater levels (alk/ca/mg not elevated)",
+      "gallonsPerBox": 150,
+      "priceUSD": 68.99,
+      "params": "Sea salt; compare the freshly mixed water with your tank before use.",
       "retailers": [
         "Bulk Reef Supply",
         "Amazon",
         "Marine Depot"
       ],
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250338-instantocean-seasalt-mix-150gallon-box-cv1_1.jpg"
+      "imageUrl": null,
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 74.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "priceSource": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "package": "150-gallon bags (SKU 250338)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
     },
     {
       "brand": "Instant Ocean",
       "product": "Reef Crystals",
       "gallonsPerBox": 160,
       "priceUSD": 74.99,
-      "params": "Enriched with extra calcium and trace elements for coral growth vs standard Sea Salt",
+      "params": "Retailer describes extra calcium, trace elements, and vitamins relative to standard Sea Salt.",
       "retailers": [
         "Bulk Reef Supply",
         "Amazon",
         "Marine Depot"
       ],
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/256337-reef-crystals-160-gallon-bucket-instant-ocean_1.jpg"
+      "imageUrl": "/images/products/a01f5b3232edfbdc89e7.webp",
+      "previousRecord": {
+        "gallonsPerBox": 160,
+        "priceUSD": 74.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "priceSource": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "package": "160-gallon bucket (SKU 256337)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt.",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/256337-reef-crystals-160-gallon-bucket-instant-ocean_1.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Red Sea",
       "product": "Coral Pro Salt",
       "gallonsPerBox": 175,
-      "priceUSD": 109.99,
-      "params": "Elevated alkalinity (11-12.4 dKH) and calcium for enhanced coral calcification (SPS-friendly)",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Red Sea",
-      "product": "Red Sea Salt (Blue Bucket)",
-      "gallonsPerBox": 200,
-      "priceUSD": 119.99,
-      "params": "Natural seawater ionic ratios, moderate alk (~8.3 dKH), lower nutrient import for stability",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Tropic Marin",
-      "product": "Pro Reef Salt",
-      "gallonsPerBox": 200,
-      "priceUSD": 181.99,
-      "params": "Balanced bio-active formula with elevated calcium/magnesium tuned for reef tanks",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Tropic Marin",
-      "product": "Classic Sea Salt",
-      "gallonsPerBox": 200,
-      "priceUSD": 159.99,
-      "params": "Near-natural seawater parameters, low nutrient, favored for sensitive/mixed reef systems",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Fritz Aquatics",
-      "product": "RPM (Reef Pro Mix)",
-      "gallonsPerBox": 200,
-      "priceUSD": 94.99,
-      "params": "Elevated alk/ca/mg profile formulated for stony coral growth and stability",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Brightwell Aquatics",
-      "product": "NeoMarine",
-      "gallonsPerBox": 150,
-      "priceUSD": 89.99,
-      "params": "USP/ACS reagent-grade ingredients, natural seawater ratios (~7.5 dKH alk) for reef stability",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Aquaforest",
-      "product": "Reef Salt",
-      "gallonsPerBox": 200,
       "priceUSD": 99.99,
-      "params": "Elevated alk/ca/mg (SPS-focused), low phosphate/nitrate for pristine reef water",
-      "retailers": [
-        "Bulk Reef Supply",
-        "Amazon",
-        "Marine Depot"
-      ]
-    },
-    {
-      "brand": "Aquaforest",
-      "product": "Sea Salt",
-      "gallonsPerBox": 200,
-      "priceUSD": 89.99,
-      "params": "Balanced general-reef formula, moderate alk/ca for mixed fish/coral systems",
+      "params": "Retailer lists alkalinity 12.3-12.7 dKH at 35 ppt; compare with the alkalinity you maintain.",
       "retailers": [
         "Bulk Reef Supply",
         "Amazon",
         "Marine Depot"
       ],
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/e/sea-salt_22-kg_new_2.jpg"
+      "previousRecord": {
+        "gallonsPerBox": 175,
+        "priceUSD": 109.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "priceSource": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "package": "175-gallon bucket (SKU 256249)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+    },
+    {
+      "brand": "Red Sea",
+      "product": "Red Sea Salt (Blue Bucket)",
+      "gallonsPerBox": 200,
+      "priceUSD": 99.99,
+      "params": "Retailer lists alkalinity 7.7-8.1 dKH at 35 ppt; this entry prices the sack, not the bucket.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 119.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "priceSource": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "package": "200-gallon sack (SKU 211875)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+    },
+    {
+      "brand": "Tropic Marin",
+      "product": "Pro Reef Salt",
+      "gallonsPerBox": 160,
+      "priceUSD": 105.99,
+      "params": "Reef salt; follow the listed mixing instructions and measure the resulting salinity.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 181.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "priceSource": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "package": "160-gallon box (SKU 232007)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+    },
+    {
+      "brand": "Tropic Marin",
+      "product": "Classic Sea Salt",
+      "gallonsPerBox": 160,
+      "priceUSD": 91.99,
+      "params": "Classic sea salt; use the current product specification rather than assuming its chemistry matches Pro Reef.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 159.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "priceSource": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "package": "160-gallon box (SKU 232292)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+    },
+    {
+      "brand": "Fritz Aquatics",
+      "product": "RPM (Reef Pro Mix)",
+      "gallonsPerBox": 205,
+      "priceUSD": 82.19,
+      "params": "Maker lists alkalinity 8-9 dKH at 35 ppt for the blue formula; Redline is a separate formula.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 94.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://fritzaquatics.com/products/fritz-rpm-reef-pro-mix",
+      "priceSource": "https://aquacave.com/fritz-pro-r-p-m-salt-mix-55-lb-box-200-gal-mix.html",
+      "package": "55-pound box (maker item 75080243; retailer SA-FR-PRO205)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": 30,
+      "yieldNote": "Maker lists 205 gallons at 30 ppt for the 55-pound box. Retailer title says 200 gallons for that box. This estimate uses the maker's 205-gallon/30-ppt figure; a 35-ppt yield will be lower."
+    },
+    {
+      "brand": "Brightwell Aquatics",
+      "product": "NeoMarine",
+      "gallonsPerBox": 150,
+      "priceUSD": 131.22,
+      "params": "Retailer states about 7.5 dKH at its stated SG 1.025 mixing recipe.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 150,
+        "priceUSD": 89.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "priceSource": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "package": "150-gallon package (SKU 209233)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Listing says the stated package volume is mixed to SG 1.025; it does not state a matching ppt value or reference-temperature basis beside the yield. Not normalized to 35 ppt.",
+      "yieldSpecificGravity": 1.025
+    },
+    {
+      "brand": "Aquaforest",
+      "product": "Reef Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 89.88,
+      "params": "Reef Salt formula; do not confuse it with Reef Salt+ or Hybrid Pro.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 99.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "priceSource": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "package": "200-gallon box (SKU 250788)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt."
+    },
+    {
+      "brand": "Aquaforest",
+      "product": "Sea Salt",
+      "gallonsPerBox": 200,
+      "priceUSD": 82.88,
+      "params": "Retailer lists alkalinity 8.3-8.9 dKH at 35 ppt for this formula.",
+      "retailers": [
+        "Bulk Reef Supply",
+        "Amazon",
+        "Marine Depot"
+      ],
+      "imageUrl": "/images/products/da87bff4dcc21b1a01c1.webp",
+      "previousRecord": {
+        "gallonsPerBox": 200,
+        "priceUSD": 89.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "priceSource": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "package": "200-gallon box, 5 x 5 kg (SKU 250795)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt.",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/e/sea-salt_22-kg_new_2.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Seachem",
       "product": "Vibrant Sea",
-      "gallonsPerBox": 160,
-      "priceUSD": 79.99,
-      "params": "Natural seawater ionic balance with added trace elements, low-nutrient reef formula",
+      "gallonsPerBox": 220,
+      "priceUSD": 103.72,
+      "params": "Maker describes an enhanced-potassium blend; follow its mixing directions for the target salinity.",
       "retailers": [
         "Amazon",
         "Marine Depot"
-      ]
+      ],
+      "previousRecord": {
+        "gallonsPerBox": 160,
+        "priceUSD": 79.99,
+        "recordedOn": "2026-07-01"
+      },
+      "source": "https://www.seachem.com/vibrant-sea.php",
+      "priceSource": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "package": "220-gallon package (retailer RAQ-28719)",
+      "priceVerifiedOn": "2026-10-25",
+      "yieldVerifiedOn": "2026-10-25",
+      "yieldSalinityPpt": null,
+      "yieldNote": "Maker lists 27 g/L for SG 1.020 and 31 g/L for SG 1.023. The retailer package says 220 gallons; that yield is not verified at 35 ppt."
     }
   ]
 }

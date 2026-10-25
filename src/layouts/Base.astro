@@ -123,9 +123,10 @@ const appLd = isApp ? {
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aff7ac4ac456478781ac996eb3f26a0a"}'></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <a href={url('/')} class="wordmark">Reef<span>Metric</span></a>
-      <nav>
+      <nav aria-label="Main">
         {NAV.map((item) => <a href={url(item.href)}>{item.label}</a>)}
       </nav>
     </header>
@@ -143,7 +144,7 @@ const appLd = isApp ? {
         ))}
       </nav>
     )}
-    <main>
+    <main id="main-content">
       {isArticle && <p class="container" data-page-meta style="padding-top:16px;font-size:.8rem;color:var(--muted)">By <a href={url('/about')}>ReefMetric</a>. Page updated: <time datetime={EDITORIAL_UPDATED_AT}>{updatedLabel}</time>. Equipment data keeps the source dates shown below.</p>}
       {isApp && <p class="container" data-page-meta style="padding-top:16px;font-size:.8rem;color:var(--muted)">Free browser calculator. JavaScript is needed for live results. No account is required.</p>}
       <slot />

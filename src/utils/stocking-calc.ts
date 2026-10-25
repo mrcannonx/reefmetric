@@ -1,7 +1,7 @@
 // Reef stocking / bioload sanity-check for ReefMetric.
 // Bioload is genuinely fuzzy — no formula captures feeding habits, growth, and filtration
 // exactly. So this is deliberately a SANITY CHECK, not a license: a relative load score
-// against a conservative capacity, plus the parts that ARE reliable — minimum-tank-size
+// against a conservative capacity, plus the parts that ARE more concrete — minimum-tank-size
 // violations and well-known aggression/shoaling rules. Every number is flagged as an estimate.
 
 export interface Fish {
@@ -17,14 +17,14 @@ export interface Fish {
 
 export interface Selection { fish: Fish; count: number; }
 
-// Capacity: a "comfortable" line calibrated against real well-stocked reefs, not the old
+// Capacity: an editorial planning line, not the old
 // inch-per-gallon myth. ~1 adult bioload-unit (length × waste factor) per 1.8 gallons of
 // true water volume at standard filtration. Sanity anchors this was tuned to:
 //   • 40g, a pair of clowns + goby + firefish → ~60% (comfortably well-stocked)
 //   • 40g, that plus a dwarf angel + wrasse → ~95% (full but fine)
 //   • 125g, a tang + 2 clowns + angel + 5 chromis + wrasse → ~72% (well-stocked)
 // A big skimmer / heavy filtration buys headroom; a light setup gives less.
-const GAL_PER_BIOLOAD_UNIT = 1.8;
+export const GAL_PER_BIOLOAD_UNIT = 1.8;
 export const FILTRATION = [
   { value: 'light', label: 'Light — HOB / small skimmer', mult: 0.75 },
   { value: 'standard', label: 'Standard — properly-sized skimmer', mult: 1.0 },
@@ -72,12 +72,8 @@ export function computeStocking(
   if (angels > 1) {
     warnings.push('Dwarf angels are territorial with their own kind — one per tank unless it\'s very large and heavily aquascaped.');
   }
-  // Reliable rule 4 — shoaling fish kept in unstable small groups.
-  for (const s of active) {
-    if (s.fish.shoaling && s.count >= 2 && s.count <= 4) {
-      warnings.push(`${s.fish.name} does best as a single or an odd group of 5+ — groups of 2–4 tend to bully down to one.`);
-    }
-  }
+  // Social grouping is species-specific. A universal "odd groups of 5+" rule
+  // contradicts bonded-pair species, so use each species' care note below.
   // Care notes for anything selected.
   for (const s of active) {
     if (s.fish.careNote) warnings.push(`${s.fish.name}: ${s.fish.careNote}`);
@@ -90,16 +86,16 @@ export function computeStocking(
     headline = 'Add a few fish to see the load.';
   } else if (pct < 45) {
     status = 'understocked';
-    headline = 'Plenty of room — you could add more, slowly.';
+    headline = 'Lower estimated load — research each addition before buying.';
   } else if (pct <= 90) {
     status = 'well-stocked';
-    headline = 'A comfortable, well-stocked reef.';
+    headline = 'Moderate estimated load — check each species’ needs.';
   } else if (pct <= 120) {
     status = 'full';
-    headline = 'Full house — stop here and keep up with water changes.';
+    headline = 'Higher estimated load — review stocking and nutrient export.';
   } else {
     status = 'overstocked';
-    headline = 'Over the comfortable line — expect nitrate and aggression pressure.';
+    headline = 'Above this model’s planning line — review stocking and filtration.';
   }
 
   return { loadUnits, capacityUnits, pct, totalFish, status, headline, warnings };

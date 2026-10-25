@@ -9,13 +9,13 @@ interface Props {
 const { href, label = 'Check price', merchant } = Astro.props;
 ---
 <a class="aff-btn" href={href} target="_blank" rel="sponsored nofollow noopener">
-  {label}{merchant ? ` at ${merchant}` : ''} <span aria-hidden="true">↗</span>
+  {label}{merchant ? ` at ${merchant}` : ''} <span aria-hidden="true">↗</span> <small>(paid link)</small>
 </a>
 <style>
   .aff-btn {
     display: inline-block;
     background: var(--coral);
-    color: #fff;
+    color: var(--ink);
     font-weight: 700;
     font-family: var(--font-display);
     padding: 11px 18px;

@@ -1,0 +1,630 @@
+{
+  "audit_date": "2026-10-25",
+  "method": "Two curl GET passes; statuses and titles retained. Body hashes retained; copied retailer body text omitted. Browser fallback separately recorded where curl was blocked.",
+  "fetches": [
+    {
+      "url": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.637560+00:00",
+      "body_sha256": "322844225356c2ef33efc26bce4ba084a58b8c239d184ed90117a475e4c44e77",
+      "download_bytes": 74696,
+      "title": "Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "c017a7e39f5466e189f742fe39f62e00e8a2e4290da0d0738b25402689dc5376",
+      "audit_fact": [
+        {
+          "product": "Instant Ocean Sea Salt",
+          "package": "150-gallon bags (SKU 250338)",
+          "recorded_price_usd": 68.99,
+          "recorded_yield_gallons": 150,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.294194+00:00",
+      "body_sha256": "46971126339d95dfe698333503d2cdb45542a4cc770ea49ebb6651b228b19f92",
+      "download_bytes": 80946,
+      "title": "Reef Crystals Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "7579d567bff927cfddecb3192e64f37d482ff1d9be20addc8a4540079664e417",
+      "audit_fact": [
+        {
+          "product": "Instant Ocean Reef Crystals",
+          "package": "160-gallon bucket (SKU 256337)",
+          "recorded_price_usd": 74.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.583351+00:00",
+      "body_sha256": "3933f3da98f61d0a024fd4c08ee96b3b99ca9775dba657db2dd3143fa8b885a8",
+      "download_bytes": 86088,
+      "title": "Red Sea Coral Pro Salt - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "c45287f14a68164b0cf8e652c1d2d5617e562e18dde0724e43e545655d2ad928",
+      "audit_fact": [
+        {
+          "product": "Red Sea Coral Pro Salt",
+          "package": "175-gallon bucket (SKU 256249)",
+          "recorded_price_usd": 99.99,
+          "recorded_yield_gallons": 175,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.277042+00:00",
+      "body_sha256": "04fe2c7e08582c28e54b0ef08f282b0c6b3c5697dab2bc54dd502b4377dcd532",
+      "download_bytes": 82641,
+      "title": "Aquarium Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "5b2d705c6ec85100a785881afb1dbcc4f67e071b3ab154c2f162d088222bbcd0",
+      "audit_fact": [
+        {
+          "product": "Red Sea Red Sea Salt (Blue Bucket)",
+          "package": "200-gallon sack (SKU 211875)",
+          "recorded_price_usd": 99.99,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.282372+00:00",
+      "body_sha256": "a083253dec79124bf3351700055c9504d13c0c29518cbf4021c0c770ff143df3",
+      "download_bytes": 84626,
+      "title": "Pro Reef Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "46f697a54b73e844c1048774ee11a01e4f29ed3fe98e0ec249c99d45f72dd3c7",
+      "audit_fact": [
+        {
+          "product": "Tropic Marin Pro Reef Salt",
+          "package": "160-gallon box (SKU 232007)",
+          "recorded_price_usd": 105.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.930161+00:00",
+      "body_sha256": "dc2e280470dfb0946397b1f5a68704f0c65bd28651d88c5c3c436693ea4991f1",
+      "download_bytes": 77954,
+      "title": "Classic Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "7492918a4e863073f9b4ba9a0b7fbd7e5449f2528ecec84d204d9b274ccb2a79",
+      "audit_fact": [
+        {
+          "product": "Tropic Marin Classic Sea Salt",
+          "package": "160-gallon box (SKU 232292)",
+          "recorded_price_usd": 91.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://fritzaquatics.com/products/fritz-rpm-reef-pro-mix",
+      "status": 200,
+      "final_url": "https://fritzaquatics.com/products/reef-pro-mix/",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:30:48.558981+00:00",
+      "body_sha256": "b57dbf5373e0c3bff96c16d86c9322f50346c817eaad3e12b4ded522766252ba",
+      "download_bytes": 115360,
+      "title": "Fritz RPM Reef Pro Mix | Complete Marine Salt For All Saltwater Systems | Fritz AquaticsFritz RPM Salt Calculator",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "6ec4f88941eab4e514228718997771890f30cca6874a9e2f26dfab85eed5d7bc",
+      "audit_fact": [
+        {
+          "product": "Fritz Aquatics RPM (Reef Pro Mix)",
+          "package": "55-pound box (maker item 75080243; retailer SA-FR-PRO205)",
+          "recorded_price_usd": 82.19,
+          "recorded_yield_gallons": 205,
+          "yield_note": "Maker lists 205 gallons at 30 ppt for the 55-pound box. Retailer title says 200 gallons for that box. This estimate uses the maker's 205-gallon/30-ppt figure; a 35-ppt yield will be lower."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.916846+00:00",
+      "body_sha256": "c5544a57932881664020a6aa0279a783f711600deb6a24b7afb23f9f78bc2fa3",
+      "download_bytes": 88512,
+      "title": "NeoMarine Salt Mix - Brightwell Aquatics - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "f782a49ceee41a7612b8af4542dc2837ab5c06b82d70937e44fa1e6b3afc56c2",
+      "audit_fact": [
+        {
+          "product": "Brightwell Aquatics NeoMarine",
+          "package": "150-gallon package (SKU 209233)",
+          "recorded_price_usd": 131.22,
+          "recorded_yield_gallons": 150,
+          "yield_note": "Listing says the stated package volume is mixed to SG 1.025; it does not state a matching ppt value or reference-temperature basis beside the yield. Not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:47.795708+00:00",
+      "body_sha256": "dfe9e8b118b4110b0700958f0170db495e7db30bac8afbeb843acc3f4ec4c054",
+      "download_bytes": 80269,
+      "title": "Reef Salt Mix - Aquaforest - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "17709539474f8ba8ebf341a9e7e39a95ca20c472f9b9bf0bcd90641dbd16bced",
+      "audit_fact": [
+        {
+          "product": "Aquaforest Reef Salt",
+          "package": "200-gallon box (SKU 250788)",
+          "recorded_price_usd": 89.88,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.237014+00:00",
+      "body_sha256": "4dac8dc1ed62dc23d4411f8dd58a1727de1129da8b32898beaedcde83d45830f",
+      "download_bytes": 78100,
+      "title": "Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "da742b62c6adc4bff22f80fbbaed03b001c55ec517b292aba23442f93b75d000",
+      "audit_fact": [
+        {
+          "product": "Aquaforest Sea Salt",
+          "package": "200-gallon box, 5 x 5 kg (SKU 250795)",
+          "recorded_price_usd": 82.88,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.seachem.com/vibrant-sea.php",
+      "status": 200,
+      "final_url": "https://www.seachem.com/vibrant-sea.php",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:30:48.265847+00:00",
+      "body_sha256": "6ec3095c9f8732fdd6c3127229868dfe968dc7b32e241e100e98cdd08dfc2d32",
+      "download_bytes": 35222,
+      "title": "Seachem - Vibrant Sea",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "420ea460dc076ab1099d4e6df6906d6b6228ab75919549d47bcd7d3f578a3c18",
+      "audit_fact": [
+        {
+          "product": "Seachem Vibrant Sea",
+          "package": "220-gallon package (retailer RAQ-28719)",
+          "recorded_price_usd": 103.72,
+          "recorded_yield_gallons": 220,
+          "yield_note": "Maker lists 27 g/L for SG 1.020 and 31 g/L for SG 1.023. The retailer package says 220 gallons; that yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/instant-ocean-sea-salt-mix.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.026545+00:00",
+      "body_sha256": "322844225356c2ef33efc26bce4ba084a58b8c239d184ed90117a475e4c44e77",
+      "download_bytes": 74696,
+      "title": "Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "c017a7e39f5466e189f742fe39f62e00e8a2e4290da0d0738b25402689dc5376",
+      "audit_fact": [
+        {
+          "product": "Instant Ocean Sea Salt",
+          "package": "150-gallon bags (SKU 250338)",
+          "recorded_price_usd": 68.99,
+          "recorded_yield_gallons": 150,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/instant-ocean-reef-crystals-salt-mix.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.031251+00:00",
+      "body_sha256": "46971126339d95dfe698333503d2cdb45542a4cc770ea49ebb6651b228b19f92",
+      "download_bytes": 80946,
+      "title": "Reef Crystals Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "7579d567bff927cfddecb3192e64f37d482ff1d9be20addc8a4540079664e417",
+      "audit_fact": [
+        {
+          "product": "Instant Ocean Reef Crystals",
+          "package": "160-gallon bucket (SKU 256337)",
+          "recorded_price_usd": 74.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/red-sea-coral-pro-salt.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.133813+00:00",
+      "body_sha256": "3933f3da98f61d0a024fd4c08ee96b3b99ca9775dba657db2dd3143fa8b885a8",
+      "download_bytes": 86088,
+      "title": "Red Sea Coral Pro Salt - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "c45287f14a68164b0cf8e652c1d2d5617e562e18dde0724e43e545655d2ad928",
+      "audit_fact": [
+        {
+          "product": "Red Sea Coral Pro Salt",
+          "package": "175-gallon bucket (SKU 256249)",
+          "recorded_price_usd": 99.99,
+          "recorded_yield_gallons": 175,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/aquarium-salt-mix-red-sea.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.115601+00:00",
+      "body_sha256": "04fe2c7e08582c28e54b0ef08f282b0c6b3c5697dab2bc54dd502b4377dcd532",
+      "download_bytes": 82641,
+      "title": "Aquarium Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "5b2d705c6ec85100a785881afb1dbcc4f67e071b3ab154c2f162d088222bbcd0",
+      "audit_fact": [
+        {
+          "product": "Red Sea Red Sea Salt (Blue Bucket)",
+          "package": "200-gallon sack (SKU 211875)",
+          "recorded_price_usd": 99.99,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/pro-reef-salt-tropic-marin.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.205107+00:00",
+      "body_sha256": "a083253dec79124bf3351700055c9504d13c0c29518cbf4021c0c770ff143df3",
+      "download_bytes": 84626,
+      "title": "Pro Reef Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "46f697a54b73e844c1048774ee11a01e4f29ed3fe98e0ec249c99d45f72dd3c7",
+      "audit_fact": [
+        {
+          "product": "Tropic Marin Pro Reef Salt",
+          "package": "160-gallon box (SKU 232007)",
+          "recorded_price_usd": 105.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/classic-salt-mix-tropic-marin.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.226757+00:00",
+      "body_sha256": "dc2e280470dfb0946397b1f5a68704f0c65bd28651d88c5c3c436693ea4991f1",
+      "download_bytes": 77954,
+      "title": "Classic Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "7492918a4e863073f9b4ba9a0b7fbd7e5449f2528ecec84d204d9b274ccb2a79",
+      "audit_fact": [
+        {
+          "product": "Tropic Marin Classic Sea Salt",
+          "package": "160-gallon box (SKU 232292)",
+          "recorded_price_usd": 91.99,
+          "recorded_yield_gallons": 160,
+          "yield_note": "Package-label yield only. Its exact salinity basis was not stated beside the package size in the fetched listing; not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://fritzaquatics.com/products/fritz-rpm-reef-pro-mix",
+      "status": 200,
+      "final_url": "https://fritzaquatics.com/products/reef-pro-mix/",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:30:48.712809+00:00",
+      "body_sha256": "b57dbf5373e0c3bff96c16d86c9322f50346c817eaad3e12b4ded522766252ba",
+      "download_bytes": 115480,
+      "title": "Fritz RPM Reef Pro Mix | Complete Marine Salt For All Saltwater Systems | Fritz AquaticsFritz RPM Salt Calculator",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "6ec4f88941eab4e514228718997771890f30cca6874a9e2f26dfab85eed5d7bc",
+      "audit_fact": [
+        {
+          "product": "Fritz Aquatics RPM (Reef Pro Mix)",
+          "package": "55-pound box (maker item 75080243; retailer SA-FR-PRO205)",
+          "recorded_price_usd": 82.19,
+          "recorded_yield_gallons": 205,
+          "yield_note": "Maker lists 205 gallons at 30 ppt for the 55-pound box. Retailer title says 200 gallons for that box. This estimate uses the maker's 205-gallon/30-ppt figure; a 35-ppt yield will be lower."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/neomarine-salt-mix-brightwell-aquatics.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.339963+00:00",
+      "body_sha256": "c5544a57932881664020a6aa0279a783f711600deb6a24b7afb23f9f78bc2fa3",
+      "download_bytes": 88512,
+      "title": "NeoMarine Salt Mix - Brightwell Aquatics - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "f782a49ceee41a7612b8af4542dc2837ab5c06b82d70937e44fa1e6b3afc56c2",
+      "audit_fact": [
+        {
+          "product": "Brightwell Aquatics NeoMarine",
+          "package": "150-gallon package (SKU 209233)",
+          "recorded_price_usd": 131.22,
+          "recorded_yield_gallons": 150,
+          "yield_note": "Listing says the stated package volume is mixed to SG 1.025; it does not state a matching ppt value or reference-temperature basis beside the yield. Not normalized to 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/reef-salt-mix-aquaforest.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.316030+00:00",
+      "body_sha256": "dfe9e8b118b4110b0700958f0170db495e7db30bac8afbeb843acc3f4ec4c054",
+      "download_bytes": 80269,
+      "title": "Reef Salt Mix - Aquaforest - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "17709539474f8ba8ebf341a9e7e39a95ca20c472f9b9bf0bcd90641dbd16bced",
+      "audit_fact": [
+        {
+          "product": "Aquaforest Reef Salt",
+          "package": "200-gallon box (SKU 250788)",
+          "recorded_price_usd": 89.88,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "status": 200,
+      "final_url": "https://www.bulkreefsupply.com/sea-salt-mix-aquaforest.html",
+      "content_type": "text/html",
+      "checked_at_utc": "2026-10-25T17:30:48.363488+00:00",
+      "body_sha256": "4dac8dc1ed62dc23d4411f8dd58a1727de1129da8b32898beaedcde83d45830f",
+      "download_bytes": 78100,
+      "title": "Sea Salt Mix - Bulk Reef Supply",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "da742b62c6adc4bff22f80fbbaed03b001c55ec517b292aba23442f93b75d000",
+      "audit_fact": [
+        {
+          "product": "Aquaforest Sea Salt",
+          "package": "200-gallon box, 5 x 5 kg (SKU 250795)",
+          "recorded_price_usd": 82.88,
+          "recorded_yield_gallons": 200,
+          "yield_note": "Listing gives a 33-ppt mixing recipe, but does not explicitly tie the package-gallon claim to that recipe. The package yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://www.seachem.com/vibrant-sea.php",
+      "status": 200,
+      "final_url": "https://www.seachem.com/vibrant-sea.php",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:30:48.620866+00:00",
+      "body_sha256": "6ec3095c9f8732fdd6c3127229868dfe968dc7b32e241e100e98cdd08dfc2d32",
+      "download_bytes": 35222,
+      "title": "Seachem - Vibrant Sea",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "420ea460dc076ab1099d4e6df6906d6b6228ab75919549d47bcd7d3f578a3c18",
+      "audit_fact": [
+        {
+          "product": "Seachem Vibrant Sea",
+          "package": "220-gallon package (retailer RAQ-28719)",
+          "recorded_price_usd": 103.72,
+          "recorded_yield_gallons": 220,
+          "yield_note": "Maker lists 27 g/L for SG 1.020 and 31 g/L for SG 1.023. The retailer package says 220 gallons; that yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://aquacave.com/fritz-pro-r-p-m-salt-mix-55-lb-box-200-gal-mix.html",
+      "status": 200,
+      "final_url": "https://aquacave.com/fritz-pro-r-p-m-salt-mix-55-lb-box-200-gal-mix.html",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:31:41.428641+00:00",
+      "body_sha256": "b51e221376f2c9195b52e472776e25eaa587447f1fdfbe5742d1e46e2eedefb0",
+      "download_bytes": 66170,
+      "title": "Fritz PRO R.P.M. Salt Mix - 55 lb Box - 200 Gal Mix - AquaCave.com | AquaCave",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "9055a688a88dc75bf8994c6586231c46bbdbbf1d6721c65328e35912f51f0895",
+      "audit_fact": [
+        {
+          "product": "Fritz Aquatics RPM (Reef Pro Mix)",
+          "package": "55-pound box (maker item 75080243; retailer SA-FR-PRO205)",
+          "recorded_price_usd": 82.19,
+          "recorded_yield_gallons": 205,
+          "yield_note": "Maker lists 205 gallons at 30 ppt for the 55-pound box. Retailer title says 200 gallons for that box. This estimate uses the maker's 205-gallon/30-ppt figure; a 35-ppt yield will be lower."
+        }
+      ]
+    },
+    {
+      "url": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "status": 200,
+      "final_url": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "content_type": "text/html; charset=utf-8",
+      "checked_at_utc": "2026-10-25T17:31:41.164427+00:00",
+      "body_sha256": "5e9b3c76085c3937ec568d37a2d5eb572338dd062c1524542c2dbb748e01a01c",
+      "download_bytes": 83948,
+      "title": "Seachem Vibrant Sea Salt - 220 gal \u2013 Pet Lifebelluserminusplusbarsfile-linescart-shoppingmagnifying-glassmagnifying-glass-plusbag-shoppingarrow-leftarrow-rightangle-downangle-upangle-rightangle-leftglobecalendarstarstar-halfchecksliderscaret-downcaret-rightarrow-squarexexclamationboxpenbox-openstorelocation-dottrashcircle-playcubeplaytaglockenvelopex-twitterfacebookpinterestinstagramsnapchatyoutubevimeoshopifytumblrtiktokstar-emptyAmerican ExpressApple PayDiners ClubDiscoverGoogle PayMastercardPayPalShop PayVisa",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "084dd9fef2c331fc748bdda7f4d4876c907bb4b44241610431c91cefd3a8ddea",
+      "audit_fact": [
+        {
+          "product": "Seachem Vibrant Sea",
+          "package": "220-gallon package (retailer RAQ-28719)",
+          "recorded_price_usd": 103.72,
+          "recorded_yield_gallons": 220,
+          "yield_note": "Maker lists 27 g/L for SG 1.020 and 31 g/L for SG 1.023. The retailer package says 220 gallons; that yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://squeakysaquatics.com/products/seachem-vibrant-sea-salt-mix-220-gallon",
+      "status": 200,
+      "final_url": "https://squeakysaquatics.com/products/seachem-vibrant-sea-salt-mix-220-gallon",
+      "content_type": "text/html; charset=utf-8",
+      "checked_at_utc": "2026-10-25T17:31:41.329941+00:00",
+      "body_sha256": "8859417a556944803ad158455708bc5ef3bb6cce270c483ed6d31b7fbe8befb3",
+      "download_bytes": 161177,
+      "title": "Seachem Vibrant Sea Salt Mix 220 Gallon | Enhanced Potassium Reef Salt \u2013 Squeaky's AquaticsAmazonAmerican ExpressApple PayDiners ClubDiscoverGoogle PayMastercardPayPalShop PayVenmoVisa",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "e5c42326f2f1acb9a11a2bd7c5d1c82db69fd675a885f1e1e64ae926fd27fa9d"
+    },
+    {
+      "url": "https://aquacave.com/fritz-pro-r-p-m-salt-mix-55-lb-box-200-gal-mix.html",
+      "status": 200,
+      "final_url": "https://aquacave.com/fritz-pro-r-p-m-salt-mix-55-lb-box-200-gal-mix.html",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_at_utc": "2026-10-25T17:31:41.724348+00:00",
+      "body_sha256": "97d2b04670ecfca8f66bc6c24aebc13856416de0ec359e1edb877f3b2beaf84e",
+      "download_bytes": 66006,
+      "title": "Fritz PRO R.P.M. Salt Mix - 55 lb Box - 200 Gal Mix - AquaCave.com | AquaCave",
+      "classification": "ok",
+      "curl_exit": 0,
+      "error": "",
+      "visible_text_sha256": "9055a688a88dc75bf8994c6586231c46bbdbbf1d6721c65328e35912f51f0895",
+      "audit_fact": [
+        {
+          "product": "Fritz Aquatics RPM (Reef Pro Mix)",
+          "package": "55-pound box (maker item 75080243; retailer SA-FR-PRO205)",
+          "recorded_price_usd": 82.19,
+          "recorded_yield_gallons": 205,
+          "yield_note": "Maker lists 205 gallons at 30 ppt for the 55-pound box. Retailer title says 200 gallons for that box. This estimate uses the maker's 205-gallon/30-ppt figure; a 35-ppt yield will be lower."
+        }
+      ]
+    },
+    {
+      "url": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "status": 429,
+      "final_url": "https://shop.petlife.com/products/seachem-vibrant-sea-salt-220-gal",
+      "content_type": "text/plain",
+      "checked_at_utc": "2026-10-25T17:31:41.450707+00:00",
+      "body_sha256": "fa2dd01ed96d38758e89e354653c39f366bc7a34e485772c8aa2174b53a465d3",
+      "download_bytes": 18,
+      "title": "",
+      "classification": "blocked/unresolved",
+      "curl_exit": 0,
+      "error": "",
+      "audit_fact": [
+        {
+          "product": "Seachem Vibrant Sea",
+          "package": "220-gallon package (retailer RAQ-28719)",
+          "recorded_price_usd": 103.72,
+          "recorded_yield_gallons": 220,
+          "yield_note": "Maker lists 27 g/L for SG 1.020 and 31 g/L for SG 1.023. The retailer package says 220 gallons; that yield is not verified at 35 ppt."
+        }
+      ]
+    },
+    {
+      "url": "https://squeakysaquatics.com/products/seachem-vibrant-sea-salt-mix-220-gallon",
+      "status": 429,
+      "final_url": "https://squeakysaquatics.com/products/seachem-vibrant-sea-salt-mix-220-gallon",
+      "content_type": "text/plain",
+      "checked_at_utc": "2026-10-25T17:31:41.543034+00:00",
+      "body_sha256": "fa2dd01ed96d38758e89e354653c39f366bc7a34e485772c8aa2174b53a465d3",
+      "download_bytes": 18,
+      "title": "",
+      "classification": "blocked/unresolved",
+      "curl_exit": 0,
+      "error": ""
+    }
+  ]
+}

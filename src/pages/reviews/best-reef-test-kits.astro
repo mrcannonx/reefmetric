@@ -10,7 +10,7 @@ import tkData from '../../data/testkits.json';
 interface Kit {
   brand: string; parameter: string; model: string; priceUSD: number;
   accuracy: string | null; resolution: string | null; range: string;
-  testsPerKit: number; reagentRefillPriceUSD: number | null; costPerTest: number | null;
+  testsPerKit: number; reagentRefillPriceUSD: number | null; reagentRefillTests?: number; refillSource?: string; testCountNote?: string;
   method: string; knownIssues?: string[]; retailers?: string[];
   source: string; priceSource: string; imageUrl?: string | null;
 }
@@ -19,9 +19,9 @@ const kits = data.kits as Kit[];
 const dataDate = data.generated as string;
 
 const PARAMS = [
-  { key: 'alkalinity', label: 'Alkalinity', note: 'The one to test weekly — it moves fastest and corals feel it first.' },
-  { key: 'calcium', label: 'Calcium', note: 'Moves slowly; every 1–2 weeks is plenty for most tanks.' },
-  { key: 'magnesium', label: 'Magnesium', note: 'The stabilizer — check every few weeks, or when Alk/Ca act strange.' },
+  { key: 'alkalinity', label: 'Alkalinity', note: 'Track closely when setting or changing a dosing schedule; adjust frequency to measured consumption.' },
+  { key: 'calcium', label: 'Calcium', note: 'Test alongside alkalinity when setting a dosing schedule.' },
+  { key: 'magnesium', label: 'Magnesium', note: 'Check when assessing the balance of calcium and alkalinity.' },
   { key: 'phosphate', label: 'Phosphate', note: 'The algae budget. Low numbers need real resolution to be meaningful.' },
   { key: 'nitrate', label: 'Nitrate', note: 'The other nutrient — modern reefs run it low but not zero.' },
 ];
@@ -43,19 +43,19 @@ const itemListLd = {
 const faqs = [
   {
     q: 'Which parameter should I test most often?',
-    a: `Alkalinity. It drives coral skeletal growth, buffers pH, and moves faster than anything else you track — the standard advice is to test daily while dialing in dosing (until it holds within ~0.3 dKH for three straight days), then weekly. Calcium and magnesium drift slowly and can run on a 1–2 week cadence.`,
+    a: `Alkalinity is useful to track closely when you set up or change dosing. Test often enough to measure consumption and catch a change, then choose a schedule based on your tank. A fixed weekly schedule may miss a problem in a high-consumption reef.`,
   },
   {
     q: 'Digital (Hanna) or titration (Salifert / Red Sea)?',
-    a: `The real difference is who judges the endpoint. Hanna's checkers read the color with an LED and photocell — objective, repeatable, and roughly 5–10× the cost per test. Salifert and Red Sea end on a human-judged color change, which is the single most repeated complaint across owner forums: two careful people can read the same titration ~0.4 dKH apart. A common setup: Hanna for alkalinity (the high-frequency, precision-sensitive test), Salifert for everything else.`,
+    a: `Hanna colorimeters use an optical reading; visual kits ask you to judge a color or titration endpoint. Both depend on correct sampling, clean vials, and the stated procedure. Compare the published range and accuracy for the exact model. Buy the instrument once, then compare reagent costs separately.`,
   },
   {
     q: 'Why do two kits disagree on the same water?',
-    a: `Partly endpoint subjectivity, partly units: Salifert's phosphate kit reports phosphorus (PO4-P), not phosphate ion — multiply by ~3.066 before comparing it to a Hanna or Red Sea reading. Owner threads describing "wildly different readings" between brands are usually one or both of these. When kits disagree and it matters, an ICP lab test ($30–50, every few months) is the tiebreaker.`,
+    a: `First check the units, sample volume, reagent expiry, and instructions for each kit. Do not multiply a Salifert phosphate result by a phosphorus conversion factor just because another instrument is used. A phosphate reading and a phosphorus reading are different units; only convert when the specific instructions require it. Repeat an unexpected reading before changing dosing.`,
   },
   {
     q: 'Do ICP tests replace test kits?',
-    a: `No — they complement them. ICP labs measure trace elements your kits can't and validate your kits' accuracy, but a 1–2 week mail turnaround can't catch an alkalinity swing that stresses coral in 48 hours. ICP quarterly, alkalinity weekly.`,
+    a: `No. A lab report covers the tests listed by that lab; it does not provide live monitoring between samples. Check the actual analytes and turnaround before ordering. Keep an at-home testing plan that matches your tank and dosing routine.`,
   },
 ];
 const faqLd = {
@@ -75,31 +75,32 @@ const headline = "Hanna vs Salifert vs Red Sea — the test kit face-off, by pub
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Test Kits</p>
     <h1>{headline}</h1>
-    <p class="lede-dark">Every "best test kit" list says <em>accurate</em>; almost none quotes an accuracy spec. The manufacturers publish these numbers — Hanna states ±0.3 dKH ±5%, Red Sea claims 0.14 dKH, Salifert publishes step resolution but no ± spec at all — and comparing them changes the answer. Here's each parameter, with the published specs, the true cost per test, and the failure modes owners actually report.</p>
+    <p class="lede-dark">Choose a test that covers the water level you need to measure, then compare its stated accuracy, resolution, and running cost. A reusable colorimeter has an upfront instrument cost plus later reagents; a visual kit bundles its supplies. The table keeps those costs separate.</p>
     <Disclosure />
-    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Where a manufacturer publishes no accuracy spec, we say "not published" — we don't fill the gap with vibes. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+    <p class="rnote" style="margin-top:0">Original kit specifications and prices are recorded from {dataDate}. Hanna refill prices and 25-test refill counts, plus Salifert specification links, were checked on October 25, 2026; no other kit price is described as refreshed. Each row links its specification and price sources. A missing accuracy value means it was not recorded in this dataset. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   <section class="container" style="padding-top:8px;">
     <h2>The one-paragraph verdict</h2>
-    <p style="max-width:68ch;">For <strong>alkalinity</strong> — the test you'll run 50 times a year — Hanna's objective digital readout justifies its ~$3/test cost, and it's the only alkalinity option with a full published ± spec. For <strong>everything else</strong>, Salifert's titrations at $0.19–0.44/test are the value play the hobby quietly standardized on, if you can live with judging a color endpoint. Red Sea's Pro kits sit between: tighter claimed specs than Salifert, bigger kits, but the same human-judged endpoint and the most owner complaints about reading it.</p>
+    <p style="max-width:68ch;">For <strong>alkalinity</strong>, choose between a digital readout and a visual titration based on the range, procedure, and costs you can sustain. Hanna's HI772 has a recorded {money(kits.find((k) => k.model.startsWith('HI772'))!.priceUSD)} instrument price; its verified {money(kits.find((k) => k.model.startsWith('HI772'))!.reagentRefillPriceUSD!)} refill supplies 25 tests, or {money(kits.find((k) => k.model.startsWith('HI772'))!.reagentRefillPriceUSD! / 25)} per later test. The instrument price divided by its starter tests is <em>not</em> the ongoing reagent cost. For other parameters, compare the actual row before choosing a brand.</p>
 
     {PARAMS.map((p) => (
       <>
         <h2 style="margin-top:32px;">{p.label}</h2>
         <p style="color:var(--muted);max-width:68ch;">{p.note}</p>
-        <div class="tablewrap">
+        <div class="tablewrap" tabindex="0" role="region" aria-label={`${p.label} equipment comparison, scroll for all columns`}>
           <table class="specs">
-            <thead><tr><th>Kit</th><th>Published accuracy</th><th>Resolution</th><th>Method</th><th>Cost/test</th><th>Price</th></tr></thead>
+            <thead><tr><th>Kit</th><th>Published accuracy</th><th>Resolution</th><th>Method</th><th>First-kit $/test</th><th>Refill $/test</th><th>Kit / instrument price</th></tr></thead>
             <tbody>
               {forParam(p.key).map((k) => (
                 <tr id={slug(k)}>
-                  <td><strong>{k.brand}</strong> {k.model}<br /><span style="color:var(--muted);font-size:.85em;">{k.testsPerKit} tests{k.reagentRefillPriceUSD ? ` · refill ${money(k.reagentRefillPriceUSD)}` : ''}</span></td>
+                  <td><strong>{k.brand}</strong> {k.model}<br /><a href={k.source} target="_blank" rel="noopener">Published specifications</a><br /><span style="color:var(--muted);font-size:.85em;">{k.testsPerKit} reference tests</span>{k.testCountNote && <><br /><small>{k.testCountNote}</small></>}</td>
                   <td>{k.accuracy || <em style="color:var(--muted)">not published</em>}</td>
                   <td>{k.resolution || <em style="color:var(--muted)">not published</em>}</td>
                   <td style="color:var(--muted)">{k.method}</td>
-                  <td>{k.costPerTest != null ? <strong>{money(k.costPerTest)}</strong> : '—'}</td>
-                  <td><a class="aff aff-sm" href={buy(k)} target="_blank" rel="sponsored nofollow noopener">{money(k.priceUSD)} ↗</a></td>
+                  <td>{k.testsPerKit > 0 ? <strong>{money(k.priceUSD / k.testsPerKit)}</strong> : 'Not recorded'}<br /><small>Includes initial purchase</small></td>
+                  <td>{k.reagentRefillPriceUSD != null && k.reagentRefillTests ? <><strong>{money(k.reagentRefillPriceUSD / k.reagentRefillTests)}</strong><br /><small>{money(k.reagentRefillPriceUSD)} / {k.reagentRefillTests} tests</small><br /><a href={k.refillSource} target="_blank" rel="noopener">Refill source</a></> : 'Refill count not verified'}</td>
+                  <td><a class="aff aff-sm" href={buy(k)} target="_blank" rel="sponsored nofollow noopener">{money(k.priceUSD)} (paid link) ↗</a></td>
                 </tr>
               ))}
             </tbody>
@@ -107,14 +108,13 @@ const headline = "Hanna vs Salifert vs Red Sea — the test kit face-off, by pub
         </div>
       </>
     ))}
-    <p class="rnote">Cost per test = kit price ÷ tests per kit, computed only where the manufacturer publishes a test count. "Not published" means exactly that — Salifert documents titration step size but no ± accuracy; treat step size as a floor on uncertainty, not a substitute for it. Salifert phosphate reports PO4-P (phosphorus), not phosphate ion — ×3.066 to compare across brands.</p>
+    <p class="rnote">First-kit cost per test = initial kit or instrument price ÷ included test count. Refill cost per test = refill price ÷ the refill's own verified test count. Shipping, tax, wasted tests, expired reagents, and replacement hardware are excluded. Refills are shown only where their count was verified; a starter kit count is never assumed to be the refill count. Resolution describes the reading steps, not an accuracy guarantee.</p>
   </section>
 
   <section class="container prose" style="padding-top:24px;">
-    <h2>The catch column, spelled out</h2>
-    <p><strong>Hanna:</strong> the cuvette technique matters — owners recommend syringe-measuring the sample rather than trusting the fill line, and the phosphate checker's reagent-powder handling is the classic source of user error. The calcium and nitrate checkers are multi-step; the alkalinity checker is the easy one.</p>
-    <p><strong>Salifert:</strong> the color endpoint is genuinely subjective — owner threads document ~0.4 dKH spread between readers of the same titration. Test counts are honest but consumption scales with your levels.</p>
-    <p><strong>Red Sea:</strong> the endpoint drifts in over ~5 drops, which is the most-complained-about readability in the category; the magnesium refill holds fewer tests than the original kit, so the refill economics are worse than the sticker suggests.</p>
+    <h2>Check the units before changing the tank</h2>
+    <p>Salifert describes its test as measuring <a href="https://www.salifert.com/pt/po.htm" target="_blank" rel="noopener">phosphate</a>. Follow the chart and instructions supplied with your kit; do not automatically multiply a phosphate result by a phosphorus conversion factor. Phosphate and phosphorus are different reported quantities. Also check whether a result is in ppm or ppb.</p>
+    <p>Use the exact sample volume, clean the vial, and check reagent dates. A digital display does not remove technique errors. Repeat an unexpected result before making a dosing change, and compare like units if you cross-check with another kit.</p>
 
     <h2>FAQ</h2>
     {faqs.map((f) => (

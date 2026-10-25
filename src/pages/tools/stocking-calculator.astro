@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
-import { FILTRATION } from '../../utils/stocking-calc';
+import { FILTRATION, GAL_PER_BIOLOAD_UNIT } from '../../utils/stocking-calc';
 import fishData from '../../data/fish.json';
 
 const fish = (fishData as any).fish as { name: string; family: string; adultSizeIn: number; minTankGal: number }[];
@@ -37,6 +37,7 @@ const headline = "Reef Stocking Calculator";
       </form>
       <p style="margin:12px 0 0;color:var(--muted);font-size:.85rem;">Not sure of your real volume? The <a href={url('/tools/tank-volume-calculator')}>tank volume calculator</a> gives the true figure after rock and sand.</p>
       <div id="stk-summary" class="summary"></div>
+      <p id="stk-save-state" class="rnote" role="status" aria-live="polite">Your plan stays in this browser when storage is available.</p>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -62,10 +63,12 @@ const headline = "Reef Stocking Calculator";
 
   <section class="container prose">
     <h2>How the score works</h2>
-    <p>Each fish contributes a bioload from its <strong>adult</strong> size and how messy an eater it is — a tang puts out far more per inch than a goby. We total that against a capacity calibrated to real well-stocked reefs — not the old inch-per-gallon myth — scaled to your true water volume and adjusted for your filtration. Land in the <strong>well-stocked</strong> band and you've got a full, stable reef; go over and you're signing up for more water changes and more squabbling. It's a planning guide, not a hard limit — a lightly-fed tank with a big skimmer carries more than the number suggests.</p>
+    <p>Each fish contributes a bioload from its <strong>adult</strong> size and how messy an eater it is — a tang puts out far more per inch than a goby. We total that against a an editorial capacity estimate — not the old inch-per-gallon myth — scaled to your true water volume and adjusted for your filtration. Land in the <strong>well-stocked</strong> band and you've got a full, stable reef; go over and you're signing up for more water changes and more squabbling. It's a planning guide, not a hard limit — a lightly-fed tank with a big skimmer carries more than the number suggests.</p>
 
-    <h2>The rules that aren't fuzzy</h2>
-    <p>Bioload is an estimate; <strong>minimum tank size and aggression aren't</strong>. A yellow tang needs horizontal swimming room no 40-gallon provides, two dwarf angels will fight to the death in most tanks, and a six-line wrasse turns into a bully as it matures. Those warnings fire regardless of the load score — they're where stocking plans actually fail. Stock slowly, add the feisty fish last, and quarantine.</p>
+    <p>Model arithmetic: load = sum of adult length × species waste factor × count; capacity = gallons ÷ {GAL_PER_BIOLOAD_UNIT} × filtration multiplier. Score = load ÷ capacity × 100. The coefficients and score bands are editorial estimates, not a measured limit on how many fish a tank can support.</p>
+
+    <h2>Species needs come first</h2>
+    <p>Bioload is an estimate; <strong>minimum tank size and aggression need species-specific research</strong>. A yellow tang needs horizontal swimming room no 40-gallon provides, dwarf angels can fight when kept together, and a six-line wrasse turns into a bully as it matures. Those warnings fire regardless of the load score — they're where stocking plans actually fail. Stock slowly, add the feisty fish last, and quarantine.</p>
 
     <h2>The assumptions (flagged, as always)</h2>
     <p>Adult sizes and minimum tanks are hobby consensus (LiveAquaria / Reef2Reef), not lab data — individual fish vary. Bioload factors are relative estimates, not measured waste output. The capacity line is deliberately conservative; experienced keepers with heavy export push past it. Fish list updated {dataDate}. This tool won't replace researching each species before you buy — it catches the obvious mistakes early.</p>
@@ -94,6 +97,7 @@ const headline = "Reef Stocking Calculator";
 </style>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { computeStocking, FILTRATION, type Selection } from '../../utils/stocking-calc';
   import fishData from '../../data/fish.json';
 
@@ -112,6 +116,7 @@ const headline = "Reef Stocking Calculator";
   };
 
   function render() {
+    if (!validateCalcInputs('#stk-form input[type="number"], .stk-qty', 'stk-summary', ['stk-results', 'stk-warnings'])) return;
     const trueGal = Number(val('stkGal')) || 0;
     const mult = FILTRATION.find((f) => f.value === val('stkFilt'))?.mult ?? 1;
     const selections: Selection[] = [];
@@ -151,7 +156,46 @@ const headline = "Reef Stocking Calculator";
       : '';
   }
 
-  ['stkGal', 'stkFilt'].forEach((id) => el(id)?.addEventListener('input', render));
-  document.querySelectorAll('.stk-qty').forEach((input) => input.addEventListener('input', render));
+  const storageKey = 'reefmetric.stocking-plan.v1';
+  const saveState = document.getElementById('stk-save-state');
+  const quantityInputs = () => Array.from(document.querySelectorAll<HTMLInputElement>('.stk-qty'));
+  function restorePlan() {
+    try {
+      const text = localStorage.getItem(storageKey);
+      if (!text) return;
+      const saved = JSON.parse(text);
+      if (saved?.version !== 1 || !Number.isFinite(saved.gallons) || saved.gallons < 1 || saved.gallons > Number.MAX_SAFE_INTEGER
+        || !FILTRATION.some((f) => f.value === saved.filtration) || !saved.counts || typeof saved.counts !== 'object' || Array.isArray(saved.counts)
+        || Object.entries(saved.counts).some(([name, count]) => !byName.has(name) || typeof count !== 'number' || !Number.isInteger(count) || count < 0 || count > 30)) {
+        throw new Error('Unrecognized stocking plan');
+      }
+      (el('stkGal') as HTMLInputElement).value = String(saved.gallons);
+      (el('stkFilt') as HTMLSelectElement).value = saved.filtration;
+      for (const input of quantityInputs()) input.value = String(saved.counts[input.dataset.fish || ''] ?? 0);
+      if (saveState) saveState.textContent = 'Saved plan restored from this browser. Re-check species needs before buying fish.';
+    } catch {
+      if (saveState) saveState.textContent = 'The saved plan could not be read, or browser storage is unavailable. Your current list still works; edit it to try saving again.';
+    }
+  }
+  function savePlan() {
+    const gallons = Number(val('stkGal'));
+    const counts: Record<string, number> = {};
+    if (!Number.isFinite(gallons) || gallons < 1 || gallons > Number.MAX_SAFE_INTEGER) return;
+    for (const input of quantityInputs()) {
+      const count = Number(input.value);
+      if (!input.value.trim() || !Number.isInteger(count) || count < 0 || count > 30) return;
+      counts[input.dataset.fish || ''] = count;
+    }
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ version: 1, gallons, filtration: val('stkFilt'), counts }));
+      if (saveState) saveState.textContent = 'Plan saved in this browser. It is not synced to another device; clearing browser data removes it.';
+    } catch {
+      if (saveState) saveState.textContent = 'Browser storage is unavailable. Your list works for this visit but will not be saved.';
+    }
+  }
+  function update() { render(); savePlan(); }
+  restorePlan();
+  ['stkGal', 'stkFilt'].forEach((id) => el(id)?.addEventListener('input', update));
+  document.querySelectorAll('.stk-qty').forEach((input) => input.addEventListener('input', update));
   render();
 </script>

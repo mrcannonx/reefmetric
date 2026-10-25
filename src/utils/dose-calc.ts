@@ -13,6 +13,9 @@ export interface Additive {
   perUnitPerGallon: number; // dose to raise the parameter by 1 unit (1 dKH / 1 ppm) in 1 gallon
   note?: string;
   source?: string;
+  enabled?: boolean;
+  dailyMaxRise?: number;
+  maxDosePerGallonPerDay?: number;
 }
 
 export interface DoseData {
@@ -50,12 +53,19 @@ export function computeDose(opts: {
   safeDailyMax: DoseData['safeDailyMax'];
 }): DoseResult {
   const rise = opts.target - opts.current;
-  const dailyMax = safeDailyFor(opts.param, opts.safeDailyMax);
+  const dailyMax = Math.min(safeDailyFor(opts.param, opts.safeDailyMax), opts.additive?.dailyMaxRise ?? Infinity);
+  const invalid = [opts.gallons, opts.current, opts.target, dailyMax].some((n) => !Number.isFinite(n))
+    || opts.gallons <= 0 || opts.current < 0 || opts.target < 0 || dailyMax <= 0
+    || !opts.additive || opts.additive.enabled === false || opts.additive.parameter !== opts.param
+    || !Number.isFinite(opts.additive.perUnitPerGallon) || opts.additive.perUnitPerGallon <= 0;
+  if (invalid) return { rise: 0, totalDose: 0, unit: opts.additive?.doseUnit ?? 'mL', days: 0, perDay: 0, dailyMax, exceedsDaily: false, valid: false };
   if (!(opts.gallons > 0) || rise <= 0 || !opts.additive) {
     return { rise: Math.max(0, rise), totalDose: 0, unit: opts.additive?.doseUnit ?? 'mL', days: 0, perDay: 0, dailyMax, exceedsDaily: false, valid: rise <= 0 };
   }
   const totalDose = rise * opts.additive.perUnitPerGallon * opts.gallons;
-  const days = dailyMax > 0 ? Math.max(1, Math.ceil(rise / dailyMax)) : 1;
+  if (!Number.isFinite(totalDose)) return { rise, totalDose: 0, unit: opts.additive.doseUnit, days: 0, perDay: 0, dailyMax, exceedsDaily: false, valid: false };
+  const doseLimitDays = opts.additive.maxDosePerGallonPerDay ? Math.ceil(totalDose / (opts.gallons * opts.additive.maxDosePerGallonPerDay)) : 1;
+  const days = Math.max(1, Math.ceil(rise / dailyMax), doseLimitDays);
   return {
     rise,
     totalDose,

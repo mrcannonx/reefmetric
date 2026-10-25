@@ -59,11 +59,13 @@ const headline = "Reef Water Change Calculator";
   </section>
 
   <section class="container">
+    <p>Preparing new saltwater? Use the <a href={url('/tools/salt-mixing-calculator')}>salt mixing calculator</a> to weigh dry mix from your own package instructions.</p>
     <EmailCapture />
   </section>
 </Base>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { singleChangeFraction, changesNeeded, planFor, STANDARD_PCTS } from '../../utils/water-change-calc';
   import { url } from '../../utils/url';
 
@@ -71,6 +73,7 @@ const headline = "Reef Water Change Calculator";
   const fmt = (n: number, digits = 2) => n.toLocaleString('en-US', { maximumFractionDigits: digits });
 
   function render() {
+    if (!validateCalcInputs('#wc-form input[type="number"]', 'wc-summary', ['wc-results'])) return;
     const current = Number(val('wcCurrent'));
     const target = Number(val('wcTarget'));
     const gallons = Number(val('wcGallons')) || 0;
@@ -81,7 +84,7 @@ const headline = "Reef Water Change Calculator";
     const results = document.getElementById('wc-results');
     if (!summary || !results) return;
 
-    if (!(current > 0) || gallons <= 0 || !(target >= 0)) {
+    if (!Number.isFinite(current) || gallons <= 0 || !(target >= 0)) {
       summary.innerHTML = '';
       results.innerHTML = '';
       return;
@@ -104,7 +107,7 @@ const headline = "Reef Water Change Calculator";
       : '';
 
     const singleCard = target <= 0
-      ? `<p class="rnote">Dilution can never reach exactly 0 — every change removes a percentage of what's left. Pick a small non-zero target (e.g. 1–2 ppm nitrate, 0.02 ppm phosphate) for a realistic plan.</p>`
+      ? `<p class="rnote">Partial dilution never reaches exactly 0 — every partial change removes a percentage of what's left. A complete replacement is not a routine reef-care plan. Pick a small non-zero target (e.g. 1–2 ppm nitrate, 0.02 ppm phosphate) for a realistic plan.</p>`
       : `
       <div class="rcard win">
         <div class="rrank">1×</div>

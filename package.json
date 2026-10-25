@@ -9,10 +9,19 @@
     "check:seo": "python3 scripts/check-seo.py",
     "check:calculators": "node --experimental-strip-types --test scripts/check-calculators.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "serve:built": "node scripts/serve-built.mjs",
+    "check:salt-mix": "node --experimental-strip-types --test scripts/check-salt-mix.mjs",
+    "check:browser": "node scripts/audit-browser.mjs",
+    "images:refresh": "node scripts/cache-product-images.mjs --write"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright": "^1.64.1",
+    "sharp": "^0.35.5"
   }
 }

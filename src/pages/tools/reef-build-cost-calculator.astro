@@ -71,7 +71,7 @@ const money = (n: number) => '$' + n.toLocaleString('en-US', { maximumFractionDi
 
     <h2>A 75-gallon build: three budget examples</h2>
     <p>These use this calculator's existing model: 75 display gallons, a sump, mixed corals, and $0.17/kWh. They exclude livestock and corals. Build tiers use editorial component allowances, not a live shopping cart; power uses a tier-based average draw rather than a measured equipment list.</p>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="breakdown">
         <thead><tr><th>Build tier</th><th>Up-front estimate</th><th>Average watts</th><th>Electricity / 30 days</th><th>All running costs / month</th></tr></thead>
         <tbody>{examples.map(({ tier, estimate: e }) => <tr><td>{tier.label}</td><td>{money(e.upfrontLow)}–{money(e.upfrontHigh)}</td><td>{e.avgWatts}W</td><td>${e.electricityMonthly.toFixed(2)}</td><td>{money(e.monthlyLow)}–{money(e.monthlyHigh)}</td></tr>)}</tbody>

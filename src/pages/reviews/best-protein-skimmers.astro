@@ -141,7 +141,7 @@ const quickPick = sections[2].picks[0];
               </div>
             </div>
             <div class="rflow"><span class="n">{p.effective}</span><br /><span class="u">honest gal</span></div>
-            <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.s.retailers)} ↗</a></div>
+            <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.s.retailers)} ↗ <small>(paid link)</small></a></div>
           </div>
         ))}
       </div>
@@ -151,7 +151,7 @@ const quickPick = sections[2].picks[0];
   <section class="container" style="padding-top:8px;">
     <h2>Every skimmer in the database</h2>
     <p style="color:var(--muted);max-width:64ch;">Honest capacity at a medium mixed-reef bioload. For your exact tank and stocking, use the <a href={url('/tools/protein-skimmer-calculator')}>calculator</a>.</p>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
         <thead>
           <tr><th>Skimmer</th><th>Type</th><th>Rated gal</th><th>Honest gal (medium)</th><th>Watts</th><th>~Price</th></tr>

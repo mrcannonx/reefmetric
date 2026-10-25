@@ -23,7 +23,8 @@ export function singleChangeFraction(current: number, target: number): number {
 export function changesNeeded(current: number, target: number, pct: number): number {
   const p = pct / 100;
   if (current <= 0 || target >= current) return 0;
-  if (target <= 0 || p <= 0 || p >= 1) return Infinity; // dilution never reaches exactly 0
+  if (p === 1) return 1; // An ideal complete replacement removes all original water.
+  if (target <= 0 || p <= 0 || p > 1) return Infinity; // Partial dilution never reaches exactly 0
   return Math.ceil(Math.log(target / current) / Math.log(1 - p));
 }
 

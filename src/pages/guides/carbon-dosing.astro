@@ -63,13 +63,13 @@ const headline = "Carbon dosing for reef tanks: nutrient export & risks";
     <p>Carbon dosing means adding an organic carbon source — vodka, vinegar, or a bottled product like NOPX — to feed bacteria that consume nitrate and phosphate as they grow. Skim off the resulting bacterial biomass (or crop it off biopellets in a reactor) and the nutrients leave with it. Start low, raise slowly, and keep your skimmer strong — the bacteria you're growing also consume oxygen, and that's the real risk here.</p>
 
     <h2>How it actually works</h2>
-    <p>This traces back to the Redfield ratio — the roughly consistent carbon:nitrogen:phosphorus ratio found in marine bacteria and plankton across the ocean. Your tank's bacteria are typically carbon-limited, not nitrogen- or phosphorus-limited, which is exactly why nitrate and phosphate build up in the first place: there's plenty of N and P, just not enough carbon for bacteria to use it all building biomass. Add carbon, and bacterial population grows, consuming nitrate and phosphate to do it. That growing bacterial mass then needs to leave the system — via a protein skimmer pulling it out as foam, or by growing on biopellets that get cropped and replaced.</p>
+    <p>Bacterial growth depends on available carbon, nitrogen, phosphorus, and other conditions. Added carbon may support nutrient uptake, but it does not prove that carbon shortage caused your tank's nitrate or phosphate level. Nutrient levels and response vary by tank. The resulting biomass must be exported; measure both nitrate and phosphate and follow the chosen product's instructions rather than calculating a universal dose from an ocean nutrient ratio.</p>
 
     <h2>Not to be confused with Alk/Ca/Mg dosing</h2>
     <p>This is a completely different topic from what our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> or <a href={url('/guides/kalkwasser-dosing')}>kalkwasser guide</a> cover. Those replace what corals consume building calcium carbonate skeleton. Carbon dosing feeds bacteria to strip excess nutrients — nothing to do with calcification chemistry. Plenty of reefers run both a calcification dosing routine and a carbon dosing routine at the same time, for entirely unrelated reasons.</p>
 
     <h2>Four ways to supply carbon</h2>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
         <thead><tr><th>Method</th><th>Control</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
@@ -83,7 +83,7 @@ const headline = "Carbon dosing for reef tanks: nutrient export & risks";
 
     <h2>What water changes can remove before adding carbon</h2>
     <p>Use a dilution baseline to compare approaches. For {nutrientExample.gallons} gallons at {nutrientExample.current} ppm nitrate, the repo's water-change model gives the following paths to {nutrientExample.target} ppm or less. The model adds no new nitrate between changes and assumes replacement water has none.</p>
-    <div class="tablewrap"><table class="specs"><thead><tr><th>Each change</th><th>Changes needed</th><th>Total new water</th><th>Modeled final nitrate</th></tr></thead><tbody>{dilutionExamples.map((p) => <tr><td>{p.pct}%</td><td>{p.changes}</td><td>{p.totalNewWaterGal.toFixed(1)} gal</td><td>{p.levels[p.levels.length - 1].toFixed(1)} ppm</td></tr>)}</tbody></table></div>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns"><table class="specs"><thead><tr><th>Each change</th><th>Changes needed</th><th>Total new water</th><th>Modeled final nitrate</th></tr></thead><tbody>{dilutionExamples.map((p) => <tr><td>{p.pct}%</td><td>{p.changes}</td><td>{p.totalNewWaterGal.toFixed(1)} gal</td><td>{p.levels[p.levels.length - 1].toFixed(1)} ppm</td></tr>)}</tbody></table></div>
     <p>A single change would require {(singleChangeFraction(nutrientExample.current, nutrientExample.target) * 100).toFixed(0)}% in this math. That is a comparison, not a recommendation for a sudden large change. Feeding and waste add nutrients in real tanks. Use the <a href={url('/tools/water-change-calculator')}>water change calculator</a> for your own readings, and the <a href={url('/tools/protein-skimmer-calculator')}>skimmer sizing tool</a> to check export equipment.</p>
 
     <h2>The ramp-up protocol</h2>

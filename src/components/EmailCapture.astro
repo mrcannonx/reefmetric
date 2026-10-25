@@ -17,10 +17,11 @@ const SUBSCRIBE_URL = 'https://api.aiappnation.com/v1/subscribe/reefmetric';
       <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0" />
       <button type="submit" class="btn">Send me the cheat sheet</button>
     </form>
-    <p data-capture-msg style="display:none;color:#9a3a3a;font-size:.88rem;margin:10px 0 0;"></p>
+    <p data-capture-msg role="alert" style="display:none;color:#9a3a3a;font-size:.88rem;margin:10px 0 0;"></p>
+    <p style="font-size:.88rem;margin:10px 0 0;">Prefer the browser? <a href={url('/cheat-sheet')}>Read the cheat sheet now</a>.</p>
     <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0;">One email with the sheet. If we ever start a newsletter, you can opt out first. <a href={url('/privacy')}>Privacy</a></p>
   </div>
-  <div data-capture-done style="display:none;">
+  <div data-capture-done role="status" aria-live="polite" style="display:none;">
     <p class="eyebrow" style="color:var(--brand-2)">Sent</p>
     <h2 style="margin:6px 0 0;">Check your inbox.</h2>
     <p style="color:var(--muted);margin:8px 0 0;">The cheat sheet is on its way from ReefMetric. Can't wait — or it hasn't landed in a few minutes? <a href={url('/cheat-sheet')} data-capture-link><strong>Read it right now →</strong></a></p>
@@ -46,6 +47,7 @@ const SUBSCRIBE_URL = 'https://api.aiappnation.com/v1/subscribe/reefmetric';
       try {
         const res = await fetch(form.action, {
           method: 'POST',
+          signal: AbortSignal.timeout(15000),
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email: (form.elements.namedItem('email') as HTMLInputElement).value.trim(),
@@ -61,7 +63,7 @@ const SUBSCRIBE_URL = 'https://api.aiappnation.com/v1/subscribe/reefmetric';
         msg.textContent =
           (err as Error).message === 'rate'
             ? 'Too many tries from this connection — give it an hour and try again.'
-            : "Couldn't reach the signup service — mind trying again in a minute?";
+            : "Couldn't confirm delivery. You can read the cheat sheet below, or try again later.";
         msg.style.display = 'block';
         button.disabled = false;
         button.textContent = label;

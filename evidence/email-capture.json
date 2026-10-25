@@ -1,0 +1,29 @@
+{
+  "method": "Local Chromium; all POSTs intercepted with fixtures; email service not contacted",
+  "cases": [
+    {
+      "name": "success",
+      "pass": true,
+      "postIntercepted": true,
+      "realEmailSent": false
+    },
+    {
+      "name": "rate limit",
+      "pass": true,
+      "postIntercepted": true,
+      "realEmailSent": false
+    },
+    {
+      "name": "service failure",
+      "pass": true,
+      "postIntercepted": true,
+      "realEmailSent": false
+    },
+    {
+      "name": "offline",
+      "pass": true,
+      "postIntercepted": true,
+      "realEmailSent": false
+    }
+  ]
+}

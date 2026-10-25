@@ -1,18 +1,125 @@
 {
   "generated": "2026-07-01",
   "additives": [
-    { "name": "Soda Ash (Sodium Carbonate)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.0716, "note": "DIY alk; dissolve + pH-match before dosing (raw soda ash spikes pH)" },
-    { "name": "Baking Soda (Sodium Bicarbonate)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.1135, "note": "DIY alk; gentler on pH than soda ash" },
-    { "name": "Baked Baking Soda (→ Soda Ash)", "parameter": "alk", "doseUnit": "g", "perUnitPerGallon": 0.0716, "note": "Bake NaHCO3 at ~300°F to convert to soda ash, then use this weight" },
-    { "name": "Calcium Chloride Dihydrate", "parameter": "ca", "doseUnit": "g", "perUnitPerGallon": 0.01388, "note": "DIY calcium (CaCl2·2H2O)" },
-    { "name": "Magnesium Mix (DIY stock solution)", "parameter": "mg", "doseUnit": "mL", "perUnitPerGallon": 0.0376, "note": "Stock = 720g MgCl2·6H2O + 180g MgSO4·7H2O per gallon RO/DI" },
-    { "name": "BRS 2-Part Liquid Soda Ash (Alk)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 0.667, "note": "BRS standard soda-ash stock; verify with the BRS calculator per batch" },
-    { "name": "BRS 2-Part Liquid Calcium Chloride", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.1, "note": "BRS standard CaCl stock" },
-    { "name": "ESV B-Ionic Alkalinity (Comp. 1)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 0.483, "note": "Never exceed 1 mL/gal/day; dose components 1+ hr apart" },
-    { "name": "ESV B-Ionic Calcium (Comp. 2)", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.0625, "note": "Never exceed 1 mL/gal/day" },
-    { "name": "Red Sea Reef Foundation A (Calcium)", "parameter": "ca", "doseUnit": "mL", "perUnitPerGallon": 0.5, "note": "Manufacturer: 1 mL raises 25 gal by 2 ppm Ca" },
-    { "name": "Red Sea Reef Foundation B (Alkalinity)", "parameter": "alk", "doseUnit": "mL", "perUnitPerGallon": 2.5, "note": "Manufacturer: 1 mL raises 25 gal by 0.1 dKH" },
-    { "name": "Red Sea Reef Foundation C (Magnesium)", "parameter": "mg", "doseUnit": "mL", "perUnitPerGallon": 0.5, "note": "Manufacturer: 1 mL raises 25 gal by 1 ppm Mg" }
+    {
+      "name": "Soda Ash (Sodium Carbonate)",
+      "parameter": "alk",
+      "doseUnit": "g",
+      "perUnitPerGallon": 0.0716,
+      "note": "DIY alk; dissolve + pH-match before dosing (raw soda ash spikes pH)",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "Baking Soda (Sodium Bicarbonate)",
+      "parameter": "alk",
+      "doseUnit": "g",
+      "perUnitPerGallon": 0.1135,
+      "note": "DIY alk; gentler on pH than soda ash",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "Baked Baking Soda (\u2192 Soda Ash)",
+      "parameter": "alk",
+      "doseUnit": "g",
+      "perUnitPerGallon": 0.0716,
+      "note": "Bake NaHCO3 at ~300\u00b0F to convert to soda ash, then use this weight",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "Calcium Chloride Dihydrate",
+      "parameter": "ca",
+      "doseUnit": "g",
+      "perUnitPerGallon": 0.01388,
+      "note": "DIY calcium (CaCl2\u00b72H2O)",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "Magnesium Mix (DIY stock solution)",
+      "parameter": "mg",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.0376,
+      "note": "Stock = 720g MgCl2\u00b76H2O + 180g MgSO4\u00b77H2O per gallon RO/DI",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "BRS 2-Part Liquid Soda Ash (Alk)",
+      "parameter": "alk",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.714,
+      "note": "BRS Pharma liquid only: 1.5 cups or the new Pharma pouch, made up to 1 US gallon final volume. Source example: +1.5 dKH in 100 US gal uses 107.1 mL. Monitor pH; do not raise pH by more than 0.2.",
+      "enabled": true,
+      "source": "https://www.bulkreefsupply.com/content/post/brs-pharma-soda-ash-mixing-and-dosing-instructions",
+      "dailyMaxRise": 1.4
+    },
+    {
+      "name": "BRS 2-Part Liquid Calcium Chloride",
+      "parameter": "ca",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.05115,
+      "note": "BRS Pharma liquid only: 2.5 cups or the new Pharma pouch, made up to 1 US gallon final volume. Source example: +20 ppm in 100 US gal uses 102.3 mL.",
+      "enabled": true,
+      "source": "https://www.bulkreefsupply.com/content/post/brs-pharma-calcium-chloride-mixing-and-dosing-instructions",
+      "dailyMaxRise": 50
+    },
+    {
+      "name": "ESV B-Ionic Alkalinity (Comp. 1)",
+      "parameter": "alk",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.483,
+      "note": "Never exceed 1 mL/gal/day; dose components 1+ hr apart",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "ESV B-Ionic Calcium (Comp. 2)",
+      "parameter": "ca",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.0625,
+      "note": "Never exceed 1 mL/gal/day",
+      "enabled": false,
+      "disabledReason": "Exact strength and preparation have not been verified against a primary source in this audit."
+    },
+    {
+      "name": "Red Sea Reef Foundation A (Calcium)",
+      "parameter": "ca",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.01892705892,
+      "note": "Red Sea factory liquid only: 1 mL raises 100 liters by 2 ppm. Uses exact US-gallon conversion; not the weaker Foundation B powder stock or Complete Reef Care Part 1.",
+      "enabled": true,
+      "source": "https://redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+      "dailyMaxRise": 20
+    },
+    {
+      "name": "Red Sea Reef Foundation B (Alkalinity)",
+      "parameter": "alk",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.3785411784,
+      "note": "Red Sea factory liquid only: 1 mL raises 100 liters by 0.1 dKH. Uses exact US-gallon conversion; not the weaker Foundation B powder stock or Complete Reef Care Part 1.",
+      "enabled": true,
+      "source": "https://redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+      "dailyMaxRise": 1.4
+    },
+    {
+      "name": "Red Sea Reef Foundation C (Magnesium)",
+      "parameter": "mg",
+      "doseUnit": "mL",
+      "perUnitPerGallon": 0.03785411784,
+      "note": "Red Sea factory liquid only: 1 mL raises 100 liters by 1 ppm. Uses exact US-gallon conversion; not the weaker Foundation B powder stock or Complete Reef Care Part 1.",
+      "enabled": true,
+      "source": "https://redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+      "dailyMaxRise": 10
+    }
   ],
-  "safeDailyMax": { "alk_dKH": 1.4, "ca_ppm": 50, "mg_ppm": 100 }
+  "safeDailyMax": {
+    "alk_dKH": 1.4,
+    "ca_ppm": 50,
+    "mg_ppm": 100
+  },
+  "verifiedOn": "2026-10-25",
+  "dailyLimitsSource": "https://redseafish.com/wp-content/uploads/2020/11/24653_Manual-Foundation-Complete-GB-_v21a-WEB.pdf"
 }

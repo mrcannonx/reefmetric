@@ -81,6 +81,7 @@ const example = (skimmerData.skimmers as Skimmer[]).find((s) => s.ratingMedium &
 </Base>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { recommendSkimmers } from '../../utils/skimmer-calc';
   import data from '../../data/skimmers.json';
   import { goHref, retailerName } from '../../data/affiliate-config';
@@ -93,6 +94,7 @@ const example = (skimmerData.skimmers as Skimmer[]).find((s) => s.ratingMedium &
     goHref(s.retailers || [], `${s.brand} ${s.model} protein skimmer`, s.source);
 
   function render() {
+    if (!validateCalcInputs('#sk-form input[type="number"]', 'sk-summary', ['sk-results'], ['sMaxPrice'])) return;
     const gallons = Number(val('sDisplayGallons')) || 0;
     const bioload = (val('sBioload') || 'medium') as 'light' | 'medium' | 'heavy';
     const type = val('sType') || 'any';
@@ -130,10 +132,10 @@ const example = (skimmerData.skimmers as Skimmer[]).find((s) => s.ratingMedium &
             <div class="rmeta">${pill}${foot}${depth}${watts}${price}${basis}</div>
           </div>
           <div class="rflow"><span class="n">${r.effectiveGallons.toLocaleString()}</span><br><span class="u">gal @ ${bioload}</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} (paid link) ↗</a></div>
         </div>`;
     }).join('');
-    results.innerHTML = cards +
+    results.innerHTML = (shown.length ? cards : '<p class="rnote">No skimmers match these filters. Raise the budget or change the type, then check capacity and sump fit.</p>') +
       `<p class="rnote">Showing the ${shown.length} best matches of ${(data as any).skimmers.length} skimmers. Capacity is the manufacturer's own light/medium/heavy rating where published, otherwise their headline number derated for your bioload (a “*” marks a derated estimate). Always confirm the footprint fits your sump.</p>`;
   }
 

@@ -1,0 +1,1104 @@
+{
+  "measuredAt": "2026-10-25T17:39:10.750Z",
+  "base": "https://reefmetric.com",
+  "browser": "isolated Playwright Chromium",
+  "scope": "Live calculator page controls, 390px viewport. Observations only; expected local-fixed output is recorded for comparison, not treated as a live pass. External images blocked.",
+  "results": [
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "75",
+        "dParam": "alk",
+        "dCurrent": "7",
+        "dTarget": "9"
+      },
+      "expected": [
+        "107.1 mL",
+        "2 days"
+      ],
+      "output": "#dose-out",
+      "kind": "realistic",
+      "actual": "To raise Alkalinity by 2 dKH (7 → 9) in 75 gal, dose 100 mL of BRS 2-Part Liquid Soda Ash (Alk) total.\nThat correction is above the safe 1.4 dKH/day limit — split it: ~50 mL/day for 2 days, re-testing along the way.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "107.1 mL",
+        "2 days"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "40",
+        "dParam": "ca",
+        "dCurrent": "400",
+        "dTarget": "420"
+      },
+      "expected": [
+        "40.9 mL",
+        "50 ppm/day"
+      ],
+      "output": "#dose-out",
+      "kind": "realistic",
+      "actual": "To raise Calcium by 20 ppm (400 → 420) in 40 gal, dose 80 mL of BRS 2-Part Liquid Calcium Chloride total.\nThis is within the safe daily limit — you can dose it in one day, then re-test.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "40.9 mL",
+        "50 ppm/day"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "120",
+        "dParam": "mg",
+        "dCurrent": "1250",
+        "dTarget": "1300"
+      },
+      "expected": [
+        "227.1 mL",
+        "5 days",
+        "10 ppm/day"
+      ],
+      "output": "#dose-out",
+      "kind": "realistic",
+      "actual": "To raise Magnesium by 50 ppm (1250 → 1300) in 120 gal, dose 3000 mL of Red Sea Reef Foundation C (Magnesium) total.\nThis is within the safe daily limit — you can dose it in one day, then re-test.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "227.1 mL",
+        "5 days",
+        "10 ppm/day"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "0"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#dose-out",
+      "kind": "edge",
+      "actual": "To raise Alkalinity by 2 dKH (7 → 9) in 0 gal, dose 0 g of Soda Ash (Sodium Carbonate) total.\nThis is within the safe daily limit — you can dose it in one day, then re-test.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "tank-volume",
+      "inputs": {
+        "tvPreset": "custom",
+        "tvL": "30",
+        "tvW": "12",
+        "tvH": "12",
+        "tvGap": "0",
+        "tvSand": "0",
+        "tvRock": "0",
+        "tvSump": "0"
+      },
+      "expected": [
+        "18.7 gal"
+      ],
+      "output": "#tv-summary",
+      "kind": "realistic",
+      "actual": "Filled to the rim these dimensions hold 19 gal. Your water actually sees 18.7 gal.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "18.7 gal"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "tank-volume",
+      "inputs": {
+        "tvPreset": "40b",
+        "tvGap": "1",
+        "tvSand": "1",
+        "tvRock": "30",
+        "tvSump": "5"
+      },
+      "expected": [
+        "42 gal"
+      ],
+      "output": "#tv-summary",
+      "kind": "realistic",
+      "actual": "Filled to the rim these dimensions hold 45 gal. Your water actually sees 42 gal.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "42 gal"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "tank-volume",
+      "inputs": {
+        "tvPreset": "75",
+        "tvGap": "1",
+        "tvSand": "1.5",
+        "tvRock": "60",
+        "tvSump": "15"
+      },
+      "expected": [
+        "79.7 gal"
+      ],
+      "output": "#tv-summary",
+      "kind": "realistic",
+      "actual": "Filled to the rim these dimensions hold 79 gal. Your water actually sees 79.7 gal.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "79.7 gal"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "tank-volume",
+      "inputs": {
+        "tvGap": "21"
+      },
+      "expected": [
+        "leave no display water"
+      ],
+      "output": "#tv-summary",
+      "kind": "edge",
+      "actual": "Filled to the rim these dimensions hold 79 gal. Your water actually sees 0 gal.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "leave no display water"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "flow",
+      "inputs": {
+        "flGallons": "40",
+        "flBand": "softlps",
+        "flReturn": "200"
+      },
+      "expected": [
+        "~800 GPH"
+      ],
+      "output": "#fl-summary",
+      "kind": "realistic",
+      "actual": "A 40 gal Softies / LPS tank wants 800–1,200 GPH total. Your return covers 200 GPH → powerheads need to add ~800 GPH (mid-target).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "~800 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "flow",
+      "inputs": {
+        "flGallons": "75",
+        "flBand": "mixed",
+        "flReturn": "500"
+      },
+      "expected": [
+        "~1,938 GPH"
+      ],
+      "output": "#fl-summary",
+      "kind": "realistic",
+      "actual": "A 75 gal Mixed reef tank wants 1,875–3,000 GPH total. Your return covers 500 GPH → powerheads need to add ~1,938 GPH (mid-target).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "~1,938 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "flow",
+      "inputs": {
+        "flGallons": "120",
+        "flBand": "sps",
+        "flReturn": "840"
+      },
+      "expected": [
+        "~5,160 GPH"
+      ],
+      "output": "#fl-summary",
+      "kind": "realistic",
+      "actual": "A 120 gal SPS-dominant tank wants 4,800–7,200 GPH total. Your return covers 840 GPH → powerheads need to add ~5,160 GPH (mid-target).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "~5,160 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "flow",
+      "inputs": {
+        "flReturn": "-1"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#fl-summary",
+      "kind": "edge",
+      "actual": "A 75 gal Mixed reef tank wants 1,875–3,000 GPH total. Your return covers -1 GPH → powerheads need to add ~2,439 GPH (mid-target).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "heater",
+      "inputs": {
+        "htGallons": "75",
+        "htRoom": "68",
+        "htTarget": "78"
+      },
+      "expected": [
+        "380W total"
+      ],
+      "output": "#ht-summary",
+      "kind": "realistic",
+      "actual": "A 10°F lift on 75 gal needs ~5 W/gal → 380W total, best as two ~200W heaters on an external controller.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "380W total"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "heater",
+      "inputs": {
+        "htGallons": "30",
+        "htRoom": "73",
+        "htTarget": "78"
+      },
+      "expected": [
+        "90W total"
+      ],
+      "output": "#ht-summary",
+      "kind": "realistic",
+      "actual": "A 5°F lift on 30 gal needs ~3 W/gal → 90W total, best as two ~50W heaters on an external controller.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "90W total"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "heater",
+      "inputs": {
+        "htGallons": "120",
+        "htRoom": "60",
+        "htTarget": "78"
+      },
+      "expected": [
+        "1200W total"
+      ],
+      "output": "#ht-summary",
+      "kind": "realistic",
+      "actual": "A 18°F lift on 120 gal needs ~10 W/gal → 1200W total, best as two ~600W heaters on an external controller.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "1200W total"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "heater",
+      "inputs": {
+        "htRoom": ""
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#ht-summary",
+      "kind": "edge",
+      "actual": "A 78°F lift on 75 gal needs ~10 W/gal → 750W total, best as two ~375W heaters on an external controller.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "protein-skimmer",
+      "inputs": {
+        "sDisplayGallons": "30",
+        "sBioload": "light"
+      },
+      "expected": [
+        "30 gallon",
+        "light"
+      ],
+      "output": "#sk-summary",
+      "kind": "realistic",
+      "actual": "Sizing for a 30 gallon tank at light bioload. We show each skimmer's honest capacity at that load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "30 gallon",
+        "light"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "protein-skimmer",
+      "inputs": {
+        "sDisplayGallons": "75",
+        "sBioload": "medium"
+      },
+      "expected": [
+        "75 gallon",
+        "medium"
+      ],
+      "output": "#sk-summary",
+      "kind": "realistic",
+      "actual": "Sizing for a 75 gallon tank at medium bioload. We show each skimmer's honest capacity at that load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "75 gallon",
+        "medium"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "protein-skimmer",
+      "inputs": {
+        "sDisplayGallons": "120",
+        "sBioload": "heavy"
+      },
+      "expected": [
+        "120 gallon",
+        "heavy"
+      ],
+      "output": "#sk-summary",
+      "kind": "realistic",
+      "actual": "Sizing for a 120 gallon tank at heavy bioload. We show each skimmer's honest capacity at that load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "120 gallon",
+        "heavy"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "protein-skimmer",
+      "inputs": {
+        "sMaxPrice": "-10"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#sk-summary",
+      "kind": "edge",
+      "actual": "Sizing for a 75 gallon tank at medium bioload. We show each skimmer's honest capacity at that load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "return-pump",
+      "inputs": {
+        "displayGallons": "40",
+        "turnover": "5",
+        "staticHeadFt": "3"
+      },
+      "expected": [
+        "200 GPH"
+      ],
+      "output": "#summary",
+      "kind": "realistic",
+      "actual": "Your target: 200 GPH at the display (5× turnover)  ·  estimated total head at target: 3.1 ft",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "200 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "return-pump",
+      "inputs": {
+        "displayGallons": "75",
+        "turnover": "7",
+        "staticHeadFt": "4.5"
+      },
+      "expected": [
+        "525 GPH"
+      ],
+      "output": "#summary",
+      "kind": "realistic",
+      "actual": "Your target: 525 GPH at the display (7× turnover)  ·  estimated total head at target: 5.3 ft",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "525 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "return-pump",
+      "inputs": {
+        "displayGallons": "120",
+        "turnover": "10",
+        "staticHeadFt": "5"
+      },
+      "expected": [
+        "1,200 GPH"
+      ],
+      "output": "#summary",
+      "kind": "realistic",
+      "actual": "Your target: 1,200 GPH at the display (10× turnover)  ·  estimated total head at target: 8.6 ft",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "1,200 GPH"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "return-pump",
+      "inputs": {
+        "staticHeadFt": "-1"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#summary",
+      "kind": "edge",
+      "actual": "Your target: 350 GPH at the display (7× turnover)  ·  estimated total head at target: -0.6 ft",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salt-cost",
+      "inputs": {
+        "stGallons": "75",
+        "stPct": "10",
+        "stFreq": "weekly"
+      },
+      "expected": [
+        "32 gallons"
+      ],
+      "output": "#salt-summary",
+      "kind": "realistic",
+      "actual": "A 75 gal tank at 10% weekly changes ≈ 32 gallons of new saltwater a month. Cheapest per gallon first:",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "32 gallons"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salt-cost",
+      "inputs": {
+        "stGallons": "40",
+        "stPct": "15",
+        "stFreq": "biweekly"
+      },
+      "expected": [
+        "13 gallons"
+      ],
+      "output": "#salt-summary",
+      "kind": "realistic",
+      "actual": "A 40 gal tank at 15% every 2 weeks changes ≈ 13 gallons of new saltwater a month. Cheapest per gallon first:",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "13 gallons"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salt-cost",
+      "inputs": {
+        "stGallons": "120",
+        "stPct": "20",
+        "stFreq": "monthly"
+      },
+      "expected": [
+        "24 gallons"
+      ],
+      "output": "#salt-summary",
+      "kind": "realistic",
+      "actual": "A 120 gal tank at 20% monthly changes ≈ 24 gallons of new saltwater a month. Cheapest per gallon first:",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "24 gallons"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salt-cost",
+      "inputs": {
+        "stPct": "101"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#salt-summary",
+      "kind": "edge",
+      "actual": "A 75 gal tank at 101% weekly changes ≈ 326 gallons of new saltwater a month. Cheapest per gallon first:",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "salUnit": "ppt",
+        "salValue": "35"
+      },
+      "expected": [
+        "SG 1.0264"
+      ],
+      "output": "#sal-summary",
+      "kind": "realistic",
+      "actual": "That reads as 35.0 ppt — SG 1.0264, 53.0 mS/cm.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "SG 1.0264"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "salUnit": "sg",
+        "salValue": "1.0264"
+      },
+      "expected": [
+        "53.0 mS/cm"
+      ],
+      "output": "#sal-summary",
+      "kind": "realistic",
+      "actual": "That reads as 35.0 ppt — SG 1.0264, 53.0 mS/cm.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "53.0 mS/cm"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "salUnit": "cond",
+        "salValue": "53"
+      },
+      "expected": [
+        "35.0 ppt"
+      ],
+      "output": "#sal-summary",
+      "kind": "realistic",
+      "actual": "That reads as 35.0 ppt — SG 1.0264, 53.0 mS/cm.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "35.0 ppt"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "salValue": ""
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#sal-summary",
+      "kind": "edge",
+      "actual": "",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "tcSG": "1.025",
+        "tcTemp": "77"
+      },
+      "expected": [
+        "true SG is about 1.0250"
+      ],
+      "output": "#temp-summary",
+      "kind": "realistic",
+      "actual": "At 77°F, a hydrometer showing 1.0250 is reads true at this temperature — true SG is about 1.0250 (33.1 ppt).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "true SG is about 1.0250"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "tcSG": "1.025",
+        "tcTemp": "78"
+      },
+      "expected": [
+        "true SG is about 1.0251"
+      ],
+      "output": "#temp-summary",
+      "kind": "realistic",
+      "actual": "At 78°F, a hydrometer showing 1.0250 is reading low — true SG is about 1.0251 (33.3 ppt).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "true SG is about 1.0251"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "tcSG": "1.025",
+        "tcTemp": "82"
+      },
+      "expected": [
+        "true SG is about 1.0257"
+      ],
+      "output": "#temp-summary",
+      "kind": "realistic",
+      "actual": "At 82°F, a hydrometer showing 1.0250 is reading low — true SG is about 1.0257 (34.1 ppt).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "true SG is about 1.0257"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "salinity",
+      "inputs": {
+        "tcTemp": ""
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#temp-summary",
+      "kind": "edge",
+      "actual": "At 0°F, a hydrometer showing 1.0250 is reading high — true SG is about 1.0143 (19.0 ppt).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "water-change",
+      "inputs": {
+        "wcCurrent": "40",
+        "wcTarget": "10",
+        "wcGallons": "75"
+      },
+      "expected": [
+        "75%"
+      ],
+      "output": "#wc-summary",
+      "kind": "realistic",
+      "actual": "You need to remove 75% of what's in the water: 40 ppm → 10 ppm in a 75 gal system.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "75%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "water-change",
+      "inputs": {
+        "wcCurrent": "20",
+        "wcTarget": "5",
+        "wcGallons": "40"
+      },
+      "expected": [
+        "75%"
+      ],
+      "output": "#wc-summary",
+      "kind": "realistic",
+      "actual": "You need to remove 75% of what's in the water: 20 ppm → 5 ppm in a 40 gal system.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "75%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "water-change",
+      "inputs": {
+        "wcCurrent": "0.2",
+        "wcTarget": "0.05",
+        "wcGallons": "120"
+      },
+      "expected": [
+        "75%"
+      ],
+      "output": "#wc-summary",
+      "kind": "realistic",
+      "actual": "You need to remove 75% of what's in the water: 0.2 ppm → 0.05 ppm in a 120 gal system.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "75%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "water-change",
+      "inputs": {
+        "wcTarget": "0"
+      },
+      "expected": [
+        "Partial dilution never reaches exactly 0"
+      ],
+      "output": "#wc-results",
+      "kind": "edge",
+      "actual": "Dilution can never reach exactly 0 — every change removes a percentage of what's left. Pick a small non-zero target (e.g. 1–2 ppm nitrate, 0.02 ppm phosphate) for a realistic plan.\n\nEvery plan above is new saltwater you'll mix — see what those gallons cost across 12 salts →. Assumes nothing new is produced between changes; if levels rebound, see the export note below.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Partial dilution never reaches exactly 0"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "stocking",
+      "inputs": {
+        "stkGal": "40",
+        "stkFilt": "standard",
+        "[data-fish=\"Ocellaris Clownfish\"]": "2"
+      },
+      "expected": [
+        "32%"
+      ],
+      "output": "#stk-summary",
+      "kind": "realistic",
+      "actual": "2 fish · bioload at 32% of a comfortable 40-gallon load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "32%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "stocking",
+      "inputs": {
+        "stkGal": "75",
+        "stkFilt": "standard",
+        "[data-fish=\"Ocellaris Clownfish\"]": "4"
+      },
+      "expected": [
+        "34%"
+      ],
+      "output": "#stk-summary",
+      "kind": "realistic",
+      "actual": "4 fish · bioload at 34% of a comfortable 75-gallon load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "34%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "stocking",
+      "inputs": {
+        "stkGal": "120",
+        "stkFilt": "heavy",
+        "[data-fish=\"Ocellaris Clownfish\"]": "8"
+      },
+      "expected": [
+        "32%"
+      ],
+      "output": "#stk-summary",
+      "kind": "realistic",
+      "actual": "8 fish · bioload at 32% of a comfortable 120-gallon load.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "32%"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "stocking",
+      "inputs": {
+        "[data-fish=\"Ocellaris Clownfish\"]": "-1"
+      },
+      "expected": [
+        "Check"
+      ],
+      "output": "#stk-summary",
+      "kind": "edge",
+      "actual": "Set a quantity on the fish below to see your bioload.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Check"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-par",
+      "inputs": {
+        "parHeight": "8",
+        "parDepth": "8"
+      },
+      "expected": [],
+      "output": "#par-summary",
+      "kind": "realistic",
+      "actual": "At 16″ from fixture to coral (8″ mount + 8″ depth), 0 of 4 fixtures land in the Mixed reef band (150–300 PAR).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-par",
+      "inputs": {
+        "parHeight": "12",
+        "parDepth": "8"
+      },
+      "expected": [],
+      "output": "#par-summary",
+      "kind": "realistic",
+      "actual": "At 20″ from fixture to coral (12″ mount + 8″ depth), 0 of 4 fixtures land in the Mixed reef band (150–300 PAR).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-par",
+      "inputs": {
+        "parHeight": "18",
+        "parDepth": "8"
+      },
+      "expected": [],
+      "output": "#par-summary",
+      "kind": "realistic",
+      "actual": "At 26″ from fixture to coral (18″ mount + 8″ depth), 1 of 4 fixtures land in the Mixed reef band (150–300 PAR).",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-par",
+      "inputs": {
+        "parHeight": "0",
+        "parDepth": "8"
+      },
+      "expected": [],
+      "output": "#par-summary",
+      "kind": "edge",
+      "actual": "",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "cGallons": "75",
+        "cTier": "mid",
+        "cSump": "yes",
+        "cCoral": "mixed",
+        "cKwh": "0.17"
+      },
+      "expected": [
+        "143W",
+        "102.96 kWh",
+        "$17.50 electricity"
+      ],
+      "output": "#cost-totals",
+      "kind": "realistic",
+      "actual": "UP-FRONT BUILD\n$1,895–$2,670\nmid tier, 75 gal, with sump\nMONTHLY RUNNING\n$50–$70/mo\n~143W average draw: 102.96 kWh and $17.50 electricity per 30 days, plus salt & consumables",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "143W",
+        "102.96 kWh",
+        "$17.50 electricity"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "cGallons": "30",
+        "cTier": "budget",
+        "cSump": "no",
+        "cCoral": "softie",
+        "cKwh": "0.20"
+      },
+      "expected": [
+        "69W",
+        "49.68 kWh",
+        "$9.94 electricity"
+      ],
+      "output": "#cost-totals",
+      "kind": "realistic",
+      "actual": "UP-FRONT BUILD\n$715–$1,015\nbudget tier, 30 gal, no sump\nMONTHLY RUNNING\n$25–$40/mo\n~69W average draw: 49.68 kWh and $9.94 electricity per 30 days, plus salt & consumables",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "69W",
+        "49.68 kWh",
+        "$9.94 electricity"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "cGallons": "120",
+        "cTier": "premium",
+        "cSump": "yes",
+        "cCoral": "sps",
+        "cKwh": "0"
+      },
+      "expected": [
+        "192W",
+        "138.24 kWh",
+        "$0.00 electricity"
+      ],
+      "output": "#cost-totals",
+      "kind": "realistic",
+      "actual": "UP-FRONT BUILD\n$4,845–$6,835\npremium tier, 120 gal, with sump\nMONTHLY RUNNING\n$55–$80/mo\n~192W average draw: 138.24 kWh and $0.00 electricity per 30 days, plus salt & consumables",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "192W",
+        "138.24 kWh",
+        "$0.00 electricity"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "cKwh": ""
+      },
+      "expected": [
+        "Enter at least"
+      ],
+      "output": "#cost-totals",
+      "kind": "edge",
+      "actual": "Enter at least 5 gallons and a rate of zero or more.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "Enter at least"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "eWatts": "100",
+        "eHours": "24",
+        "eDays": "30",
+        "eRate": "0.17"
+      },
+      "expected": [
+        "72.00 kWh",
+        "$12.24"
+      ],
+      "output": "#electricity-result",
+      "kind": "realistic",
+      "actual": "72.00 kWh · $12.24 for 30 days at $0.17/kWh.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "72.00 kWh",
+        "$12.24"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "eWatts": "150",
+        "eHours": "8",
+        "eDays": "30",
+        "eRate": "0.2"
+      },
+      "expected": [
+        "36.00 kWh",
+        "$7.20"
+      ],
+      "output": "#electricity-result",
+      "kind": "realistic",
+      "actual": "36.00 kWh · $7.20 for 30 days at $0.2/kWh.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "36.00 kWh",
+        "$7.20"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "eWatts": "50",
+        "eHours": "24",
+        "eDays": "31",
+        "eRate": "0.3"
+      },
+      "expected": [
+        "37.20 kWh",
+        "$11.16"
+      ],
+      "output": "#electricity-result",
+      "kind": "realistic",
+      "actual": "37.20 kWh · $11.16 for 31 days at $0.3/kWh.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "37.20 kWh",
+        "$11.16"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-build-cost",
+      "inputs": {
+        "eHours": "25"
+      },
+      "expected": [
+        "no more than 24"
+      ],
+      "output": "#electricity-result",
+      "kind": "edge",
+      "actual": "Enter zero or more for each value, with no more than 24 hours per day.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [
+        "no more than 24"
+      ],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "75",
+        "dParam": "ca",
+        "dCurrent": "400",
+        "dTarget": "420",
+        "dAdditive": "Red Sea Reef Foundation A (Calcium)"
+      },
+      "expected": [],
+      "output": "#dose-out",
+      "kind": "source-strength",
+      "actual": "To raise Calcium by 20 ppm (400 → 420) in 75 gal, dose 750 mL of Red Sea Reef Foundation A (Calcium) total.\nThis is within the safe daily limit — you can dose it in one day, then re-test.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    },
+    {
+      "tool": "reef-dosing",
+      "inputs": {
+        "dGallons": "75",
+        "dParam": "alk",
+        "dCurrent": "7",
+        "dTarget": "9",
+        "dAdditive": "Red Sea Reef Foundation B (Alkalinity)"
+      },
+      "expected": [],
+      "output": "#dose-out",
+      "kind": "source-strength",
+      "actual": "To raise Alkalinity by 2 dKH (7 → 9) in 75 gal, dose 375 mL of Red Sea Reef Foundation B (Alkalinity) total.\nThat correction is above the safe 1.4 dKH/day limit — split it: ~188 mL/day for 2 days, re-testing along the way.",
+      "observed": true,
+      "comparisonToLocalFixedOutput": [],
+      "consoleErrors": []
+    }
+  ]
+}

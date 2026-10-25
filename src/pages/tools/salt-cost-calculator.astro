@@ -50,29 +50,31 @@ const { results: examples, gallonsMonthly } = rankSalts(reference.gallons, refer
   <section class="container prose">
     <h2 id="instant-ocean-example">Instant Ocean: a 75-gallon cost example</h2>
     <p>A {reference.pct}% weekly change on {reference.gallons} gallons uses {gallonsMonthly.toFixed(2)} new gallons per average month ({reference.frequency.perMonth} changes). These rows come from the same salt data and calculation as the live results. Dataset date: {saltData.generated}; check current package yield, salinity basis, and price before ordering.</p>
-    <table class="breakdown">
+    <div style="overflow-x:auto" tabindex="0" role="region" aria-label="Instant Ocean recorded cost comparison, scroll for all columns"><table class="breakdown">
       <thead><tr><th>Instant Ocean mix</th><th>Recorded box price</th><th>Stated yield</th><th>Cost / gallon</th><th>Salt / month</th></tr></thead>
       <tbody>{examples.map((r) => <tr><td>{r.salt.product}</td><td>${r.salt.priceUSD.toFixed(2)}</td><td>{r.salt.gallonsPerBox} gal</td><td>${r.costPerGal.toFixed(3)}</td><td>${r.monthly.toFixed(2)}</td></tr>)}</tbody>
-    </table>
+    </table></div>
     <p>Cost excludes shipping, RODI water, and mixing power. This is not a salt-dose recipe: follow your mix's instructions and measure the finished water. Use the <a href={url('/tools/salinity-calculator')}>salinity calculator</a> to check units, and the <a href={url('/tools/reef-build-cost-calculator') + '#aquarium-electricity-cost-calculator'}>aquarium electricity cost calculator</a> for the pump and heater.</p>
 
     <h2>Why cost per gallon, not per box</h2>
     <p>Use the <a href={url('/reviews/best-reef-salt-mix')}>reef salt mix rankings</a> to check chemistry as well as cost. Compare boxes at the same reef salinity: a larger advertised yield at a lower salinity does not mean more usable water for your tank. Enter your real water-change schedule above, then check the retailer's current package size and price. Shipping and a sale can change which mix costs least for your next order.</p>
-    <p>Salt is sold by the box, but you use it by the gallon. Two boxes at the same price can make very different amounts of saltwater, so the only fair comparison is <strong>price ÷ gallons the box actually mixes</strong> (at reef salinity, ~1.025). That's what we rank on here.</p>
+    <p>Salt is sold by the box, but you use it by the gallon. Two boxes at the same price can make very different amounts of saltwater, so the only fair comparison is <strong>price ÷ the package's stated gallons</strong>. Package yields can use different salinities. A label-gallon comparison does not establish the cheapest salt at your tank's salinity.</p>
 
     <h2>Your real monthly cost</h2>
     <p>Salt is the quiet recurring expense of the hobby. Your monthly cost is simply your tank volume × your water-change percentage × how often you change — times the cost per gallon of your salt. A 75-gallon tank doing weekly 10% changes goes through about 32 gallons of new saltwater a month; the salt you pick decides whether that's $10 or $25.</p>
 
     <h2>Cheap salt vs. reef salt</h2>
-    <p>Base salts (like plain Instant Ocean) mix to near-natural-seawater levels and cost the least — great for fish-only tanks and fine for many mixed reefs that dose separately. "Reef" and "Pro" salts run elevated alkalinity, calcium, and magnesium to feed coral growth, at a higher price per gallon. For an SPS-heavy tank the elevated salt can be worth it; for softies and LPS, the cheaper salt usually is.</p>
+    <p>Check each mix's stated alkalinity, calcium, magnesium, and salinity basis. "Reef" or "Pro" in a name does not guarantee higher levels or a better match. Choose a mix that fits your measured tank values and maintenance plan, and check its current instructions.</p>
   </section>
 
   <section class="container">
+    <p>Preparing new saltwater? Use the <a href={url('/tools/salt-mixing-calculator')}>salt mixing calculator</a> to weigh dry mix from your own package instructions.</p>
     <EmailCapture />
   </section>
 </Base>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { rankSalts, FREQUENCIES } from '../../utils/salt-cost-calc';
   import data from '../../data/salts.json';
   import { goHref, retailerName } from '../../data/affiliate-config';
@@ -85,6 +87,7 @@ const { results: examples, gallonsMonthly } = rankSalts(reference.gallons, refer
     goHref(s.retailers || [], `${s.brand} ${s.product} reef salt`);
 
   function render() {
+    if (!validateCalcInputs('#salt-form input[type="number"]', 'salt-summary', ['salt-results'])) return;
     const gallons = Number(val('stGallons')) || 0;
     const pct = Number(val('stPct')) || 0;
     const freq = FREQUENCIES.find((f) => f.value === val('stFreq')) || FREQUENCIES[0];
@@ -93,8 +96,8 @@ const { results: examples, gallonsMonthly } = rankSalts(reference.gallons, refer
     const results = document.getElementById('salt-results');
     if (!summary || !results) return;
 
-    const { results: ranked, gallonsMonthly } = rankSalts(gallons, pct, freq.perMonth, (data as any).salts);
-    summary.innerHTML = `A <b>${gallons.toLocaleString()} gal</b> tank at <b>${pct}%</b> ${freq.label.toLowerCase()} changes ≈ <b>${Math.round(gallonsMonthly).toLocaleString()} gallons</b> of new saltwater a month. Cheapest per gallon first:`;
+    const { results: ranked, gallonsMonthly, comparable } = rankSalts(gallons, pct, freq.perMonth, (data as any).salts);
+    summary.innerHTML = `A <b>${gallons.toLocaleString()} gal</b> tank at <b>${pct}%</b> ${freq.label.toLowerCase()} changes ≈ <b>${Math.round(gallonsMonthly).toLocaleString()} gallons</b> of new saltwater a month. ${comparable ? 'Package yields have the same stated salinity; sorted by package-label cost.' : 'Package-label estimates only. Yield salinity differs or is unknown, so these are not ranked as equal reef-salinity value.'}`;
 
     if (gallons <= 0) { results.innerHTML = ''; return; }
 
@@ -105,19 +108,20 @@ const { results: examples, gallonsMonthly } = rankSalts(reference.gallons, refer
         ? `<div class="rthumb"><img src="${s.imageUrl}" alt="${esc(s.brand)} ${esc(s.product)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
         : '';
       return `
-        <div class="rcard ${idx === 0 ? 'win' : ''}">
+        <div class="rcard ${comparable && idx === 0 ? 'win' : ''}">
           ${thumb}
-          <div class="rrank">${idx + 1}</div>
+          ${comparable ? `<div class="rrank">${idx + 1}</div>` : ''}
           <div class="rmain">
-            <div class="rname">${esc(s.brand)} ${esc(s.product)}${idx === 0 ? ' <span class="pill-win">Cheapest/gal</span>' : ''}</div>
+            <div class="rname">${esc(s.brand)} ${esc(s.product)}${comparable && idx === 0 ? ' <span class="pill-win">Lowest package cost/gal</span>' : ''}</div>
             ${params}
+            <div class="rmeta">${esc(s.yieldNote || 'Package-yield salinity is unverified; reef-strength yield may be lower.')}${s.source ? ` <a href="${esc(s.source)}" target="_blank" rel="noopener">Yield source ↗</a>` : ''}</div>
             <div class="rmeta">~$${s.priceUSD} box · makes ${s.gallonsPerBox} gal · <strong>${money2(r.monthly)}/mo for your tank</strong></div>
           </div>
           <div class="rflow"><span class="n">${money2(r.costPerGal)}</span><br><span class="u">per gallon</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(s)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(s.retailers))} (paid link) ↗</a></div>
         </div>`;
     }).join('') +
-      `<p class="rnote">Cost per gallon = box price ÷ gallons it mixes at reef salinity. Prices vary by retailer and sales; your monthly figure assumes the water volume above. Livestock-safe salinity is ~1.024–1.026.</p>`;
+      `<p class="rnote">Package-label cost per gallon = recorded package price ÷ its stated yield. Yields can use different salinities; monthly cost is an estimate at each package’s own yield basis, not a verified 35-ppt reef cost. Check the exact package, your salinity, and the current retailer price.</p>`;
   }
 
   ['stGallons', 'stPct', 'stFreq'].forEach((id) => {

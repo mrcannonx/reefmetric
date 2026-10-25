@@ -77,7 +77,10 @@
         "Amazon"
       ],
       "source": "https://www.bulkreefsupply.com/tunze-comline-doc-skimmer-9001.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208857-tunzecomlinedocskimmer9001-c.jpg"
+      "imageUrl": "/images/products/aa73daf0c7210e3e944f.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208857-tunzecomlinedocskimmer9001-c.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Innovative Marine",
@@ -114,7 +117,10 @@
         "Bulk Reef Supply"
       ],
       "source": "https://www.bulkreefsupply.com/tunze-comline-doc-skimmer-9004.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210058-tunze-comline-doc-skimmer-9004-dc-le.jpg"
+      "imageUrl": "/images/products/16bb6ab97098b3fee810.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210058-tunze-comline-doc-skimmer-9004-dc-le.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "AquaMaxx",
@@ -134,7 +140,10 @@
         "AquaCave"
       ],
       "source": "https://www.bulkreefsupply.com/aquamaxx-hob-1-5-hang-on-back-protein-skimmer.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/q/aquamaxx-hob-1.5-hang-on-back-protein-skimmer-1200x1200.jpg"
+      "imageUrl": "/images/products/b642bb68e1036822398a.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/q/aquamaxx-hob-1.5-hang-on-back-protein-skimmer-1200x1200.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Nyos",
@@ -155,7 +164,10 @@
         "Top Shelf Aquatics"
       ],
       "source": "https://www.bulkreefsupply.com/quantum-120-protein-skimmer-nyos.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212144-nyos-quantum120-proteinskimmer-fr.jpg"
+      "imageUrl": "/images/products/123fff6a4b325e7efc2c.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212144-nyos-quantum120-proteinskimmer-fr.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Royal Exclusiv",
@@ -165,9 +177,9 @@
       "ratingLight": null,
       "ratingMedium": null,
       "ratingHeavy": null,
-      "bodyDiameterIn": 8.7,
-      "footprintIn": "11 x 15",
-      "minSumpDepthIn": null,
+      "bodyDiameterIn": null,
+      "footprintIn": "13.4 x 15",
+      "minSumpDepthIn": 7.87,
       "pumpWatts": 50,
       "priceUSD": null,
       "retailers": [
@@ -175,7 +187,9 @@
         "ReefBum",
         "Aquarium Specialty"
       ],
-      "source": "https://www.royalexclusiv.com/Skimmer/Skimmer/Bubble-King-R-Double-Cone-130-300/Bubble-King-R-Double-Cone-180-RDX-DC-24V::412.html"
+      "source": "https://www.sewatec.com/royal-exclusiv-bubble-king-double-cone-180-rdx-dc-24v/",
+      "sourceVerifiedOn": "2026-10-25",
+      "sourceNote": "Sewatec lists 340 x 380 mm with the pump and 200-250 mm water depth; body diameter and US price not verified."
     },
     {
       "brand": "Deltec",
@@ -215,7 +229,10 @@
         "Premium Aquatics"
       ],
       "source": "https://www.bulkreefsupply.com/curve-7-protein-skimmer-bubble-magus.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232030-bubblemagus-curve7_-proteinskimmer-an.jpg"
+      "imageUrl": "/images/products/eab8725550c0ec85b637.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232030-bubblemagus-curve7_-proteinskimmer-an.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "IceCap",
@@ -237,7 +254,10 @@
         "Amazon"
       ],
       "source": "https://premiumaquatics.com/products/icecap-k1-160-skimmer",
-      "imageUrl": "https://premiumaquatics.com/cdn/shop/files/14080.jpg?v=1740526556"
+      "imageUrl": "/images/products/15c9a3216d54244ca924.webp",
+      "sourceImageUrl": "https://premiumaquatics.com/cdn/shop/files/14080.jpg?v=1740526556",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Reef Octopus",
@@ -258,7 +278,10 @@
         "Premium Aquatics"
       ],
       "source": "https://www.saltwateraquarium.com/classic-150-sss-protein-skimmer-reef-octopus/",
-      "imageUrl": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/800x800/products/1656/12014/150s__37259.1539626137.jpg?c=2"
+      "imageUrl": "/images/products/31b516c49bc1881fd276.webp",
+      "sourceImageUrl": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/800x800/products/1656/12014/150s__37259.1539626137.jpg?c=2",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Reef Octopus",
@@ -413,7 +436,10 @@
         "CoralVue"
       ],
       "source": "https://www.bulkreefsupply.com/quantum-160-protein-skimmer-nyos.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212145-nyos-quantum160-proteinskimmer-fr.jpg"
+      "imageUrl": "/images/products/084940191a95eddb79ae.webp",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212145-nyos-quantum160-proteinskimmer-fr.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Deltec",

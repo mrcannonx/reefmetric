@@ -8,7 +8,7 @@ export const SITE = {
 
 // Page content/metadata revision, not a claim that product prices were rechecked.
 // Keep this explicit: rebuilding must never manufacture a fresh editorial date.
-export const EDITORIAL_UPDATED_AT = '2026-10-22T19:51:11-07:00';
+export const EDITORIAL_UPDATED_AT = '2026-10-25T10:35:00-07:00';
 
 export const NAV = [
   { label: 'Tools', href: '/tools' },

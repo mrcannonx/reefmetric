@@ -1,0 +1,11 @@
+{
+  "internal_urls": 196,
+  "internal_bad": 0,
+  "fragment_links": 55,
+  "fragment_bad": 0,
+  "outbound_urls": 384,
+  "outbound_ok": 323,
+  "outbound_unresolved": 34,
+  "outbound_http_errors": 27,
+  "outbound_fetch_errors": 0
+}

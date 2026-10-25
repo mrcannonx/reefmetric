@@ -165,7 +165,7 @@ const quickPick = sections[2].picks[0];
               </div>
             </div>
             <div class="rflow"><span class="n">{p.deliveredGPH}</span><br /><span class="u">GPH delivered</span></div>
-            <div class="rbuy"><a class="aff" href={buy(p.pump)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.pump.retailers)} ↗</a></div>
+            <div class="rbuy"><a class="aff" href={buy(p.pump)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.pump.retailers)} ↗ <small>(paid link)</small></a></div>
           </div>
         ))}
       </div>
@@ -175,7 +175,7 @@ const quickPick = sections[2].picks[0];
   <section class="container" style="padding-top:8px;">
     <h2>Every pump in the database</h2>
     <p style="color:var(--muted);max-width:64ch;">Delivered flow computed at the 75-gallon reference plumbing ({refClass.blurb.toLowerCase()}) so the numbers are comparable. For <em>your</em> plumbing, use the <a href={url('/tools/return-pump-calculator')}>calculator</a>.</p>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
         <thead>
           <tr><th>Pump</th><th>Type</th><th>Max GPH</th><th>Delivered GPH†</th><th>Watts</th><th>~Price</th></tr>
@@ -199,7 +199,7 @@ const quickPick = sections[2].picks[0];
 
   <section class="container prose" style="padding-top:24px;">
     <h2>DC or AC?</h2>
-    <p>Most of the picks above are DC — controllable, quieter, and efficient at partial speed. The case for AC is simplicity and lifespan at a lower price. We wrote the full decision up in <a href={url('/guides/dc-vs-ac-return-pumps')}>DC vs AC return pumps</a>.</p>
+    <p>Control, installed power draw, and plumbing fit depend on the model and operating point. This calculation does not measure noise or lifespan. We wrote the full decision up in <a href={url('/guides/dc-vs-ac-return-pumps')}>DC vs AC return pumps</a>.</p>
     <h2>Why "smallest sufficient" wins</h2>
     <p>An oversized pump costs more up front, burns more watts forever, and ends up throttled back anyway. Our right-size pick is the smallest pump that hits 7× display turnover through the class's plumbing — if your plumbing differs, a taller rise or narrower pipe can change the winner, which is exactly what the <a href={url('/tools/return-pump-calculator')}>calculator</a> is for.</p>
   </section>

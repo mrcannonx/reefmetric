@@ -20,7 +20,7 @@ const tools = [
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">The cheat sheet</p>
     <h1>Reef gear picks, by tank size.</h1>
-    <p class="lede-dark">The right-size pick per category — the smallest gear that honestly does the job, computed with the same math as our calculators. Prices are street prices from our datasets (updated {dataDate}); cost ranges are mid-tier, mixed-reef estimates.</p>
+    <p class="lede-dark">Reference gear picks use the same recorded data and stated methods as our calculators. Prices are dated dataset records ({dataDate}), not current quotes; cost ranges are mid-tier, mixed-reef estimates. Lighting suggestions are editorial examples; measure coverage in your own tank.</p>
 
     {rows.map((r) => (
       <div class="card" style="margin-top:22px;">
@@ -61,6 +61,6 @@ const tools = [
       </p>
     </div>
 
-    <p class="rnote">Picks are computed from manufacturer spec data — pump curves at reference plumbing, honest medium-bioload skimmer ratings, verified PAR figures — not sponsorships. Some product links on the linked pages are paid links. <a href={url('/how-we-rate')}>How we rate →</a></p>
+    <p class="rnote">Picks are computed from manufacturer spec data — pump curves at reference plumbing, honest medium-bioload skimmer ratings, source-labeled lighting readings — not sponsorships. Some product links on the linked pages are paid links. <a href={url('/how-we-rate')}>How we rate →</a></p>
   </section>
 </Base>

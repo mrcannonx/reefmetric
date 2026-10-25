@@ -6,22 +6,17 @@
       "ecosystem": "Apex (A3 series)",
       "cloudFeeUSDmo": 0,
       "cloudNotes": "Apex Fusion is free for all Apex owners. No paid tier as of this dataset.",
-      "programmingModel": "Apex programming language \u2014 If-This-Then-That style rule engine with virtual outlets and real scripting depth. GUI wizards cover common tasks; power users write code strings.",
+      "programmingModel": "Apex programming language — If-This-Then-That style rule engine with virtual outlets and real scripting depth. GUI wizards cover common tasks; power users write code strings.",
       "programmingDifficulty": "Moderate",
       "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
-        "Largest install base and third-party ecosystem \u2014 most gear brands integrate with Apex first",
-        "Trident is the most mature automated Alk/Ca/Mg tester on the market",
-        "Deepest used market and community knowledge base (Reef2Reef)",
-        "Free cloud (Apex Fusion) with hardwired Ethernet fallback on full-size units"
+        "A3 Apex Pro System: 3 included probes recorded"
       ],
       "weaknesses": [
-        "WiFi reliability is the #1 owner complaint \u2014 drop-offs, WPA3 trouble; many owners hardwire Ethernet",
-        "Compare the programming interface and local access options before choosing a kit; an app-store score is not a hardware test.",
-        "Trident needs ~$45 reagent refills every 2 months \u2014 a real recurring cost"
+        "Kit prices are dated records; check current contents, compatibility, support and total expansion cost before buying."
       ],
-      "testing": "Trident automated Alk/Ca/Mg tester \u2014 $779.99 (Trident NP adds NO3/PO4). Reagent-based: ~$45 refill kit every ~2 months.",
-      "dosing": "DOS QuietDrive dual-head dosing system \u2014 $374.99, native Apex/Fusion integration.",
+      "testing": "Trident automated Alk/Ca/Mg tester — $779.99 (Trident NP adds NO3/PO4). Reagent-based: ~$45 refill kit every ~2 months.",
+      "dosing": "DOS QuietDrive dual-head dosing system — $374.99, native Apex/Fusion integration.",
       "kits": [
         {
           "model": "A3 Apex Pro System",
@@ -32,14 +27,17 @@
             "ORP"
           ],
           "outlets": 8,
-          "outletsNotes": "Energy Bar 832: 8 AC outlets + 3 1LINK + 2 24VDC accessory ports; 4\u00d7 0-10V variable outputs; leak + level sensors included",
+          "outletsNotes": "Energy Bar 832: 8 AC outlets + 3 1LINK + 2 24VDC accessory ports; 4× 0-10V variable outputs; leak + level sensors included",
           "connectivity": "WiFi + Ethernet",
           "retailers": [
             "Bulk Reef Supply",
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-pro-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=128"
+          "imageUrl": "/images/products/7f183508b41f58065220.webp",
+          "sourceImageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=128",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "local thumbnail"
         },
         {
           "model": "A3 Apex System",
@@ -56,7 +54,10 @@
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=128"
+          "imageUrl": "/images/products/4a8eea78b74a5f944ad9.webp",
+          "sourceImageUrl": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=128",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "local thumbnail"
         },
         {
           "model": "A3 Apex Jr System",
@@ -65,45 +66,60 @@
             "temp"
           ],
           "outlets": 0,
-          "outletsNotes": "Monitoring-focused entry unit \u2014 no Energy Bar included; add one later for outlet control",
+          "outletsNotes": "Monitoring-focused entry unit — no Energy Bar included; add one later for outlet control",
           "connectivity": "WiFi only",
           "retailers": [
             "Bulk Reef Supply",
             "Amazon"
           ],
           "source": "https://shop.neptunesystems.com/products/a3-apex-jr-system",
-          "imageUrl": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=128"
+          "imageUrl": "/images/products/f94f4d7e745533236456.webp",
+          "sourceImageUrl": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=128",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "local thumbnail"
         }
-      ]
+      ],
+      "unverifiedEditorialNotes": {
+        "strengths": [
+          "Largest install base and third-party ecosystem — most gear brands integrate with Apex first",
+          "Trident is the most mature automated Alk/Ca/Mg tester on the market",
+          "Deepest used market and community knowledge base (Reef2Reef)",
+          "Free cloud (Apex Fusion) with hardwired Ethernet fallback on full-size units"
+        ],
+        "weaknesses": [
+          "WiFi reliability is the #1 owner complaint — drop-offs, WPA3 trouble; many owners hardwire Ethernet",
+          "Compare the programming interface and local access options before choosing a kit; an app-store score is not a hardware test.",
+          "Trident needs ~$45 reagent refills every 2 months — a real recurring cost"
+        ]
+      }
     },
     {
       "brand": "CoralVue",
       "ecosystem": "HYDROS",
       "cloudFeeUSDmo": 0,
       "cloudNotes": "HYDROS app is free; no paid tier found. Bluetooth local fallback exists but is more limited than Apex's local page.",
-      "programmingModel": "Collectives \u2014 GUI automation builder, closest to smart-home app logic. Easiest of the three; no scripting layer.",
+      "programmingModel": "Collectives — GUI automation builder, closest to smart-home app logic. Easiest of the three; no scripting layer.",
       "programmingDifficulty": "Easiest",
       "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
-        "Distributed mesh architecture \u2014 brain and outlet units are separate, so one failure doesn't take down the system",
-        "Native wave-pump control (WaveEngine LE, $248.31) \u2014 no third-party bolt-on needed",
-        "Cheapest real entry: Control X2 at $198.65, Start kit at $346.49",
-        "Simplest programming model \u2014 fastest path to a working setup"
+        "Control X4 / XP8 Pro Pack: 2 included probes recorded"
       ],
       "weaknesses": [
-        "Newest ecosystem: smallest community, thinnest third-party integration list",
-        "WiFi power strip is the flaky link \u2014 owners report daily connect/disconnect alert flapping",
-        "Some reports of manual power-cycling needed after outages",
-        "Automated water testing needs extra hardware and consumables; the entry controller price is not a complete testing setup.",
-        "Heavy SKU churn \u2014 several starter packs already retired on CoralVue's own site"
+        "Kit prices are dated records; check current contents, compatibility, support and total expansion cost before buying."
       ],
       "testing": "HYDROS iV supports scheduled alkalinity testing, sampled pH, and optional salinity inputs. CoralVue also documents Maven for Alk/Ca/Mg/NO3/PO4 testing; confirm hardware requirements and current availability.",
       "testingVerifiedOn": "2026-10-22",
       "testingSources": [
-        { "name": "HYDROS iV setup manual", "url": "https://www.coralvuehydros.com/product-support/hydros-control/add-iv-tester/" },
-        { "name": "CoralVue Maven documentation", "url": "https://www.coralvue.com/blog/coralvue-news-1/automate-water-testing-with-the-new-hydros-maven-40" }
+        {
+          "name": "HYDROS iV setup manual",
+          "url": "https://www.coralvuehydros.com/product-support/hydros-control/add-iv-tester/"
+        },
+        {
+          "name": "CoralVue Maven documentation",
+          "url": "https://www.coralvue.com/blog/coralvue-news-1/automate-water-testing-with-the-new-hydros-maven-40"
+        }
       ],
-      "dosing": "HYDROS dosing pump \u2014 $72.75 per pump, needs a free Drive Port on a Control unit. Modular per-pump pricing vs Neptune's all-in-one DOS.",
+      "dosing": "HYDROS dosing pump — $72.75 per pump, needs a free Drive Port on a Control unit. Modular per-pump pricing vs Neptune's all-in-one DOS.",
       "kits": [
         {
           "model": "Control X4 / XP8 Pro Pack",
@@ -120,7 +136,10 @@
             "Amazon"
           ],
           "source": "https://www.coralvue.com/hydros-control-x4-xp8-pro-pack",
-          "imageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x4_pro_pack_graphic_72x-100_1.jpg"
+          "imageUrl": null,
+          "sourceImageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x4_pro_pack_graphic_72x-100_1.jpg",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "unavailable; photo omitted"
         },
         {
           "model": "Control X3 / XP8 Pro Pack",
@@ -134,7 +153,10 @@
             "Amazon"
           ],
           "source": "https://www.coralvue.com/brands/hydros-controllers/hydros-controllers/control-starter-kits-pro-packs",
-          "imageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x3_pro_pack_graphic_72x-100.jpg"
+          "imageUrl": null,
+          "sourceImageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x3_pro_pack_graphic_72x-100.jpg",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "unavailable; photo omitted"
         },
         {
           "model": "HYDROS Start",
@@ -148,7 +170,10 @@
             "Amazon"
           ],
           "source": "https://www.coralvue.com/brands/hydros-controllers/hydros-controllers/control-starter-kits-pro-packs",
-          "imageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/h/y/hydros_start_frontcenter.jpg"
+          "imageUrl": null,
+          "sourceImageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/h/y/hydros_start_frontcenter.jpg",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "unavailable; photo omitted"
         },
         {
           "model": "Control X2 (controller only)",
@@ -162,32 +187,44 @@
             "Amazon"
           ],
           "source": "https://www.coralvue.com/hydros-control-x2",
-          "imageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/x/2/x2_flont.jpg"
+          "imageUrl": null,
+          "sourceImageUrl": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/x/2/x2_flont.jpg",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "unavailable; photo omitted"
         }
-      ]
+      ],
+      "unverifiedEditorialNotes": {
+        "strengths": [
+          "Distributed mesh architecture — brain and outlet units are separate, so one failure doesn't take down the system",
+          "Native wave-pump control (WaveEngine LE, $248.31) — no third-party bolt-on needed",
+          "Cheapest real entry: Control X2 at $198.65, Start kit at $346.49",
+          "Simplest programming model — fastest path to a working setup"
+        ],
+        "weaknesses": [
+          "Newest ecosystem: smallest community, thinnest third-party integration list",
+          "WiFi power strip is the flaky link — owners report daily connect/disconnect alert flapping",
+          "Some reports of manual power-cycling needed after outages",
+          "Automated water testing needs extra hardware and consumables; the entry controller price is not a complete testing setup.",
+          "Heavy SKU churn — several starter packs already retired on CoralVue's own site"
+        ]
+      }
     },
     {
       "brand": "GHL",
       "ecosystem": "ProfiLux 4",
       "cloudFeeUSDmo": 0,
       "cloudNotes": "myGHL / GHL Connect cloud is free. Next-gen 'GHL Connect AI' announced for late 2026, pricing undisclosed.",
-      "programmingModel": "Full logic-gate programming (AND/OR/NOT chains) \u2014 the most powerful and the steepest learning curve of the three. Optional Control Pad touchscreen ($249.90) for daily use without programming.",
+      "programmingModel": "Full logic-gate programming (AND/OR/NOT chains) — the most powerful and the steepest learning curve of the three. Optional Control Pad touchscreen ($249.90) for daily use without programming.",
       "programmingDifficulty": "Steepest",
       "appNotes": "Use the included hardware, local and cloud access options, and programming model to judge fit; app-store star counts are not used in this comparison.",
       "strengths": [
-        "Most complete out-of-box probe set: Mega-Set ships lab-grade pH, ORP, conductivity/salinity AND temp probes with calibration fluids",
-        "Most powerful programming logic of the three for power users",
-        "ION Director tests Ca/Mg/K/Na/NO3 with ion-selective electrodes \u2014 NO consumable reagents, unlike Trident",
-        "German-engineered probe accuracy reputation"
+        "ProfiLux 4 Mega-Set 6E: 4 included probes recorded"
       ],
       "weaknesses": [
-        "Steepest learning curve \u2014 Apex switchers say you have to 'forget the Apex mindset'",
-        "Companion software (GCC) described as crash-prone and slow by owners",
-        "Customer service criticized for templated troubleshooting",
-        "Weakest US retail footprint \u2014 thin coverage at specialty retailers like BRS vs Neptune/CoralVue; GHL's own US storefront is the reliable price source"
+        "Kit prices are dated records; check current contents, compatibility, support and total expansion cost before buying."
       ],
-      "testing": "ION Director \u2014 reagent-free Ca/Mg/K/Na/NO3 via ion-selective electrodes; sold in US bundles with a GHL Doser from ~$1,034.",
-      "dosing": "GHL Doser 3 (EXT/standalone) \u2014 bundled with ProfiLux/ION Director from ~$1,020; standalone US pricing not cleanly published.",
+      "testing": "ION Director measures Ca/Mg/K/Na/NO3 with an ion-selective sensor; it consumes reference fluids and the sensor is a wear part. Include these operating costs.",
+      "dosing": "GHL Doser 3 (EXT/standalone) — bundled with ProfiLux/ION Director from ~$1,020; standalone US pricing not cleanly published.",
       "kits": [
         {
           "model": "ProfiLux 4 Mega-Set 6E",
@@ -199,16 +236,38 @@
             "conductivity/salinity"
           ],
           "outlets": 6,
-          "outletsNotes": "Powerbar 6E-PAB (6 controllable AC outlets) + lab-grade probe set with full calibration fluids \u2014 the most complete kit contents in this comparison",
+          "outletsNotes": "Powerbar 6E-PAB (6 controllable AC outlets) + lab-grade probe set with full calibration fluids — the most complete kit contents in this comparison",
           "connectivity": "WiFi + Ethernet",
           "retailers": [
             "GHL USA",
             "Bulk Reef Supply"
           ],
           "source": "https://www.aquariumcomputer.com/usa/product/profilux-4-mega-set-6e/",
-          "imageUrl": "https://www.aquariumcomputer.com/usa/wp-content/uploads/sites/5/2024/12/P420Mega-Set206E.webp"
+          "imageUrl": "/images/products/c3e2f885dc12ba0e92d7.webp",
+          "sourceImageUrl": "https://www.aquariumcomputer.com/usa/wp-content/uploads/sites/5/2024/12/P420Mega-Set206E.webp",
+          "imageCheckedOn": "2026-10-25",
+          "imageStatus": "local thumbnail"
         }
-      ]
+      ],
+      "unverifiedEditorialNotes": {
+        "strengths": [
+          "Most complete out-of-box probe set: Mega-Set ships lab-grade pH, ORP, conductivity/salinity AND temp probes with calibration fluids",
+          "Most powerful programming logic of the three for power users",
+          "ION Director tests Ca/Mg/K/Na/NO3 with ion-selective electrodes — NO consumable reagents, unlike Trident",
+          "German-engineered probe accuracy reputation"
+        ],
+        "weaknesses": [
+          "Steepest learning curve — Apex switchers say you have to 'forget the Apex mindset'",
+          "Companion software (GCC) described as crash-prone and slow by owners",
+          "Customer service criticized for templated troubleshooting",
+          "Weakest US retail footprint — thin coverage at specialty retailers like BRS vs Neptune/CoralVue; GHL's own US storefront is the reliable price source"
+        ]
+      },
+      "testingSources": [
+        "https://www.aquariumcomputer.com/products/ion-director/",
+        "https://www.aquariumcomputer.com/knowledge-base/ion-director-maintenance-sensor-care/"
+      ],
+      "testingCheckedOn": "2026-10-25"
     },
     {
       "brand": "Reef Angel",
@@ -219,23 +278,17 @@
       "programmingDifficulty": "Wizard-easy for the basics; genuinely technical (Arduino/C++) once you go past it",
       "appNotes": "Reef Angel app handles remote monitoring, control, and alerts — owners consistently describe it as more utilitarian than Fusion/myGHL/HYDROS.",
       "strengths": [
-        "Cheapest complete kit on this page — $399 includes the relay box, probes, and float switches with nothing extra required to get running",
-        "Fully open-source (Arduino) — public source code and hardware schematics, a real point of difference from every closed ecosystem above",
-        "Built-in WiFi on the Star — the earlier RA+ needed a separate add-on module",
-        "Actively maintained — GitHub commits into December 2025, still a going concern (unlike some DIY-era peers, see ReefKeeper below)"
+        "Reef Angel Star: 2 included probes recorded"
       ],
       "weaknesses": [
-        "Smallest third-party ecosystem here — no automated water-testing hardware exists for it (no Trident/ION Director equivalent)",
-        "No native dosing pump — relay outlets can switch a third-party doser on/off but can't program a dose volume",
-        "Full customization requires real Arduino/C++ comfort — the wizard covers the basics, but the 'open and hackable' pitch cuts both ways",
-        "Smallest community and support footprint of any current (non-discontinued) option on this page"
+        "Kit prices are dated records; check current contents, compatibility, support and total expansion cost before buying."
       ],
       "testing": "No automated water-testing hardware in the Reef Angel ecosystem — pair a manual test kit and log results in the app.",
       "dosing": "No native dosing pump. Relay outlets can switch a third-party doser on/off only — for programmable dose volumes, pair it with a standalone doser (see our dosing pump review).",
       "kits": [
         {
           "model": "Reef Angel Star",
-          "priceUSD": 399.0,
+          "priceUSD": 399,
           "includedProbes": [
             "temp",
             "pH"
@@ -249,11 +302,25 @@
           "source": "https://reefangel.com/store/",
           "imageUrl": null
         }
-      ]
+      ],
+      "unverifiedEditorialNotes": {
+        "strengths": [
+          "Cheapest complete kit on this page — $399 includes the relay box, probes, and float switches with nothing extra required to get running",
+          "Fully open-source (Arduino) — public source code and hardware schematics, a real point of difference from every closed ecosystem above",
+          "Built-in WiFi on the Star — the earlier RA+ needed a separate add-on module",
+          "Actively maintained — GitHub commits into December 2025, still a going concern (unlike some DIY-era peers, see ReefKeeper below)"
+        ],
+        "weaknesses": [
+          "Smallest third-party ecosystem here — no automated water-testing hardware exists for it (no Trident/ION Director equivalent)",
+          "No native dosing pump — relay outlets can switch a third-party doser on/off but can't program a dose volume",
+          "Full customization requires real Arduino/C++ comfort — the wizard covers the basics, but the 'open and hackable' pitch cuts both ways",
+          "Smallest community and support footprint of any current (non-discontinued) option on this page"
+        ]
+      }
     }
   ],
   "reefPi": {
-    "summary": "Open-source Raspberry Pi controller (actively maintained, May 2026 commits). Automates ATO, temp, lighting, dosing, pH for roughly $150 in parts \u2014 zero warranty, zero support, real time investment.",
+    "summary": "Open-source Raspberry Pi controller (actively maintained, May 2026 commits). Automates ATO, temp, lighting, dosing, pH for roughly $150 in parts — zero warranty, zero support, real time investment.",
     "roughCostUSD": 150,
     "source": "https://github.com/reef-pi/reef-pi"
   }

@@ -1,0 +1,25 @@
+{
+  "measuredAt": "2026-10-25T17:31:27.379198+00:00",
+  "records": [
+    {
+      "control": "Restore original dosing coefficients in actual source data; keep new enabled/source metadata",
+      "exitCode": 1,
+      "expected": "failure",
+      "observedFailure": "every enabled liquid matches its fetched label/example and its own daily limit",
+      "detected": true
+    },
+    {
+      "control": "Restore held-flat extrapolation at last PAR point in actual source function",
+      "exitCode": 1,
+      "expected": "failure",
+      "observedFailure": "PAR interpolates only within a single source and returns unknown outside it",
+      "detected": true
+    },
+    {
+      "control": "Original final source bytes restored, normal suite",
+      "exitCode": 0,
+      "expected": "pass",
+      "detected": true
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+---
+import Base from '../../layouts/Base.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import { url } from '../../utils/url';
+import { computeSaltMix, SALT_MIX_EXAMPLES, SALT_MIX_SOURCE, UNIT_SOURCE, US_GALLON_LITERS } from '../../utils/salt-mix-calc';
+const headline = 'Reef Salt Mixing Calculator';
+const fmt = (n: number) => n !== 0 && (Math.abs(n) >= 1e6 || Math.abs(n) < 0.01)
+  ? n.toExponential(2) : n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+---
+<Base
+  headline={headline}
+  title="Salt Mixing Calculator: Grams for Your Batch"
+  description="Calculate dry salt in grams and kilograms from your salt label's mixing rate. Plan a fresh batch or a water change in US gallons or litres."
+  breadcrumbs={[{ name: 'Tools', href: '/tools' }, { name: 'Salt Mixing Calculator', href: '/tools/salt-mixing-calculator' }]}
+>
+  <section class="container tool-wrap">
+    <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
+    <h1>{headline}</h1>
+    <p class="lede-dark">How much dry salt goes in your mixing container? Enter the water amount and <strong>your salt maker's rate for your chosen salinity</strong>. Get grams and kilograms for a batch, an initial fill, or a planned water change. This tool works with any brand whose instructions give a weight per litre or US gallon.</p>
+    <div class="calc card">
+      <form id="sm-form" class="calc-grid" autocomplete="off">
+        <label>What are you preparing?
+          <select id="smMode"><option value="batch">A measured batch or initial fill</option><option value="change">A percent water change</option></select>
+        </label>
+        <label><span id="sm-volume-label">Water amount for this batch</span>
+          <input id="smVolume" type="number" min="0" step="any" value="20" required />
+        </label>
+        <label>Water unit
+          <select id="smVolumeUnit"><option value="gal">US gallons</option><option value="L">Litres</option></select>
+        </label>
+        <label id="sm-percent-label" hidden>Water change (%)
+          <input id="smPercent" type="number" min="0" max="100" step="any" value="20" disabled />
+        </label>
+        <label>Grams from your salt label
+          <input id="smRate" type="number" min="0" step="any" placeholder="Enter your label rate" aria-describedby="sm-rate-help" required />
+        </label>
+        <label>Label rate unit
+          <select id="smRateUnit"><option value="g/L">Grams per litre</option><option value="g/gal">Grams per US gallon</option></select>
+        </label>
+      </form>
+      <p id="sm-rate-help" class="rnote">Use the rate printed for the salinity you want. If your label says 750 g per 5 US gallons, enter 150 and choose grams per US gallon. That is an arithmetic example, not a brand recipe. Cups and dry millilitres are not grams.</p>
+      <div id="sm-summary" class="summary" role="status" aria-live="polite" aria-atomic="true">Enter your label's grams per litre or US gallon to calculate the batch.</div>
+      <noscript><p>Use the worked examples and formula below; live results need JavaScript.</p></noscript>
+    </div>
+    <div id="sm-results" class="results"></div>
+    <p class="sample-note"><strong>Mix outside the tank.</strong> Add dry salt to water in a separate clean container, following your maker's order, temperature and mixing time. Check the finished salinity with a calibrated instrument before use. This is a starting weight, not a measured salinity or a livestock correction plan.</p>
+    <Disclosure />
+    <p>Choosing a mix? <a href={url('/tools/salt-cost-calculator')}>Compare cost per mixed gallon</a> or read the <a href={url('/reviews/best-reef-salt-mix')}>reef salt comparison</a>. Product links on those pages may earn a commission.</p>
+  </section>
+  <section class="container prose">
+    <h2>The math: salt weight from your label</h2>
+    <p><code>dry salt grams = water amount × label grams per water unit</code>. For a percent water change, <code>batch water = system water × change percent ÷ 100</code>. The calculator converts units first: one US gallon is {US_GALLON_LITERS} litres. It does not use Imperial gallons.</p>
+    <p>For a water change, enter the actual system water volume, not just the tank name. The <a href={url('/tools/tank-volume-calculator')}>tank volume calculator</a> helps estimate water after rock, sand and sump. Check the prepared replacement amount before draining your tank; dissolved salt can change the final batch volume.</p>
+    <h2>Worked examples</h2>
+    <p>These sample rates show the arithmetic. They are <strong>not product instructions</strong>; replace them with your own label rate.</p>
+    <div class="sm-example-list">
+      {SALT_MIX_EXAMPLES.map(({ label, input }) => {
+        const result = computeSaltMix(input);
+        return <div class="rcard"><div class="rmain"><h3 class="rname">{label}</h3><p class="rmeta">{fmt(result.basisAmount)} {input.rateUnit === 'g/L' ? 'L' : 'US gal'} × {input.gramsPerUnit} {input.rateUnit} = {fmt(result.grams)} g ({fmt(result.kilograms)} kg).</p></div></div>;
+      })}
+    </div>
+    <h2>Why there is no universal salt preset</h2>
+    <p>Dry salt mixes differ. A bucket's advertised gallon yield is not enough to infer a weight for your chosen salinity. If your Instant Ocean or other label gives only cups, use its directions or ask the maker for a weight; this tool does not turn cups into grams using a guessed density.</p>
+    <p>Read whether the rate is per litre of <strong>starting water</strong> or per litre of <strong>finished saltwater</strong>, and use the same basis here. No salinity scaling is applied. The grams are for the salinity attached to your entered label rate, not a promise that any batch will reach it exactly.</p>
+    <h2>Mix, test, then use</h2>
+    <ol>
+      <li>Read the current package directions and choose the rate for your target salinity.</li>
+      <li>Measure the water on the basis those directions use. For an initial fill, account for rock and sand rather than using the tank's nominal capacity.</li>
+      <li>Weigh the salt and mix in a separate container as directed. Do not add dry salt to an aquarium holding animals.</li>
+      <li>Let the salt dissolve as the maker directs, then measure salinity and temperature. Adjust the separate batch, mix again, and recheck before use.</li>
+    </ol>
+    <p>Evaporation leaves salt behind. Routine freshwater top-off is a different job from replacing removed saltwater. See the <a href={url('/tools/salinity-calculator')}>salinity converter</a> if your instrument uses a different reading unit, and the <a href={url('/tools/water-change-calculator')}>water change calculator</a> for nutrient dilution.</p>
+    <h2>Sources and limits</h2>
+    <p>Checked October 25, 2026: <a href={SALT_MIX_SOURCE}>Tropic Marin Pro-Reef application instructions</a> describe mixing salt into water in a container and give a weight range rather than one exact weight. Those directions support the mixing method here; their range is not a preset for any brand. <a href={UNIT_SOURCE}>NIST's unit conversion table</a> supplies the US-gallon conversion. Follow your own product's current directions for mixing time and temperature; this page does not set a universal waiting period.</p>
+    <p>All inputs reset on reload. No account, saved tank profile or product price is needed.</p>
+  </section>
+  <section class="container"><EmailCapture /></section>
+</Base>
+<style>
+  #sm-percent-label[hidden] { display:none; }
+  .sm-example-list { display:grid; gap:12px; }
+  .sm-example-list h3, .sm-example-list p { margin:0; }
+</style>
+<script>
+  import { computeSaltMix, type SaltMixInput } from '../../utils/salt-mix-calc';
+  const field = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement;
+  const summary = document.getElementById('sm-summary')!;
+  const results = document.getElementById('sm-results')!;
+  const fmt = (n: number) => n !== 0 && (Math.abs(n) >= 1e6 || Math.abs(n) < 0.01)
+  ? n.toExponential(2) : n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  function render() {
+    const mode = field('smMode').value as SaltMixInput['mode'];
+    const percent = field('smPercent') as HTMLInputElement;
+    percent.disabled = mode !== 'change';
+    document.getElementById('sm-percent-label')!.hidden = mode !== 'change';
+    document.getElementById('sm-volume-label')!.textContent = mode === 'change' ? 'Actual system water volume' : 'Water amount for this batch';
+    results.innerHTML = '';
+    const requiredIds = ['smVolume', 'smRate', ...(mode === 'change' ? ['smPercent'] : [])];
+    if (requiredIds.some((id) => field(id).value.trim() === '')) {
+      summary.textContent = "Enter a water amount and your label's grams per litre or US gallon to calculate the batch.";
+      return;
+    }
+    try {
+      const rateUnit = field('smRateUnit').value as SaltMixInput['rateUnit'];
+      const rate = Number(field('smRate').value);
+      const r = computeSaltMix({ mode, volume: Number(field('smVolume').value), volumeUnit: field('smVolumeUnit').value as SaltMixInput['volumeUnit'], changePercent: Number(percent.value), gramsPerUnit: rate, rateUnit });
+      if (r.grams === 0) {
+        summary.textContent = 'No water to prepare with these inputs, so no salt is needed.';
+        return;
+      }
+      summary.textContent = `Starting salt weight: ${fmt(r.grams)} g (${fmt(r.kilograms)} kg) for ${fmt(r.gallons)} US gal / ${fmt(r.liters)} L of water on your label's basis.`;
+      results.innerHTML = `<div class="rcard"><div class="rmain"><div class="rname">Your label rate, scaled to this batch</div><div class="rmeta">${fmt(r.basisAmount)} ${rateUnit === 'g/L' ? 'L' : 'US gal'} × ${fmt(rate)} ${rateUnit} = ${fmt(r.grams)} g. Test the finished salinity before use.</div></div></div>`;
+    } catch (error) {
+      summary.textContent = error instanceof Error ? error.message : 'Check the water amount, units and label rate.';
+    }
+  }
+  for (const id of ['smMode', 'smVolume', 'smVolumeUnit', 'smPercent', 'smRate', 'smRateUnit']) field(id).addEventListener('input', render);
+  document.getElementById('sm-form')!.addEventListener('submit', (event) => event.preventDefault());
+  render();
+</script>

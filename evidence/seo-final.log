@@ -1,0 +1,5 @@
+
+> reefmetric@0.1.0 check:seo
+> python3 scripts/check-seo.py
+
+46 HTML documents; 40 indexable; 40 sitemap URLs; 0 failures.

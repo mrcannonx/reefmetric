@@ -3,19 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../../data/setup-budgets';
 
-const cost = [
-  { item: 'Tank + stand (55g, 48×13×21″)', budget: '$250–400', mid: '$400–700' },
-  { item: 'Sump (20-long) or HOB alternative', budget: '$80–150', mid: '$150–350' },
-  { item: 'Return pump (~385 GPH at the tank)', budget: '$70–120', mid: '$120–220' },
-  { item: 'Protein skimmer', budget: '$140–220', mid: '$220–450' },
-  { item: 'Reef lighting (2 fixtures across 48″)', budget: '$400–700', mid: '$700–1,200' },
-  { item: 'Powerheads / flow', budget: '$100–180', mid: '$180–350' },
-  { item: 'Heater(s) ~200–250W + controller', budget: '$40–80', mid: '$80–160' },
-  { item: 'Rock (~40–55 lb) + sand (~45 lb)', budget: '$90–170', mid: '$170–300' },
-  { item: 'RODI unit', budget: '$80–150', mid: '$150–250' },
-  { item: 'Salt, test kits, extras', budget: '$80–140', mid: '$140–260' },
-];
+const cost = SETUP_BUDGETS[55];
 
 const headline = "55 Gallon Reef Tank: Setup, Gear List & the Thing the Sale Price Doesn't Mention";
 ---
@@ -68,11 +58,11 @@ const headline = "55 Gallon Reef Tank: Setup, Gear List & the Thing the Sale Pri
     <table class="costtable">
       <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
       <tbody>
-        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{moneyRange(c.budget)}</td><td>{moneyRange(c.mid)}</td></tr>))}
       </tbody>
-      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$1,300–2,300</strong></td><td><strong>~$2,300–4,200</strong></td></tr></tfoot>
+      <tfoot><tr><td><strong>Listed gear total</strong></td><td><strong>{moneyRange(setupTotal(55, 'budget'))}</strong></td><td><strong>{moneyRange(setupTotal(55, 'mid'))}</strong></td></tr></tfoot>
     </table>
-    <p class="rnote">Ranges, not quotes. If you're pricing from zero and can spend the extra ~$150, run these numbers against <a href={url('/guides/75-gallon-reef-tank-setup')}>the 75 guide</a> before committing — the delta buys 5 inches of depth you'll use every day.</p>
+    <p class="rnote">Ranges, not quotes. If you're pricing from zero, compare these estimates with <a href={url('/guides/75-gallon-reef-tank-setup')}>the 75 guide</a> before committing — the 75-gallon reference footprint provides 18 rather than 13 inches of front-to-back space.</p>
 
     <h2>Stocking a 55</h2>
     <p>Think <em>length</em> fish, not <em>bulk</em> fish: fairy and flasher wrasses, a midas blenny, clown pair, royal gramma, firefish, a goby/pistol pair. Skip tangs other than perhaps a bristletooth, and skip anything that turns like a truck — the 13-inch width is the constraint, not the 55 gallons.</p>

@@ -4,117 +4,139 @@
     {
       "brand": "Red Sea",
       "model": "ReefDose 2",
-      "priceUSD": 289.0,
+      "priceUSD": 289,
       "heads": 2,
-      "accuracy": "\u00b10.05mL average deviation over a 10mL dose; 0.2-1000mL per head in 0.1mL increments",
+      "accuracy": "Maker-stated ±0.05 mL accuracy; daily dose 0.2–1000 mL per head in 0.1 mL increments",
       "app": "ReefBeat app",
-      "reservoirNotes": "No built-in reservoir \u2014 doses from external containers you supply",
+      "reservoirNotes": "No built-in reservoir — doses from external containers you supply",
       "knownIssues": [
-        "One reported calibration inconsistency traced to uneven tubing length, not the unit itself \u2014 generally the lowest complaint volume of any doser in this comparison"
+        "Comparative failure rates and owner-report frequency have not been verified. Check current support, replacement tubing and calibration instructions before purchase."
       ],
       "retailers": [
         "Bulk Reef Supply",
         "Aquarium Specialty"
       ],
       "source": "https://www.bulkreefsupply.com/reefdose-2-dosing-pump-red-sea.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232312-redsea-reefdose2-dosing-pump-an_1.jpg"
+      "imageUrl": "/images/products/99547b941c30e12b864c.webp",
+      "specSource": "https://redseafish.com/smart-hardware/reefdose/",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232312-redsea-reefdose2-dosing-pump-an_1.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Red Sea",
       "model": "ReefDose 4",
-      "priceUSD": 449.0,
+      "priceUSD": 449,
       "heads": 4,
-      "accuracy": "\u00b10.05mL average deviation over a 10mL dose; same 0.2-1000mL/head range as ReefDose 2",
+      "accuracy": "Maker-stated ±0.05 mL accuracy; daily dose 0.2–1000 mL per head in 0.1 mL increments",
       "app": "ReefBeat app",
       "reservoirNotes": "No built-in reservoir; dosing tubing sold separately",
       "knownIssues": [
-        "Same calibration-sensitivity pattern as the ReefDose 2 \u2014 no major hardware-failure pattern found"
+        "Comparative failure rates and owner-report frequency have not been verified. Check current support, replacement tubing and calibration instructions before purchase."
       ],
       "retailers": [
         "Bulk Reef Supply",
         "Aquarium Specialty"
       ],
       "source": "https://www.bulkreefsupply.com/reefdose-4-dosing-pump-red-sea.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232313-redsea-reefdose4-dosingpump-an.jpg"
+      "imageUrl": "/images/products/4773bbba3c4a538a6a22.webp",
+      "specSource": "https://redseafish.com/smart-hardware/reefdose/",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232313-redsea-reefdose4-dosingpump-an.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "GHL",
       "model": "Doser 3 SA",
       "priceUSD": 529.9,
       "heads": 4,
-      "accuracy": "0.1mL resolution; 24V stepper motor + planetary gear, adjustable flow up to ~80mL/min",
+      "accuracy": "0.1 mL setting resolution; not an accuracy tolerance; adjustable flow up to about 80 mL/min",
       "app": "GHL Connect app, myGHL cloud, or web interface",
-      "reservoirNotes": "No built-in reservoir specified \u2014 external containers",
+      "reservoirNotes": "No built-in reservoir specified — external containers",
       "knownIssues": [
-        "WiFi reconnect complaints \u2014 some owners report needing a daily power-cycle to stay connected",
-        "No per-pump chemical labeling in the app, per owner feedback"
+        "Comparative failure rates and owner-report frequency have not been verified. Check current support, replacement tubing and calibration instructions before purchase."
       ],
       "retailers": [
         "Aquarium Specialty"
       ],
       "source": "https://www.aquariumspecialty.com/ghl-doser-3-sa.html",
-      "imageUrl": "https://www.aquariumspecialty.com/media/catalog/product/cache/4a000bb56e2ea4022b993c036a7b4ec1/d/o/doser-3-group.jpg"
+      "imageUrl": "/images/products/c5562f9c9e8d47dd03bd.webp",
+      "specSource": "https://www.aquariumcomputer.com/products/ghl-doser/ghl-doser-3/",
+      "sourceImageUrl": "https://www.aquariumspecialty.com/media/catalog/product/cache/4a000bb56e2ea4022b993c036a7b4ec1/d/o/doser-3-group.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     },
     {
       "brand": "Focustronic",
       "model": "Dosetronic Pro",
-      "priceUSD": 464.74,
+      "priceUSD": null,
       "heads": 5,
-      "accuracy": "0.05mL accuracy, 0.1mL resolution \u2014 Pro variant adds 2 extra pumps (7 total) for auto water-change or continuous dosing beyond the core 5",
+      "accuracy": "Maker lists 0.1 mL accuracy and 0.1 mL resolution; test conditions are not given on the overview",
       "app": "Focustronic All in One app (also controls their Alkatronic, Mastertronic, Powertronic, Solartronic line)",
       "reservoirNotes": "No built-in reservoir; app tracks remaining volume against a container size you enter",
       "knownIssues": [
-        "Pump heads sit close together, forcing tight tubing bends to connect hoses",
-        "When slaved to their Alkatronic auto-doser, all controlled pumps are forced to the same dose amount \u2014 can't run different Ca/Alk/Mg ratios without a manual dilution workaround",
-        "More vocal dissatisfied-owner threads than the other brands here, citing accumulated support friction"
+        "The recorded retailer URL describes the older Dosetronic; its price and 0.05 mL claim must not be treated as a verified Pro quote or specification. Confirm the exact model and firmware before ordering."
       ],
       "retailers": [
         "Bulk Reef Supply"
       ],
       "source": "https://www.bulkreefsupply.com/dosetronic-smart-dosing-station-focustronic.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250373-focustronic-dosetronic-5pump-dosing-an_1.jpg"
+      "imageUrl": null,
+      "specSource": "https://focustronic.com/dosetronic/",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250373-focustronic-dosetronic-5pump-dosing-an_1.jpg",
+      "imageNote": "Older Dosetronic retailer photograph not verified for current Pro model; use no product photo until matched.",
+      "imageHold": true
     },
     {
       "brand": "Reef Factory",
       "model": "Dosing Pump Pro X4",
       "priceUSD": 339.99,
       "heads": 4,
-      "accuracy": "\u00b10.01mL \u2014 the tightest published accuracy of any doser in this comparison",
+      "accuracy": "Maker-stated ±0.01 mL dosing accuracy; no common cross-brand test conditions verified",
       "app": "Smart Reef app (iOS/Android/web)",
       "reservoirNotes": "No built-in reservoir; app estimates remaining fluid from a container volume and fill level you enter",
       "knownIssues": [
-        "Manufacturer (Reef Factory, Poland) entered bankruptcy proceedings, publicly reported May 2025. The company stated its app/cloud and support would keep operating and distributor stock would sell through, with acquisition talks reported as ongoing \u2014 no confirmed resolution as of this writing. The unit is still an active, orderable SKU with no discontinuation notice, but long-term support and warranty service carry real uncertainty a buyer should weigh before choosing this over a financially stable brand."
+        "Checked 2026-10-25: the developer-provided Google Play listing names REEF FACTORY SP Z O O [ W UPADŁOŚCI ]. This is a current published developer-name observation, not a court-record check or proof of future app, cloud or warranty service. Obtain current warranty and support terms from the seller."
       ],
-      "riskFlag": "Manufacturer bankruptcy \u2014 long-term support uncertain",
+      "riskFlag": "Confirm warranty and app support before buying",
       "retailers": [
         "Bulk Reef Supply"
       ],
       "source": "https://www.bulkreefsupply.com/dosing-pump-pro-x4-reef-factory.html",
-      "imageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/253456-reeffactory-dosingpump-pro-x4-an.jpg"
+      "imageUrl": "/images/products/26107baadf8c45d88028.webp",
+      "specSource": "https://store.reeffactory.com/en/smart-devices/240-smart-feeder-5904610542231.html",
+      "supportSource": "https://play.google.com/store/apps/details?id=com.reeffactory.smartreef&hl=en",
+      "sourceImageUrl": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/253456-reeffactory-dosingpump-pro-x4-an.jpg",
+      "imageCheckedOn": "2026-10-25",
+      "imageStatus": "local thumbnail"
     }
   ],
   "notStandalone": [
     {
       "brand": "Neptune Systems",
-      "model": "D\u014cS QuietDrive",
+      "model": "DŌS QuietDrive",
       "priceUSD": 374.99,
-      "note": "$374.99 buys only the dosing pump \u2014 it cannot be programmed or run at all without a separate Neptune Apex A2 or A3 Series controller (own listing, $360-$1,170+) to host it. If you already run an Apex, DOS is the natural add-on; if you don't, the real price to get dosing working is DOS plus a controller you may not want yet.",
-      "priceSource": "https://www.bulkreefsupply.com/dos-quietdrive-dosing-pump-neptune-systems.html"
+      "note": "Requires an A2 or A3 Series Apex controller according to Neptune. The recorded pump price excludes the required controller and any power or connection hardware your installation needs; check the full system cost.",
+      "priceSource": "https://www.bulkreefsupply.com/dos-quietdrive-dosing-pump-neptune-systems.html",
+      "specSource": "https://www.neptunesystems.com/dos/"
     },
     {
       "brand": "GHL",
       "model": "Doser 3 EXT",
       "priceUSD": null,
-      "note": "An expansion module, not a doser you can buy and run on its own \u2014 it must be paired with a Doser 3 SA unit or a GHL ProfiLux controller (v4+). No USD price found at any US retailer; only listed in EUR on GHL's own store.",
-      "priceSource": "https://www.aquariumcomputer.com/product/ghl-doser-3-ext/"
+      "note": "An extension unit. GHL specifies connecting EXT models to a Doser 3 SA or ProfiLux 4; it does not operate as a standalone doser. Current US price has not been verified.",
+      "priceSource": "https://www.aquariumcomputer.com/product/ghl-doser-3-ext/",
+      "specSource": "https://www.aquariumcomputer.com/products/ghl-doser/ghl-doser-3/"
     },
     {
       "brand": "Kamoer",
       "model": "F4 Pro",
       "priceUSD": null,
-      "note": "Confirmed discontinued \u2014 CoralVue lists remaining stock as a closeout with a Retired tag. Its successor (F4 Pro V2) exists but current US pricing, accuracy spec, and app name couldn't be confirmed at any major retailer as of this research \u2014 don't assume it's a like-for-like replacement until you've checked current numbers yourself.",
-      "priceSource": "https://www.coralvue.com/kamoer-f4-pro-wifi-doser"
+      "note": "The historical listing was described as a closeout. Its current page could not be verified because CoralVue returned a bot-check page on 2026-10-25. Current stock, retirement status and replacement-model details are UNKNOWN; confirm the exact model and support before purchase.",
+      "priceSource": "https://coralvue.com/kamoer-f4-pro-wifi-doser"
     }
   ],
-  "kalkwasserNotes": "None of the dosers above are purpose-built kalkwasser hardware \u2014 they're liquid dosers that can push a kalkwasser (calcium hydroxide) slurry through a line, and several are used that way. But kalkwasser needs two things a standard two-part comparison misses: a stirred reservoir (the slurry settles and needs continuous mixing or the dosed concentration drifts) and ideally pH-gated dosing (only dosing when tank pH is below a setpoint, to avoid the pH spikes kalkwasser is prone to). None of these dosers do pH-gating natively \u2014 DOS (via an Apex with a pH probe) and GHL's Doser (via ProfiLux's pH modules) are the two with a realistic path to it, since they already sit inside a broader sensor ecosystem. Budget for a stirring kalk reactor as a second purchase, not just a doser."
+  "kalkwasserNotes": "A settled, covered reservoir of clear kalkwasser can feed a compatible metering pump; a stirring reactor is optional. Dose the clear liquid above the sediment, not powder or slurry, and keep the intake out of settled material. Check the pump maker’s chemical compatibility, tubing and duty limits. Set the amount from measured alkalinity demand, limit daily volume and monitor pH; a low pH reading alone does not establish a need for more kalkwasser.",
+  "specsVerifiedOn": "2026-10-25",
+  "kalkwasserSource": "https://seachem.com/reef-kalkwasser.php"
 }

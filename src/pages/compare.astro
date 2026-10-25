@@ -5,7 +5,7 @@ import { url } from '../utils/url';
 const comparisons = [
   {
     name: 'Apex vs HYDROS vs GHL ProfiLux',
-    desc: 'The full reef controller comparison — kits and street prices, probes included vs extra, cloud fees, programming models, dosing and automated-testing ecosystems, and which controller fits which builder.',
+    desc: 'The full reef controller comparison — kits and recorded prices, probes included vs extra, cloud fees, programming models, dosing and automated-testing ecosystems, and which controller fits which builder.',
     href: '/compare/apex-vs-hydros-vs-ghl',
     status: 'New',
     art: 'controller',
@@ -19,7 +19,7 @@ const comparisons = [
   },
   {
     name: 'Hanna vs Salifert vs Red Sea Test Kits',
-    desc: 'Published accuracy and resolution specs, true cost per test, and the digital-vs-color-endpoint divide — for all five parameters reefers test.',
+    desc: 'Published accuracy and resolution specs, starter-kit allocation and refill cost per test, and the digital-vs-color-endpoint divide — for all five parameters reefers test.',
     href: '/reviews/best-reef-test-kits',
     status: 'New',
     art: 'testkit',
@@ -33,7 +33,7 @@ const comparisons = [
   },
   {
     name: 'Reef Salt Mixes, Cost per Gallon',
-    desc: 'Every major salt compared on what a mixed gallon really costs — plus growth vs natural-parameter chemistry, side by side.',
+    desc: 'Recorded package prices and yields, with different or unknown salinity bases shown before comparing value.',
     href: '/reviews/best-reef-salt-mix',
     status: 'Data',
     art: 'salt',
@@ -42,7 +42,7 @@ const comparisons = [
 ---
 <Base
   title="Compare Reef Gear — Head-to-Head"
-  description="Side-by-side reef equipment comparisons: Apex vs HYDROS vs GHL controllers, DC vs AC return pumps, and salt mixes by true cost per gallon."
+  description="Side-by-side reef equipment comparisons: Apex vs HYDROS vs GHL controllers, DC vs AC return pumps, and salt packages with their stated yield limits."
 >
   <section class="container">
     <p class="eyebrow" style="color:var(--brand-2)">Compare</p>
@@ -58,11 +58,11 @@ const comparisons = [
         </a>
       ))}
     </div>
-    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for lighting? See <a href={url('/reviews/best-reef-led-lighting')}>Best Reef LED Lighting, ranked by verified PAR</a>.</p>
+    <p style="color:var(--muted);margin-top:28px;font-size:.9rem;">Looking for lighting? See <a href={url('/reviews/best-reef-led-lighting')}>Reef LED Lighting: readings and test limits</a>.</p>
     <h2>Choose the comparison that fits the decision</h2>
     <p>Start with <a href={url('/guides/dc-vs-ac-return-pumps')}>AC pump vs DC pump</a> for control and electricity use, then compare <a href={url('/reviews/best-return-pumps')}>return pumps for your reef tank</a> at the same plumbing. For maintenance hardware, compare <a href={url('/reviews/best-reef-dosing-pumps')}>reef dosing pumps</a> by controller needs and <a href={url('/reviews/best-ato')}>ATO systems</a> by their backup shutoffs.</p>
     <p>For a new tank, start with equipment size before choosing a brand. Use the <a href={url('/tools/return-pump-calculator')}>return pump calculator</a> to check the flow your plumbing needs, or the <a href={url('/tools/protein-skimmer-calculator')}>skimmer size calculator</a> to account for stocking. A cheaper unit is poor value if it cannot fit the sump or supply the water your setup needs.</p>
-    <p>If you already know the size, compare what is included in the price. The <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex, HYDROS, and GHL comparison</a> separates controller kits, probes, and expansion hardware. The <a href={url('/reviews/best-reef-test-kits')}>test kit comparison</a> looks at cost per test as well as the first box price. The <a href={url('/reviews/best-reef-salt-mix')}>salt mix rankings</a> use mixed gallons so different package sizes can be compared fairly.</p>
+    <p>If you already know the size, compare what is included in the price. The <a href={url('/compare/apex-vs-hydros-vs-ghl')}>Apex, HYDROS, and GHL comparison</a> separates controller kits, probes, and expansion hardware. The <a href={url('/reviews/best-reef-test-kits')}>test kit comparison</a> looks at cost per test as well as the first box price. The <a href={url('/reviews/best-reef-salt-mix')}>salt package comparison</a> shows stated yields and salinity limits. Different label gallons are not automatically equal reef gallons.</p>
     <p>Check each page's source dates and assumptions. These are comparisons of published data, not personal product tests. Confirm today's price, model revision, and available parts with the retailer before buying.</p>
   </section>
 </Base>

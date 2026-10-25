@@ -11,13 +11,13 @@ const slug = (d: { brand: string; model: string }) =>
   `${d.brand}-${d.model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 interface Doser {
-  brand: string; model: string; priceUSD: number; heads: number; accuracy: string;
+  brand: string; model: string; priceUSD: number | null; heads: number; accuracy: string;
   app: string; reservoirNotes: string; knownIssues: string[]; riskFlag?: string;
-  retailers?: string[]; source: string; imageUrl?: string | null;
+  retailers?: string[]; source: string; specSource?: string; imageUrl?: string | null;
 }
 const data = doserData as any;
 const dosers = data.dosers as Doser[];
-const notStandalone = data.notStandalone as { brand: string; model: string; priceUSD: number | null; note: string; priceSource: string }[];
+const notStandalone = data.notStandalone as { brand: string; model: string; priceUSD: number | null; note: string; priceSource: string; specSource?: string }[];
 const dataDate = data.generated as string;
 
 const money = (n: number | null) => (n != null ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Check price');
@@ -28,8 +28,8 @@ interface Pick { badge: string; why: string; d: Doser; }
 const byModel = (m: string) => dosers.find((d) => d.model === m)!;
 const picks: Pick[] = [
   {
-    badge: 'Best budget standalone',
-    why: `Lowest recorded price among these standalone dosers, with two heads for two additives and no separate controller required.`,
+    badge: 'Two-additive starting point',
+    why: `Two heads for two separate additives, controlled through ReefBeat without a separate aquarium controller. Check the current price before ordering.`,
     d: byModel('ReefDose 2'),
   },
   {
@@ -39,12 +39,12 @@ const picks: Pick[] = [
   },
   {
     badge: 'Best for GHL owners',
-    why: `Ties straight into myGHL/ProfiLux if you're already in that ecosystem. Real WiFi-reconnect complaints exist — budget for the occasional power-cycle.`,
+    why: `A standalone four-head doser with Wi-Fi, LAN and USB connections. GHL provides GHL Connect, a web interface and myGHL; choose the connection that fits your setup.`,
     d: byModel('Doser 3 SA'),
   },
   {
     badge: 'Most channels',
-    why: `5 pumps (7 on the Pro's extra channels) for tanks dosing several additives at once — offset by tighter tubing clearance and a software limit that locks all Alkatronic-slaved pumps to one dose amount.`,
+    why: `Five pumps in total. The maker says two can serve water changes or continuous dosing; they are part of the five, not two extra heads. Confirm that the seller is quoting the Pro model.`,
     d: byModel('Dosetronic Pro'),
   },
 ];
@@ -61,15 +61,15 @@ const itemListLd = {
 const faqs = [
   {
     q: 'Do I need an existing controller to use a dosing pump?',
-    a: `Depends which one. Red Sea's ReefDose 2/4, GHL's Doser 3 SA, Focustronic's Dosetronic, and Reef Factory's X4 are all genuinely standalone — app-controlled, no other hardware required. Neptune Systems' DOS is the exception: it's a $374.99 accessory that can't be programmed at all without a separate Apex A2 or A3 controller ($360+ more) to host it.`,
+    a: `ReefDose, Doser 3 SA and Dosetronic provide standalone dosing control. Neptune's DOS QuietDrive requires an A2 or A3 Series Apex controller; GHL's EXT is an extension unit. Include the required controller, power connections, tubing and containers when comparing total installed cost.`,
   },
   {
     q: 'Can I use any of these to dose kalkwasser?',
-    a: `You can push kalkwasser through any of them, but a plain doser alone isn't the full setup — kalkwasser settles and needs continuous stirring, and ideally pH-gated dosing to avoid pH spikes at higher dose rates. None of these dose based on pH natively; DOS (paired with an Apex pH probe) and GHL's Doser (paired with ProfiLux's pH modules) are the two with a realistic path to it. Budget for a stirring kalk reactor as a second purchase either way.`,
+    a: data.kalkwasserNotes,
   },
   {
     q: 'Is the Reef Factory X4 still safe to buy?',
-    a: `It has the best published accuracy in this comparison (±0.01mL), but the manufacturer entered bankruptcy proceedings in 2025. It's still an active, orderable product with the company saying support continues, but long-term warranty and software support carry real uncertainty — weigh that against a financially stable brand before choosing it purely on the accuracy number.`,
+    a: `Its maker lists ±0.01 mL dosing accuracy. That specification does not prove an installed dose or establish a fair accuracy ranking against other brands. As of October 25, 2026, the developer-provided Smart Reef Google Play listing names REEF FACTORY SP Z O O [ W UPADŁOŚCI ]. Current warranty fulfillment and future app or cloud support have not been verified. Get written support terms from your seller before ordering.`,
   },
 ];
 const faqLd = {
@@ -98,7 +98,7 @@ const headline = "Best dosing pump for a reef tank: heads, cost & control";
     <p><strong>Two additives:</strong> start with ReefDose 2. <strong>More separate additives:</strong> compare ReefDose 4 and the standalone GHL Doser 3 SA. <strong>Already own an Apex:</strong> compare the DOS accessory below with the total cost of a standalone unit. Published accuracy is a specification, not proof of your dose after installation: calibrate with the tubing and liquid you will use.</p>
     <p>A dosing pump schedules liquid delivery; it does not decide what your tank needs. Use measured consumption and the <a href={url('/tools/reef-dosing-calculator')}>reef dosing calculator</a> for alkalinity, calcium, or magnesium. Read the <a href={url('/guides/carbon-dosing')}>carbon dosing guide</a> separately for nutrient export.</p>
     <Disclosure />
-    <p class="rnote" style="margin-top:0">Specs and prices pulled from manufacturer and retailer pages on {dataDate} (each row links its source). Nobody pays for placement, and a real business-risk fact (see the Reef Factory pick) gets stated plainly, not buried. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+    <p class="rnote" style="margin-top:0">Recorded prices date from {dataDate}; they are not current quotes. Maker specifications were rechecked October 25, 2026 and are linked below. Availability and warranty fulfillment are not established by a working product page. Nobody pays for placement. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   <section class="container" style="padding-top:8px;padding-bottom:16px;">
@@ -115,14 +115,15 @@ const headline = "Best dosing pump for a reef tank: heads, cost & control";
             <div class="rname">{p.d.brand} {p.d.model} <span class={idx === 0 ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
             <div class="rmeta">{p.why}</div>
             <div class="rmeta">{p.d.heads} heads · {p.d.accuracy} · {p.d.app}</div>
+            <div class="rmeta"><a href={p.d.specSource || p.d.source}>Maker specifications</a> · Recorded price: {money(p.d.priceUSD)}{p.d.priceUSD === null ? ' (exact model quote needed)' : ' (historical)'}</div>
           </div>
           <div class="rflow"><span class="n">{p.d.heads}</span><br /><span class="u">heads</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.d)} target="_blank" rel="sponsored nofollow noopener">{money(p.d.priceUSD)} at {retailerName(p.d.retailers)} ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(p.d)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.d.retailers)} ↗ <small>(paid link)</small></a></div>
         </div>
       ))}
     </div>
 
-    <h2 style="margin-top:32px;">Best accuracy — with a real caveat</h2>
+    <h2 style="margin-top:32px;">Published accuracy is only part of the choice</h2>
     <div class="results">
       <div id={slug(accuracyPick)} class="rcard">
         {accuracyPick.imageUrl && (
@@ -131,29 +132,30 @@ const headline = "Best dosing pump for a reef tank: heads, cost & control";
           </div>
         )}
         <div class="rmain">
-          <div class="rname">{accuracyPick.brand} {accuracyPick.model} <span class="rbadge" style="background:#fbeadd;color:#9a5a3a;">Manufacturer bankruptcy — read first</span></div>
-          <div class="rmeta">The tightest published accuracy of any doser here, at a genuinely standalone $339.99. But Reef Factory (Poland) entered bankruptcy proceedings in 2025 — it's still an active, orderable product with support reportedly continuing, but long-term warranty and software support carry real uncertainty. We're not telling you to skip it; we're telling you what a spec sheet won't.</div>
+          <div class="rname">{accuracyPick.brand} {accuracyPick.model} <span class="rbadge" style="background:#fbeadd;color:#9a5a3a;">Check support terms</span></div>
+          <div class="rmeta">The maker lists ±0.01 mL dosing accuracy. We have not verified common test conditions across these brands, so this is not an accuracy ranking. The developer-provided Smart Reef listing currently names “REEF FACTORY SP Z O O [ W UPADŁOŚCI ]”. Warranty fulfillment and future app or cloud support are unverified; ask the seller for current terms.</div>
           <div class="rmeta">{accuracyPick.heads} heads · {accuracyPick.accuracy} · {accuracyPick.app}</div>
+          <div class="rmeta"><a href={accuracyPick.specSource}>Maker specifications</a> · <a href={data.dosers.find((d: any) => d.model === accuracyPick.model).supportSource}>Current developer listing</a> · Historical price: {money(accuracyPick.priceUSD)}</div>
         </div>
         <div class="rflow"><span class="n">±0.01</span><br /><span class="u">mL accuracy</span></div>
-        <div class="rbuy"><a class="aff" href={buy(accuracyPick)} target="_blank" rel="sponsored nofollow noopener">{money(accuracyPick.priceUSD)} at {retailerName(accuracyPick.retailers)} ↗</a></div>
+        <div class="rbuy"><a class="aff" href={buy(accuracyPick)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(accuracyPick.retailers)} ↗ <small>(paid link)</small></a></div>
       </div>
     </div>
   </section>
 
   <section class="container" style="padding-top:8px;">
     <h2>Not what they look like on the spec sheet</h2>
-    <p style="color:var(--muted);max-width:68ch;">Three products people search for by name that don't do what a first-time buyer would assume — named plainly instead of discovered after checkout.</p>
-    <div class="tablewrap">
+    <p style="color:var(--muted);max-width:68ch;">Two controller-dependent units and one model with unverified current availability. Check the exact version before buying.</p>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
-        <thead><tr><th>Product</th><th>Price</th><th>What it actually is</th><th></th></tr></thead>
+        <thead><tr><th>Product</th><th>Recorded price</th><th>What it actually is</th><th></th></tr></thead>
         <tbody>
           {notStandalone.map((g) => (
             <tr>
               <td><strong>{g.brand}</strong> {g.model}</td>
               <td>{money(g.priceUSD)}</td>
-              <td style="color:var(--muted)">{g.note}</td>
-              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price at Amazon ↗</a></td>
+              <td style="color:var(--muted)">{g.note} <a href={g.specSource || g.priceSource}>Source</a></td>
+              <td><a class="aff aff-sm" href={buyGap(g)} target="_blank" rel="sponsored nofollow noopener">Check price at Amazon ↗ <small>(paid link)</small></a></td>
             </tr>
           ))}
         </tbody>
@@ -163,10 +165,10 @@ const headline = "Best dosing pump for a reef tank: heads, cost & control";
 
   <section class="container prose" style="padding-top:24px;">
     <h2>What about kalkwasser?</h2>
-    <p>{data.kalkwasserNotes} Full mixing ratios, the stirrer requirement, and safe dosing methods: <a href={url('/guides/kalkwasser-dosing')}>our kalkwasser dosing guide →</a></p>
+    <p>{data.kalkwasserNotes} <a href={data.kalkwasserSource}>Seachem: clear solution only</a>. Read about settled reservoirs, optional reactors and metered dosing: <a href={url('/guides/kalkwasser-dosing')}>our kalkwasser dosing guide →</a></p>
 
     <h2>What about nitrate and phosphate?</h2>
-    <p>Every doser on this page can also run carbon dosing (vodka, vinegar, or a bottled product like NOPX) — it's the same hardware, just a different bottle. That's a nutrient-export method, completely unrelated to the Alk/Ca/Mg chemistry the rest of this page covers. See <a href={url('/guides/carbon-dosing')}>our carbon dosing guide →</a> for the ramp-up protocol and the bacterial-bloom risk to avoid.</p>
+    <p>A pump used for carbon dosing must be compatible with the chosen liquid and follow that product's instructions; do not assume every pump or tube material suits every additive. That's a nutrient-export method, completely unrelated to the Alk/Ca/Mg chemistry the rest of this page covers. See <a href={url('/guides/carbon-dosing')}>our carbon dosing guide →</a> for the method's limits and bacterial-bloom risk.</p>
 
     <h2>FAQ</h2>
     {faqs.map((f) => (

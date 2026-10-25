@@ -56,14 +56,14 @@ export const GET: APIRoute = () => {
     <tr><td align="center" style="padding:28px 14px">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%">
         <tr><td style="padding:0 0 18px">
-          <span style="font-size:22px;font-weight:700;color:#0d1b26">Reef<span style="color:#12a3a0">Metric</span></span>
+          <span style="font-size:22px;font-weight:700;color:#0d1b26">Reef<span style="color:#096c6a">Metric</span></span>
         </td></tr>
         <tr><td style="padding:0 0 6px">
           <h1 style="margin:0;font-size:24px;line-height:1.2;color:#0d1b26">The Reef Gear Cheat Sheet.</h1>
         </td></tr>
         <tr><td style="padding:0 0 18px;font-size:14px;color:#5c6f78;line-height:1.5">
-          The right-size pick per category for five tank sizes — the smallest gear that honestly does the job, computed
-          with the same math as our calculators (spec data updated ${esc(dataDate)}). Cost ranges are mid-tier, mixed-reef estimates.
+          Reference gear picks for five tank sizes, using the same recorded specifications and stated limits
+          as our calculators (dataset date ${esc(dataDate)}). Cost ranges are mid-tier, mixed-reef estimates.
         </td></tr>
         <tr><td>${sections}</td></tr>
         <tr><td style="padding:6px 0 18px;font-size:14px;color:#16262f;line-height:1.5">
@@ -74,10 +74,10 @@ export const GET: APIRoute = () => {
           The web version of this sheet lives at
           <a href="${abs('/cheat-sheet')}?utm_source=cheatsheet" style="color:#0c7d7b">${esc(SITE.url.replace(/^https?:\/\//, ''))}/cheat-sheet</a>.
         </td></tr>
-        <tr><td style="border-top:1px solid #e2ebec;padding:14px 0 0;font-size:12px;color:#7f9a9c;line-height:1.5">
+        <tr><td style="border-top:1px solid #e2ebec;padding:14px 0 0;font-size:12px;color:#5c6f78;line-height:1.5">
           You're getting this one email because you asked for the cheat sheet at reefmetric.com — there's no list yet, and
           if we ever start one you'll be able to opt out first. Picks are computed from spec data, never sponsored.
-          Questions? Just reply. · <a href="${abs('/privacy')}" style="color:#7f9a9c">Privacy</a>
+          Questions? Just reply. · <a href="${abs('/privacy')}" style="color:#5c6f78">Privacy</a>
         </td></tr>
       </table>
     </td></tr>

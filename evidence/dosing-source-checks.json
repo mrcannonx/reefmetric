@@ -1,0 +1,142 @@
+{
+  "measuredAt": "2026-10-25T17:31:42.822768+00:00",
+  "measurement": "Two curl fetches per source; HTML title and term checks plus separately read manufacturer PDF text via web. A PDF HTTP success alone is not a content check.",
+  "sources": [
+    {
+      "label": "BRS soda ash recipe and 100-gallon worked example",
+      "url": "https://www.bulkreefsupply.com/content/post/brs-pharma-soda-ash-mixing-and-dosing-instructions",
+      "reads": [
+        {
+          "status": "200",
+          "finalUrl": "https://www.bulkreefsupply.com/content/post/brs-pharma-soda-ash-mixing-and-dosing-instructions",
+          "title": "BRS Pharma Soda Ash Mixing and Dosing Instructions - Bulk Reef Supply",
+          "bytes": 454214,
+          "sha256": "de64b924ab7e601b391566a77f2a7a5e721d6425f30851d9e906d5e150261cd0",
+          "termsFound": {
+            "107.1": true,
+            "1.5": true,
+            "1.4": true
+          },
+          "curlExitCode": 0
+        },
+        {
+          "status": "200",
+          "finalUrl": "https://www.bulkreefsupply.com/content/post/brs-pharma-soda-ash-mixing-and-dosing-instructions",
+          "title": "BRS Pharma Soda Ash Mixing and Dosing Instructions - Bulk Reef Supply",
+          "bytes": 454214,
+          "sha256": "de64b924ab7e601b391566a77f2a7a5e721d6425f30851d9e906d5e150261cd0",
+          "termsFound": {
+            "107.1": true,
+            "1.5": true,
+            "1.4": true
+          },
+          "curlExitCode": 0
+        }
+      ]
+    },
+    {
+      "label": "BRS calcium recipe and 100-gallon worked example",
+      "url": "https://www.bulkreefsupply.com/content/post/brs-pharma-calcium-chloride-mixing-and-dosing-instructions",
+      "reads": [
+        {
+          "status": "200",
+          "finalUrl": "https://www.bulkreefsupply.com/content/post/brs-pharma-calcium-chloride-mixing-and-dosing-instructions",
+          "title": "BRS Pharma Calcium Chloride Mixing and Dosing Instructions - Bulk Reef Supply",
+          "bytes": 451736,
+          "sha256": "2625391b63c9b58cdff474e969ff35672bc229231f0acf83e4292956d5045fee",
+          "termsFound": {
+            "102.3": true,
+            "2-1/2": true,
+            "50 ppm": true
+          },
+          "curlExitCode": 0
+        },
+        {
+          "status": "200",
+          "finalUrl": "https://www.bulkreefsupply.com/content/post/brs-pharma-calcium-chloride-mixing-and-dosing-instructions",
+          "title": "BRS Pharma Calcium Chloride Mixing and Dosing Instructions - Bulk Reef Supply",
+          "bytes": 451736,
+          "sha256": "2625391b63c9b58cdff474e969ff35672bc229231f0acf83e4292956d5045fee",
+          "termsFound": {
+            "102.3": true,
+            "2-1/2": true,
+            "50 ppm": true
+          },
+          "curlExitCode": 0
+        }
+      ]
+    },
+    {
+      "label": "Red Sea published Foundation liquid strengths",
+      "url": "https://redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+      "reads": [
+        {
+          "status": "200",
+          "finalUrl": "https://g1.redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+          "title": "PDF: title not exposed as HTML; contents separately read with web PDF tool",
+          "bytes": 6400685,
+          "sha256": "bd30291a33c7ef96c1113baaa04d3aa4b5e90c585faf41f7eb79e5fc9453053e",
+          "termsFound": {},
+          "curlExitCode": 0
+        },
+        {
+          "status": "200",
+          "finalUrl": "https://g1.redseafish.com/wp-content/uploads/2013/12/R99344_Red-Sea-Product-catalog-2017-EN.pdf",
+          "title": "PDF: title not exposed as HTML; contents separately read with web PDF tool",
+          "bytes": 6400685,
+          "sha256": "bd30291a33c7ef96c1113baaa04d3aa4b5e90c585faf41f7eb79e5fc9453053e",
+          "termsFound": {},
+          "curlExitCode": 0
+        }
+      ]
+    },
+    {
+      "label": "Red Sea Foundation manual daily correction limits",
+      "url": "https://redseafish.com/wp-content/uploads/2020/11/24653_Manual-Foundation-Complete-GB-_v21a-WEB.pdf",
+      "reads": [
+        {
+          "status": "200",
+          "finalUrl": "https://g1.redseafish.com/wp-content/uploads/2020/11/24653_Manual-Foundation-Complete-GB-_v21a-WEB.pdf",
+          "title": "PDF: title not exposed as HTML; contents separately read with web PDF tool",
+          "bytes": 192055,
+          "sha256": "0bb75b74946fc113a73c77dd3a207d2ef16663a3070237f13c86a77840cb8410",
+          "termsFound": {},
+          "curlExitCode": 0
+        },
+        {
+          "status": "200",
+          "finalUrl": "https://g1.redseafish.com/wp-content/uploads/2020/11/24653_Manual-Foundation-Complete-GB-_v21a-WEB.pdf",
+          "title": "PDF: title not exposed as HTML; contents separately read with web PDF tool",
+          "bytes": 192055,
+          "sha256": "0bb75b74946fc113a73c77dd3a207d2ef16663a3070237f13c86a77840cb8410",
+          "termsFound": {},
+          "curlExitCode": 0
+        }
+      ]
+    },
+    {
+      "label": "ESV current page does not state correction strengths; options disabled",
+      "url": "https://www.esvaquarium.com/",
+      "reads": [
+        {
+          "status": "200",
+          "finalUrl": "https://www.esvaquarium.com/",
+          "title": "ESV Aquarium Products",
+          "bytes": 91300,
+          "sha256": "180c39eed5fede13be9e4cbd86ac39b0f819954015791351c384f4292b27b554",
+          "termsFound": {},
+          "curlExitCode": 0
+        },
+        {
+          "status": "200",
+          "finalUrl": "https://www.esvaquarium.com/",
+          "title": "ESV Aquarium Products",
+          "bytes": 91300,
+          "sha256": "180c39eed5fede13be9e4cbd86ac39b0f819954015791351c384f4292b27b554",
+          "termsFound": {},
+          "curlExitCode": 0
+        }
+      ]
+    }
+  ]
+}

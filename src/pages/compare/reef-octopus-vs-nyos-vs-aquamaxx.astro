@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     q: 'Are these three brands actually different, or just badges on the same pumps?',
-    a: `Genuinely different. Reef Octopus builds the broadest range with its own Aquatrance pumps and wins on availability and parts. Nyos is German-designed with its Quantum line's easy-service twist-off cups and strong owner loyalty at the performance end. AquaMaxx is the value line of the three, frequently undercutting comparable capacity. The table shows where each one's economics actually land.`,
+    a: `Compare the exact model, published bioload rating, footprint, water depth, pump, and recorded price. These calculations do not measure reliability, noise, cleaning effort, or current parts stock. The table shows the purchase-cost and rated-power measures we can calculate.`,
   },
   {
     q: 'Which one should a first-time sump owner buy?',
@@ -89,9 +89,9 @@ const headline = "Reef Octopus vs Nyos vs AquaMaxx — by the numbers";
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Compare · Skimmer Brands</p>
     <h1>{headline}</h1>
-    <p class="lede-dark">The three most cross-shopped skimmer brands, compared the only fair way: <strong>dollars per honestly-rated gallon</strong> — the medium-bioload rating each manufacturer publishes, not the optimistic box number — plus what each brand's pumps cost to run. Computed from the same dataset behind <a href={url('/tools/protein-skimmer-calculator')}>our skimmer calculator</a>.</p>
+    <p class="lede-dark">Compare three skimmer brands by one stated value measure: <strong>dollars per honestly-rated gallon</strong> — the medium-bioload rating each manufacturer publishes, not the optimistic box number — plus what each brand's pumps cost to run. Computed from the same dataset behind <a href={url('/tools/protein-skimmer-calculator')}>our skimmer calculator</a>.</p>
     <Disclosure />
-    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Only models with a current US price and a published medium-bioload rating are in the value math — no gaps quietly filled. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Only models with a recorded US price and a published medium-bioload rating are in the value math — no gaps quietly filled. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   <section class="container" style="padding-top:8px;padding-bottom:16px;">
@@ -112,7 +112,7 @@ const headline = "Reef Octopus vs Nyos vs AquaMaxx — by the numbers";
 
   <section class="container" style="padding-top:8px;">
     <h2>Every qualifying model, ranked by value</h2>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
         <thead><tr><th>#</th><th>Skimmer</th><th>Medium-bioload rating</th><th>$/rated gal</th><th>Pump</th><th>Footprint</th><th>Price</th></tr></thead>
         <tbody>
@@ -124,7 +124,7 @@ const headline = "Reef Octopus vs Nyos vs AquaMaxx — by the numbers";
               <td><strong>{money(s.priceUSD / (s.ratingMedium as number))}</strong></td>
               <td style="color:var(--muted)">{s.pumpWatts ? `${s.pumpWatts}W` : '—'}</td>
               <td style="color:var(--muted)">{s.footprintIn ? `${s.footprintIn}″` : '—'}</td>
-              <td><a class="aff aff-sm" href={buy(s)} target="_blank" rel="sponsored nofollow noopener">{money(s.priceUSD)} ↗</a></td>
+              <td><a class="aff aff-sm" href={buy(s)} target="_blank" rel="sponsored nofollow noopener">{money(s.priceUSD)} ↗ <small>(paid link)</small></a></td>
             </tr>
           ))}
         </tbody>
@@ -135,7 +135,7 @@ const headline = "Reef Octopus vs Nyos vs AquaMaxx — by the numbers";
 
   <section class="container prose" style="padding-top:24px;">
     <h2>What the numbers don't capture</h2>
-    <p>Serviceability and parts. Reef Octopus's parts availability in the US is the best of the three — pumps, cups, and o-rings are stocked everywhere, which matters in year three. Nyos's twist-off cup design is the nicest weekly-cleaning experience in the category, and owners pay the premium for it on purpose. AquaMaxx wins checkout day; the other two argue they win the years after. All three are legitimate — which is why we show the math and say the trade out loud.</p>
+    <p>Ask the maker or retailer about replacement pumps, cups, seals, warranty terms, and current stock for the exact model. Check cup-removal clearance as well as the footprint. We have no measured long-term reliability or cleaning comparison, so the cost table cannot settle those questions.</p>
 
     <h2>FAQ</h2>
     {faqs.map((f) => (

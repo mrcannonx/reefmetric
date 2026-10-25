@@ -6,7 +6,7 @@
 
 import { recommend, type Pump, type SizingInputs } from './pump-calc';
 import { recommendSkimmers, type Skimmer } from './skimmer-calc';
-import { parAtHeight, type Light } from './light-calc';
+import { type Light } from './light-calc';
 import { estimateCost } from './cost-calc';
 import pumpData from '../data/pumps.json';
 import skimmerData from '../data/skimmers.json';
@@ -51,13 +51,13 @@ const SIZES: SizeDef[] = [
     key: '30', label: '30 Gallon', gallons: 30, hasSump: false,
     plumbing: { displayGallons: 30, turnover: 7, staticHeadFt: 3.5, pipeIdInches: 1.029, pipeLengthFt: 6, elbows: 3 },
     lightModel: 'Prime 16HD',
-    lightNote: 'cheapest fixture with a real manufacturer PAR figure — right for softies/LPS at this size',
+    lightNote: 'manufacturer reports a peak reading at 24in water depth; confirm coverage with a PAR meter',
   },
   {
     key: '40b', label: '40 Breeder', gallons: 40, hasSump: true,
     plumbing: { displayGallons: 40, turnover: 7, staticHeadFt: 4, pipeIdInches: 1.029, pipeLengthFt: 8, elbows: 4 },
     lightModel: 'Hydra 32 HD',
-    lightNote: 'independent lab PAR curve; one fixture covers the 36in footprint for a mixed reef',
+    lightNote: 'recorded independent lab readings; check fixture spacing and tank coverage before buying',
   },
   {
     key: '55', label: '55 Gallon', gallons: 55, hasSump: true,
@@ -69,13 +69,13 @@ const SIZES: SizeDef[] = [
     key: '75', label: '75 Gallon', gallons: 75, hasSump: true,
     plumbing: { displayGallons: 75, turnover: 7, staticHeadFt: 4.5, pipeIdInches: 1.029, pipeLengthFt: 10, elbows: 4 },
     lightModel: 'Hydra 32 HD',
-    lightNote: 'the all-around pick; add a second for full SPS coverage across 48in',
+    lightNote: 'check fixture count and spacing for the tank footprint; published readings do not prove full coverage',
   },
   {
     key: '120', label: '120 Gallon', gallons: 120, hasSump: true,
     plumbing: { displayGallons: 120, turnover: 7, staticHeadFt: 5, pipeIdInches: 1.36, pipeLengthFt: 12, elbows: 4 },
     lightModel: 'Atlantik iCon',
-    lightNote: 'widest published coverage map (43×25in) and the highest verified PAR ceiling here',
+    lightNote: 'manufacturer tank-bottom PAR map; check its test conditions against your own tank',
   },
 ];
 
@@ -108,7 +108,7 @@ export function buildCheatSheet(): { rows: SheetRow[]; dataDate: string } {
       ? {
           name: `${l.brand} ${l.model}`,
           price: (l as any).priceUSD ?? null,
-          note: `${Math.round(parAtHeight(l, 18).par)} PAR at 18in — ${s.lightNote}`,
+          note: s.lightNote,
         }
       : null;
 

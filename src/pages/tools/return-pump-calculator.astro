@@ -20,7 +20,7 @@ const headline = "Reef Return Pump Calculator";
   <section class="container tool-wrap">
     <p class="eyebrow" style="color:var(--brand-2)">Calculator</p>
     <h1>{headline}</h1>
-    <p class="lede-dark">The GPH on the box is measured at <em>zero head</em> — a number your tank never sees. Enter your setup and we'll show the <strong>real flow each pump delivers</strong> at your actual head, with the math.</p>
+    <p class="lede-dark">The box flow rating describes <em>zero head</em>. Enter your setup to see <strong>estimated delivered flow</strong> at the operating point modeled from your plumbing and each recorded pump curve. This is not a measurement of installed flow.</p>
 
     {isSample && (
       <p class="sample-note">⚙️ Preview build — running on sample pump specs while the full, source-verified database is finalized. Numbers here are illustrative.</p>
@@ -60,8 +60,8 @@ const headline = "Reef Return Pump Calculator";
   </section>
 
   <section class="container prose">
-    <h2>Why the box GPH is a lie</h2>
-    <p>Every return pump is rated at its <strong>maximum flow with zero head</strong> — pump sitting next to a bucket, no plumbing. The moment you lift water up to your display and push it through pipe, elbows, and a return nozzle, flow drops fast. A pump rated "1000 GPH" can easily deliver 500–600 at a typical 4-foot rise. Sizing off the box number is the single most common return-pump mistake.</p>
+    <h2>Why zero-head GPH is only a starting point</h2>
+    <p>Every return pump is rated at its <strong>maximum flow with zero head</strong> — pump sitting next to a bucket, no plumbing. The moment you lift water up to your display and push it through pipe, elbows, and a return nozzle, flow drops fast. The amount of loss depends on the pump curve and plumbing. Use the entered setup below the maximum-flow rating rather than assuming the box number reaches the display.</p>
 
     <h2>The three numbers that actually size a pump</h2>
     <p><strong>1. Target flow (turnover).</strong> Most reef tanks run their return at <strong>5–10× the display volume per hour</strong>. Mixed reefs are happy around 7×; SPS-heavy tanks push higher; fish-only can go lower. This is flow <em>at the tank</em>, after losses.</p>
@@ -97,6 +97,7 @@ const headline = "Reef Return Pump Calculator";
 </style>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { recommend } from '../../utils/pump-calc';
   import data from '../../data/pumps.json';
   import { goHref, retailerName } from '../../data/affiliate-config';
@@ -120,6 +121,7 @@ const headline = "Reef Return Pump Calculator";
   function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string)); }
 
   function render() {
+    if (!validateCalcInputs('#calc-form input[type="number"]', 'summary', ['results'])) return;
     const i = readInputs();
     const out = recommend(i, (data as any).pumps);
     const summary = document.getElementById('summary');
@@ -154,7 +156,7 @@ const headline = "Reef Return Pump Calculator";
             <div class="rmeta">${pill} &nbsp; ${r.turnoverAtDisplay}× on your display${watts}${price}${modeled}</div>
           </div>
           <div class="rflow"><span class="n">${r.deliveredGPH.toLocaleString()}</span><br><span class="u">GPH @ ${r.operatingHeadFt} ft</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(p)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(p.retailers))} ↗</a></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(p)}" target="_blank" rel="sponsored nofollow noopener">Check price at ${esc(retailerName(p.retailers))} (paid link) ↗</a></div>
         </div>`;
     }).join('');
     results.innerHTML = cards +

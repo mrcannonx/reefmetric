@@ -1,0 +1,103 @@
+{
+  "browser": "Playwright Chromium, headless",
+  "origin": "http://127.0.0.1:4326",
+  "rows": [
+    {
+      "name": "blank label rate gives an honest empty state",
+      "result": "Enter a water amount and your label's grams per litre or US gallon to calculate the batch.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "20",
+        "smVolumeUnit": "gal",
+        "smPercent": "20",
+        "smRate": "",
+        "smRateUnit": "g/L"
+      }
+    },
+    {
+      "name": "5 US gal at supplied 150 g/gal",
+      "result": "Starting salt weight: 750 g (0.75 kg) for 5 US gal / 18.93 L of water on your label's basis.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "5",
+        "smVolumeUnit": "gal",
+        "smPercent": "20",
+        "smRate": "150",
+        "smRateUnit": "g/gal"
+      }
+    },
+    {
+      "name": "20% of 75 US gal at supplied 150 g/gal",
+      "result": "Starting salt weight: 2,250 g (2.25 kg) for 15 US gal / 56.78 L of water on your label's basis.",
+      "inputs": {
+        "smMode": "change",
+        "smVolume": "75",
+        "smVolumeUnit": "gal",
+        "smPercent": "20",
+        "smRate": "150",
+        "smRateUnit": "g/gal"
+      }
+    },
+    {
+      "name": "20 L at supplied 38 g/L",
+      "result": "Starting salt weight: 760 g (0.76 kg) for 5.28 US gal / 20 L of water on your label's basis.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "20",
+        "smVolumeUnit": "L",
+        "smPercent": "20",
+        "smRate": "38",
+        "smRateUnit": "g/L"
+      }
+    },
+    {
+      "name": "zero water edge",
+      "result": "No water to prepare with these inputs, so no salt is needed.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "0",
+        "smVolumeUnit": "L",
+        "smPercent": "20",
+        "smRate": "38",
+        "smRateUnit": "g/L"
+      }
+    },
+    {
+      "name": "negative water rejected",
+      "result": "Enter a water amount of zero or more and a label rate above zero.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "-1",
+        "smVolumeUnit": "L",
+        "smPercent": "20",
+        "smRate": "38",
+        "smRateUnit": "g/L"
+      }
+    },
+    {
+      "name": "valid input recovers",
+      "result": "Starting salt weight: 760 g (0.76 kg) for 5.28 US gal / 20 L of water on your label's basis.",
+      "inputs": {
+        "smMode": "batch",
+        "smVolume": "20",
+        "smVolumeUnit": "L",
+        "smPercent": "20",
+        "smRate": "38",
+        "smRateUnit": "g/L"
+      }
+    }
+  ],
+  "widths": [
+    {
+      "viewport": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "viewport": 1440,
+      "scroll": 1440,
+      "client": 1440
+    }
+  ],
+  "errors": []
+}

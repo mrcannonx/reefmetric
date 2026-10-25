@@ -1,0 +1,134 @@
+
+> reefmetric@0.1.0 check:calculators
+> node --experimental-strip-types --test scripts/check-calculators.mjs
+
+TAP version 13
+# Subtest: a 100 W aquarium running all day uses 72 kWh in 30 days
+ok 1 - a 100 W aquarium running all day uses 72 kWh in 30 days
+  ---
+  duration_ms: 0.4485
+  type: 'test'
+  ...
+# Subtest: a timed light uses its actual daily hours
+ok 2 - a timed light uses its actual daily hours
+  ---
+  duration_ms: 0.053125
+  type: 'test'
+  ...
+# Subtest: zero rate, watts, hours, or days stays zero
+ok 3 - zero rate, watts, hours, or days stays zero
+  ---
+  duration_ms: 0.0485
+  type: 'test'
+  ...
+# Subtest: invalid energy inputs cannot produce a plausible bill
+ok 4 - invalid energy inputs cannot produce a plausible bill
+  ---
+  duration_ms: 0.213916
+  type: 'test'
+  ...
+# Subtest: the build estimate exposes electricity separately and honors a free rate
+ok 5 - the build estimate exposes electricity separately and honors a free rate
+  ---
+  duration_ms: 0.1615
+  type: 'test'
+  ...
+# Subtest: size-guide totals match the carried-over itemized budgets
+ok 6 - size-guide totals match the carried-over itemized budgets
+  ---
+  duration_ms: 0.250917
+  type: 'test'
+  ...
+# Subtest: generated cost-page script updates results, accepts zero rates, and recovers from bad input
+ok 7 - generated cost-page script updates results, accepts zero rates, and recovers from bad input
+  ---
+  duration_ms: 13.655375
+  type: 'test'
+  ...
+# Subtest: every enabled liquid matches its fetched label/example and its own daily limit
+ok 8 - every enabled liquid matches its fetched label/example and its own daily limit
+  ---
+  duration_ms: 0.651833
+  type: 'test'
+  ...
+# Subtest: dosing refuses empty-volume, negative, disabled, mismatched, and nonfinite inputs
+ok 9 - dosing refuses empty-volume, negative, disabled, mismatched, and nonfinite inputs
+  ---
+  duration_ms: 0.644792
+  type: 'test'
+  ...
+# Subtest: tank volume follows cubic inches, dry-sand bed and rock displacement
+ok 10 - tank volume follows cubic inches, dry-sand bed and rock displacement
+  ---
+  duration_ms: 0.570583
+  type: 'test'
+  ...
+# Subtest: flow targets subtract delivered return, including a return above the target
+ok 11 - flow targets subtract delivered return, including a return above the target
+  ---
+  duration_ms: 0.24525
+  type: 'test'
+  ...
+# Subtest: skimmer uses published bioload values ahead of fallback derating
+ok 12 - skimmer uses published bioload values ahead of fallback derating
+  ---
+  duration_ms: 0.117375
+  type: 'test'
+  ...
+# Subtest: pump model solves an independent linear curve and obeys shutoff
+ok 13 - pump model solves an independent linear curve and obeys shutoff
+  ---
+  duration_ms: 2.398708
+  type: 'test'
+  ...
+# Subtest: salinity linear reference, reverse units and temperature correction match stated method
+ok 14 - salinity linear reference, reverse units and temperature correction match stated method
+  ---
+  duration_ms: 0.135667
+  type: 'test'
+  ...
+# Subtest: water-change plans satisfy dilution and stop at the first sufficient change
+ok 15 - water-change plans satisfy dilution and stop at the first sufficient change
+  ---
+  duration_ms: 0.098417
+  type: 'test'
+  ...
+# Subtest: salt cost converts frequency and ranks by mixed-gallon cost
+ok 16 - salt cost converts frequency and ranks by mixed-gallon cost
+  ---
+  duration_ms: 0.077125
+  type: 'test'
+  ...
+# Subtest: PAR interpolates only within a single source and returns unknown outside it
+ok 17 - PAR interpolates only within a single source and returns unknown outside it
+  ---
+  duration_ms: 0.062167
+  type: 'test'
+  ...
+# Subtest: stocking score follows its stated relative model and always emits size warnings
+ok 18 - stocking score follows its stated relative model and always emits size warnings
+  ---
+  duration_ms: 0.110833
+  type: 'test'
+  ...
+# Subtest: unlike or unknown salt-yield salinities are not ranked as comparable value
+ok 19 - unlike or unknown salt-yield salinities are not ranked as comparable value
+  ---
+  duration_ms: 0.040209
+  type: 'test'
+  ...
+# Subtest: a bonded pair does not trigger the removed universal odd-shoal rule
+ok 20 - a bonded pair does not trigger the removed universal odd-shoal rule
+  ---
+  duration_ms: 0.051916
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 90.362

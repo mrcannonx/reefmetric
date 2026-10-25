@@ -12,62 +12,26 @@ interface Salt {
   gallonsPerBox: number;
   priceUSD: number;
   params: string;
+  package: string;
+  source: string;
+  priceSource: string;
+  priceVerifiedOn: string;
+  yieldSalinityPpt: number | null;
+  yieldNote: string;
   retailers?: string[];
   imageUrl?: string | null;
 }
-const salts = (saltData as any).salts as Salt[];
-const dataDate = (saltData as any).generated as string;
-
-// The only fair comparison: price ÷ gallons the box mixes at reef salinity.
-const withCost = salts
-  .map((s) => ({ ...s, costPerGal: s.priceUSD / s.gallonsPerBox }))
-  .sort((a, b) => a.costPerGal - b.costPerGal);
-
-// Two honest families, from each salt's stated parameter profile:
-// elevated/enriched alk-ca-mg (growth formulas) vs near-natural-seawater baselines.
-const isElevated = (s: Salt) => /elevated|enriched/i.test(s.params);
-const elevated = withCost.filter(isElevated);
-const natural = withCost.filter((s) => !isElevated(s));
-
+const salts = saltData.salts as Salt[];
+// Package yields are reported at different or unknown salinities. Keep source order:
+// a numeric price/label-gallon quotient is not a common-35-ppt value ranking.
+const withCost = salts.map((s) => ({ ...s, costPerGal: s.priceUSD / s.gallonsPerBox }));
 const money = (n: number) => `$${n.toFixed(2)}`;
-const monthly75 = (costPerGal: number) => money(costPerGal * 32.5); // 75 gal, 10% weekly ≈ 32.5 gal/mo
-
-interface Pick { badge: string; why: string; s: (typeof withCost)[number]; win?: boolean; }
-const picks: Pick[] = [];
-const used = new Set<string>();
-const id = (s: Salt) => `${s.brand} ${s.product}`;
-
-picks.push({
-  badge: 'Best value overall',
-  why: `Cheapest cost per mixed gallon in the dataset (${money(withCost[0].costPerGal)}/gal). The classic fish-only and dose-it-yourself reef choice.`,
-  s: withCost[0],
-  win: true,
-});
-used.add(id(withCost[0]));
-
-const bestElevated = elevated.find((s) => !used.has(id(s)));
-if (bestElevated) {
-  picks.push({
-    badge: 'Best value growth formula',
-    why: `Cheapest of the elevated alk/ca/mg formulas (${money(bestElevated.costPerGal)}/gal) — coral-growth chemistry without the premium-brand price.`,
-    s: bestElevated,
-  });
-  used.add(id(bestElevated));
-}
-const bestNatural = natural.find((s) => !used.has(id(s)));
-if (bestNatural) {
-  picks.push({
-    badge: 'Best value natural-parameter',
-    why: `Cheapest near-natural-seawater formula after the baseline (${money(bestNatural.costPerGal)}/gal) — for tanks that dose to their own targets and want the salt to stay out of the way.`,
-    s: bestNatural,
-  });
-}
-
-const buy = (s: Salt) => goHref(s.retailers || [], `${s.brand} ${s.product} reef salt`);
+const examples = [withCost[0], withCost[2], withCost[4]];
+const buy = (s: Salt) => goHref(s.retailers || [], `${s.brand} ${s.product} reef salt`, s.priceSource);
 const itemListLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Best Reef Salt Mix by Cost per Gallon',
+  name: 'Reef Salt Mix Package and Salinity Comparison',
   numberOfItems: withCost.length,
   itemListElement: withCost.map((s, i) => ({
     '@type': 'ListItem',
@@ -76,73 +40,67 @@ const itemListLd = {
   })),
 };
 
-const headline = "Best reef salt, ranked by what a gallon actually costs";
+const headline = "Best reef salt mix: compare package costs and salinity";
 ---
 <Base
   headline={headline}
-  title="Best Reef Salt Mix by Cost per Gallon (2026)"
-  description="Compare reef salt mixes by cost per mixed gallon, alkalinity, calcium, and magnesium. Choose growth or natural-parameter formulas for your tank."
+  title="Best Reef Salt Mix: Packages & Salinity"
+  description="Compare 11 reef salt packages, checked prices, chemistry, and yield limits. See why package gallons cannot prove the cheapest salt at 35 ppt."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Reef Salt Mix', href: '/reviews/best-reef-salt-mix' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Salt Mix</p>
     <h1>{headline}</h1>
-    <p class="lede-dark">Salt is the quiet recurring cost of reefing — and boxes lie by omission. A $75 box that mixes 200 gallons is cheaper salt than a $75 box that mixes 160. We rank every major mix by <strong>cost per mixed gallon</strong>, then split them into the two families that actually matter: elevated growth formulas vs near-natural-seawater baselines.</p>
+    <p class="lede-dark">Choose a reef salt whose mixed-water chemistry fits the tank you maintain, then compare the exact package and delivered price. A gallon claim at a lower salinity does not buy the same amount of reef water as a gallon at 35 ppt. These listings do not share a verified yield basis, so this page does not name a cheapest-at-35-ppt winner.</p>
     <Disclosure />
-    <p class="rnote" style="margin-top:0">How this ranking works: computed from box price ÷ manufacturer mix yield at reef salinity (~1.025), dataset updated {dataDate}. Parameter families come from each maker's published water chemistry. Nobody pays for placement. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+    <p class="rnote" style="margin-top:0">Prices and package sizes checked October 25, 2026. Each row links the listing used. The arithmetic below divides that price by the stated package yield; it does not normalize unlike salt mixes. Shipping, tax, sale changes, and retailer stock can change your actual cost. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   <section class="container" style="padding-top:8px;padding-bottom:20px;">
-    <h2>The picks</h2>
+    <h2>Three formulas to compare</h2>
     <div class="results">
-      {picks.map((p) => (
-        <div class={`rcard ${p.win ? 'win' : ''}`}>
-          {p.s.imageUrl && (
-            <div class="rthumb">
-              <img src={p.s.imageUrl} alt={`${p.s.brand} ${p.s.product}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
-            </div>
-          )}
+      {examples.map((s) => (
+        <div class="rcard">
           <div class="rmain">
-            <div class="rname">{p.s.brand} {p.s.product} <span class={p.win ? 'pill-win' : 'rbadge'}>{p.badge}</span></div>
-            <div class="rmeta">{p.why}</div>
-            <div class="rmeta">{p.s.params} · ~${p.s.priceUSD} box mixes {p.s.gallonsPerBox} gal · ≈{monthly75(p.s.costPerGal)}/mo on a 75-gal tank at 10% weekly changes</div>
+            <div class="rname">{s.brand} {s.product}</div>
+            <div class="rmeta">{s.params}</div>
+            <div class="rmeta">{s.package} · {money(s.priceUSD)} recorded</div>
+            <p class="rmeta">{s.yieldNote}</p>
           </div>
-          <div class="rflow"><span class="n">{money(p.s.costPerGal)}</span><br /><span class="u">per gallon</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(p.s.retailers)} ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(s)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(s.retailers)} (paid link) ↗</a></div>
         </div>
       ))}
     </div>
-    <p class="rnote">Want the ranking for <em>your</em> tank size and water-change schedule? The <a href={url('/tools/salt-cost-calculator')}>salt cost calculator</a> computes your actual monthly spend for every salt here.</p>
+    <p class="rnote">Use the <a href={url('/tools/salt-cost-calculator')}>salt cost calculator</a> for a package-label spending estimate at your water-change schedule. For a real 35-ppt budget, measure how much water your chosen package makes at your calibrated target salinity.</p>
   </section>
 
   <section class="container" style="padding-top:8px;">
-    <h2>All {withCost.length} salts, cheapest per gallon first</h2>
-    <div class="tablewrap">
+    <h2>All {withCost.length} salt packages — source order, not a value ranking</h2>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Salt package comparison, scroll for all columns">
       <table class="specs">
-        <thead>
-          <tr><th>Salt</th><th>Family</th><th>Box</th><th>Mixes</th><th>Cost / gal</th></tr>
-        </thead>
+        <thead><tr><th>Salt / package</th><th>Recorded price</th><th>Stated yield</th><th>Price / stated gallon</th><th>Yield basis and limits</th></tr></thead>
         <tbody>
           {withCost.map((s) => (
             <tr>
-              <td><strong>{s.brand}</strong> {s.product}</td>
-              <td>{isElevated(s) ? 'Growth (elevated)' : 'Natural / NSW'}</td>
-              <td>${s.priceUSD}</td>
-              <td>{s.gallonsPerBox} gal</td>
-              <td><strong>{money(s.costPerGal)}</strong></td>
+              <td><strong>{s.brand}</strong> {s.product}<br /><small>{s.package}</small><br /><a href={s.source} target="_blank" rel="noopener">Formula / yield source</a></td>
+              <td>{money(s.priceUSD)}<br /><a href={s.priceSource} target="_blank" rel="noopener">Price source</a><br /><small>Checked {s.priceVerifiedOn}</small></td>
+              <td>{s.gallonsPerBox} US gal</td>
+              <td><strong>{money(s.costPerGal)}</strong><br /><small>Package basis only</small></td>
+              <td>{s.yieldNote}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="rnote">Prices are street prices at the dataset date and move with sales — the per-gallon <em>ordering</em> is much more stable than the absolute numbers.</p>
+    <p class="rnote">Fritz illustrates the problem: the maker lists 205 gallons at 30 ppt for its 55-pound box; the retailer calls that box 200 gallons. Mixing to a higher salinity uses more salt per gallon. Other rows have different or unstated yield bases, so the smallest quotient cannot establish the cheapest reef salt.</p>
   </section>
 
   <section class="container prose" style="padding-top:24px;">
-    <h2>Growth formula or natural parameters?</h2>
-    <p><strong>Elevated formulas</strong> (Reef Crystals, Coral Pro, RPM, Aquaforest Reef Salt…) mix high on alkalinity, calcium and magnesium so water changes themselves replenish what corals consume — a real convenience on stony-coral tanks that don't dose. The catch: on a tank that <em>does</em> dose, or does small changes, elevated alk swings parameters on every change.</p>
-    <p><strong>Natural-parameter salts</strong> (Blue Bucket, Tropic Marin Classic, NeoMarine…) mix near natural seawater. They're the stable choice for tanks that dose to their own targets, and for sensitive SPS systems where a 3-dKH jump on water-change day is exactly what you're trying to avoid.</p>
-    <p>Neither family is "better" — the mistake is paying the elevated premium and then dosing anyway, or running a no-dose stony tank on a baseline salt and wondering where the alkalinity went. Pair the salt with how you actually run the tank; our <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> covers the other half of that equation.</p>
+    <h2>Match the fresh mix to the tank</h2>
+    <p>Check the maker's alkalinity, calcium, and magnesium targets at the salinity you will use. Coral Pro and standard Red Sea Salt have different listed alkalinity ranges at 35 ppt. Fritz RPM blue and RPM Redline are also different formulas. A familiar brand name is not enough to choose the right product.</p>
+    <p>Test a fresh batch before a large change. Water changes can move the tank toward the new water's chemistry; a high-alkalinity salt is not a promise that your corals will grow faster or that dosing is no longer needed. Track consumption with reliable tests and use the <a href={url('/tools/reef-dosing-calculator')}>dosing calculator</a> only with the selected additive's directions.</p>
+    <h2>How to compare a real purchase</h2>
+    <p>Use the same target salinity, package weight, and final mixed-water volume for each quote. Add delivery and tax. Divide that delivered price by the verified usable gallons at your target, then compare the cost with your water-change schedule. Follow the product's own mixing directions and never add dry salt directly to a stocked tank.</p>
   </section>
 
   <section class="container">

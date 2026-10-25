@@ -60,6 +60,7 @@ const headline = "Reef Flow Calculator";
 </Base>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { flowTarget, rankWavemakers } from '../../utils/flow-calc';
   import data from '../../data/wavemakers.json';
   import { goHref, retailerName } from '../../data/affiliate-config';
@@ -73,6 +74,7 @@ const headline = "Reef Flow Calculator";
   const buyUrl = (w: any) => goHref(w.retailers || [], `${w.brand} ${w.model} wavemaker`, w.source);
 
   function render() {
+    if (!validateCalcInputs('#fl-form input[type="number"]', 'fl-summary', ['fl-results'])) return;
     const gallons = Number(val('flGallons')) || 0;
     const band = (data as any).turnoverGuidance.find((b: any) => b.key === val('flBand')) || (data as any).turnoverGuidance[0];
     const returnGPH = Number(val('flReturn')) || 0;
@@ -91,7 +93,7 @@ const headline = "Reef Flow Calculator";
     }
 
     const fits = rankWavemakers(t, (data as any).wavemakers);
-    results.innerHTML = fits.map((f: any, idx: number) => {
+    results.innerHTML = (fits.length ? '' : '<p class="rnote">No listed combination reaches this target within four units without being oversized. Review tank dimensions, flow placement, and the upper output of each pump before buying.</p>') + fits.map((f: any, idx: number) => {
       const w = f.wm;
       const thumb = w.imageUrl
         ? `<div class="rthumb"><img src="${w.imageUrl}" alt="${esc(w.brand)} ${esc(w.model)}" loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'"></div>`
@@ -106,8 +108,8 @@ const headline = "Reef Flow Calculator";
             <div class="rmeta">${f.unitsForMid} unit${f.unitsForMid > 1 ? 's' : ''} = ${fmt(f.comboFlowGPH)} GPH (mfr max rating) · ${w.watts}W each · ${esc(w.controller)}</div>
             ${issues}
           </div>
-          <div class="rflow"><span class="n">${money(f.comboCost)}</span><br><span class="u">${f.unitsForMid > 1 ? 'for the pair' : 'one unit'}</span></div>
-          <div class="rbuy"><a class="aff" href="${buyUrl(w)}" target="_blank" rel="sponsored nofollow noopener">${money(w.priceUSD)} at ${esc(retailerName(w.retailers))} ↗</a></div>
+          <div class="rflow"><span class="n">${money(f.comboCost)}</span><br><span class="u">${f.unitsForMid > 1 ? 'for ' + f.unitsForMid + ' units' : 'one unit'}</span></div>
+          <div class="rbuy"><a class="aff" href="${buyUrl(w)}" target="_blank" rel="sponsored nofollow noopener">${money(w.priceUSD)} at ${esc(retailerName(w.retailers))} (paid link) ↗</a></div>
         </div>`;
     }).join('') +
       `<p class="rnote">Flow figures are manufacturer max ratings — real output falls with mode, clogging, and age. Combos are sized to your mid-target (${fmt(t.powerheadMidGPH)} GPH of powerhead flow); SPS keepers should size toward the top of the band. Sourced ${(data as any).generated}. <a href="${url('/reviews/best-wavemakers')}">Full wavemaker rankings with the reliability notes →</a></p>`;

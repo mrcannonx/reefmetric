@@ -3,19 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../../data/setup-budgets';
 
-const cost = [
-  { item: 'Tank + stand (40B, 36×18×16″)', budget: '$200–350', mid: '$350–600' },
-  { item: 'Sump (20-long or purpose-built)', budget: '$80–150', mid: '$150–350' },
-  { item: 'Return pump', budget: '$60–110', mid: '$110–200' },
-  { item: 'Protein skimmer', budget: '$130–200', mid: '$200–400' },
-  { item: 'Reef light(s)', budget: '$200–350', mid: '$350–700' },
-  { item: 'Powerheads / flow', budget: '$80–150', mid: '$150–300' },
-  { item: 'Heater + controller', budget: '$30–60', mid: '$60–140' },
-  { item: 'Rock (~35 lb) + sand', budget: '$70–140', mid: '$140–250' },
-  { item: 'RODI unit', budget: '$80–150', mid: '$150–250' },
-  { item: 'Salt, test kits, extras', budget: '$70–130', mid: '$130–250' },
-];
+const cost = SETUP_BUDGETS[40];
 
 const headline = "40 Gallon Breeder Reef Tank: Setup, Gear List & Cost";
 ---
@@ -33,7 +23,7 @@ const headline = "40 Gallon Breeder Reef Tank: Setup, Gear List & Cost";
     <Disclosure />
 
     <h2>Why the 40 breeder?</h2>
-    <p>At 36 × 18 × 16 inches, the 40B gives you the front-to-back depth that makes aquascaping and coral placement actually work — something taller "40-tall" or narrow tanks can't. The low height means even mid-range lights punch to the sand bed, and the ~40-gallon volume is stable enough to forgive beginner mistakes while staying cheap to stock and run. Almost every reefer who started on a nano wishes they'd started here.</p>
+    <p>At 36 × 18 × 16 inches, the 40B gives you the front-to-back depth that makes aquascaping and coral placement actually work — something taller "40-tall" or narrow tanks can't. The low height means even mid-range lights punch to the sand bed, and the ~40-gallon volume is stable enough to forgive beginner mistakes while staying cheap to stock and run. Allow for temperature and salinity checks even on a larger tank.</p>
 
     <h2>The core gear list</h2>
     <p>A reef tank is a system, and each part has to match the others. Here's the short version, with the two pieces people most often get wrong linked to our calculators.</p>
@@ -49,20 +39,20 @@ const headline = "40 Gallon Breeder Reef Tank: Setup, Gear List & Cost";
     <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>See our full protein skimmer rankings →</a></p>
 
     <h3>Lighting</h3>
-    <p>Light depends on what you'll keep. Softies and LPS are happy under a single quality reef LED; a mixed-to-SPS 40B usually runs two fixtures for even coverage across the 36-inch length. Buy for the corals you want in a year, not just today. See <a href={url('/reviews/best-reef-led-lighting')}>our reef LED lighting rankings</a> — only 4 of 11 popular fixtures publish real PAR data, and we name which ones.</p>
+    <p>Light depends on what you'll keep. Softies and LPS are happy under a single quality reef LED; a mixed-to-SPS 40B usually runs two fixtures for even coverage across the 36-inch length. Buy for the corals you want in a year, not just today. See <a href={url('/reviews/best-reef-led-lighting')}>our reef LED lighting rankings</a> — check the source conditions before comparing any recorded PAR numbers.</p>
 
     <h3>Flow, heat, rock</h3>
     <p>Add two small powerheads for turbulent, random flow (aim for 20–40× total turnover including the return — <a href={url('/tools/flow-calculator')}>the flow calculator</a> does the math and names the pumps). A 100–150W heater on an external controller keeps things stable (<a href={url('/tools/heater-calculator')}>size it for your room</a>). Around 35 lb of dry or live rock builds your aquascape and biological base.</p>
 
     <h2>What a 40B build actually costs</h2>
-    <p>Two honest columns — a value build and a mid-range build. These are 2026 US ranges, not exact prices; use the calculators above to pin down the pump and skimmer for your setup, and <a href={url('/tools/reef-build-cost-calculator')}>the full build-cost calculator</a> to itemize your own tier and coral type. Salt is the other recurring line — see <a href={url('/reviews/best-reef-salt-mix')}>our salt cost-per-gallon rankings</a> to pick one.</p>
+    <p>Two honest columns — a value build and a mid-range build. These are editorial US cost estimates, not refreshed retailer quotes, not exact prices; use the calculators above to pin down the pump and skimmer for your setup, and <a href={url('/tools/reef-build-cost-calculator')}>the full build-cost calculator</a> to itemize your own tier and coral type. Salt is the other recurring line — see <a href={url('/reviews/best-reef-salt-mix')}>our salt cost-per-gallon rankings</a> to pick one.</p>
 
     <table class="costtable">
       <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
       <tbody>
-        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{moneyRange(c.budget)}</td><td>{moneyRange(c.mid)}</td></tr>))}
       </tbody>
-      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$1,000–1,800</strong></td><td><strong>~$1,800–3,400</strong></td></tr></tfoot>
+      <tfoot><tr><td><strong>Listed gear total</strong></td><td><strong>{moneyRange(setupTotal(40, 'budget'))}</strong></td><td><strong>{moneyRange(setupTotal(40, 'mid'))}</strong></td></tr></tfoot>
     </table>
     <p class="rnote">Spread it out: you don't buy everything at once. Tank, sump, RODI, and rock come first; livestock and corals come months later, after the tank cycles and stabilizes.</p>
 

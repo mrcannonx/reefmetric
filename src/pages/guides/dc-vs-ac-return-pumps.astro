@@ -31,7 +31,7 @@ const annualCost = (watts: number) => estimateElectricity({ watts, hoursPerDay: 
 
     <h2>A 75-gallon example from our pump data</h2>
     <p>These are the smallest qualifying AC and DC pumps with recorded watts and prices in the calculator's ordered results. Both must reach {targetGPH} GPH after {reference.staticHeadFt} ft of lift, {reference.pipeLengthFt} ft of pipe with a {reference.pipeIdInches}-inch inside diameter, and {reference.elbows} elbows. Data date: {pumpData.generated}; prices have not been refreshed.</p>
-    <div class="tablewrap"><table class="breakdown">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns"><table class="breakdown">
       <thead><tr><th>Type / model</th><th>Modeled delivered flow</th><th>Rated watts</th><th>Recorded price</th><th>Power / year</th></tr></thead>
       <tbody>{comparison.map((r) => <tr><td>{r.pump.type}: {r.pump.brand} {r.pump.model}</td><td>{r.deliveredGPH} GPH</td><td>{r.pump.watts}W</td><td>${r.pump.approxPriceUSD?.toFixed(2)}</td><td>${annualCost(r.pump.watts!).toFixed(2)}</td></tr>)}</tbody>
     </table></div>

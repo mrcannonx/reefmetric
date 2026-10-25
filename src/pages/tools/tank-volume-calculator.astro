@@ -74,6 +74,7 @@ const headline = "Tank Volume Calculator";
 </Base>
 
 <script>
+  import { validateCalcInputs } from '../../utils/input-calc';
   import { computeVolume, STANDARD_TANKS } from '../../utils/volume-calc';
 
   const el = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
@@ -89,13 +90,20 @@ const headline = "Tank Volume Calculator";
   }
 
   function render() {
+    if (!validateCalcInputs('#tv-form input[type="number"]', 'tv-summary', ['tv-results'])) return;
     const L = Number(val('tvL')), W = Number(val('tvW')), H = Number(val('tvH'));
     const summary = document.getElementById('tv-summary');
     const results = document.getElementById('tv-results');
     if (!summary || !results) return;
     if (!(L > 0) || !(W > 0) || !(H > 0)) { summary.innerHTML = ''; results.innerHTML = ''; return; }
 
-    const r = computeVolume(L, W, H, Number(val('tvGap')) || 0, Number(val('tvSand')) || 0, Number(val('tvRock')) || 0, Number(val('tvSump')) || 0);
+    const gap = Number(val('tvGap')), sand = Number(val('tvSand')), rock = Number(val('tvRock'));
+    if (gap >= H || sand >= H - gap || rock * 0.075 >= L * W * (H - gap - sand) / 231) {
+      summary.textContent = 'The air gap, sand, and rock leave no display water. Check those inputs before using a volume for dosing.';
+      results.innerHTML = '';
+      return;
+    }
+    const r = computeVolume(L, W, H, gap, sand, rock, Number(val('tvSump')));
 
     summary.innerHTML = `Filled to the rim these dimensions hold <b>${fmt(r.grossGal, 0)} gal</b>. Your water actually sees <b>${fmt(r.trueGal, 1)} gal</b>.`;
 

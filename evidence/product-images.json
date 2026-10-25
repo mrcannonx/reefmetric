@@ -1,0 +1,2239 @@
+{
+  "at": "2026-10-25T17:34:45.147Z",
+  "write": true,
+  "method": "curl GET with reefmetric Referer; inspect every image format/dimensions before sharp resize; no runtime vendor image dependency",
+  "summary": {
+    "sources": 102,
+    "cached": 91,
+    "unavailable": 11,
+    "sourceBytes": 6490467,
+    "localBytes": 530096
+  },
+  "rows": [
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210557-smart-ato-120p-auto-aqua.jpg",
+      "parents": [
+        "atos.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210557-smart-ato-120p-auto-aqua.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 38668,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/5e90999b7587e57f9ec4.webp",
+      "localBytes": 5868,
+      "localSha256": "babe2f5f8c37f3c829684e3a4a0340ddc656825cc96f0cd4d53e516bedafbb1e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/x/p/xpaqua-07.png",
+      "parents": [
+        "atos.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/x/p/xpaqua-07.png",
+      "contentType": "image/png",
+      "sourceBytes": 204361,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "png"
+      },
+      "local": "/images/products/63fe1f73a3f2226b8d6c.webp",
+      "localBytes": 5444,
+      "localSha256": "e9036ca1c05dd23cb8365d17dd0215952414e176d8aff8a9f2ce6a024623f0ec",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/t/atk_hero_ncp_5737_new-pmup.jpg",
+      "parents": [
+        "atos.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/t/atk_hero_ncp_5737_new-pmup.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 22673,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/7ca72e7e1f46fa6f1c1b.webp",
+      "localBytes": 3630,
+      "localSha256": "420d4e8c4a96b17db1af0a548bfa6f24135a8ad4c51d3c58cb2df33de7eedecc",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/7209/48797/icecap-ato-4-500__54549.1708916264.jpg?c=1",
+      "parents": [
+        "atos.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/7209/48797/icecap-ato-4-500__54549.1708916264.jpg?c=1",
+      "contentType": "image/jpeg",
+      "sourceBytes": 47244,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/6ea2e43f14f634fa011f.webp",
+      "localBytes": 7580,
+      "localSha256": "a64f772a84b7f6fa710e386e28fd24ce5ce870b458cc6cd693209468e6131d4a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251962-redsea-reef_ato_-fr.jpg",
+      "parents": [
+        "atos.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251962-redsea-reef_ato_-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 46588,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/ba04c00165c5224b5827.webp",
+      "localBytes": 5318,
+      "localSha256": "ed2cae2b549fbabf14e3d9127d8f1e8089472d6fdc2dfc1203eeb0431b8f2d78",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=128",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://shop.neptunesystems.com/cdn/shop/products/apex_Pro_system.jpg?v=1660601522&width=128",
+      "contentType": "image/jpeg",
+      "sourceBytes": 5134,
+      "original": {
+        "width": 128,
+        "height": 97,
+        "format": "jpeg"
+      },
+      "local": "/images/products/7f183508b41f58065220.webp",
+      "localBytes": 1850,
+      "localSha256": "8392b7fec35d7940489436c262e140c92b573a2bea73c2b7fd14bf09069ade59",
+      "resized": {
+        "width": 128,
+        "height": 97,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=128",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://shop.neptunesystems.com/cdn/shop/products/apex_a3_system.jpg?v=1660601553&width=128",
+      "contentType": "image/jpeg",
+      "sourceBytes": 4504,
+      "original": {
+        "width": 128,
+        "height": 85,
+        "format": "jpeg"
+      },
+      "local": "/images/products/4a8eea78b74a5f944ad9.webp",
+      "localBytes": 1550,
+      "localSha256": "41ef21715181e2a0f5b78118abb902b4497c3ff65047b8af6ccdb02bf0b97e4f",
+      "resized": {
+        "width": 128,
+        "height": 85,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=128",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://shop.neptunesystems.com/cdn/shop/products/Apex_jr_system.jpg?v=1660601485&width=128",
+      "contentType": "image/jpeg",
+      "sourceBytes": 4948,
+      "original": {
+        "width": 128,
+        "height": 122,
+        "format": "jpeg"
+      },
+      "local": "/images/products/f94f4d7e745533236456.webp",
+      "localBytes": 1924,
+      "localSha256": "d9fd860ef8891461c4872ceb1fb5b0b4e49d6512834b7891beb5380b9fecf650",
+      "resized": {
+        "width": 128,
+        "height": 122,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x4_pro_pack_graphic_72x-100_1.jpg",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x4_pro_pack_graphic_72x-100_1.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170476,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x3_pro_pack_graphic_72x-100.jpg",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/c/o/control_x3_pro_pack_graphic_72x-100.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170454,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/h/y/hydros_start_frontcenter.jpg",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/h/y/hydros_start_frontcenter.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170333,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/x/2/x2_flont.jpg",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/x/2/x2_flont.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170157,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.aquariumcomputer.com/usa/wp-content/uploads/sites/5/2024/12/P420Mega-Set206E.webp",
+      "parents": [
+        "controllers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://www.aquariumcomputer.com/usa/wp-content/uploads/sites/5/2024/12/P420Mega-Set206E.webp",
+      "contentType": "image/webp",
+      "sourceBytes": 64960,
+      "original": {
+        "width": 850,
+        "height": 850,
+        "format": "webp"
+      },
+      "local": "/images/products/c3e2f885dc12ba0e92d7.webp",
+      "localBytes": 10366,
+      "localSha256": "43c2baff2587045c95515c6e2272d8d225123d402f8ad592fc237ec3634ab3b2",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232312-redsea-reefdose2-dosing-pump-an_1.jpg",
+      "parents": [
+        "dosers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232312-redsea-reefdose2-dosing-pump-an_1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 47488,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/99547b941c30e12b864c.webp",
+      "localBytes": 6560,
+      "localSha256": "a8af9c45eb28e469dbaf02909328b021c1d3ebbffc781e15097cb5de6a0b776f",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232313-redsea-reefdose4-dosingpump-an.jpg",
+      "parents": [
+        "dosers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232313-redsea-reefdose4-dosingpump-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 44390,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/4773bbba3c4a538a6a22.webp",
+      "localBytes": 6146,
+      "localSha256": "f4b81de0a09be3cb9519190d3a231fe3cfa8f310c0ac90c6aec601d8ad067c2e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.aquariumspecialty.com/media/catalog/product/cache/4a000bb56e2ea4022b993c036a7b4ec1/d/o/doser-3-group.jpg",
+      "parents": [
+        "dosers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://www.aquariumspecialty.com/media/catalog/product/cache/4a000bb56e2ea4022b993c036a7b4ec1/d/o/doser-3-group.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 22331,
+      "original": {
+        "width": 650,
+        "height": 650,
+        "format": "jpeg"
+      },
+      "local": "/images/products/c5562f9c9e8d47dd03bd.webp",
+      "localBytes": 3280,
+      "localSha256": "e51f2c47cd7cf13e5435936d289d844560025b337b30ef4bf5aedaa5b684de1a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/253456-reeffactory-dosingpump-pro-x4-an.jpg",
+      "parents": [
+        "dosers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/253456-reeffactory-dosingpump-pro-x4-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 19397,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/26107baadf8c45d88028.webp",
+      "localBytes": 2760,
+      "localSha256": "0021064c92befe7c9d96d17f75d5b11348937064607bfe9a04dbcf1ce86a46b8",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207479-eheim-jager-100w-heater-fr_1__1.jpg",
+      "parents": [
+        "heaters.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207479-eheim-jager-100w-heater-fr_1__1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 29105,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/58aa0e3b2bc04f6dc4cf.webp",
+      "localBytes": 3910,
+      "localSha256": "38e5ea5ae69b802e9c4d51f0d56a36b10eee55b1a9931eddb9f6532f6ea11224",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/f/i/finnex-hmx.jpg",
+      "parents": [
+        "heaters.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/f/i/finnex-hmx.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 47491,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/392181aa9f9c40a199a3.webp",
+      "localBytes": 7332,
+      "localSha256": "657f82e3fc86e5456c4a0bc251adbc1050d5f401231b6a5910d396f0e671604f",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212191-brs-exb-titaniumheater-100w-with-box.jpg",
+      "parents": [
+        "heaters.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212191-brs-exb-titaniumheater-100w-with-box.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 38829,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/9df8e2a07696e04ccd67.webp",
+      "localBytes": 6240,
+      "localSha256": "ecfbf009ad56fe916596ae87d0cf1190a0f32bdef2cec29682357d8496a71491",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207705-cobalt-neo-therm-submersible-heater-a.jpg",
+      "parents": [
+        "heaters.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207705-cobalt-neo-therm-submersible-heater-a.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 41368,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/8f0da9b94539708909e7.webp",
+      "localBytes": 6168,
+      "localSha256": "77fc8a87f6b1dd03df88e0c8f73a224404442294bc79be4e36ea1cf295efd78a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.inkbird.com/cdn/shop/files/temperature-controller-itc-306t-series-790172.png?v=1745376387&width=1600",
+      "parents": [
+        "heaters.json"
+      ],
+      "status": 200,
+      "finalURL": "https://www.inkbird.com/cdn/shop/files/temperature-controller-itc-306t-series-790172.png?v=1745376387&width=1600",
+      "contentType": "image/png",
+      "sourceBytes": 279086,
+      "original": {
+        "width": 1600,
+        "height": 1600,
+        "format": "png"
+      },
+      "local": "/images/products/f9cde65871be2cb8a588.webp",
+      "localBytes": 2964,
+      "localSha256": "fe6b10a8422b0e9263bf9dc03740543f948691c5c63ce97d502247537d48106a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/p/r/prime16hd-reef-bottom-black-1200x1200.jpg",
+      "parents": [
+        "lights.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/p/r/prime16hd-reef-bottom-black-1200x1200.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 21460,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/86b9d2c87046fe0d5666.webp",
+      "localBytes": 3684,
+      "localSha256": "d0c779bcf162f6fbe217dfbefc60fbbf31d94137f5afd2bb240e9b9142f9ea42",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/y/hydra-32-black-bottom-led-show-1200x1200.jpg",
+      "parents": [
+        "lights.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/y/hydra-32-black-bottom-led-show-1200x1200.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 21836,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/6986544851bbfa929aa9.webp",
+      "localBytes": 2830,
+      "localSha256": "9c47c291d1c313b24e3ee33855920ba47d72b79080c38131f8b2e77d0a929256",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232772-orphek-atlantik-icon-led-lighting-cv3.jpg",
+      "parents": [
+        "lights.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232772-orphek-atlantik-icon-led-lighting-cv3.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 47947,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/7393004f9ebc4a73633c.webp",
+      "localBytes": 5974,
+      "localSha256": "f24eb9bcfa50353223824d5f6a83336017e402116b106b50236727b61e04dc8e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/8845/53082/46w%5F600x600%5F1%5F%5F78572.1703072214.jpg?c=1",
+      "parents": [
+        "lights.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/8845/53082/46w%5F600x600%5F1%5F%5F78572.1703072214.jpg?c=1",
+      "contentType": "image/webp",
+      "sourceBytes": 23790,
+      "original": {
+        "width": 600,
+        "height": 600,
+        "format": "webp"
+      },
+      "local": "/images/products/65c0dc9db9804d335ebb.webp",
+      "localBytes": 3864,
+      "localSha256": "82c52d65adf9a7b1c2746cf6d213fde709025b5d67b028ec7f9afd0058cc72b3",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/214006-sicce-syncranano-110gph-pump-ri.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/214006-sicce-syncranano-110gph-pump-ri.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 36875,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/29f1af15c68aed3dfb44.webp",
+      "localBytes": 3968,
+      "localSha256": "e181c22e7c5d4d8d62c8221a62a4c99a050acc9bfe97892a807144392a504f8f",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://tunze-shop.b-cdn.net/media/78/eb/0f/1709212657/1073.008.jpg?1772632800",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://tunze-shop.b-cdn.net/media/78/eb/0f/1709212657/1073.008.jpg?1772632800",
+      "contentType": "image/jpeg",
+      "sourceBytes": 152591,
+      "original": {
+        "width": 1200,
+        "height": 1200,
+        "format": "jpeg"
+      },
+      "local": "/images/products/e9e0463ea9c8b5783a28.webp",
+      "localBytes": 5342,
+      "localSha256": "0e20976f78934967a2e02275cb444a8b51497a424d1a9f4f4d2c02c4a7dd6881",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/c/o/compacton-1000-eheim_2.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/c/o/compacton-1000-eheim_2.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 26369,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/555d04ba172b046c352d.webp",
+      "localBytes": 4042,
+      "localSha256": "8abf82633802582ef5df48a3ad3c9ea628a0eaa3bb0cfe72cf869375522377bc",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211534-im-auqagadget-mightyjet326gph-title.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211534-im-auqagadget-mightyjet326gph-title.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 30565,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/e0453e3a5d83bb0c12c8.webp",
+      "localBytes": 4468,
+      "localSha256": "b08e65a8289c7f27d7f718eba6fdf5884c7625addb8109fb2e583a6b5d7d6a2e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211534-im-auqagadget-mightyjet538-title.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211534-im-auqagadget-mightyjet538-title.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 30052,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/7ec4a1e7631b26d330b8.webp",
+      "localBytes": 4234,
+      "localSha256": "8bd5b8a4b8c49762a7696030a094d871f79edd2e32af6a6ffa31087edb47f812",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207734-sicce-syncra-silent-_2.0_-568gph-pump-an.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207734-sicce-syncra-silent-_2.0_-568gph-pump-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 57575,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/109adb74dc6ef255734b.webp",
+      "localBytes": 6774,
+      "localSha256": "45ba0295924bf6c047a1f3f7c263e3f9b9f0bfa18999539482b00128e33586b2",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/1280x1280/products/1736/4188/magdrive2__89425.1477338830.jpg?c=2",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/1280x1280/products/1736/4188/magdrive2__89425.1477338830.jpg?c=2",
+      "contentType": "image/webp",
+      "sourceBytes": 22358,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "webp"
+      },
+      "local": "/images/products/8d76b5a5092bfe5105c4.webp",
+      "localBytes": 5608,
+      "localSha256": "ec1efe9eb42fd6a12a52280fded12d53d95c53171e26aa06e4220f9900f10266",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/9888/58451/tunze_silence_1073.020_water_pump_50-630_gph_350x350__64618.1703079196.jpg?c=1",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/9888/58451/tunze_silence_1073.020_water_pump_50-630_gph_350x350__64618.1703079196.jpg?c=1",
+      "contentType": "image/jpeg",
+      "sourceBytes": 21289,
+      "original": {
+        "width": 350,
+        "height": 350,
+        "format": "jpeg"
+      },
+      "local": "/images/products/a4a7bf13fab8afad21ef.webp",
+      "localBytes": 4924,
+      "localSha256": "ceee29e3b0d44c49571a1e758ef788807ac421fd8d50d702d46fde3729c89428",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://reef-aquarium-store.com/content/Products/Jebao-opvoerpomp-DCP2500-incl-controller.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://reef-aquarium-store.com/content/Products/Jebao-opvoerpomp-DCP2500-incl-controller.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 18426,
+      "original": {
+        "width": 450,
+        "height": 450,
+        "format": "jpeg"
+      },
+      "local": "/images/products/936abae1e0ac863146c7.webp",
+      "localBytes": 6738,
+      "localSha256": "9d920aa9793d83cc695498aeaa4c7fa0568306bf8757e17d30b690ecb656061a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207735_sicce_symcrasilent_3.0-a.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207735_sicce_symcrasilent_3.0-a.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 36433,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/8a944599d5c2ec913160.webp",
+      "localBytes": 5578,
+      "localSha256": "0d389da17f967a67363061bd970bcc489e2a34c5133de66699f32ed6058e120f",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/835/36551/blueline-40-1-700__01196.1709937920.jpg?c=1",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-zrfsy1cc33/images/stencil/1280x1280/products/835/36551/blueline-40-1-700__01196.1709937920.jpg?c=1",
+      "contentType": "image/webp",
+      "sourceBytes": 31156,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "webp"
+      },
+      "local": "/images/products/b73ece0cb9ed43695a65.webp",
+      "localBytes": 2994,
+      "localSha256": "78368151671ee2f2d8517f4e22e94b8da3cc22991b084e900dbe6bf869e8cb08",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/1280x1280/products/946/2355/panworld%5F%5F24575.1448936209.jpg?c=2",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/1280x1280/products/946/2355/panworld%5F%5F24575.1448936209.jpg?c=2",
+      "contentType": "image/jpeg",
+      "sourceBytes": 17351,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/1f971d8b5eee1bccda10.webp",
+      "localBytes": 2326,
+      "localSha256": "e9183087e1e5f53557f136418dee3c0401440a91af1fd99532157d7d89d48684",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210770-eheim-compacton3000-792gph-pump-an.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210770-eheim-compacton3000-792gph-pump-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 58878,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/37d37cabe14a4f57215b.webp",
+      "localBytes": 6840,
+      "localSha256": "32162e2594cd8364b70ee7896e6685103ebcb319834adcd38c705ed6da362987",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/original/products/1738/4191/02710magdrive__68818.1477339418.jpg?c=2",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/original/products/1738/4191/02710magdrive__68818.1477339418.jpg?c=2",
+      "contentType": "image/jpeg",
+      "sourceBytes": 23448,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/223418294674661c549f.webp",
+      "localBytes": 4634,
+      "localSha256": "a7a2fc5a830d458eaab65baf4904a504f40893704bb6ff6a43aa0d3242bfaf35",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250093-currentusa-eflux-6009-dc-flowpump-1050gph-pump-cv1.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/250093-currentusa-eflux-6009-dc-flowpump-1050gph-pump-cv1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 47918,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/1fcd0d8a5ba62b13b68d.webp",
+      "localBytes": 7574,
+      "localSha256": "ebecb6fd2958f8abedf60df39b3b6dc43c1c7f5f4a10dab988f4b519169e566e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://premiumaquatics.com/cdn/shop/files/11187.jpg?v=1740525928",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://premiumaquatics.com/cdn/shop/files/11187.jpg?v=1740525928",
+      "contentType": "image/jpeg",
+      "sourceBytes": 40404,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/737b7eec6c93e413335a.webp",
+      "localBytes": 7068,
+      "localSha256": "c8c62ec819611edd3b32f77760a65a309543a128c5d97d5ae65dfb760ff30587",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://static.redseafish.com/wp-content/uploads/2024/11/07105430/RR_4000-3.png",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://static.redseafish.com/wp-content/uploads/2024/11/07105430/RR_4000-3.png",
+      "contentType": "image/png",
+      "sourceBytes": 74275,
+      "original": {
+        "width": 460,
+        "height": 340,
+        "format": "png"
+      },
+      "local": "/images/products/27a29142761f57100c22.webp",
+      "localBytes": 5056,
+      "localSha256": "6bf6dbfa905ea27c8443f08d6ffffdcafe471445b198a795f5dbdcb95f18ff43",
+      "resized": {
+        "width": 256,
+        "height": 189,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/2/s2-title-ecotech-vectra.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/2/s2-title-ecotech-vectra.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 23634,
+      "original": {
+        "width": 694,
+        "height": 694,
+        "format": "jpeg"
+      },
+      "local": "/images/products/1dcd648fe1b7127268c9.webp",
+      "localBytes": 3328,
+      "localSha256": "a924ebf4c40f3452ae9e11b10323ca8c49cfea43764be4c080da5ee96dd39344",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/_/0/_0001_reefrun_g2_6000.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/_/0/_0001_reefrun_g2_6000.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 27838,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/ede0dc0469639ea86d48.webp",
+      "localBytes": 4066,
+      "localSha256": "ac149720df5ca10def6061cf39a658951e5740abfacd3c5650595b62fee539f9",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://premiumaquatics.com/cdn/shop/files/11190.jpg?v=1740525930",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://premiumaquatics.com/cdn/shop/files/11190.jpg?v=1740525930",
+      "contentType": "image/jpeg",
+      "sourceBytes": 40475,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/369d34cbf168759ee17b.webp",
+      "localBytes": 7068,
+      "localSha256": "d48d04a73ed96069af27579fdc3705558a0d82f5630c1bcc963c0d18e47cc44b",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/A/1/A100.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/A/1/A100.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170113,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211409-sicce-pump-7-an_1.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211409-sicce-pump-7-an_1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 44970,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/2becd0a120b151057955.webp",
+      "localBytes": 6224,
+      "localSha256": "5449eba0dd7919b2ca6494f9e51dc9858b19a29b19c125b88c7b8ba7ab2ff58b",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/y/syncra-sdc-7.0-9.0-new-controller.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/y/syncra-sdc-7.0-9.0-new-controller.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 106365,
+      "original": {
+        "width": 1200,
+        "height": 1200,
+        "format": "jpeg"
+      },
+      "local": "/images/products/5e37d92c45e283c1608a.webp",
+      "localBytes": 4498,
+      "localSha256": "5a9c60b9b3541dcc59fa958ac26f24f7de65d7d01a46f1bf447de5388bf8e3eb",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/m/2/m2-title-ecotech-vectra.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/m/2/m2-title-ecotech-vectra.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 25666,
+      "original": {
+        "width": 694,
+        "height": 694,
+        "format": "jpeg"
+      },
+      "local": "/images/products/044d525e0963d6294654.webp",
+      "localBytes": 3694,
+      "localSha256": "64d65d452c8f28458f82fa61605a724ba3fe7e3155232e959f3c970793227d43",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://petocart.com/cdn/shop/files/61p6tjdF4UL.jpg?v=1741885003&width=1400",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://petocart.com/cdn/shop/files/61p6tjdF4UL.jpg?v=1741885003&width=1400",
+      "contentType": "image/jpeg",
+      "sourceBytes": 86875,
+      "original": {
+        "width": 1400,
+        "height": 933,
+        "format": "jpeg"
+      },
+      "local": "/images/products/ab8beb024cc84327b88c.webp",
+      "localBytes": 3448,
+      "localSha256": "ae0638f881d22f229868a6e0f2b3a394b5dfb82613cdd86a60d737e7a6ac2911",
+      "resized": {
+        "width": 256,
+        "height": 170,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://reef-aquarium-store.com/content/Products/Jebao-opvoerpomp-DCP8000-incl-controller.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://reef-aquarium-store.com/content/Products/Jebao-opvoerpomp-DCP8000-incl-controller.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 18426,
+      "original": {
+        "width": 450,
+        "height": 450,
+        "format": "jpeg"
+      },
+      "local": "/images/products/8b74313f5bb89f395819.webp",
+      "localBytes": 6738,
+      "localSha256": "9d920aa9793d83cc695498aeaa4c7fa0568306bf8757e17d30b690ecb656061a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://static.redseafish.com/wp-content/uploads/2024/11/07105430/RR_8500-3.png",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://static.redseafish.com/wp-content/uploads/2024/11/07105430/RR_8500-3.png",
+      "contentType": "image/png",
+      "sourceBytes": 105942,
+      "original": {
+        "width": 460,
+        "height": 340,
+        "format": "png"
+      },
+      "local": "/images/products/fc6fcea6149d8ce8c099.webp",
+      "localBytes": 6502,
+      "localSha256": "2e4e57008782230d5cff556a45f7c449bb4b5e9bf0614b507db73c8bf47bb0a6",
+      "resized": {
+        "width": 256,
+        "height": 189,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://m.fish-street.com/image_show.php?item_id=793&type=large&vc=4e669d80cbb3d4f85543a5e3033c5aff",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://m.fish-street.com/image_show.php?item_id=793&type=large&vc=4e669d80cbb3d4f85543a5e3033c5aff",
+      "contentType": "text/html; charset=utf-8",
+      "sourceBytes": 13,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca-9000-return-pump-16783802761351_600x.png?v=1595602702",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca-9000-return-pump-16783802761351_600x.png?v=1595602702",
+      "contentType": "image/png",
+      "sourceBytes": 25568,
+      "original": {
+        "width": 600,
+        "height": 480,
+        "format": "png"
+      },
+      "local": "/images/products/c8fa87be5b90dd5db333.webp",
+      "localBytes": 1934,
+      "localSha256": "16c0bf9bf53ed87151de495f2b16cfad0ca5c8600238af33628f1cdbc9c1b154",
+      "resized": {
+        "width": 256,
+        "height": 205,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/t/u/turbineduo_singleoutput.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/t/u/turbineduo_singleoutput.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170322,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/v/a/varios_8-waterpump.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/v/a/varios_8-waterpump.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170267,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212968-sicce-syncra-adv10-90w-2700gph-pump-an.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212968-sicce-syncra-adv10-90w-2700gph-pump-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 44628,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/502973eacbdbcb97c15f.webp",
+      "localBytes": 6234,
+      "localSha256": "58483ed213962d23b186d3f2b24e8df8ee9dda57a4ab9b91fde2574e7b5fac8a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://store.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/m/a/maxspect_turbineduo_1_1.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/m/a/maxspect_turbineduo_1_1.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170322,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212143-ecotechmarine-vectra-l2-pump-le.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212143-ecotechmarine-vectra-l2-pump-le.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 34743,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/620a7bfa532f59cc79e2.webp",
+      "localBytes": 5470,
+      "localSha256": "f84f109e0f1af3b26683ee7f7c6da12a906f2d77379c30cc85a5f4637e2676dd",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/c/u/current-usa-eflux-6011-dc-flow-pump-3170gph-99.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/c/u/current-usa-eflux-6011-dc-flow-pump-3170gph-99.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 44189,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/aab4c23c0cd31b2d038e.webp",
+      "localBytes": 7292,
+      "localSha256": "6a479df8819fc4fc1857b02f0513f042f22fe5e738a31656d56dca4cef5ebfb5",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://static.redseafish.com/wp-content/uploads/2024/11/07105431/RR_13000-3.png",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://static.redseafish.com/wp-content/uploads/2024/11/07105431/RR_13000-3.png",
+      "contentType": "image/png",
+      "sourceBytes": 144545,
+      "original": {
+        "width": 460,
+        "height": 340,
+        "format": "png"
+      },
+      "local": "/images/products/982362c9e36566c26612.webp",
+      "localBytes": 8180,
+      "localSha256": "d0bebfdc5c348dc21da4a908b0f0aa7875d9678ed868640947f09328fc1f5074",
+      "resized": {
+        "width": 256,
+        "height": 189,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca12000-dc-pump-16783814787207.png?v=1595657165",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 200,
+      "finalURL": "https://petstore.ae/cdn/shop/products/coral-box-aquatics-coral-box-dca12000-dc-pump-16783814787207.png?v=1595657165",
+      "contentType": "image/png",
+      "sourceBytes": 48660,
+      "original": {
+        "width": 1000,
+        "height": 800,
+        "format": "png"
+      },
+      "local": "/images/products/8df0eaa46e7b920fee43.webp",
+      "localBytes": 1908,
+      "localSha256": "722f44b9e6589fdd537978ad340725a78aa8d0ca91519b3b7c5ca8ef8b81d996",
+      "resized": {
+        "width": 256,
+        "height": 205,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/a/2/a200_3.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/a/2/a200_3.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170135,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/v/1/v10_withcontroller.jpg",
+      "parents": [
+        "pumps.json"
+      ],
+      "status": 404,
+      "finalURL": "https://www.coralvue.com/media/catalog/product/cache/d4ea6735f8ed87a57e8bd61f1e75c135/v/1/v10_withcontroller.jpg",
+      "contentType": "text/html;charset=utf-8",
+      "sourceBytes": 170267,
+      "error": "source did not serve a 200 image",
+      "local": null
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/256337-reef-crystals-160-gallon-bucket-instant-ocean_1.jpg",
+      "parents": [
+        "salts.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/256337-reef-crystals-160-gallon-bucket-instant-ocean_1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 42951,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/a01f5b3232edfbdc89e7.webp",
+      "localBytes": 6802,
+      "localSha256": "a26b0b42c6ced41f66b9185f6ee0d361c45a760b16971b571548da1b8c39c036",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/e/sea-salt_22-kg_new_2.jpg",
+      "parents": [
+        "salts.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/e/sea-salt_22-kg_new_2.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 37935,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/da87bff4dcc21b1a01c1.webp",
+      "localBytes": 5862,
+      "localSha256": "5fa75bb2751bb513bed0c0ef6a64e9381d675f3f5c644f03b15ec636b7498b35",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208857-tunzecomlinedocskimmer9001-c.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208857-tunzecomlinedocskimmer9001-c.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 21488,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/aa73daf0c7210e3e944f.webp",
+      "localBytes": 2960,
+      "localSha256": "ae9d13e38f01d6326e1cddf43c1412829b91e7f8767154d13b6a911dfad40587",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210058-tunze-comline-doc-skimmer-9004-dc-le.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210058-tunze-comline-doc-skimmer-9004-dc-le.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 27036,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/16bb6ab97098b3fee810.webp",
+      "localBytes": 3482,
+      "localSha256": "9c2aab5544f908c739592b4d5a6f47d81a6eab062f2e5a2289e4a63209daaae1",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/q/aquamaxx-hob-1.5-hang-on-back-protein-skimmer-1200x1200.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/a/q/aquamaxx-hob-1.5-hang-on-back-protein-skimmer-1200x1200.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 30198,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/b642bb68e1036822398a.webp",
+      "localBytes": 4562,
+      "localSha256": "5776cf31d8a853124b3b19c9cb923a09e729dadbdc9d01a09d6d85a94c714e4a",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212144-nyos-quantum120-proteinskimmer-fr.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212144-nyos-quantum120-proteinskimmer-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 26507,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/123fff6a4b325e7efc2c.webp",
+      "localBytes": 3756,
+      "localSha256": "3d9472c306e04d1dc5ee47df111f73b4a0f953bc93f19f6cf134dedf6db7ccdc",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232030-bubblemagus-curve7_-proteinskimmer-an.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/232030-bubblemagus-curve7_-proteinskimmer-an.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 27222,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/eab8725550c0ec85b637.webp",
+      "localBytes": 3780,
+      "localSha256": "cd8e36f3ac237928b1659b13d4ee696c1d62b5f6f2cd3cd449b9d066c4c0144e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://premiumaquatics.com/cdn/shop/files/14080.jpg?v=1740526556",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://premiumaquatics.com/cdn/shop/files/14080.jpg?v=1740526556",
+      "contentType": "image/jpeg",
+      "sourceBytes": 45341,
+      "original": {
+        "width": 500,
+        "height": 500,
+        "format": "jpeg"
+      },
+      "local": "/images/products/15c9a3216d54244ca924.webp",
+      "localBytes": 6572,
+      "localSha256": "20eba327e8494dd598a1a0e2693db27427c33ab11967a8a2b0243a21dae1f869",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/800x800/products/1656/12014/150s__37259.1539626137.jpg?c=2",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://cdn11.bigcommerce.com/s-fh5tkm/images/stencil/800x800/products/1656/12014/150s__37259.1539626137.jpg?c=2",
+      "contentType": "image/webp",
+      "sourceBytes": 35056,
+      "original": {
+        "width": 800,
+        "height": 800,
+        "format": "webp"
+      },
+      "local": "/images/products/31b516c49bc1881fd276.webp",
+      "localBytes": 4964,
+      "localSha256": "bac0467397e5be7cf4f7c1bc47826c5ee38d57cc533bdce0c286d82afac76475",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212145-nyos-quantum160-proteinskimmer-fr.jpg",
+      "parents": [
+        "skimmers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212145-nyos-quantum160-proteinskimmer-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 26910,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/084940191a95eddb79ae.webp",
+      "localBytes": 3734,
+      "localSha256": "4b2ca97a82aa8a866b1e7cfbe7645aee943d7343bfb2007bffd7e09a43258b8c",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210018-hannainstruments-colorimeter-seawater-alkalinity-testing-fr.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/210018-hannainstruments-colorimeter-seawater-alkalinity-testing-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 28558,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/340c8e5751c7988db100.webp",
+      "localBytes": 4296,
+      "localSha256": "55c1ecdfa40914ea9a264589ea769a2f9ec7161a1cdca571d47e4299aa50c286",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205101-salifert-alkalinity-kit-testing-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205101-salifert-alkalinity-kit-testing-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 95574,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/c1103322c63a36b18056.webp",
+      "localBytes": 15420,
+      "localSha256": "1c97a51c59d83cb5abb327c484fa0552447ea73c834d143692a62daa04d54b5e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207090-redsea-alkalinityprotestkit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207090-redsea-alkalinityprotestkit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 71331,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/24542e1d2376656a4a08.webp",
+      "localBytes": 11364,
+      "localSha256": "9789f40cc0aab74de952595128d9352813db5b8ff422fc7582999a61b5560a75",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/206202-hannachecker-marinecalcium-c.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/206202-hannachecker-marinecalcium-c.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 19694,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/3902b40c810a9e2cc5b3.webp",
+      "localBytes": 2808,
+      "localSha256": "e2ff0e674dd58052dad7e69ce70a65c25834e19b566f3a2ea0a5d50fcd011e7f",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205100-salifert-calcium-ca-50-100-test-kit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205100-salifert-calcium-ca-50-100-test-kit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 102990,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/7bdd798ef5bf105a38ba.webp",
+      "localBytes": 15556,
+      "localSha256": "ea443802b4a33efbc55bd51c1e7d79f9a2a0c3a687e86e31a8987b1c4cda4675",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207089-redsea-calciumprotestkit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207089-redsea-calciumprotestkit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 65356,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/8409bca772d82b7c051e.webp",
+      "localBytes": 10648,
+      "localSha256": "2aafd89bfddf3267fb89581f6555e73d1a099a07f182f8b17d9de75ada48d50c",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/t/stock-hannainstruments-magnesium-checker-hi783.png",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/s/t/stock-hannainstruments-magnesium-checker-hi783.png",
+      "contentType": "image/png",
+      "sourceBytes": 393387,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "png"
+      },
+      "local": "/images/products/8f807e75ea664af04f5a.webp",
+      "localBytes": 14264,
+      "localSha256": "c05bd94c585c2614103a643b7e655f668fe5b5e61093ba533dba4d0ac62db58e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205102-salifert-magnesium-testing-kit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205102-salifert-magnesium-testing-kit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 75630,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/cee6e1d2ce52fdc5d2c6.webp",
+      "localBytes": 12884,
+      "localSha256": "2c6799983c98585b7ae1caeea0d0521270c0ac93d059c3d07712daef7f25479d",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207091-redsea-magnesiumprotestkit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207091-redsea-magnesiumprotestkit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 60225,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/ba6b5f30a80180fef5ac.webp",
+      "localBytes": 10230,
+      "localSha256": "a9cd73e35c9f1265a545260ba3e1107ed5ba0980a6c9b10f4aafebe5d9418dab",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212044-hannainstruments-colorimeter-phosphate-testing-fr.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/212044-hannainstruments-colorimeter-phosphate-testing-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 21351,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/248538ef120381252e3a.webp",
+      "localBytes": 3494,
+      "localSha256": "228771496bc99e329260a2d3eb5496b9b2867079278ee276b43a2af1f9f598e1",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205106-Salifert-PhosphateTest-Kit_1.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205106-Salifert-PhosphateTest-Kit_1.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 50396,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/2acdf97673a47e4ec051.webp",
+      "localBytes": 8012,
+      "localSha256": "8e75b1e5f58ab786881da661e000dd2685ef6e026396563c669fadd9c369a4ab",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207093-redsea-phosphateprotestkit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207093-redsea-phosphateprotestkit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 75371,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/e2ee69c2cf1121bf6f27.webp",
+      "localBytes": 11538,
+      "localSha256": "5f4e2310e2ed61ca3bae93d147f1330a3ca8013d05df2ef8c23724b0849ced2b",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/i/hi781-front-703x703.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/h/i/hi781-front-703x703.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 24817,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/06b8eab15af0595ac3f4.webp",
+      "localBytes": 3860,
+      "localSha256": "571162d08e8337c04dc8f99c33d655f137d0e47c3fe58dc524fea41491cf1d5b",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205104-salifert-nitrate-kit-testing-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/205104-salifert-nitrate-kit-testing-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 83836,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/a4edb67a6d9053debb04.webp",
+      "localBytes": 11394,
+      "localSha256": "ca4d1dc0ed1b514975089448279b2fc6470a814910f6e8984bac8b8ee42b196b",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207092-redsea-nitrateprotestkit-inp.jpg",
+      "parents": [
+        "testkits.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/207092-redsea-nitrateprotestkit-inp.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 72853,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/ecc2392cff010ded948e.webp",
+      "localBytes": 10776,
+      "localSha256": "2708a2e64c583f632648176c87d483fd4a52398a2d2a2c58dc7cd2d66395e5db",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/213223-ecotechmarine-mp10-vortech-quietdrive-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/213223-ecotechmarine-mp10-vortech-quietdrive-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 37615,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/6421f8b9256d0c7d5584.webp",
+      "localBytes": 5674,
+      "localSha256": "4d756b2a0dd7cbaa7751ba1bb169a8a49419c72cee455872443624f82a3447f1",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/213224-ecotechmarine-mp40-vortech-quietdrive-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/213224-ecotechmarine-mp40-vortech-quietdrive-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 40319,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/72cb60e0c417af2575db.webp",
+      "localBytes": 5968,
+      "localSha256": "fc3fd875244e3bf1c544354a236b6e09dbbce9ffe502999d1cc77e167528c154",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/231837-aquaillumination-nero3-submersible-pump-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/3/231837-aquaillumination-nero3-submersible-pump-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 56848,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/578bf10c643b7376626d.webp",
+      "localBytes": 6918,
+      "localSha256": "f3822a128dae45b2a954aeaacdb1b27f59948e22bdba0d2cf9ccb7427d1efed7",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211848-aquaillumination-nero5-submersible-pump-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/1/211848-aquaillumination-nero5-submersible-pump-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 49891,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/a9d0c82cf8d6ec89e004.webp",
+      "localBytes": 6404,
+      "localSha256": "39b8fec785a4f05dd3c874fdc9d33341a3550be17a35109bf73e4e0faad3435d",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/n/e/nero7_side_w_driver_m_02.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/n/e/nero7_side_w_driver_m_02.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 20675,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/9e1aea1242b71344f66c.webp",
+      "localBytes": 2668,
+      "localSha256": "bcc3d11166288b720a5d68dc8edb65bffd57a3bb6edaf859c8a9443891ad73a3",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208856-tunze-nanostream6040-pump-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/208856-tunze-nanostream6040-pump-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 32531,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/954c52ebdfdc8454f9a3.webp",
+      "localBytes": 5152,
+      "localSha256": "8feed94073618739827cff3630d7c0c42c46516ae7c520aeca08e9661a28927e",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/202102-tunze-nanostream6055-pump-fr.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/0/202102-tunze-nanostream6055-pump-fr.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 29051,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/d8f50e67069dfed31ca0.webp",
+      "localBytes": 4148,
+      "localSha256": "d67445e499248370655661cb2e3b63ec65a76131b118ecb1a3b3afa8b60c4e3d",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251816-maxspect-gyre-xf330-cloud-standardedition-bundle-cv2c.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251816-maxspect-gyre-xf330-cloud-standardedition-bundle-cv2c.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 39582,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/b8b6e4536ee235e505f1.webp",
+      "localBytes": 5808,
+      "localSha256": "95c65bcf1ced012e6ae066662afeffdc1565ee04e89c03c17ff9a7b66f4e5c90",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251819-maxspect-gyre-xf330-cloud-standardedition-bundle-cv2c.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/2/5/251819-maxspect-gyre-xf330-cloud-standardedition-bundle-cv2c.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 38093,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/e1562a92a031d9fdb5eb.webp",
+      "localBytes": 5636,
+      "localSha256": "abc27b3c9a8e6c569b0be0bb1146569ae516d1f4f32de2cff677ad7b03dcb6ad",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/r/e/reef-wave-controller-combo-1000x1000.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/r/e/reef-wave-controller-combo-1000x1000.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 32310,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/85aedfa0239d1d534c4c.webp",
+      "localBytes": 4686,
+      "localSha256": "0331b555b9a7f40a21cdc5f7c910ed2256eae530cef0b337e420a190f90d54a8",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/r/e/reef-wave-45-controller-combo-1000x1000.jpg",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://media2.cdn.bulkreefsupply.com/media/catalog/product/cache/c8225047e3f199b6e75c4a7f9e30955e/r/e/reef-wave-45-controller-combo-1000x1000.jpg",
+      "contentType": "image/jpeg",
+      "sourceBytes": 33024,
+      "original": {
+        "width": 700,
+        "height": 700,
+        "format": "jpeg"
+      },
+      "local": "/images/products/45fcea2850e19da14820.webp",
+      "localBytes": 4972,
+      "localSha256": "c65f09b492c9ce4c7ded8ac40d8db6059d97b9423766fa9fed790a47eeabcd81",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    },
+    {
+      "source": "https://topshelfaquatics.com/cdn/shop/files/reef-octopus-octo-pulse-2-flow-pump-with-waveengine-le-controller-reef-octopus-1146288848.jpg?v=1743556817&width=3840",
+      "parents": [
+        "wavemakers.json"
+      ],
+      "status": 200,
+      "finalURL": "https://topshelfaquatics.com/cdn/shop/files/reef-octopus-octo-pulse-2-flow-pump-with-waveengine-le-controller-reef-octopus-1146288848.jpg?v=1743556817&width=3840",
+      "contentType": "image/jpeg",
+      "sourceBytes": 143571,
+      "original": {
+        "width": 1280,
+        "height": 1280,
+        "format": "jpeg"
+      },
+      "local": "/images/products/9b87e4309dff0d89af50.webp",
+      "localBytes": 9050,
+      "localSha256": "9169d160734c72ae351ddfebb45a69b473f4f5e982e2ab4420247f15582a8a68",
+      "resized": {
+        "width": 256,
+        "height": 256,
+        "format": "webp"
+      }
+    }
+  ]
+}

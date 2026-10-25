@@ -1,0 +1,68 @@
+
+> reefmetric@0.1.0 check:salt-mix
+> node --experimental-strip-types --test scripts/check-salt-mix.mjs
+
+TAP version 13
+# Subtest: small gallon batch: a supplied 150 g/gal recipe uses 750 g for 5 US gal
+ok 1 - small gallon batch: a supplied 150 g/gal recipe uses 750 g for 5 US gal
+  ---
+  duration_ms: 0.392625
+  type: 'test'
+  ...
+# Subtest: metric batch: a supplied 38 g/L recipe uses 760 g for 20 L
+ok 2 - metric batch: a supplied 38 g/L recipe uses 760 g for 20 L
+  ---
+  duration_ms: 0.079333
+  type: 'test'
+  ...
+# Subtest: water change: 20 percent of 75 US gal needs 2250 g at a supplied 150 g/gal
+ok 3 - water change: 20 percent of 75 US gal needs 2250 g at a supplied 150 g/gal
+  ---
+  duration_ms: 0.039416
+  type: 'test'
+  ...
+# Subtest: cross-unit label rates use US gallons rather than Imperial gallons
+ok 4 - cross-unit label rates use US gallons rather than Imperial gallons
+  ---
+  duration_ms: 0.048791
+  type: 'test'
+  ...
+# Subtest: zero water and zero percent produce no salt, while a full change uses the whole amount
+ok 5 - zero water and zero percent produce no salt, while a full change uses the whole amount
+  ---
+  duration_ms: 0.047792
+  type: 'test'
+  ...
+# Subtest: bad inputs and unknown modes or units cannot become plausible recipes
+ok 6 - bad inputs and unknown modes or units cannot become plausible recipes
+  ---
+  duration_ms: 0.338458
+  type: 'test'
+  ...
+# Subtest: built page handles three realistic cases, zero water, bad input and recovery
+ok 7 - built page handles three realistic cases, zero water, bad input and recovery
+  ---
+  duration_ms: 9.089
+  type: 'test'
+  ...
+# Subtest: negative control proves the built-output check catches a wrong gallon conversion
+ok 8 - negative control proves the built-output check catches a wrong gallon conversion
+  ---
+  duration_ms: 1.404208
+  type: 'test'
+  ...
+# Subtest: served salt mixer accepts real browser input and recovers from errors
+ok 9 - served salt mixer accepts real browser input and recovers from errors
+  ---
+  duration_ms: 788.491209
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 868.249459

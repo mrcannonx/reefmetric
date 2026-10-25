@@ -3,19 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import { url } from '../../utils/url';
+import { SETUP_BUDGETS, setupTotal, moneyRange } from '../../data/setup-budgets';
 
-const cost = [
-  { item: 'Tank + stand (75g, 48×18×21″)', budget: '$350–550', mid: '$550–1,000' },
-  { item: 'Sump (20-long / 29g or purpose-built)', budget: '$100–180', mid: '$180–450' },
-  { item: 'Return pump (~525 GPH at the tank)', budget: '$80–140', mid: '$140–250' },
-  { item: 'Protein skimmer', budget: '$150–250', mid: '$250–500' },
-  { item: 'Reef lighting (2 fixtures across 48″)', budget: '$400–700', mid: '$700–1,400' },
-  { item: 'Powerheads / flow', budget: '$120–220', mid: '$220–450' },
-  { item: 'Heater(s) ~250–300W + controller', budget: '$50–90', mid: '$90–180' },
-  { item: 'Rock (~50–75 lb) + sand (~70 lb)', budget: '$120–220', mid: '$220–380' },
-  { item: 'RODI unit', budget: '$80–150', mid: '$150–250' },
-  { item: 'Salt, test kits, extras', budget: '$90–160', mid: '$160–300' },
-];
+const cost = SETUP_BUDGETS[75];
 
 const headline = "75 Gallon Reef Tank: Setup, Gear List & Cost";
 ---
@@ -51,7 +41,7 @@ const headline = "75 Gallon Reef Tank: Setup, Gear List & Cost";
     <p style="margin-top:-6px;"><a href={url('/reviews/best-protein-skimmers')}>See our full protein skimmer rankings →</a></p>
 
     <h3>Lighting</h3>
-    <p>Four feet of tank means <strong>two fixtures</strong> for even coverage — a single centered light leaves the ends dim enough to matter. Softies and LPS are fine under two mid-range LEDs; SPS across a 48-inch tank is where lighting becomes the biggest line in the budget. Before you spend $700+ on marketing claims: <a href={url('/reviews/best-reef-led-lighting')}>only 4 of the 11 popular fixtures we compared publish verifiable PAR data</a> — buy from those four.</p>
+    <p>Four feet of tank means <strong>two fixtures</strong> for even coverage — a single centered light leaves the ends dim enough to matter. Softies and LPS are fine under two mid-range LEDs; SPS across a 48-inch tank is where lighting becomes the biggest line in the budget. Before you spend $700+ on marketing claims: <a href={url('/reviews/best-reef-led-lighting')}>compare recorded PAR and its test limits</a> before choosing your fixture count.</p>
 
     <h3>Flow</h3>
     <p>Total flow (return + powerheads) should land around <strong>20–40× turnover</strong> for a mixed reef — 1,500–3,000 GPH in a 75 — higher for SPS-dominant. Two powerheads on opposite ends beat one big one: you want chaotic, colliding flow, not a laminar river. <a href={url('/tools/flow-calculator')}>Work out your target and see which wavemakers hit it →</a></p>
@@ -63,14 +53,14 @@ const headline = "75 Gallon Reef Tank: Setup, Gear List & Cost";
     <p>Modern minimal scapes run <strong>50–75 lb of rock</strong> in a 75 — enough biological surface without filling the swim space. Sand: a 1–1.5″ bed over the 48×18 footprint is about <strong>70–90 lb</strong> (the <a href={url('/tools/tank-volume-calculator')}>volume calculator</a> computes it for your exact depth).</p>
 
     <h2>What a 75 build actually costs</h2>
-    <p>Two honest columns — value and mid-range, 2026 US prices. Lighting is the swing item: it's nearly a third of the mid-range total because covering four feet properly takes two real fixtures. Use <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a> to itemize your own tier, and <a href={url('/reviews/best-reef-salt-mix')}>the salt rankings</a> for the biggest recurring line.</p>
+    <p>Two honest columns — value and mid-range, editorial US cost estimates, carried forward from the July dataset. Lighting is the swing item: it's nearly a third of the mid-range total because covering four feet properly takes two real fixtures. Use <a href={url('/tools/reef-build-cost-calculator')}>the build cost calculator</a> to itemize your own tier, and <a href={url('/reviews/best-reef-salt-mix')}>the salt rankings</a> for the biggest recurring line.</p>
 
     <table class="costtable">
       <thead><tr><th>Component</th><th>Value build</th><th>Mid-range</th></tr></thead>
       <tbody>
-        {cost.map((c) => (<tr><td>{c.item}</td><td>{c.budget}</td><td>{c.mid}</td></tr>))}
+        {cost.map((c) => (<tr><td>{c.item}</td><td>{moneyRange(c.budget)}</td><td>{moneyRange(c.mid)}</td></tr>))}
       </tbody>
-      <tfoot><tr><td><strong>Rough total</strong></td><td><strong>~$1,500–2,700</strong></td><td><strong>~$2,700–5,200</strong></td></tr></tfoot>
+      <tfoot><tr><td><strong>Listed gear total</strong></td><td><strong>{moneyRange(setupTotal(75, 'budget'))}</strong></td><td><strong>{moneyRange(setupTotal(75, 'mid'))}</strong></td></tr></tfoot>
     </table>
     <p class="rnote">Ranges, not quotes — prices move with sales. You also don't buy it all at once: tank, stand, sump, RODI, and rock come first; the skimmer can arrive during the cycle; corals come months in.</p>
 
@@ -81,7 +71,7 @@ const headline = "75 Gallon Reef Tank: Setup, Gear List & Cost";
     <p>Set the tank and plumb the sump → run RODI and mix saltwater → aquascape the rock → start the pump, skimmer, and heater → cycle (2–6 weeks) → cleanup crew → fish, then corals, slowly. The 75's volume forgives a lot, but it doesn't forgive rushing the cycle.</p>
 
     <h2>Other sizes</h2>
-    <p>Smaller room or budget? <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>The 40 breeder</a> keeps the same footprint depth at half the water. Considering the 55 you saw on sale? <a href={url('/guides/55-gallon-reef-tank-setup')}>Read this first</a> — its 13-inch width is a real problem the price tag doesn't mention. Going bigger: <a href={url('/guides/120-gallon-reef-tank-setup')}>the 120</a> adds a second foot of depth that changes aquascaping completely.</p>
+    <p>Smaller room or budget? <a href={url('/guides/40-gallon-breeder-reef-tank-setup')}>The 40 breeder</a> keeps the same footprint depth at half the water. Considering the 55 you saw on sale? <a href={url('/guides/55-gallon-reef-tank-setup')}>Read this first</a> — its 13-inch width is a real problem the price tag doesn't mention. Going bigger: <a href={url('/guides/120-gallon-reef-tank-setup')}>the 120</a> offers a 24-inch front-to-back footprint that changes aquascaping completely.</p>
   </section>
 
   <section class="container">

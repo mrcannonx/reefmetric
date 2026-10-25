@@ -1,0 +1,112 @@
+[
+  {
+    "url": "https://www.kessil.com/support/choosing.php",
+    "fetches": [
+      {
+        "pass": 1,
+        "status": "200",
+        "title": " Kessil LED Lights",
+        "bytes": 13476,
+        "facts": [],
+        "error": ""
+      },
+      {
+        "pass": 2,
+        "status": "200",
+        "title": " Kessil LED Lights",
+        "bytes": 13476,
+        "facts": [],
+        "error": ""
+      }
+    ],
+    "finding": "Maker separates saltwater Tuna Blue from freshwater Tuna Sun."
+  },
+  {
+    "url": "https://www.aquaillumination.com/products/prime",
+    "fetches": [
+      {
+        "pass": 1,
+        "status": "200",
+        "title": "Prime 16HD Reef \u2013 AquaIllumination",
+        "bytes": 244422,
+        "facts": [],
+        "error": ""
+      },
+      {
+        "pass": 2,
+        "status": "200",
+        "title": "Prime 16HD Reef \u2013 AquaIllumination",
+        "bytes": 244422,
+        "facts": [],
+        "error": ""
+      }
+    ],
+    "finding": "Maker lists 100 PAR at 24-inch water depth; power text 55W conflicts with 59W technical table."
+  },
+  {
+    "url": "https://fluvalaquatics.com/us/shop/product/marine-3-0-bluetooth-led-46w-36-48-91-122-cm",
+    "fetches": [
+      {
+        "pass": 1,
+        "status": "403",
+        "title": "Just a moment...",
+        "bytes": 5620,
+        "facts": [],
+        "error": ""
+      },
+      {
+        "pass": 2,
+        "status": "403",
+        "title": "Just a moment...",
+        "bytes": 5620,
+        "facts": [],
+        "error": ""
+      }
+    ],
+    "finding": "Curl bot challenge; web extraction read model once, repeat timed out. Historic PAR not reverified."
+  },
+  {
+    "url": "https://orphek.com/atlantik-icon-coverage-and-par-map-over-48-inch-120cm-aquarium/",
+    "fetches": [
+      {
+        "pass": 1,
+        "status": "200",
+        "title": "Atlantik iCon coverage and PAR map over 48 inch/120cm aquarium \u2022Orphek",
+        "bytes": 139293,
+        "facts": [],
+        "error": ""
+      },
+      {
+        "pass": 2,
+        "status": "200",
+        "title": "Atlantik iCon coverage and PAR map over 48 inch/120cm aquarium \u2022Orphek",
+        "bytes": 139293,
+        "facts": [],
+        "error": ""
+      }
+    ],
+    "finding": "Maker tank test: 401 bottom-center PAR at 23.62-inch fixture-to-bottom distance, 248 at35.43;21.65 water depth, allchannels100%."
+  },
+  {
+    "url": "https://reefs.com/ai-hydra-32-led-ceiling-light-performances-and-par-analyzed-in-the-danireef-lab/",
+    "fetches": [
+      {
+        "pass": 1,
+        "status": "403",
+        "title": "Attention Required! | Cloudflare",
+        "bytes": 5301,
+        "facts": [],
+        "error": ""
+      },
+      {
+        "pass": 2,
+        "status": "403",
+        "title": "Attention Required! | Cloudflare",
+        "bytes": 5301,
+        "facts": [],
+        "error": ""
+      }
+    ],
+    "finding": "Curl bot challenge; dated recorded source remains unverified."
+  }
+]

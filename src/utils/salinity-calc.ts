@@ -6,7 +6,7 @@
 // a glass-hydrometer reading for sample temperature.
 //
 // The conversions are linear approximations anchored to natural seawater (35 ppt =
-// SG 1.0264 = 53.0 mS/cm at 25°C) and are accurate across the reef-relevant band
+// SG 1.0264 = 53.0 mS/cm at 25°C) and are rough comparisons across the reef-relevant band
 // (~28–40 ppt). Outside that band they're flagged as extrapolated.
 
 export type Unit = 'sg' | 'ppt' | 'cond';
@@ -35,10 +35,10 @@ export interface SalinityResult {
 }
 
 function classify(ppt: number): { status: SalinityResult['status']; verdict: string } {
-  if (ppt < 32) return { status: 'very-low', verdict: 'Too low for a reef — corals and inverts are stressed below ~32 ppt. Top up with saltwater, not fresh.' };
+  if (ppt < 32) return { status: 'very-low', verdict: 'Below the usual reef range. Confirm the reading with a calibrated instrument, restore the normal water level, then correct salinity gradually with appropriately mixed saltwater. Check salinity between adjustments.' };
   if (ppt < 34) return { status: 'low', verdict: 'A touch low. Fine for a fish-only system; nudge toward 35 for corals and inverts.' };
   if (ppt <= 36) return { status: 'ideal', verdict: 'Reef range. Natural seawater is 35 ppt (SG 1.0264) — you\'re where you want to be.' };
-  if (ppt <= 38) return { status: 'high', verdict: 'A touch high. Let some water evaporate and top up with RO/DI, or do a slightly fresher water change.' };
+  if (ppt <= 38) return { status: 'high', verdict: 'A touch high. Evaporation raises salinity; replacing only evaporated water restores its old level. To lower salinity, gradually replace some saltwater with RO/DI while checking a calibrated instrument.' };
   return { status: 'very-high', verdict: 'Too high — usually a topped-off-with-saltwater or evaporation problem. Bring it down slowly (≤1 ppt/day) to avoid shocking livestock.' };
 }
 

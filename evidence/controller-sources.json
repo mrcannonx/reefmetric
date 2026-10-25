@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://www.aquariumcomputer.com/products/ion-director/",
+    "fetches": [
+      {
+        "status": "200",
+        "title": "ION Director\u00ae - GHL Advanced Technology",
+        "sha256": "f93e9eb74bdf572bffd62112ec569c805175a9520412350ac5f88426cb228b53"
+      },
+      {
+        "status": "200",
+        "title": "ION Director\u00ae - GHL Advanced Technology",
+        "sha256": "dd96922d1ac535949b187a834d7d3485747bd7e2992038656debd5628df97d71"
+      }
+    ],
+    "finding": "Reference fluids are consumed; sensor replacement is a running cost. No zero-running-cost claim."
+  },
+  {
+    "url": "https://www.aquariumcomputer.com/knowledge-base/ion-director-maintenance-sensor-care/",
+    "fetches": [
+      {
+        "status": "200",
+        "title": "ION Director \u2013 Maintenance &amp; Sensor Care - GHL Advanced Technology",
+        "sha256": "78f77616c2a0e40f9eca46e71595e6677e6993e40c4f3e447f5d6a99e48cfd72"
+      },
+      {
+        "status": "200",
+        "title": "ION Director \u2013 Maintenance &amp; Sensor Care - GHL Advanced Technology",
+        "sha256": "44cd36a5c992cccec1a0991fb163b3d9bdf226409dc7db4d7427079e19334f9b"
+      }
+    ],
+    "finding": "Reference fluids are consumed; sensor replacement is a running cost. No zero-running-cost claim."
+  }
+]

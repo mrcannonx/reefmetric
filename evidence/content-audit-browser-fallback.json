@@ -1,0 +1,50 @@
+{
+  "browser": "Playwright Chromium (fresh headless context; public pages, no login)",
+  "results": [
+    {
+      "url": "https://www.amazon.com/",
+      "status": 202,
+      "final_url": "https://www.amazon.com/",
+      "title": ""
+    },
+    {
+      "url": "https://www.amazon.com/s?k=Jebao%20SLW-10%20wavemaker",
+      "status": 503,
+      "final_url": "https://www.amazon.com/s?k=Jebao%20SLW-10%20wavemaker",
+      "title": "Sorry! Something went wrong!"
+    },
+    {
+      "url": "https://www.coralvue.com/",
+      "status": 403,
+      "final_url": "https://www.coralvue.com/?__cf_chl_rt_tk=nnEEJkAMhnm6IL6KfhhatMupQxeid4ONCl2T4z7YzOA-1792949164-1.0.1.1-dlVw5sjqos0EokUbG5XqVGLzDqbW4KreS9xSaF5cIQI",
+      "title": "Just a moment..."
+    },
+    {
+      "url": "https://www.coralvue.com/hydros-control-x4-xp8-pro-pack",
+      "status": 403,
+      "final_url": "https://www.coralvue.com/hydros-control-x4-xp8-pro-pack?__cf_chl_rt_tk=beWAACwruMuIwVct6OI9wb9VBKATM25W4jnjBtP6Hz8-1792949164-1.0.1.1-X.BTUQ_s8_mrJTyRd7kjLTiZ6ookbyqomshDp.va5hM",
+      "title": "Just a moment..."
+    },
+    {
+      "url": "https://aquacave.com/",
+      "status": 200,
+      "final_url": "https://aquacave.com/",
+      "title": "Aquarium Supplies | Freshwater & Saltwater Fish Tanks | AquaCave",
+      "visible_text_sample_sha256": "19a66251fb81f612adacf28388abd0385e89d8ee2eeb5856b685aa3d968fff43"
+    },
+    {
+      "url": "https://aquacave.com/fluval-sea-marine-3-0-led-fixture-46w-36-48.html",
+      "status": 404,
+      "final_url": "https://aquacave.com/fluval-sea-marine-3-0-led-fixture-46w-36-48.html",
+      "title": "AquaCave.com - Not Found | AquaCave",
+      "visible_text_sample_sha256": "a95cc84896ef069ac944d1d91f6430190f5273fbc706282ce9efec179b256bf4"
+    },
+    {
+      "url": "https://www.royalexclusiv.com/Skimmer/Skimmer/Bubble-King-R-Double-Cone-130-300/Bubble-King-R-Double-Cone-180-RDX-DC-24V::412.html",
+      "status": 410,
+      "final_url": "https://www.royalexclusiv.com/Skimmer/Skimmer/Bubble-King-R-Double-Cone-130-300/Bubble-King-R-Double-Cone-180-RDX-DC-24V::412.html",
+      "title": "",
+      "visible_text_sample_sha256": "efae21e36a77a304f238c056157e191b15be6281393d33b964c6cb87ea0d93cd"
+    }
+  ]
+}

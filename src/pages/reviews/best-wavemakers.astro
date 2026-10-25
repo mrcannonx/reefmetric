@@ -10,7 +10,7 @@ import wmData from '../../data/wavemakers.json';
 interface WM {
   brand: string; model: string; priceUSD: number; maxFlowGPH: number; watts: number;
   tankRangeGal: string | null; mountType: string; controller: string;
-  knownIssues?: string[]; retailers?: string[]; source: string; imageUrl?: string | null;
+  retailers?: string[]; source: string; imageUrl?: string | null;
 }
 const data = wmData as any;
 const wms = (data.wavemakers as WM[]).slice().sort(
@@ -29,22 +29,22 @@ interface Pick { badge: string; why: string; w: WM; }
 const picks: Pick[] = [
   {
     badge: 'Best overall',
-    why: `The best $-per-GPH of any premium-brand pump here, sized right for the 40–100 gallon tanks most people own — and its known issues are app annoyances, not hardware failures.`,
+    why: `A compact controllable option. Compare its recorded maximum flow, mounting limits, and control method with your tank; this pick does not imply a measured reliability advantage.`,
     w: byModel('Nero 5'),
   },
   {
     badge: 'Best for large tanks',
-    why: `5,280 GPH of gyre-style sheet flow at a better price-per-GPH than any premium competitor. The trade: a real monthly cleaning burden, and a hum above half power that Maxspect itself only calls "near silent."`,
+    why: `Gyre-style flow for a long tank. The table compares its recorded maximum output and price; leave room to remove the rotor for cleaning.`,
     w: byModel('XF350'),
   },
   {
     badge: 'The premium default',
-    why: `The pump the high-end hobby standardized on — wireless wet-side, the deepest ecosystem, unmatched resale. You pay for it twice: the sticker, and eventually the dry-side bearings, the line's well-documented wear item.`,
+    why: `Compare the VorTech design and control features with the space around your tank. Check glass thickness, side clearance, and the exact controller supplied before buying.`,
     w: byModel('MP40'),
   },
   {
     badge: 'Best budget',
-    why: `A quarter the price of the premium pumps for real flow. Owners consistently report 1–2 year service life and a cleaning-dependent impeller — the trade is stated on the tin, and for a first tank it's often the right one.`,
+    why: `The lowest recorded cost per maximum GPH in this dataset. That figure measures purchase cost against a rating; it does not measure noise, reliability, or output in your tank.`,
     w: byModel('SLW-10'),
   },
 ];
@@ -63,7 +63,6 @@ const twoSlwBeatsNero3 = twoSlwPrice < nero3.priceUSD && twoSlwFlow > nero3.maxF
 // Gap to the runner-up on cost-per-flow. Read off the sorted list rather than a named model, so
 // this can never drift into comparing against whichever pump happened to be second when written.
 const runnerUp = wms[1];
-const slwLeadPct = Math.round((per1k(runnerUp) / per1k(slw) - 1) * 100);
 
 const pageURL = new URL(url('/reviews/best-wavemakers'), SITE.url).href;
 const itemListLd = {
@@ -76,19 +75,19 @@ const itemListLd = {
 const faqs = [
   {
     q: 'How much flow do I actually need?',
-    a: `Bulk Reef Supply's published baseline is 20–40× your display volume per hour in total flow — softies and LPS at the low end, SPS at the top, and surveys of standout SPS tanks routinely run higher still. Your return pump counts toward the total. Our flow calculator does the math for your tank and coral type, then shows which of these pumps close the gap.`,
+    a: `A common starting range for reef circulation is 20–40× display volume per hour, adjusted for coral type and the flow at the coral. Your return pump counts toward the total. Our flow calculator does the math for your tank and coral type, then shows which of these pumps close the gap.`,
   },
   {
     q: 'One big wavemaker or two smaller ones?',
-    a: `Two, almost always. Corals want chaotic, colliding flow, not a laminar river — two moderate pumps on opposing ends produce better flow than one monster, avoid a dead zone behind the single pump, and give you redundancy when one eventually needs cleaning or fails.`,
+    a: `Two pumps can give more placement options and keep some circulation running while one is cleaned. The best arrangement depends on tank shape, rockwork, coral placement, and adjustable output. Watch the tank for dead zones and direct jets hitting coral.`,
   },
   {
     q: 'Why do app-controlled pumps keep failing to connect?',
-    a: `The most common cause isn't the pump: both Red Sea's ReefBeat and Tunze's WiFi hub only join 2.4GHz networks, so a 5GHz-only home WiFi setup fails pairing every time. AI's Nero line uses Bluetooth instead — different protocol, similar owner complaints, usually cleared by power-cycling the pump.`,
+    a: `Check the exact controller and its setup instructions. Wi-Fi and Bluetooth are different connection methods; a phone seeing the home network does not prove it can pair with every pump. Follow the vendor troubleshooting steps before resetting equipment.`,
   },
   {
     q: 'Are the manufacturer GPH ratings real?',
-    a: `They're measured maximums, not typical output — real-world flow falls with wave modes (which pulse below max by design), biofilm and coralline buildup, and age. That's one more reason to size toward the top of your target band rather than buying exactly the minimum.`,
+    a: `They are published maximum ratings, not typical output — real-world flow falls with wave modes (which pulse below max by design), biofilm and coralline buildup, and age. That's one more reason to size toward the top of your target band rather than buying exactly the minimum.`,
   },
 ];
 const faqLd = {
@@ -102,15 +101,15 @@ const headline = "Best reef wavemakers — ranked by what flow actually costs";
 <Base
   headline={headline}
   title="Best Reef Wavemakers (2026)"
-  description="Compare reef wavemakers by cost per GPH, flow pattern, and published specs. See budget, gyre, and premium picks with reliability caveats."
+  description="Compare reef wavemakers by cost per GPH, flow pattern, and published specs. See budget, gyre, and premium options with sizing limits."
   breadcrumbs={[{ name: 'Reviews', href: '/reviews' }, { name: 'Best Wavemakers', href: '/reviews/best-wavemakers' }]}
 >
   <section class="container tool-wrap prose">
     <p class="eyebrow" style="color:var(--brand-2)">Reviews · Wavemakers</p>
     <h1>{headline}</h1>
-    <p class="lede-dark">Every wavemaker review ranks by brand prestige. We ranked by <strong>dollars per GPH</strong> — and then put each pump's real reliability record next to it, because the premium pumps have documented wear items too, and the budget pumps' short lifespan is a knowable trade, not a scandal. Start with <a href={url('/tools/flow-calculator')}>the flow calculator</a> to get your GPH target; this page is what to buy to hit it.</p>
+    <p class="lede-dark">We compare <strong>recorded price per manufacturer-rated maximum GPH</strong>, then show control and mounting details. This is a sizing and cost comparison; we have not measured reliability, sound levels, or installed flow. Start with <a href={url('/tools/flow-calculator')}>the flow calculator</a> to get your GPH target; this page is what to buy to hit it.</p>
     <Disclosure />
-    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Flow figures are manufacturer max ratings, labeled as such. Known issues come from documented owner reports, not our imagination — and not omitted because a brand is popular. <a href={url('/how-we-rate')}>Full methodology →</a></p>
+    <p class="rnote" style="margin-top:0">Specs and prices from manufacturer and retailer pages on {dataDate} (each row links its source). Flow figures are manufacturer maximum ratings, not measured output. Recorded prices are dated, and no service-life estimate or failure rate is claimed. <a href={url('/how-we-rate')}>Full methodology →</a></p>
   </section>
 
   <section class="container" style="padding-top:8px;padding-bottom:16px;">
@@ -118,7 +117,7 @@ const headline = "Best reef wavemakers — ranked by what flow actually costs";
     <p class="rnote" style="margin-top:0">Shopping a sub-category? Jump to <a href="#best-budget-wavemaker">the best budget wavemaker</a> or <a href="#best-gyre-wavemaker">the best gyre wavemaker</a>.</p>
     <div class="results">
       {picks.map((p, idx) => (
-        <div id={slug(p.w)} class={`rcard ${idx === 0 ? 'win' : ''}`}>
+        <div id={`${slug(p.w)}-pick`} class={`rcard ${idx === 0 ? 'win' : ''}`}>
           {p.w.imageUrl && (
             <div class="rthumb">
               <img src={p.w.imageUrl} alt={`${p.w.brand} ${p.w.model}`} loading="lazy" decoding="async" width="64" height="64" onerror="this.parentElement.style.display='none'" />
@@ -130,7 +129,7 @@ const headline = "Best reef wavemakers — ranked by what flow actually costs";
             <div class="rmeta">{p.w.maxFlowGPH.toLocaleString()} GPH max · {p.w.watts}W · {p.w.controller}</div>
           </div>
           <div class="rflow"><span class="n">${per1k(p.w).toFixed(0)}</span><br /><span class="u">per 1k GPH</span></div>
-          <div class="rbuy"><a class="aff" href={buy(p.w)} target="_blank" rel="sponsored nofollow noopener">{money(p.w.priceUSD)} at {retailerName(p.w.retailers)} ↗</a></div>
+          <div class="rbuy"><a class="aff" href={buy(p.w)} target="_blank" rel="sponsored nofollow noopener">{money(p.w.priceUSD)} at {retailerName(p.w.retailers)} (paid link) ↗</a></div>
         </div>
       ))}
     </div>
@@ -138,12 +137,12 @@ const headline = "Best reef wavemakers — ranked by what flow actually costs";
 
   <section id="best-budget-wavemaker" class="container prose" style="padding-top:24px;">
     <h2>Best budget wavemaker</h2>
-    <p>The <strong>{slw.brand} {slw.model}</strong>, at {money(slw.priceUSD)}. It isn't close: <strong>${per1k(slw).toFixed(0)} per 1,000 GPH</strong> is the cheapest flow on this page, and nothing else here comes within {slwLeadPct}% of it — the runner-up is the {runnerUp.brand} {runnerUp.model} at ${per1k(runnerUp).toFixed(0)}.</p>
-    <p>What you give up is stated plainly rather than hidden. Owners report a typical service life of <strong>1–2 years</strong>, and the ceramic bushing can seize if you never clean it — forum consensus is that routine cleaning is the single biggest factor in how long one lasts. You also get a wired controller with {slw.controller.includes('8 modes') ? '8 modes' : 'fixed modes'} and no app.</p>
+    <p>The <strong>{slw.brand} {slw.model}</strong>, at {money(slw.priceUSD)}. <strong>${per1k(slw).toFixed(0)} per 1,000 rated GPH</strong> is the lowest recorded price-to-rating ratio on this page; the next model in the sorted dataset is the {runnerUp.brand} {runnerUp.model} at ${per1k(runnerUp).toFixed(0)}.</p>
+    <p>The recorded controller is {slw.controller}. Read the setup and cleaning instructions, and check that the mount suits your glass thickness. Price per rated GPH cannot predict service life.</p>
     {twoSlwBeatsNero3 && (
-      <p><strong>The math most budget buyers miss:</strong> two of these run {money(twoSlwPrice)} for {twoSlwFlow.toLocaleString()} GPH — still less money than one {nero3.brand} {nero3.model} at {money(nero3.priceUSD)}, and more flow than its {nero3.maxFlowGPH.toLocaleString()} GPH. Two opposing pumps is also the better flow pattern regardless of budget (see the FAQ below), so the cheap route and the correct route point the same way here.</p>
+      <p><strong>The math most budget buyers miss:</strong> two of these run {money(twoSlwPrice)} for {twoSlwFlow.toLocaleString()} GPH — still less money than one {nero3.brand} {nero3.model} at {money(nero3.priceUSD)}, and more flow than its {nero3.maxFlowGPH.toLocaleString()} GPH. Two pumps can give more placement options, but their combined maximum rating is not the flow measured at a coral.</p>
     )}
-    <p>Step up to the <strong>{nero3.brand} {nero3.model}</strong> at {money(nero3.priceUSD)} if you want app control and a longer expected life from one pump instead of babysitting two. Its documented catch is Bluetooth pairing drops, not hardware failure.</p>
+    <p>Step up to the <strong>{nero3.brand} {nero3.model}</strong> at {money(nero3.priceUSD)} if you prefer its control features and mounting design. No longer-life claim is supported by this comparison.</p>
   </section>
 
   <section id="best-gyre-wavemaker" class="container prose" style="padding-top:24px;">
@@ -151,32 +150,32 @@ const headline = "Best reef wavemakers — ranked by what flow actually costs";
     <p>The <strong>{xf350.brand} {xf350.model}</strong> at {money(xf350.priceUSD)} — unless your tank is small, in which case skip to the XF330 below.</p>
     <p>A gyre pump is a different shape of flow, not just a stronger powerhead. A long crossflow rotor pushes a wide <em>sheet</em> of water down the length of the tank and back along the bottom, instead of firing a cone-shaped jet from one spot. That's why people reach for them on long tanks with dead corners a traditional powerhead can't clear.</p>
     <p><strong>Which gyre:</strong> the two Maxspect Gyres here are priced strangely close for how different they are. The {xf350.model.replace(' Cloud Edition', '')} moves {xf350.maxFlowGPH.toLocaleString()} GPH for {money(xf350.priceUSD)}; the {xf330.model.replace(' Cloud Edition', '')} moves {xf330.maxFlowGPH.toLocaleString()} GPH for {money(xf330.priceUSD)}. That's {(xf350.maxFlowGPH / xf330.maxFlowGPH).toFixed(1)}× the flow for {money(xf350.priceUSD - xf330.priceUSD)} more, which drops the cost per 1,000 GPH from <strong>${per1k(xf330).toFixed(0)}</strong> to <strong>${per1k(xf350).toFixed(0)}</strong> — close to half.</p>
-    <p><strong>The exception, and it matters:</strong> Maxspect rates the {xf350.model.replace(' Cloud Edition', '')} for {xf350.tankRangeGal} and the {xf330.model.replace(' Cloud Edition', '')} for {xf330.tankRangeGal}. On a tank under roughly 80 gallons the bigger pump is simply too much water, and the value math stops mattering — buy the XF330.</p>
-    <p><strong>What both of them cost you:</strong> an audible hum above about 40–50% power (Maxspect's own wording is "near silent," not silent), and roughly monthly shaft and bushing cleaning or the real flow drops off the rated number. Neither is a defect report; both are the standing trade for gyre-style flow at this price.</p>
+    <p><strong>The exception, and it matters:</strong> Maxspect rates the {xf350.model.replace(' Cloud Edition', '')} for {xf350.tankRangeGal} and the {xf330.model.replace(' Cloud Edition', '')} for {xf330.tankRangeGal}. Use those manufacturer ranges as a starting point, then consider tank length, coral placement, sand movement, and adjustable output. The lowest cost per GPH can still be a poor fit for your tank.</p>
+    <p><strong>Before buying:</strong> leave enough space to remove and clean the rotors. Follow the manufacturer maintenance schedule. No sound-level or monthly-cleaning comparison was measured for this guide.</p>
   </section>
 
   <section class="container" style="padding-top:8px;">
     <h2>Every pump, ranked by cost per GPH</h2>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Equipment comparison, scroll for all columns">
       <table class="specs">
-        <thead><tr><th>#</th><th>Pump</th><th>Max flow</th><th>$/1k GPH</th><th>Watts</th><th>Control</th><th>The catch (documented)</th><th>Price</th></tr></thead>
+        <thead><tr><th>#</th><th>Pump</th><th>Max flow</th><th>$/1k GPH</th><th>Watts</th><th>Control</th><th>Mount / tank range</th><th>Price</th></tr></thead>
         <tbody>
           {wms.map((w, i) => (
             <tr id={slug(w)}>
               <td>{i + 1}</td>
-              <td><strong>{w.brand}</strong> {w.model}</td>
+              <td><strong>{w.brand}</strong> {w.model}<br /><a href={w.source} target="_blank" rel="noopener">Listing and specs</a></td>
               <td>{w.maxFlowGPH.toLocaleString()} GPH</td>
               <td><strong>${per1k(w).toFixed(0)}</strong></td>
               <td>{w.watts}W</td>
               <td style="color:var(--muted)">{w.controller}</td>
-              <td style="color:var(--muted)">{(w.knownIssues && w.knownIssues[0]) || '—'}</td>
-              <td><a class="aff aff-sm" href={buy(w)} target="_blank" rel="sponsored nofollow noopener">{money(w.priceUSD)} ↗</a></td>
+              <td style="color:var(--muted)">{w.mountType} · {w.tankRangeGal || 'Tank range not recorded'}</td>
+              <td><a class="aff aff-sm" href={buy(w)} target="_blank" rel="sponsored nofollow noopener">{money(w.priceUSD)} (paid link) ↗</a></td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="rnote">Cost per 1,000 GPH = price ÷ manufacturer max flow × 1,000 — a value metric, not a quality score. Budget pumps win it while trading service life; the table's "catch" column is the other half of the decision.</p>
+    <p class="rnote">Cost per 1,000 GPH = price ÷ manufacturer max flow × 1,000 — a value metric, not a quality score. It does not compare service life. Check tank fit, control, cleaning access, and current retailer pricing before choosing.</p>
   </section>
 
   <section class="container prose" style="padding-top:24px;">

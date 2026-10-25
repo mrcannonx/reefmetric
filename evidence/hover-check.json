@@ -1,0 +1,37 @@
+{
+  "method": "Actual Chromium hover state on rendered buttons, axe color-contrast; no clicks or submissions",
+  "rows": [
+    {
+      "route": "/",
+      "selector": ".btn",
+      "foreground": "rgb(13, 27, 38)",
+      "background": "rgb(226, 84, 58)",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "selector": ".btn-ghost",
+      "foreground": "rgb(234, 246, 245)",
+      "background": "rgb(13, 27, 38)",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/reviews/best-ato",
+      "selector": ".aff",
+      "foreground": "rgb(13, 27, 38)",
+      "background": "rgb(226, 84, 58)",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/tools/salt-cost-calculator",
+      "selector": ".aff",
+      "foreground": "rgb(13, 27, 38)",
+      "background": "rgb(226, 84, 58)",
+      "violations": [],
+      "incomplete": []
+    }
+  ]
+}

@@ -24,11 +24,11 @@ const flagship = (e: any) => e.kits[0];
 const faqs = [
   {
     q: 'Does Apex Fusion, myGHL, or the HYDROS app charge a monthly fee?',
-    a: `No — as of ${dataDate}, all three clouds are free. Apex Fusion, myGHL/GHL Connect, and the HYDROS app have no subscription tier. The recurring costs that ARE real: Trident reagents (~$45 every 2 months) if you add automated testing to an Apex.`,
+    a: `No — as of ${dataDate}, all three clouds are free. Apex Fusion, myGHL/GHL Connect, and the HYDROS app have no subscription tier. Testing accessories can add recurring costs: reagents, reference fluids, replacement sensors, and tubing. Check the current instructions and refill prices for the chosen system.`,
   },
   {
     q: 'Which reef controller is easiest to program?',
-    a: 'HYDROS. Its Collectives system is a GUI automation builder closer to a smart-home app than a programming language. Apex sits in the middle with an if-this-then-that rule language, and GHL\'s logic-gate programming is the most powerful but the steepest — owners switching from Apex consistently describe a hard adjustment.',
+    a: 'HYDROS. Its Collectives system is a GUI automation builder closer to a smart-home app than a programming language. Apex sits in the middle with an if-this-then-that rule language, and GHL\'s logic-gate programming is the most powerful but the steepest. Try the maker documentation before buying; no user survey is presented here.',
   },
   {
     q: 'Which controller has automated water testing?',
@@ -96,7 +96,7 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
       <div class="card">
         <span class="pill">Ecosystem king</span>
         <h3>Neptune Apex</h3>
-        <p style="color:var(--muted)">Biggest community, most third-party integration, and the most mature automated tester (Trident). Pay for it in price — and hardwire the Ethernet, because Apex WiFi is the #1 owner complaint.</p>
+        <p style="color:var(--muted)">Compare its recorded kit contents and the separate testing and dosing hardware. Check network options and total expansion cost for your own tank.</p>
       </div>
       <div class="card">
         <span class="pill">Best value + easiest</span>
@@ -106,14 +106,14 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
       <div class="card">
         <span class="pill">Power-user pick</span>
         <h3>GHL ProfiLux</h3>
-        <p style="color:var(--muted)">The most complete kit in the box (4 lab-grade probes + calibration fluids) and the most powerful programming — behind the steepest learning curve of the three.</p>
+        <p style="color:var(--muted)">The recorded Mega-Set includes pH, temperature, ORP, and conductivity/salinity probes. Check its programming workflow and calibration supplies before buying.</p>
       </div>
     </div>
   </section>
 
   <section class="container" style="padding-top:8px;">
     <h2 id="head-to-head">Head to head</h2>
-    <div class="tablewrap">
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table, scroll for all columns">
       <table class="specs">
         <thead>
           <tr><th>&nbsp;</th><th>Apex (A3)</th><th>HYDROS</th><th>ProfiLux 4</th></tr>
@@ -128,7 +128,7 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
           <tr><td><strong>Programming</strong></td><td>Rule language — moderate</td><td>Collectives GUI — easiest</td><td>Logic gates — steepest</td></tr>
           <tr><td><strong>Automated testing</strong></td><td>{apex.testing}</td><td>{hydros.testing}</td><td>{ghl.testing}</td></tr>
           <tr><td><strong>Dosing</strong></td><td>DOS dual-head — $374.99</td><td>$72.75 per modular pump</td><td>Doser 3, sold in ~$1,020+ bundles</td></tr>
-          <tr><td><strong>Known weak spot</strong></td><td>Controller WiFi drop-offs (hardwire it)</td><td>WiFi power strip flakiness; young ecosystem</td><td>Learning curve; crash-prone desktop software</td></tr>
+          <tr><td><strong>Check before buying</strong></td><td>Network and add-on compatibility</td><td>Required power bars and expansion ports</td><td>Programming workflow and reference fluid costs</td></tr>
         </tbody>
       </table>
     </div>
@@ -162,8 +162,8 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
               <div class="rmeta">Probes: {probes(k.includedProbes)} · {k.outletsNotes}</div>
               <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
             </div>
-            <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
-            <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗</a></div>
+            <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">recorded</span></>}</div>
+            <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗ <small>(paid link)</small></a></div>
           </div>
         ))}
       </div>
@@ -198,8 +198,8 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
                 <div class="rmeta">Probes: {probes(k.includedProbes)} · {k.outletsNotes}</div>
                 <div class="rmeta">{k.connectivity} · <a href={k.source} target="_blank" rel="nofollow noopener">spec source ↗</a></div>
               </div>
-              <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">street</span></>}</div>
-              <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗</a></div>
+              <div class="rflow"><span class="n">{price(k.priceUSD)}</span>{k.priceUSD != null && <><br /><span class="u">recorded</span></>}</div>
+              <div class="rbuy"><a class="aff" href={buy(k, e.brand)} target="_blank" rel="sponsored nofollow noopener">Check price at {retailerName(k.retailers)} ↗ <small>(paid link)</small></a></div>
             </div>
           ))}
         </div>
@@ -213,9 +213,9 @@ const headline = "Apex vs HYDROS vs GHL: reef tank controller comparison";
 
   <section class="container prose" style="padding-top:24px;">
     <h2>Which one fits your build?</h2>
-    <p><strong>First controller on a 40–90 gallon mixed reef, and you want it to just work:</strong> HYDROS. The X4/XP8 Pro Pack at {price(flagship(hydros).priceUSD)} undercuts the equivalent Apex by ~$350, Collectives won't fight you, and the mesh design means an outlet-bar failure doesn't kill the brain. Budget for expansion hardware separately; use the testing row and manufacturer links above to check the setup you need.</p>
-    <p><strong>SPS-focused tank where automated Alk testing is the point:</strong> Apex. Trident is the reason — it's the most proven auto-tester, and the Apex ecosystem (DOS, third-party gear, a decade of Reef2Reef threads for every problem) is unmatched. Buy the full A3, not the Jr, and run Ethernet to it on day one.</p>
-    <p><strong>You calibrate probes for fun and want the most capable machine:</strong> GHL. Nothing else ships four lab-grade probes with calibration fluids in the box, ION Director tests five parameters with zero recurring reagent cost, and logic gates will do things the other two can't. Budget real learning time — the {price(flagship(ghl).priceUSD)} Mega-Set is the on-ramp.</p>
+    <p><strong>Starting with basic monitoring and outlet control?</strong> Compare the included probes and power bars above. A bare controller and a complete kit have different jobs. Check expansion costs before comparing the recorded prices.</p>
+    <p><strong>Automated testing is the main reason to buy?</strong> Compare the current testing accessories for each platform. Include pump heads, replacement sensors, reagents or reference fluids, and maintenance time. A controller kit alone does not include every testing function.</p>
+    <p><strong>Considering GHL?</strong> {ghl.testing} Its <a href="https://www.aquariumcomputer.com/products/ion-director/">ION Director product page</a> explains that reference liquids take the place of reagents; <a href="https://www.aquariumcomputer.com/knowledge-base/ion-director-maintenance-sensor-care/">its maintenance guide</a> covers fluids and sensor replacement. Checked October 25, 2026.</p>
     <p><strong>You're an engineer with more time than money:</strong> {data.reefPi.summary} <a href={data.reefPi.source} target="_blank" rel="nofollow noopener">Reef-Pi on GitHub ↗</a></p>
 
     <h2>FAQ</h2>

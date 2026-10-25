@@ -1,0 +1,2 @@
+# Build logs retain the tool's exact output, including trailing spaces.
+evidence/*.log -whitespace

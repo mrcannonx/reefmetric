@@ -1,0 +1,78 @@
+[
+  {
+    "url": "https://www.tropic-marin-smartinfo.com/pro-reef?lang=en",
+    "fetch": 1,
+    "status": "200",
+    "final": "https://www.tropic-marin-smartinfo.com/pro-reef?lang=en",
+    "title": "Pro-Reef | Produktinformationen",
+    "excerpt": "32\u201335\u2030 (psu), dissolve 35 ml (approx. 37\u201340 g / 1.3\u20131.4 oz.) of  Tropic Marin\u00ae Pro-Reef  for every litre or 0.5 cup (approx. 140-150 g) for every US-gallon of water in a container, circulating continuously. \n\n ",
+    "error": ""
+  },
+  {
+    "url": "https://www.tropic-marin-smartinfo.com/pro-reef?lang=en",
+    "fetch": 2,
+    "status": "200",
+    "final": "https://www.tropic-marin-smartinfo.com/pro-reef?lang=en",
+    "title": "Pro-Reef | Produktinformationen",
+    "excerpt": "32\u201335\u2030 (psu), dissolve 35 ml (approx. 37\u201340 g / 1.3\u20131.4 oz.) of  Tropic Marin\u00ae Pro-Reef  for every litre or 0.5 cup (approx. 140-150 g) for every US-gallon of water in a container, circulating continuously. \n\n ",
+    "error": ""
+  },
+  {
+    "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+    "fetch": 1,
+    "status": "200",
+    "final": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+    "title": "NIST Guide to the SI, Appendix B.8: Factors for Units Listed Alphabetically | NIST",
+    "excerpt": "46 09 \n\t\t\t E+00  \n\t\t \n\t\t \n\t\t\t gallon (U.S.) (gal) \n\t\t\t cubic meter (m 3 ) \n\t\t\t 3.785 412 \n\t\t\t E-03 \n\t\t \n\t\t \n\t\t\t gallon (U.S.) (gal) \n\t\t\t liter (L) \n\t\t\t 3.785 412 \n\t\t\t E+00 \n\t\t \n\t\t \n\t\t\t gallon (U.S.) per day (ga",
+    "error": ""
+  },
+  {
+    "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+    "fetch": 2,
+    "status": "200",
+    "final": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+    "title": "NIST Guide to the SI, Appendix B.8: Factors for Units Listed Alphabetically | NIST",
+    "excerpt": "46 09 \n\t\t\t E+00  \n\t\t \n\t\t \n\t\t\t gallon (U.S.) (gal) \n\t\t\t cubic meter (m 3 ) \n\t\t\t 3.785 412 \n\t\t\t E-03 \n\t\t \n\t\t \n\t\t\t gallon (U.S.) (gal) \n\t\t\t liter (L) \n\t\t\t 3.785 412 \n\t\t\t E+00 \n\t\t \n\t\t \n\t\t\t gallon (U.S.) per day (ga",
+    "error": ""
+  },
+  {
+    "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "fetch": 1,
+    "status": "200",
+    "final": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "type": "application/pdf;charset=UTF-8",
+    "title": "NIST Handbook 44, 2025; Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices",
+    "error": ""
+  },
+  {
+    "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "fetch": 2,
+    "status": "200",
+    "final": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "type": "application/pdf;charset=UTF-8",
+    "title": "NIST Handbook 44, 2025; Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices",
+    "error": ""
+  },
+  {
+    "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "fetch": 1,
+    "title": "NIST HB 44: Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices, 2025",
+    "exact_conversion_hits": [
+      {
+        "page": 539,
+        "excerpt": "352 9 \n1 gallon (gal) =  0.133 680 6 3785.411 784 3.785 411 784 \n1 cubic inch (in3) =  0.000 578 703 7 16.387 06 0.016 387 06 \n1 cubic foot "
+      }
+    ]
+  },
+  {
+    "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=958917",
+    "fetch": 2,
+    "title": "NIST HB 44: Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices, 2025",
+    "exact_conversion_hits": [
+      {
+        "page": 539,
+        "excerpt": "352 9 \n1 gallon (gal) =  0.133 680 6 3785.411 784 3.785 411 784 \n1 cubic inch (in3) =  0.000 578 703 7 16.387 06 0.016 387 06 \n1 cubic foot "
+      }
+    ]
+  }
+]

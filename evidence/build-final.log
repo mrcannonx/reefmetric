@@ -1,0 +1,134 @@
+
+> reefmetric@0.1.0 build
+> astro build
+
+10:41:48 [content] Syncing content
+10:41:48 [content] Synced content
+10:41:48 [types] Generated 21ms
+10:41:48 [build] output: "static"
+10:41:48 [build] mode: "static"
+10:41:48 [build] directory: /Users/desmond/Downloads/LOCAL_APPS/LIVE_SAAS/reefmetric/dist/
+10:41:48 [build] Collecting build info...
+10:41:48 [build] ✓ Completed in 33ms.
+10:41:48 [build] Building static entrypoints...
+10:41:49 [vite] ✓ built in 744ms
+10:41:49 [build] ✓ Completed in 763ms.
+
+ building client (vite) 
+10:41:49 [vite] transforming...
+10:41:49 [vite] ✓ 37 modules transformed.
+10:41:49 [vite] rendering chunks...
+10:41:49 [vite] computing gzip size...
+10:41:49 [vite] dist/_astro/url.CoO0X_JH.js                                                               0.12 kB │ gzip: 0.12 kB
+10:41:49 [vite] dist/_astro/affiliate-config.BhWNB45F.js                                                  0.96 kB │ gzip: 0.48 kB
+10:41:49 [vite] dist/_astro/input-calc.B9GVkr8K.js                                                        0.99 kB │ gzip: 0.58 kB
+10:41:49 [vite] dist/_astro/tank-volume-calculator.astro_astro_type_script_index_0_lang.MhAwQzOX.js       3.33 kB │ gzip: 1.53 kB
+10:41:49 [vite] dist/_astro/water-change-calculator.astro_astro_type_script_index_0_lang.zn_09egX.js      3.66 kB │ gzip: 1.78 kB
+10:41:49 [vite] dist/_astro/salinity-calculator.astro_astro_type_script_index_0_lang.cDCCgNAr.js          3.70 kB │ gzip: 1.70 kB
+10:41:49 [vite] dist/_astro/reef-build-cost-calculator.astro_astro_type_script_index_0_lang.DWYXNnW8.js   4.17 kB │ gzip: 1.85 kB
+10:41:49 [vite] dist/_astro/reef-par-calculator.astro_astro_type_script_index_0_lang.CvUPEFWk.js          6.63 kB │ gzip: 2.80 kB
+10:41:49 [vite] dist/_astro/reef-dosing-calculator.astro_astro_type_script_index_0_lang.AKMQIMAA.js       7.58 kB │ gzip: 2.69 kB
+10:41:49 [vite] dist/_astro/stocking-calculator.astro_astro_type_script_index_0_lang.C6D8489-.js          9.47 kB │ gzip: 3.53 kB
+10:41:49 [vite] dist/_astro/heater-calculator.astro_astro_type_script_index_0_lang.CxMOwep7.js           10.62 kB │ gzip: 4.15 kB
+10:41:49 [vite] dist/_astro/salt-cost-calculator.astro_astro_type_script_index_0_lang.gKQaOsaJ.js        12.10 kB │ gzip: 3.57 kB
+10:41:49 [vite] dist/_astro/flow-calculator.astro_astro_type_script_index_0_lang.fwEsWcg5.js             15.74 kB │ gzip: 4.80 kB
+10:41:49 [vite] dist/_astro/protein-skimmer-calculator.astro_astro_type_script_index_0_lang.BVDvPE3_.js  19.66 kB │ gzip: 4.83 kB
+10:41:49 [vite] dist/_astro/return-pump-calculator.astro_astro_type_script_index_0_lang.Bu87MirS.js      28.16 kB │ gzip: 6.33 kB
+10:41:49 [vite] ✓ built in 85ms
+
+ generating static routes 
+10:41:49 ▶ src/pages/404.astro
+10:41:49   └─ /404.html (+4ms) 
+10:41:49 ▶ src/pages/about.astro
+10:41:49   └─ /about.html (+1ms) 
+10:41:49 λ src/pages/cheat-sheet-email.html.ts
+10:41:49   └─ /cheat-sheet-email.html (+4ms) 
+10:41:49 ▶ src/pages/cheat-sheet.astro
+10:41:49   └─ /cheat-sheet.html (+3ms) 
+10:41:49 ▶ src/pages/compare/apex-vs-hydros-vs-ghl.astro
+10:41:49   └─ /compare/apex-vs-hydros-vs-ghl.html (+2ms) 
+10:41:49 ▶ src/pages/compare/reef-octopus-vs-nyos-vs-aquamaxx.astro
+10:41:49   └─ /compare/reef-octopus-vs-nyos-vs-aquamaxx.html (+2ms) 
+10:41:49 ▶ src/pages/compare.astro
+10:41:49   └─ /compare.html (+1ms) 
+10:41:49 ▶ src/pages/disclosure.astro
+10:41:49   └─ /disclosure.html (+1ms) 
+10:41:49 ▶ src/pages/go/[retailer].astro
+10:41:49   ├─ /go/brs.html (+1ms) 
+10:41:49   ├─ /go/aquariumspecialty.html (+1ms) 
+10:41:49   └─ /go/amazon.html (+0ms) 
+10:41:49 ▶ src/pages/guides/120-gallon-reef-tank-setup.astro
+10:41:49   └─ /guides/120-gallon-reef-tank-setup.html (+1ms) 
+10:41:49 ▶ src/pages/guides/30-gallon-reef-tank-setup.astro
+10:41:49   └─ /guides/30-gallon-reef-tank-setup.html (+1ms) 
+10:41:49 ▶ src/pages/guides/40-gallon-breeder-reef-tank-setup.astro
+10:41:49   └─ /guides/40-gallon-breeder-reef-tank-setup.html (+1ms) 
+10:41:49 ▶ src/pages/guides/55-gallon-reef-tank-setup.astro
+10:41:49   └─ /guides/55-gallon-reef-tank-setup.html (+1ms) 
+10:41:49 ▶ src/pages/guides/75-gallon-reef-tank-setup.astro
+10:41:49   └─ /guides/75-gallon-reef-tank-setup.html (+1ms) 
+10:41:49 ▶ src/pages/guides/carbon-dosing.astro
+10:41:49   └─ /guides/carbon-dosing.html (+1ms) 
+10:41:49 ▶ src/pages/guides/dc-vs-ac-return-pumps.astro
+10:41:49   └─ /guides/dc-vs-ac-return-pumps.html (+1ms) 
+10:41:49 ▶ src/pages/guides/kalkwasser-dosing.astro
+10:41:49   └─ /guides/kalkwasser-dosing.html (+1ms) 
+10:41:49 ▶ src/pages/guides.astro
+10:41:49   └─ /guides.html (+1ms) 
+10:41:49 ▶ src/pages/how-we-rate.astro
+10:41:49   └─ /how-we-rate.html (+0ms) 
+10:41:49 ▶ src/pages/index.astro
+10:41:49   └─ /index.html (+1ms) 
+10:41:49 ▶ src/pages/privacy.astro
+10:41:49   └─ /privacy.html (+0ms) 
+10:41:49 ▶ src/pages/reviews/best-ato.astro
+10:41:49   └─ /reviews/best-ato.html (+1ms) 
+10:41:49 ▶ src/pages/reviews/best-protein-skimmers.astro
+10:41:49   └─ /reviews/best-protein-skimmers.html (+2ms) 
+10:41:49 ▶ src/pages/reviews/best-reef-dosing-pumps.astro
+10:41:49   └─ /reviews/best-reef-dosing-pumps.html (+1ms) 
+10:41:49 ▶ src/pages/reviews/best-reef-led-lighting.astro
+10:41:49   └─ /reviews/best-reef-led-lighting.html (+1ms) 
+10:41:49 ▶ src/pages/reviews/best-reef-salt-mix.astro
+10:41:49   └─ /reviews/best-reef-salt-mix.html (+1ms) 
+10:41:49 ▶ src/pages/reviews/best-reef-test-kits.astro
+10:41:49   └─ /reviews/best-reef-test-kits.html (+2ms) 
+10:41:49 ▶ src/pages/reviews/best-return-pumps.astro
+10:41:49   └─ /reviews/best-return-pumps.html (+2ms) 
+10:41:49 ▶ src/pages/reviews/best-wavemakers.astro
+10:41:49   └─ /reviews/best-wavemakers.html (+2ms) 
+10:41:49 ▶ src/pages/reviews.astro
+10:41:49   └─ /reviews.html (+1ms) 
+10:41:49 ▶ src/pages/tools/flow-calculator.astro
+10:41:49   └─ /tools/flow-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/heater-calculator.astro
+10:41:49   └─ /tools/heater-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools/protein-skimmer-calculator.astro
+10:41:49   └─ /tools/protein-skimmer-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools/reef-build-cost-calculator.astro
+10:41:49   └─ /tools/reef-build-cost-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/reef-dosing-calculator.astro
+10:41:49   └─ /tools/reef-dosing-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools/reef-par-calculator.astro
+10:41:49   └─ /tools/reef-par-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools/return-pump-calculator.astro
+10:41:49   └─ /tools/return-pump-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/salinity-calculator.astro
+10:41:49   └─ /tools/salinity-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/salt-cost-calculator.astro
+10:41:49   └─ /tools/salt-cost-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/salt-mixing-calculator.astro
+10:41:49   └─ /tools/salt-mixing-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/stocking-calculator.astro
+10:41:49   └─ /tools/stocking-calculator.html (+1ms) 
+10:41:49 ▶ src/pages/tools/tank-volume-calculator.astro
+10:41:49   └─ /tools/tank-volume-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools/water-change-calculator.astro
+10:41:49   └─ /tools/water-change-calculator.html (+0ms) 
+10:41:49 ▶ src/pages/tools.astro
+10:41:49   └─ /tools.html (+1ms) 
+10:41:49 ✓ Completed in 70ms.
+
+10:41:49 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+10:41:49 [build] 45 page(s) built in 1.00s
+10:41:49 [build] Complete!
